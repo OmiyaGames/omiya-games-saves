@@ -1,10 +1,10 @@
 {
-  "name": "com.omiyagames.template",
-  "displayName": "Omiya Games - Template Unity Package",
+  "name": "com.omiyagames.saves",
+  "displayName": "Omiya Games - Saves",
   "version": "0.1.0-preview.1",
-  "unity": "2019.3",
-  "unityRelease": "7f1",
-  "description": "This is a template package, used as a basis to build a bigger one.",
+  "unity": "2021.1",
+  "unityRelease": "9f1",
+  "description": "Tool for handling game saves.",
   "category": "Tool",
   "type": "tool",
   "license": "MIT",
@@ -14,7 +14,10 @@
     "url": "https://www.omiyagames.com"
   },
   "dependencies": {
-    "com.unity.ext.nunit": "1.0.0"
+    "com.unity.ext.nunit": "1.0.0",
+    "com.omiyagames.common": "0.2.0-preview.2",
+    "com.omiyagames.cryptography": "0.3.0-preview.3",
+    "com.omiyagames.global": "0.1.2-preview.2"
   },
   "keywords": [
     "Omiya Games",
@@ -22,11 +25,16 @@
     "Template",
     "Tool"
   ],
-  "samples": [
+  "scopedRegistries": [
     {
-      "displayName": "Example 1",
-      "description": "This sample is just an example",
-      "path": "Samples~/Example1"
+      "name": "package.openupm.com",
+      "url": "https://package.openupm.com",
+      "scopes": [
+        "com.openupm",
+        "com.omiyagames.common",
+        "com.omiyagames.global",
+        "com.omiyagames.cryptography"
+      ]
     }
   ]
 }

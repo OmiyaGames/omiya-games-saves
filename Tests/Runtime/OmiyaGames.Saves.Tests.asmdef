@@ -1,0 +1,24 @@
+{
+    "name": "OmiyaGames.Saves.Tests",
+    "rootNamespace": "OmiyaGames.Saves.Tests",
+    "references": [
+        "GUID:27619889b8ba8c24980f49ee34dbb44a",
+        "GUID:0acc523941302664db1f4e527237feb3",
+        "GUID:cdda17712c724478898665290e9a02cc",
+        "GUID:5a47daee1058bbd4ebc7a2d2e7de3c24",
+        "GUID:1423d14cb49c2df4bbd0d62190b654ab"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "nunit.framework.dll"
+    ],
+    "autoReferenced": false,
+    "defineConstraints": [
+        "UNITY_INCLUDE_TESTS"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
