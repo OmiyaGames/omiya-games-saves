@@ -1,7 +1,7 @@
 ﻿namespace OmiyaGames.Settings
 {
     ///-----------------------------------------------------------------------
-    /// <copyright file="OptionsGraphicsMenu.cs" company="Omiya Games">
+    /// <copyright file="v000-AddAudioSettings.cs" company="Omiya Games">
     /// The MIT License (MIT)
     /// 
     /// Copyright (c) 2014-2018 Omiya Games
