@@ -1,20 +1,10 @@
-# [Omiya Games](https://www.omiyagames.com/) - Template Unity Package
+# [Omiya Games](https://www.omiyagames.com/) - Saves
 
-[![Template Unity Package documentation](https://github.com/OmiyaGames/template-unity-package/workflows/Host%20DocFX%20Documentation/badge.svg)](https://omiyagames.github.io/template-unity-package/) [![Mirroring](https://github.com/OmiyaGames/template-unity-package/workflows/Mirroring/badge.svg)](https://bitbucket.org/OmiyaGames/template-unity-package) [![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/I3I51KS8F)
+[![Template Unity Package documentation](https://github.com/OmiyaGames/omiya-games-saves/workflows/Host%20DocFX%20Documentation/badge.svg)](https://omiyagames.github.io/omiya-games-saves/) [![Mirroring](https://github.com/OmiyaGames/omiya-games-saves/workflows/Mirroring/badge.svg)](https://bitbucket.org/OmiyaGames/omiya-games-saves) [![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/I3I51KS8F)
 
-![Unity Package Manager](https://omiyagames.github.io/template-unity-package/resources/preview.png)
+![Unity Package Manager](https://omiyagames.github.io/omiya-games-saves/resources/preview.png)
 
-**Template Unity Package** is a Github template [Omiya Games](https://www.omiyagames.com/) uses to start a new [Unity](https://unity.com/) package.  To use this template for your own purposes, we recommend:
-
-- Clicking on the green "Use this template" button to create a new online repository on Github directly, or
-- Click the "Releases" link, and download the latest archive as zip or gzip file.
-
-From there, consult the following documentation to get a better idea of what files should be edited and/or renamed, and how:
-
-- This project's [own documentation](https://omiyagames.github.io/template-unity-package/)
-- [*How to Split Up an Existing Unity Git Project into Smaller Unity Packages*](https://www.taroomiya.com/2020/04/29/how-to-split-up-an-existing-unity-git-project-into-smaller-unity-packages/) by [Taro Omiya](https://github.com/japtar10101)
-
-This package uses [DocFX](https://dotnet.github.io/docfx/) and Github Actions to auto-generate its documentation from both the comments in the source code and the Markdown files in the [`Documentation~`](/Documentation~) directory.  Consult the manual on [customizing documentation files](https://omiyagames.github.io/template-unity-package/manual/customizeDocumentation.html) for your own packages.  There is also has a pre-made [Doxygen](https://github.com/doxygen/doxygen) settings file in the same directory to run Doxywizard through.
+**Omiya Games - Saves** is a work-in-progress save system for persistent in-game settings.
 
 ## Install
 
@@ -39,16 +29,16 @@ npm install -g openupm-cli
 ```
 Then, to install this package, just run the following command at the root of your Unity project:
 ```
-openupm add com.omiyagames.template
+openupm add com.omiyagames.saves
 ```
 
 ## Resources
 
-- [Documentation](https://omiyagames.github.io/template-unity-package/)
+- [Documentation](https://omiyagames.github.io/omiya-games-saves/)
 - [Change Log](/CHANGELOG.md)
 
 ## LICENSE
 
 Overall package is licensed under [MIT](/LICENSE.md), unless otherwise noted in the [3rd party licenses](/THIRD%20PARTY%20NOTICES.md) file and/or source code.
 
-Copyright (c) 2019-2020 Omiya Games
+Copyright (c) 2019-2021 Omiya Games
