@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace OmiyaGames.Settings
+namespace OmiyaGames.Saves
 {
     ///-----------------------------------------------------------------------
     /// <copyright file="ISettingsVersion.cs" company="Omiya Games">

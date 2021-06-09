@@ -1,6 +1,6 @@
-﻿using OmiyaGames.Settings;
+﻿using OmiyaGames.Saves;
 
-namespace OmiyaGames.Settings
+namespace OmiyaGames.Saves
 {
     ///-----------------------------------------------------------------------
     /// <copyright file="v003-AddHighScores.cs" company="Omiya Games">

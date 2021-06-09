@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.SocialPlatforms;
 
-namespace OmiyaGames.Settings
+namespace OmiyaGames.Saves
 {
     ///-----------------------------------------------------------------------
     /// <copyright file="GameSettings.cs" company="Omiya Games">

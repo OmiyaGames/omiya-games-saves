@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace OmiyaGames.Settings
+namespace OmiyaGames.Saves
 {
     ///-----------------------------------------------------------------------
     /// <copyright file="PlayerPrefsSettingsRecorder.cs" company="Omiya Games">

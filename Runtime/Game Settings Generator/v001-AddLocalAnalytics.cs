@@ -1,4 +1,4 @@
-﻿namespace OmiyaGames.Settings
+﻿namespace OmiyaGames.Saves
 {
 	///-----------------------------------------------------------------------
 	/// <copyright file="v001-AddLocalAnalytics.cs" company="Omiya Games">

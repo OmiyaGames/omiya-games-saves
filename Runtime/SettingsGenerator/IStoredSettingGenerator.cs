@@ -1,4 +1,4 @@
-﻿namespace OmiyaGames.Settings
+﻿namespace OmiyaGames.Saves
 {
     ///-----------------------------------------------------------------------
     /// <copyright file="IStoredSettingGenerator.cs" company="Omiya Games">

@@ -1,4 +1,4 @@
-﻿namespace OmiyaGames.Settings
+﻿namespace OmiyaGames.Saves
 {
     ///-----------------------------------------------------------------------
     /// <copyright file="v000-AddAudioSettings.cs" company="Omiya Games">

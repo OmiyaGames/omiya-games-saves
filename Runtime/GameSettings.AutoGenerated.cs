@@ -1,4 +1,4 @@
-﻿namespace OmiyaGames.Settings
+﻿namespace OmiyaGames.Saves
 {
     /// <summary>
     /// This code is auto-generated. All changes will be overwritten!
@@ -12,11 +12,11 @@
         /// </summary>
         private readonly ISettingsVersion[] AllSettingsVersions = new ISettingsVersion[]
         {
-            new OmiyaGames.Settings.AddAudioSettings(),
-            new OmiyaGames.Settings.AddLocalAnalytics(),
-            new OmiyaGames.Settings.AddLanguageSettings(),
-            new OmiyaGames.Settings.AddHighScores(),
-            new OmiyaGames.Settings.AddOptions(),
+            new OmiyaGames.Saves.AddAudioSettings(),
+            new OmiyaGames.Saves.AddLocalAnalytics(),
+            new OmiyaGames.Saves.AddLanguageSettings(),
+            new OmiyaGames.Saves.AddHighScores(),
+            new OmiyaGames.Saves.AddOptions(),
         };
 
         /// <summary>
@@ -110,11 +110,11 @@
         {
             get
             {
-                return AllSettingsVersions[0].GetGenerator<OmiyaGames.Settings.StoredFloatGenerator>("Music Volume").Value;
+                return AllSettingsVersions[0].GetGenerator<OmiyaGames.Saves.StoredFloatGenerator>("Music Volume").Value;
             }
             set
             {
-                AllSettingsVersions[0].GetGenerator<OmiyaGames.Settings.StoredFloatGenerator>("Music Volume").SetValue(value, Settings, AppVersion);
+                AllSettingsVersions[0].GetGenerator<OmiyaGames.Saves.StoredFloatGenerator>("Music Volume").SetValue(value, Settings, AppVersion);
             }
         }
 
@@ -125,11 +125,11 @@
         {
             get
             {
-                return AllSettingsVersions[0].GetGenerator<OmiyaGames.Settings.StoredFloatGenerator>("Sound Volume").Value;
+                return AllSettingsVersions[0].GetGenerator<OmiyaGames.Saves.StoredFloatGenerator>("Sound Volume").Value;
             }
             set
             {
-                AllSettingsVersions[0].GetGenerator<OmiyaGames.Settings.StoredFloatGenerator>("Sound Volume").SetValue(value, Settings, AppVersion);
+                AllSettingsVersions[0].GetGenerator<OmiyaGames.Saves.StoredFloatGenerator>("Sound Volume").SetValue(value, Settings, AppVersion);
             }
         }
 
@@ -140,11 +140,11 @@
         {
             get
             {
-                return AllSettingsVersions[0].GetGenerator<OmiyaGames.Settings.StoredBoolGenerator>("Music Muted").Value;
+                return AllSettingsVersions[0].GetGenerator<OmiyaGames.Saves.StoredBoolGenerator>("Music Muted").Value;
             }
             set
             {
-                AllSettingsVersions[0].GetGenerator<OmiyaGames.Settings.StoredBoolGenerator>("Music Muted").SetValue(value, Settings, AppVersion);
+                AllSettingsVersions[0].GetGenerator<OmiyaGames.Saves.StoredBoolGenerator>("Music Muted").SetValue(value, Settings, AppVersion);
             }
         }
 
@@ -155,11 +155,11 @@
         {
             get
             {
-                return AllSettingsVersions[0].GetGenerator<OmiyaGames.Settings.StoredBoolGenerator>("Sound Muted").Value;
+                return AllSettingsVersions[0].GetGenerator<OmiyaGames.Saves.StoredBoolGenerator>("Sound Muted").Value;
             }
             set
             {
-                AllSettingsVersions[0].GetGenerator<OmiyaGames.Settings.StoredBoolGenerator>("Sound Muted").SetValue(value, Settings, AppVersion);
+                AllSettingsVersions[0].GetGenerator<OmiyaGames.Saves.StoredBoolGenerator>("Sound Muted").SetValue(value, Settings, AppVersion);
             }
         }
         #endregion
@@ -172,11 +172,11 @@
         {
             get
             {
-                return AllSettingsVersions[1].GetGenerator<OmiyaGames.Settings.StoredIntGenerator>("Number of Unlocked Levels").Value;
+                return AllSettingsVersions[1].GetGenerator<OmiyaGames.Saves.StoredIntGenerator>("Number of Unlocked Levels").Value;
             }
             set
             {
-                AllSettingsVersions[1].GetGenerator<OmiyaGames.Settings.StoredIntGenerator>("Number of Unlocked Levels").SetValue(value, Settings, AppVersion);
+                AllSettingsVersions[1].GetGenerator<OmiyaGames.Saves.StoredIntGenerator>("Number of Unlocked Levels").SetValue(value, Settings, AppVersion);
             }
         }
 
@@ -198,11 +198,11 @@
         {
             get
             {
-                return AllSettingsVersions[1].GetGenerator<OmiyaGames.Settings.StoredIntGenerator>("Number of Times App Open").Value;
+                return AllSettingsVersions[1].GetGenerator<OmiyaGames.Saves.StoredIntGenerator>("Number of Times App Open").Value;
             }
             set
             {
-                AllSettingsVersions[1].GetGenerator<OmiyaGames.Settings.StoredIntGenerator>("Number of Times App Open").SetValue(value, Settings, AppVersion);
+                AllSettingsVersions[1].GetGenerator<OmiyaGames.Saves.StoredIntGenerator>("Number of Times App Open").SetValue(value, Settings, AppVersion);
             }
         }
 
@@ -213,7 +213,7 @@
         {
             get
             {
-                return AllSettingsVersions[1].GetGenerator<OmiyaGames.Settings.StoredPlayTimeGenerator>("Total Play Time").TotalPlayTime;
+                return AllSettingsVersions[1].GetGenerator<OmiyaGames.Saves.StoredPlayTimeGenerator>("Total Play Time").TotalPlayTime;
             }
         }
         #endregion
@@ -226,11 +226,11 @@
         {
             get
             {
-                return AllSettingsVersions[2].GetGenerator<OmiyaGames.Settings.StoredStringGenerator>("Language").Value;
+                return AllSettingsVersions[2].GetGenerator<OmiyaGames.Saves.StoredStringGenerator>("Language").Value;
             }
             set
             {
-                AllSettingsVersions[2].GetGenerator<OmiyaGames.Settings.StoredStringGenerator>("Language").SetValue(value, Settings, AppVersion);
+                AllSettingsVersions[2].GetGenerator<OmiyaGames.Saves.StoredStringGenerator>("Language").SetValue(value, Settings, AppVersion);
             }
         }
         #endregion
@@ -239,18 +239,18 @@
         /// <summary>
         /// List of highest scores
         /// </summary>
-        public OmiyaGames.Settings.ISortedRecords<int> HighScores
+        public OmiyaGames.Saves.ISortedRecords<int> HighScores
         {
             get
             {
-                return AllSettingsVersions[3].GetGenerator<OmiyaGames.Settings.SortedRecordSettingGenerator<int>>("Local High Scores").Value;
+                return AllSettingsVersions[3].GetGenerator<OmiyaGames.Saves.SortedRecordSettingGenerator<int>>("Local High Scores").Value;
             }
         }
 
         /// <summary>
         /// Gets the top score from <seealso cref="HighScores"/>
         /// </summary>
-        public OmiyaGames.Settings.IRecord<int> TopScore
+        public OmiyaGames.Saves.IRecord<int> TopScore
         {
             get
             {
@@ -267,11 +267,11 @@
         {
             get
             {
-                return AllSettingsVersions[3].GetGenerator<OmiyaGames.Settings.StoredStringGenerator>("Last Entered Name").Value;
+                return AllSettingsVersions[3].GetGenerator<OmiyaGames.Saves.StoredStringGenerator>("Last Entered Name").Value;
             }
             set
             {
-                AllSettingsVersions[3].GetGenerator<OmiyaGames.Settings.StoredStringGenerator>("Last Entered Name").SetValue(value, Settings, AppVersion);
+                AllSettingsVersions[3].GetGenerator<OmiyaGames.Saves.StoredStringGenerator>("Last Entered Name").SetValue(value, Settings, AppVersion);
             }
         }
         #endregion
@@ -284,11 +284,11 @@
         {
             get
             {
-                return AllSettingsVersions[4].GetGenerator<OmiyaGames.Settings.StoredBoolGenerator>("Split Keyboard Axis").Value;
+                return AllSettingsVersions[4].GetGenerator<OmiyaGames.Saves.StoredBoolGenerator>("Split Keyboard Axis").Value;
             }
             set
             {
-                AllSettingsVersions[4].GetGenerator<OmiyaGames.Settings.StoredBoolGenerator>("Split Keyboard Axis").SetValue(value, Settings, AppVersion);
+                AllSettingsVersions[4].GetGenerator<OmiyaGames.Saves.StoredBoolGenerator>("Split Keyboard Axis").SetValue(value, Settings, AppVersion);
             }
         }
 
@@ -300,11 +300,11 @@
         {
             get
             {
-                return AllSettingsVersions[4].GetGenerator<OmiyaGames.Settings.StoredFloatGenerator>("Keyboard X-Axis Sensitivity").Value;
+                return AllSettingsVersions[4].GetGenerator<OmiyaGames.Saves.StoredFloatGenerator>("Keyboard X-Axis Sensitivity").Value;
             }
             set
             {
-                AllSettingsVersions[4].GetGenerator<OmiyaGames.Settings.StoredFloatGenerator>("Keyboard X-Axis Sensitivity").SetValue(value, Settings, AppVersion);
+                AllSettingsVersions[4].GetGenerator<OmiyaGames.Saves.StoredFloatGenerator>("Keyboard X-Axis Sensitivity").SetValue(value, Settings, AppVersion);
             }
         }
 
@@ -317,11 +317,11 @@
         {
             get
             {
-                return AllSettingsVersions[4].GetGenerator<OmiyaGames.Settings.StoredFloatGenerator>("Keyboard Y-Axis Sensitivity").Value;
+                return AllSettingsVersions[4].GetGenerator<OmiyaGames.Saves.StoredFloatGenerator>("Keyboard Y-Axis Sensitivity").Value;
             }
             set
             {
-                AllSettingsVersions[4].GetGenerator<OmiyaGames.Settings.StoredFloatGenerator>("Keyboard Y-Axis Sensitivity").SetValue(value, Settings, AppVersion);
+                AllSettingsVersions[4].GetGenerator<OmiyaGames.Saves.StoredFloatGenerator>("Keyboard Y-Axis Sensitivity").SetValue(value, Settings, AppVersion);
             }
         }
 
@@ -332,11 +332,11 @@
         {
             get
             {
-                return AllSettingsVersions[4].GetGenerator<OmiyaGames.Settings.StoredBoolGenerator>("Keyboard X-Axis is Inverted").Value;
+                return AllSettingsVersions[4].GetGenerator<OmiyaGames.Saves.StoredBoolGenerator>("Keyboard X-Axis is Inverted").Value;
             }
             set
             {
-                AllSettingsVersions[4].GetGenerator<OmiyaGames.Settings.StoredBoolGenerator>("Keyboard X-Axis is Inverted").SetValue(value, Settings, AppVersion);
+                AllSettingsVersions[4].GetGenerator<OmiyaGames.Saves.StoredBoolGenerator>("Keyboard X-Axis is Inverted").SetValue(value, Settings, AppVersion);
             }
         }
 
@@ -347,11 +347,11 @@
         {
             get
             {
-                return AllSettingsVersions[4].GetGenerator<OmiyaGames.Settings.StoredBoolGenerator>("Keyboard Y-Axis is Inverted").Value;
+                return AllSettingsVersions[4].GetGenerator<OmiyaGames.Saves.StoredBoolGenerator>("Keyboard Y-Axis is Inverted").Value;
             }
             set
             {
-                AllSettingsVersions[4].GetGenerator<OmiyaGames.Settings.StoredBoolGenerator>("Keyboard Y-Axis is Inverted").SetValue(value, Settings, AppVersion);
+                AllSettingsVersions[4].GetGenerator<OmiyaGames.Saves.StoredBoolGenerator>("Keyboard Y-Axis is Inverted").SetValue(value, Settings, AppVersion);
             }
         }
 
@@ -362,11 +362,11 @@
         {
             get
             {
-                return AllSettingsVersions[4].GetGenerator<OmiyaGames.Settings.StoredBoolGenerator>("Split Mouse Axis").Value;
+                return AllSettingsVersions[4].GetGenerator<OmiyaGames.Saves.StoredBoolGenerator>("Split Mouse Axis").Value;
             }
             set
             {
-                AllSettingsVersions[4].GetGenerator<OmiyaGames.Settings.StoredBoolGenerator>("Split Mouse Axis").SetValue(value, Settings, AppVersion);
+                AllSettingsVersions[4].GetGenerator<OmiyaGames.Saves.StoredBoolGenerator>("Split Mouse Axis").SetValue(value, Settings, AppVersion);
             }
         }
 
@@ -378,11 +378,11 @@
         {
             get
             {
-                return AllSettingsVersions[4].GetGenerator<OmiyaGames.Settings.StoredFloatGenerator>("Mouse X-Axis Sensitivity").Value;
+                return AllSettingsVersions[4].GetGenerator<OmiyaGames.Saves.StoredFloatGenerator>("Mouse X-Axis Sensitivity").Value;
             }
             set
             {
-                AllSettingsVersions[4].GetGenerator<OmiyaGames.Settings.StoredFloatGenerator>("Mouse X-Axis Sensitivity").SetValue(value, Settings, AppVersion);
+                AllSettingsVersions[4].GetGenerator<OmiyaGames.Saves.StoredFloatGenerator>("Mouse X-Axis Sensitivity").SetValue(value, Settings, AppVersion);
             }
         }
 
@@ -395,11 +395,11 @@
         {
             get
             {
-                return AllSettingsVersions[4].GetGenerator<OmiyaGames.Settings.StoredFloatGenerator>("Mouse Y-Axis Sensitivity").Value;
+                return AllSettingsVersions[4].GetGenerator<OmiyaGames.Saves.StoredFloatGenerator>("Mouse Y-Axis Sensitivity").Value;
             }
             set
             {
-                AllSettingsVersions[4].GetGenerator<OmiyaGames.Settings.StoredFloatGenerator>("Mouse Y-Axis Sensitivity").SetValue(value, Settings, AppVersion);
+                AllSettingsVersions[4].GetGenerator<OmiyaGames.Saves.StoredFloatGenerator>("Mouse Y-Axis Sensitivity").SetValue(value, Settings, AppVersion);
             }
         }
 
@@ -410,11 +410,11 @@
         {
             get
             {
-                return AllSettingsVersions[4].GetGenerator<OmiyaGames.Settings.StoredBoolGenerator>("Mouse X-Axis is Inverted").Value;
+                return AllSettingsVersions[4].GetGenerator<OmiyaGames.Saves.StoredBoolGenerator>("Mouse X-Axis is Inverted").Value;
             }
             set
             {
-                AllSettingsVersions[4].GetGenerator<OmiyaGames.Settings.StoredBoolGenerator>("Mouse X-Axis is Inverted").SetValue(value, Settings, AppVersion);
+                AllSettingsVersions[4].GetGenerator<OmiyaGames.Saves.StoredBoolGenerator>("Mouse X-Axis is Inverted").SetValue(value, Settings, AppVersion);
             }
         }
 
@@ -425,11 +425,11 @@
         {
             get
             {
-                return AllSettingsVersions[4].GetGenerator<OmiyaGames.Settings.StoredBoolGenerator>("Mouse Y-Axis is Inverted").Value;
+                return AllSettingsVersions[4].GetGenerator<OmiyaGames.Saves.StoredBoolGenerator>("Mouse Y-Axis is Inverted").Value;
             }
             set
             {
-                AllSettingsVersions[4].GetGenerator<OmiyaGames.Settings.StoredBoolGenerator>("Mouse Y-Axis is Inverted").SetValue(value, Settings, AppVersion);
+                AllSettingsVersions[4].GetGenerator<OmiyaGames.Saves.StoredBoolGenerator>("Mouse Y-Axis is Inverted").SetValue(value, Settings, AppVersion);
             }
         }
 
@@ -442,11 +442,11 @@
         {
             get
             {
-                return AllSettingsVersions[4].GetGenerator<OmiyaGames.Settings.StoredFloatGenerator>("Smooth Camera Factor Option").Value;
+                return AllSettingsVersions[4].GetGenerator<OmiyaGames.Saves.StoredFloatGenerator>("Smooth Camera Factor Option").Value;
             }
             set
             {
-                AllSettingsVersions[4].GetGenerator<OmiyaGames.Settings.StoredFloatGenerator>("Smooth Camera Factor Option").SetValue(value, Settings, AppVersion);
+                AllSettingsVersions[4].GetGenerator<OmiyaGames.Saves.StoredFloatGenerator>("Smooth Camera Factor Option").SetValue(value, Settings, AppVersion);
             }
         }
 
@@ -457,11 +457,11 @@
         {
             get
             {
-                return AllSettingsVersions[4].GetGenerator<OmiyaGames.Settings.StoredBoolGenerator>("Is Smooth Camera Enabled").Value;
+                return AllSettingsVersions[4].GetGenerator<OmiyaGames.Saves.StoredBoolGenerator>("Is Smooth Camera Enabled").Value;
             }
             set
             {
-                AllSettingsVersions[4].GetGenerator<OmiyaGames.Settings.StoredBoolGenerator>("Is Smooth Camera Enabled").SetValue(value, Settings, AppVersion);
+                AllSettingsVersions[4].GetGenerator<OmiyaGames.Saves.StoredBoolGenerator>("Is Smooth Camera Enabled").SetValue(value, Settings, AppVersion);
             }
         }
 
@@ -472,7 +472,7 @@
         {
             get
             {
-                return OmiyaGames.Settings.AddOptions.CameraSmoothFactor;
+                return OmiyaGames.Saves.AddOptions.CameraSmoothFactor;
             }
         }
 
@@ -484,11 +484,11 @@
         {
             get
             {
-                return AllSettingsVersions[4].GetGenerator<OmiyaGames.Settings.StoredFloatGenerator>("Scroll Wheel Sensitivity").Value;
+                return AllSettingsVersions[4].GetGenerator<OmiyaGames.Saves.StoredFloatGenerator>("Scroll Wheel Sensitivity").Value;
             }
             set
             {
-                AllSettingsVersions[4].GetGenerator<OmiyaGames.Settings.StoredFloatGenerator>("Scroll Wheel Sensitivity").SetValue(value, Settings, AppVersion);
+                AllSettingsVersions[4].GetGenerator<OmiyaGames.Saves.StoredFloatGenerator>("Scroll Wheel Sensitivity").SetValue(value, Settings, AppVersion);
             }
         }
 
@@ -499,11 +499,11 @@
         {
             get
             {
-                return AllSettingsVersions[4].GetGenerator<OmiyaGames.Settings.StoredBoolGenerator>("Scroll Wheel is Inverted").Value;
+                return AllSettingsVersions[4].GetGenerator<OmiyaGames.Saves.StoredBoolGenerator>("Scroll Wheel is Inverted").Value;
             }
             set
             {
-                AllSettingsVersions[4].GetGenerator<OmiyaGames.Settings.StoredBoolGenerator>("Scroll Wheel is Inverted").SetValue(value, Settings, AppVersion);
+                AllSettingsVersions[4].GetGenerator<OmiyaGames.Saves.StoredBoolGenerator>("Scroll Wheel is Inverted").SetValue(value, Settings, AppVersion);
             }
         }
 
@@ -514,11 +514,11 @@
         {
             get
             {
-                return AllSettingsVersions[4].GetGenerator<OmiyaGames.Settings.StoredBoolGenerator>("Is Camera Shakes Enabled").Value;
+                return AllSettingsVersions[4].GetGenerator<OmiyaGames.Saves.StoredBoolGenerator>("Is Camera Shakes Enabled").Value;
             }
             set
             {
-                AllSettingsVersions[4].GetGenerator<OmiyaGames.Settings.StoredBoolGenerator>("Is Camera Shakes Enabled").SetValue(value, Settings, AppVersion);
+                AllSettingsVersions[4].GetGenerator<OmiyaGames.Saves.StoredBoolGenerator>("Is Camera Shakes Enabled").SetValue(value, Settings, AppVersion);
             }
         }
 
@@ -529,11 +529,11 @@
         {
             get
             {
-                return AllSettingsVersions[4].GetGenerator<OmiyaGames.Settings.StoredBoolGenerator>("Is Head Bobbing Option Enabled").Value;
+                return AllSettingsVersions[4].GetGenerator<OmiyaGames.Saves.StoredBoolGenerator>("Is Head Bobbing Option Enabled").Value;
             }
             set
             {
-                AllSettingsVersions[4].GetGenerator<OmiyaGames.Settings.StoredBoolGenerator>("Is Head Bobbing Option Enabled").SetValue(value, Settings, AppVersion);
+                AllSettingsVersions[4].GetGenerator<OmiyaGames.Saves.StoredBoolGenerator>("Is Head Bobbing Option Enabled").SetValue(value, Settings, AppVersion);
             }
         }
 
@@ -544,7 +544,7 @@
         {
             get
             {
-                return OmiyaGames.Settings.AddOptions.IsHeadBobbingEnabled;
+                return OmiyaGames.Saves.AddOptions.IsHeadBobbingEnabled;
             }
         }
 
@@ -555,11 +555,11 @@
         {
             get
             {
-                return AllSettingsVersions[4].GetGenerator<OmiyaGames.Settings.StoredBoolGenerator>("Is Screen Flashes Enabled").Value;
+                return AllSettingsVersions[4].GetGenerator<OmiyaGames.Saves.StoredBoolGenerator>("Is Screen Flashes Enabled").Value;
             }
             set
             {
-                AllSettingsVersions[4].GetGenerator<OmiyaGames.Settings.StoredBoolGenerator>("Is Screen Flashes Enabled").SetValue(value, Settings, AppVersion);
+                AllSettingsVersions[4].GetGenerator<OmiyaGames.Saves.StoredBoolGenerator>("Is Screen Flashes Enabled").SetValue(value, Settings, AppVersion);
             }
         }
 
@@ -570,11 +570,11 @@
         {
             get
             {
-                return AllSettingsVersions[4].GetGenerator<OmiyaGames.Settings.StoredBoolGenerator>("Is Motion Blurs Enabled").Value;
+                return AllSettingsVersions[4].GetGenerator<OmiyaGames.Saves.StoredBoolGenerator>("Is Motion Blurs Enabled").Value;
             }
             set
             {
-                AllSettingsVersions[4].GetGenerator<OmiyaGames.Settings.StoredBoolGenerator>("Is Motion Blurs Enabled").SetValue(value, Settings, AppVersion);
+                AllSettingsVersions[4].GetGenerator<OmiyaGames.Saves.StoredBoolGenerator>("Is Motion Blurs Enabled").SetValue(value, Settings, AppVersion);
             }
         }
 
@@ -585,11 +585,11 @@
         {
             get
             {
-                return AllSettingsVersions[4].GetGenerator<OmiyaGames.Settings.StoredBoolGenerator>("Is Bloom Effect Enabled").Value;
+                return AllSettingsVersions[4].GetGenerator<OmiyaGames.Saves.StoredBoolGenerator>("Is Bloom Effect Enabled").Value;
             }
             set
             {
-                AllSettingsVersions[4].GetGenerator<OmiyaGames.Settings.StoredBoolGenerator>("Is Bloom Effect Enabled").SetValue(value, Settings, AppVersion);
+                AllSettingsVersions[4].GetGenerator<OmiyaGames.Saves.StoredBoolGenerator>("Is Bloom Effect Enabled").SetValue(value, Settings, AppVersion);
             }
         }
 
@@ -600,11 +600,11 @@
         {
             get
             {
-                return AllSettingsVersions[4].GetGenerator<OmiyaGames.Settings.StoredFloatGenerator>("Text Size Multiplier").Value;
+                return AllSettingsVersions[4].GetGenerator<OmiyaGames.Saves.StoredFloatGenerator>("Text Size Multiplier").Value;
             }
             set
             {
-                AllSettingsVersions[4].GetGenerator<OmiyaGames.Settings.StoredFloatGenerator>("Text Size Multiplier").SetValue(value, Settings, AppVersion);
+                AllSettingsVersions[4].GetGenerator<OmiyaGames.Saves.StoredFloatGenerator>("Text Size Multiplier").SetValue(value, Settings, AppVersion);
             }
         }
 
@@ -615,11 +615,11 @@
         {
             get
             {
-                return AllSettingsVersions[4].GetGenerator<OmiyaGames.Settings.StoredBoolGenerator>("Is Invincibility Mode Enabled").Value;
+                return AllSettingsVersions[4].GetGenerator<OmiyaGames.Saves.StoredBoolGenerator>("Is Invincibility Mode Enabled").Value;
             }
             set
             {
-                AllSettingsVersions[4].GetGenerator<OmiyaGames.Settings.StoredBoolGenerator>("Is Invincibility Mode Enabled").SetValue(value, Settings, AppVersion);
+                AllSettingsVersions[4].GetGenerator<OmiyaGames.Saves.StoredBoolGenerator>("Is Invincibility Mode Enabled").SetValue(value, Settings, AppVersion);
             }
         }
 
@@ -632,11 +632,11 @@
         {
             get
             {
-                return AllSettingsVersions[4].GetGenerator<OmiyaGames.Settings.StoredFloatGenerator>("Custom Time Scale Option").Value;
+                return AllSettingsVersions[4].GetGenerator<OmiyaGames.Saves.StoredFloatGenerator>("Custom Time Scale Option").Value;
             }
             set
             {
-                AllSettingsVersions[4].GetGenerator<OmiyaGames.Settings.StoredFloatGenerator>("Custom Time Scale Option").SetValue(value, Settings, AppVersion);
+                AllSettingsVersions[4].GetGenerator<OmiyaGames.Saves.StoredFloatGenerator>("Custom Time Scale Option").SetValue(value, Settings, AppVersion);
             }
         }
 
@@ -647,11 +647,11 @@
         {
             get
             {
-                return AllSettingsVersions[4].GetGenerator<OmiyaGames.Settings.StoredBoolGenerator>("Is Custom Time Scale Enabled").Value;
+                return AllSettingsVersions[4].GetGenerator<OmiyaGames.Saves.StoredBoolGenerator>("Is Custom Time Scale Enabled").Value;
             }
             set
             {
-                AllSettingsVersions[4].GetGenerator<OmiyaGames.Settings.StoredBoolGenerator>("Is Custom Time Scale Enabled").SetValue(value, Settings, AppVersion);
+                AllSettingsVersions[4].GetGenerator<OmiyaGames.Saves.StoredBoolGenerator>("Is Custom Time Scale Enabled").SetValue(value, Settings, AppVersion);
             }
         }
 
@@ -662,7 +662,7 @@
         {
             get
             {
-                return OmiyaGames.Settings.AddOptions.CustomTimeScale;
+                return OmiyaGames.Saves.AddOptions.CustomTimeScale;
             }
         }
         #endregion

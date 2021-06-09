@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace OmiyaGames.Settings
+namespace OmiyaGames.Saves
 {
     ///-----------------------------------------------------------------------
     /// <copyright file="MinCap.cs" company="Omiya Games">

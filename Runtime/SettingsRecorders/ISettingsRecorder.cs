@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace OmiyaGames.Settings
+namespace OmiyaGames.Saves
 {
     ///-----------------------------------------------------------------------
     /// <copyright file="ISettingsRecorder.cs" company="Omiya Games">

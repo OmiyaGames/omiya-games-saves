@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace OmiyaGames.Settings
+namespace OmiyaGames.Saves
 {
     ///-----------------------------------------------------------------------
     /// <copyright file="PropertyStoredSettingsGenerator.cs" company="Omiya Games">

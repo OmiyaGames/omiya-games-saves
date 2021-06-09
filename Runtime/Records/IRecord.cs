@@ -1,7 +1,7 @@
 ﻿using System.Text;
 using System;
 
-namespace OmiyaGames.Settings
+namespace OmiyaGames.Saves
 {
     ///-----------------------------------------------------------------------
     /// <copyright file="IRecord.cs" company="Omiya Games">

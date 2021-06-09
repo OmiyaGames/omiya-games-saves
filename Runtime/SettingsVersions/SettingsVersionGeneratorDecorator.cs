@@ -3,7 +3,7 @@ using System.IO;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace OmiyaGames.Settings
+namespace OmiyaGames.Saves
 {
     public abstract class SettingsVersionGeneratorDecorator : ISettingsVersionGenerator
     {

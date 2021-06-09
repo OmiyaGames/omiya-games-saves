@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace OmiyaGames.Settings
+namespace OmiyaGames.Saves
 {
     ///-----------------------------------------------------------------------
     /// <copyright file="FloatRecord.cs" company="Omiya Games">

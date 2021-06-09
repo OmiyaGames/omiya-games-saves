@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 
-namespace OmiyaGames.Settings
+namespace OmiyaGames.Saves
 {
     ///-----------------------------------------------------------------------
     /// <copyright file="SettingsRecorderDecorator.cs" company="Omiya Games">

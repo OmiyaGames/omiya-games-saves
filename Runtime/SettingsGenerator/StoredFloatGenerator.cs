@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace OmiyaGames.Settings
+namespace OmiyaGames.Saves
 {
     ///-----------------------------------------------------------------------
     /// <copyright file="StoredFloatGenerator.cs" company="Omiya Games">
