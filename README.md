@@ -1,6 +1,6 @@
 # [Omiya Games](https://www.omiyagames.com/) - Saves
 
-[![Template Unity Package documentation](https://github.com/OmiyaGames/omiya-games-saves/workflows/Host%20DocFX%20Documentation/badge.svg)](https://omiyagames.github.io/omiya-games-saves/) [![Mirroring](https://github.com/OmiyaGames/omiya-games-saves/workflows/Mirroring/badge.svg)](https://bitbucket.org/OmiyaGames/omiya-games-saves) [![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/I3I51KS8F)
+[![Template Unity Package documentation](https://github.com/OmiyaGames/omiya-games-saves/workflows/Host%20DocFX%20Documentation/badge.svg)](https://omiyagames.github.io/omiya-games-saves/) [![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/I3I51KS8F)
 
 ![Unity Package Manager](https://omiyagames.github.io/omiya-games-saves/resources/preview.png)
 
