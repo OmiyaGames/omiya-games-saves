@@ -1,0 +1,771 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class PropertyStoredSettingsGenerator&lt;T&gt;
+   | Saves documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class PropertyStoredSettingsGenerator&lt;T&gt;
+   | Saves documentation ">
+    <meta name="generator" content="docfx 2.59.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="OmiyaGames.Saves.PropertyStoredSettingsGenerator`1">
+  
+  
+  <h1 id="OmiyaGames_Saves_PropertyStoredSettingsGenerator_1" data-uid="OmiyaGames.Saves.PropertyStoredSettingsGenerator`1" class="text-break">Class PropertyStoredSettingsGenerator&lt;T&gt;
+  </h1>
+  <div class="markdown level0 summary"><p>Abstract class that helps generate a property in <a class="xref" href="OmiyaGames.Saves.GameSettings.html">GameSettings</a>.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><a class="xref" href="OmiyaGames.Saves.GeneratorDecorator.html">GeneratorDecorator</a></div>
+    <div class="level2"><span class="xref">PropertyStoredSettingsGenerator&lt;T&gt;</span></div>
+      <div class="level3"><a class="xref" href="OmiyaGames.Saves.SortedRecordSettingGenerator-1.html">SortedRecordSettingGenerator&lt;T&gt;</a></div>
+      <div class="level3"><a class="xref" href="OmiyaGames.Saves.StoredBoolGenerator.html">StoredBoolGenerator</a></div>
+      <div class="level3"><a class="xref" href="OmiyaGames.Saves.StoredDateTimeUtcGenerator.html">StoredDateTimeUtcGenerator</a></div>
+      <div class="level3"><a class="xref" href="OmiyaGames.Saves.StoredEnumGenerator-1.html">StoredEnumGenerator&lt;ENUM&gt;</a></div>
+      <div class="level3"><a class="xref" href="OmiyaGames.Saves.StoredFloatGenerator.html">StoredFloatGenerator</a></div>
+      <div class="level3"><a class="xref" href="OmiyaGames.Saves.StoredIntGenerator.html">StoredIntGenerator</a></div>
+      <div class="level3"><a class="xref" href="OmiyaGames.Saves.StoredStringGenerator.html">StoredStringGenerator</a></div>
+      <div class="level3"><a class="xref" href="OmiyaGames.Saves.StoredTimeSpanGenerator.html">StoredTimeSpanGenerator</a></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="OmiyaGames.Saves.IStoredSettingGenerator.html">IStoredSettingGenerator</a></div>
+    <div><a class="xref" href="OmiyaGames.Saves.IGenerator.html">IGenerator</a></div>
+    <div><a class="xref" href="OmiyaGames.Saves.IStoredSetting.html">IStoredSetting</a></div>
+    <div><a class="xref" href="OmiyaGames.Saves.IUniqueSetting.html">IUniqueSetting</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="OmiyaGames.Saves.GeneratorDecorator.html#OmiyaGames_Saves_GeneratorDecorator_CreatePropertyWriter_System_String_System_String_">GeneratorDecorator.CreatePropertyWriter(String, String)</a>
+    </div>
+    <div>
+      <a class="xref" href="OmiyaGames.Saves.GeneratorDecorator.html#OmiyaGames_Saves_GeneratorDecorator_GetterScope">GeneratorDecorator.GetterScope</a>
+    </div>
+    <div>
+      <a class="xref" href="OmiyaGames.Saves.GeneratorDecorator.html#OmiyaGames_Saves_GeneratorDecorator_SetterScope">GeneratorDecorator.SetterScope</a>
+    </div>
+    <div>
+      <a class="xref" href="OmiyaGames.Saves.GeneratorDecorator.html#OmiyaGames_Saves_GeneratorDecorator_TooltipDocumentation">GeneratorDecorator.TooltipDocumentation</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="OmiyaGames.Saves.html">OmiyaGames.Saves</a></h6>
+  <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
+  <h5 id="OmiyaGames_Saves_PropertyStoredSettingsGenerator_1_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class PropertyStoredSettingsGenerator&lt;T&gt; : GeneratorDecorator, IStoredSettingGenerator, IGenerator, IStoredSetting, IUniqueSetting</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="OmiyaGames_Saves_PropertyStoredSettingsGenerator_1__ctor_" data-uid="OmiyaGames.Saves.PropertyStoredSettingsGenerator`1.#ctor*"></a>
+  <h4 id="OmiyaGames_Saves_PropertyStoredSettingsGenerator_1__ctor_System_String__0_" data-uid="OmiyaGames.Saves.PropertyStoredSettingsGenerator`1.#ctor(System.String,`0)">PropertyStoredSettingsGenerator(String, T)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PropertyStoredSettingsGenerator(string key, T defaultValue)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">defaultValue</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="fields">Fields
+  </h3>
+  
+  
+  <h4 id="OmiyaGames_Saves_PropertyStoredSettingsGenerator_1_DefaultGetterCode" data-uid="OmiyaGames.Saves.PropertyStoredSettingsGenerator`1.DefaultGetterCode">DefaultGetterCode</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly GeneratorDecorator.PropertyWriter DefaultGetterCode</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OmiyaGames.Saves.GeneratorDecorator.PropertyWriter.html">GeneratorDecorator.PropertyWriter</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="OmiyaGames_Saves_PropertyStoredSettingsGenerator_1_DefaultSetterCode" data-uid="OmiyaGames.Saves.PropertyStoredSettingsGenerator`1.DefaultSetterCode">DefaultSetterCode</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly GeneratorDecorator.PropertyWriter DefaultSetterCode</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OmiyaGames.Saves.GeneratorDecorator.PropertyWriter.html">GeneratorDecorator.PropertyWriter</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="OmiyaGames_Saves_PropertyStoredSettingsGenerator_1_Converter_" data-uid="OmiyaGames.Saves.PropertyStoredSettingsGenerator`1.Converter*"></a>
+  <h4 id="OmiyaGames_Saves_PropertyStoredSettingsGenerator_1_Converter" data-uid="OmiyaGames.Saves.PropertyStoredSettingsGenerator`1.Converter">Converter</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PropertyStoredSettingsGenerator&lt;T&gt;.ConvertOldSettings Converter { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OmiyaGames.Saves.PropertyStoredSettingsGenerator-1.ConvertOldSettings.html">PropertyStoredSettingsGenerator.ConvertOldSettings</a>&lt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="OmiyaGames_Saves_PropertyStoredSettingsGenerator_1_GetterCode_" data-uid="OmiyaGames.Saves.PropertyStoredSettingsGenerator`1.GetterCode*"></a>
+  <h4 id="OmiyaGames_Saves_PropertyStoredSettingsGenerator_1_GetterCode" data-uid="OmiyaGames.Saves.PropertyStoredSettingsGenerator`1.GetterCode">GetterCode</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override GeneratorDecorator.PropertyWriter GetterCode { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OmiyaGames.Saves.GeneratorDecorator.PropertyWriter.html">GeneratorDecorator.PropertyWriter</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="OmiyaGames.Saves.GeneratorDecorator.html#OmiyaGames_Saves_GeneratorDecorator_GetterCode">GeneratorDecorator.GetterCode</a></div>
+  
+  
+  <a id="OmiyaGames_Saves_PropertyStoredSettingsGenerator_1_IsValueRetainedOnClear_" data-uid="OmiyaGames.Saves.PropertyStoredSettingsGenerator`1.IsValueRetainedOnClear*"></a>
+  <h4 id="OmiyaGames_Saves_PropertyStoredSettingsGenerator_1_IsValueRetainedOnClear" data-uid="OmiyaGames.Saves.PropertyStoredSettingsGenerator`1.IsValueRetainedOnClear">IsValueRetainedOnClear</h4>
+  <div class="markdown level1 summary"><p>Allows a value to be saved even after data is reset.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsValueRetainedOnClear { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="OmiyaGames_Saves_PropertyStoredSettingsGenerator_1_Key_" data-uid="OmiyaGames.Saves.PropertyStoredSettingsGenerator`1.Key*"></a>
+  <h4 id="OmiyaGames_Saves_PropertyStoredSettingsGenerator_1_Key" data-uid="OmiyaGames.Saves.PropertyStoredSettingsGenerator`1.Key">Key</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string Key { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="OmiyaGames.Saves.GeneratorDecorator.html#OmiyaGames_Saves_GeneratorDecorator_Key">GeneratorDecorator.Key</a></div>
+  
+  
+  <a id="OmiyaGames_Saves_PropertyStoredSettingsGenerator_1_Processor_" data-uid="OmiyaGames.Saves.PropertyStoredSettingsGenerator`1.Processor*"></a>
+  <h4 id="OmiyaGames_Saves_PropertyStoredSettingsGenerator_1_Processor" data-uid="OmiyaGames.Saves.PropertyStoredSettingsGenerator`1.Processor">Processor</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PropertyStoredSettingsGenerator&lt;T&gt;.ValueProcessor Processor { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OmiyaGames.Saves.PropertyStoredSettingsGenerator-1.ValueProcessor.html">PropertyStoredSettingsGenerator.ValueProcessor</a>&lt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="OmiyaGames_Saves_PropertyStoredSettingsGenerator_1_PropertyName_" data-uid="OmiyaGames.Saves.PropertyStoredSettingsGenerator`1.PropertyName*"></a>
+  <h4 id="OmiyaGames_Saves_PropertyStoredSettingsGenerator_1_PropertyName" data-uid="OmiyaGames.Saves.PropertyStoredSettingsGenerator`1.PropertyName">PropertyName</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string PropertyName { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="OmiyaGames.Saves.GeneratorDecorator.html#OmiyaGames_Saves_GeneratorDecorator_PropertyName">GeneratorDecorator.PropertyName</a></div>
+  
+  
+  <a id="OmiyaGames_Saves_PropertyStoredSettingsGenerator_1_SetterCode_" data-uid="OmiyaGames.Saves.PropertyStoredSettingsGenerator`1.SetterCode*"></a>
+  <h4 id="OmiyaGames_Saves_PropertyStoredSettingsGenerator_1_SetterCode" data-uid="OmiyaGames.Saves.PropertyStoredSettingsGenerator`1.SetterCode">SetterCode</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override GeneratorDecorator.PropertyWriter SetterCode { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OmiyaGames.Saves.GeneratorDecorator.PropertyWriter.html">GeneratorDecorator.PropertyWriter</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="OmiyaGames.Saves.GeneratorDecorator.html#OmiyaGames_Saves_GeneratorDecorator_SetterCode">GeneratorDecorator.SetterCode</a></div>
+  
+  
+  <a id="OmiyaGames_Saves_PropertyStoredSettingsGenerator_1_TypeName_" data-uid="OmiyaGames.Saves.PropertyStoredSettingsGenerator`1.TypeName*"></a>
+  <h4 id="OmiyaGames_Saves_PropertyStoredSettingsGenerator_1_TypeName" data-uid="OmiyaGames.Saves.PropertyStoredSettingsGenerator`1.TypeName">TypeName</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string TypeName { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="OmiyaGames.Saves.GeneratorDecorator.html#OmiyaGames_Saves_GeneratorDecorator_TypeName">GeneratorDecorator.TypeName</a></div>
+  
+  
+  <a id="OmiyaGames_Saves_PropertyStoredSettingsGenerator_1_Value_" data-uid="OmiyaGames.Saves.PropertyStoredSettingsGenerator`1.Value*"></a>
+  <h4 id="OmiyaGames_Saves_PropertyStoredSettingsGenerator_1_Value" data-uid="OmiyaGames.Saves.PropertyStoredSettingsGenerator`1.Value">Value</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T Value { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="OmiyaGames_Saves_PropertyStoredSettingsGenerator_1_DefaultSettingsRetrieval_" data-uid="OmiyaGames.Saves.PropertyStoredSettingsGenerator`1.DefaultSettingsRetrieval*"></a>
+  <h4 id="OmiyaGames_Saves_PropertyStoredSettingsGenerator_1_DefaultSettingsRetrieval_OmiyaGames_Saves_ISettingsRecorder_System_Int32__0_" data-uid="OmiyaGames.Saves.PropertyStoredSettingsGenerator`1.DefaultSettingsRetrieval(OmiyaGames.Saves.ISettingsRecorder,System.Int32,`0)">DefaultSettingsRetrieval(ISettingsRecorder, Int32, T)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract T DefaultSettingsRetrieval(ISettingsRecorder settings, int recordedVersion, T defaultValue)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OmiyaGames.Saves.ISettingsRecorder.html">ISettingsRecorder</a></td>
+        <td><span class="parametername">settings</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">recordedVersion</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">defaultValue</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="OmiyaGames_Saves_PropertyStoredSettingsGenerator_1_IsSameValue_" data-uid="OmiyaGames.Saves.PropertyStoredSettingsGenerator`1.IsSameValue*"></a>
+  <h4 id="OmiyaGames_Saves_PropertyStoredSettingsGenerator_1_IsSameValue__0_" data-uid="OmiyaGames.Saves.PropertyStoredSettingsGenerator`1.IsSameValue(`0)">IsSameValue(T)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract bool IsSameValue(T compareValue)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">compareValue</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="OmiyaGames_Saves_PropertyStoredSettingsGenerator_1_OnClearSetting_" data-uid="OmiyaGames.Saves.PropertyStoredSettingsGenerator`1.OnClearSetting*"></a>
+  <h4 id="OmiyaGames_Saves_PropertyStoredSettingsGenerator_1_OnClearSetting_OmiyaGames_Saves_ISettingsRecorder_System_Int32_System_Int32_" data-uid="OmiyaGames.Saves.PropertyStoredSettingsGenerator`1.OnClearSetting(OmiyaGames.Saves.ISettingsRecorder,System.Int32,System.Int32)">OnClearSetting(ISettingsRecorder, Int32, Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void OnClearSetting(ISettingsRecorder settings, int recordedVersion, int latestVersion)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OmiyaGames.Saves.ISettingsRecorder.html">ISettingsRecorder</a></td>
+        <td><span class="parametername">settings</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">recordedVersion</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">latestVersion</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="OmiyaGames_Saves_PropertyStoredSettingsGenerator_1_OnRetrieveSetting_" data-uid="OmiyaGames.Saves.PropertyStoredSettingsGenerator`1.OnRetrieveSetting*"></a>
+  <h4 id="OmiyaGames_Saves_PropertyStoredSettingsGenerator_1_OnRetrieveSetting_OmiyaGames_Saves_ISettingsRecorder_System_Int32_System_Int32_" data-uid="OmiyaGames.Saves.PropertyStoredSettingsGenerator`1.OnRetrieveSetting(OmiyaGames.Saves.ISettingsRecorder,System.Int32,System.Int32)">OnRetrieveSetting(ISettingsRecorder, Int32, Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void OnRetrieveSetting(ISettingsRecorder settings, int recordedVersion, int latestVersion)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OmiyaGames.Saves.ISettingsRecorder.html">ISettingsRecorder</a></td>
+        <td><span class="parametername">settings</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">recordedVersion</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">latestVersion</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="OmiyaGames_Saves_PropertyStoredSettingsGenerator_1_OnSaveSetting_" data-uid="OmiyaGames.Saves.PropertyStoredSettingsGenerator`1.OnSaveSetting*"></a>
+  <h4 id="OmiyaGames_Saves_PropertyStoredSettingsGenerator_1_OnSaveSetting_OmiyaGames_Saves_ISettingsRecorder_System_Int32_" data-uid="OmiyaGames.Saves.PropertyStoredSettingsGenerator`1.OnSaveSetting(OmiyaGames.Saves.ISettingsRecorder,System.Int32)">OnSaveSetting(ISettingsRecorder, Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void OnSaveSetting(ISettingsRecorder settings, int latestVersion)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OmiyaGames.Saves.ISettingsRecorder.html">ISettingsRecorder</a></td>
+        <td><span class="parametername">settings</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">latestVersion</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="OmiyaGames_Saves_PropertyStoredSettingsGenerator_1_SetValue_" data-uid="OmiyaGames.Saves.PropertyStoredSettingsGenerator`1.SetValue*"></a>
+  <h4 id="OmiyaGames_Saves_PropertyStoredSettingsGenerator_1_SetValue__0_OmiyaGames_Saves_ISettingsRecorder_System_Int32_" data-uid="OmiyaGames.Saves.PropertyStoredSettingsGenerator`1.SetValue(`0,OmiyaGames.Saves.ISettingsRecorder,System.Int32)">SetValue(T, ISettingsRecorder, Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool SetValue(T newValue, ISettingsRecorder settings, int latestVersion)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">newValue</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="OmiyaGames.Saves.ISettingsRecorder.html">ISettingsRecorder</a></td>
+        <td><span class="parametername">settings</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">latestVersion</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="OmiyaGames.Saves.IStoredSettingGenerator.html">IStoredSettingGenerator</a>
+  </div>
+  <div>
+      <a class="xref" href="OmiyaGames.Saves.IGenerator.html">IGenerator</a>
+  </div>
+  <div>
+      <a class="xref" href="OmiyaGames.Saves.IStoredSetting.html">IStoredSetting</a>
+  </div>
+  <div>
+      <a class="xref" href="OmiyaGames.Saves.IUniqueSetting.html">IUniqueSetting</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright © 2021-2022 Omiya Games
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
