@@ -1,4 +1,4 @@
-﻿namespace OmiyaGames.Settings
+﻿namespace OmiyaGames.Saves
 {
 	///-----------------------------------------------------------------------
 	/// <copyright file="v002-AddLanguageSettings.cs" company="Omiya Games">

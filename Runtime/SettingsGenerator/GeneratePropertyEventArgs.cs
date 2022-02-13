@@ -2,7 +2,7 @@
 using System.IO;
 using System.Text;
 
-namespace OmiyaGames.Settings
+namespace OmiyaGames.Saves
 {
     ///-----------------------------------------------------------------------
     /// <copyright file="GeneratorDecorator.cs" company="Omiya Games">

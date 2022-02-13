@@ -1,9 +1,9 @@
 {
   "name": "com.omiyagames.saves",
   "displayName": "Omiya Games - Saves",
-  "version": "0.0.0-exp",
-  "unity": "2021.1",
-  "unityRelease": "10f1",
+  "version": "0.1.1-exp",
+  "unity": "2021.2",
+  "unityRelease": "11f1",
   "description": "Tool for handling game saves.",
   "category": "Tool",
   "type": "tool",
@@ -15,8 +15,8 @@
   },
   "dependencies": {
     "com.unity.ext.nunit": "1.0.0",
-    "com.omiyagames.common": "0.2.0-preview.2",
-    "com.omiyagames.global": "0.1.2-preview.2"
+    "com.omiyagames.common": "1.0.0",
+    "com.omiyagames.global": "1.0.0"
   },
   "keywords": [
     "Omiya Games",

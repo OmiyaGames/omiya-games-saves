@@ -1,6 +1,6 @@
 # [Omiya Games](https://www.omiyagames.com/) - Saves
 
-[![Template Unity Package documentation](https://github.com/OmiyaGames/omiya-games-saves/workflows/Host%20DocFX%20Documentation/badge.svg)](https://omiyagames.github.io/omiya-games-saves/) [![Mirroring](https://github.com/OmiyaGames/omiya-games-saves/workflows/Mirroring/badge.svg)](https://bitbucket.org/OmiyaGames/omiya-games-saves) [![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/I3I51KS8F)
+[![openupm](https://img.shields.io/npm/v/com.omiyagames.saves?label=openupm&registry_uri=https://package.openupm.com)](https://openupm.com/packages/com.omiyagames.saves/) [![Documentation](https://github.com/OmiyaGames/omiya-games-saves/workflows/Host%20DocFX%20Documentation/badge.svg)](https://omiyagames.github.io/omiya-games-saves/) [![Ko-fi Badge](https://img.shields.io/badge/donate-ko--fi-29abe0.svg?logo=ko-fi)](https://ko-fi.com/I3I51KS8F) [![License Badge](https://img.shields.io/github/license/OmiyaGames/omiya-games-saves)](/LICENSE.md) 
 
 ![Unity Package Manager](https://omiyagames.github.io/omiya-games-saves/resources/preview.png)
 
@@ -41,4 +41,4 @@ openupm add com.omiyagames.saves
 
 Overall package is licensed under [MIT](/LICENSE.md), unless otherwise noted in the [3rd party licenses](/THIRD%20PARTY%20NOTICES.md) file and/or source code.
 
-Copyright (c) 2019-2021 Omiya Games
+Copyright (c) 2019-2022 Omiya Games

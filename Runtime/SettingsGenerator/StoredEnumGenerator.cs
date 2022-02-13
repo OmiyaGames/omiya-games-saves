@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace OmiyaGames.Settings
+namespace OmiyaGames.Saves
 {
     ///-----------------------------------------------------------------------
     /// <copyright file="StoredEnumGenerator.cs" company="Omiya Games">

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace OmiyaGames.Settings
+namespace OmiyaGames.Saves
 {
     ///-----------------------------------------------------------------------
     /// <copyright file="SortedIntRecords.cs" company="Omiya Games">
