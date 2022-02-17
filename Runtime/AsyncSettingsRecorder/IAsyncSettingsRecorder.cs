@@ -337,6 +337,10 @@ namespace OmiyaGames.Saves
 		/// Coroutine indicating whether the operation
 		/// succeeded or not.
 		/// </returns>
+		/// <exception cref="ArgumentException">
+		/// If <paramref name="key"/> is <c>null</c>
+		/// or empty.
+		/// </exception>
 		WaitLoad DeleteKey(string key);
 		/// <summary>
 		/// Deletes all the keys.
@@ -374,5 +378,35 @@ namespace OmiyaGames.Saves
 		/// The function listening to key deletion.
 		/// </param>
 		void UnsubscribeToDeleteKey(string key, OnKeyDeleted action);
+	}
+
+	/// <summary>
+	/// Event arguments for <seealso cref="IAsyncSettingsRecorder.SubscribeToDeleteKey(string, ISettingsRecorder.OnKeyDeleted)"/>.
+	/// </summary>
+	public class KeyDeletedEventArgs : EventArgs
+	{
+		/// <summary>
+		/// Constructor to set <see cref="Key"/>.
+		/// </summary>
+		/// <param name="key">
+		/// Sets <see cref="Key"/>.
+		/// </param>
+		public KeyDeletedEventArgs(string key)
+		{
+			Key = key;
+		}
+
+		/// <summary>
+		/// The key that got deleted.
+		/// </summary>
+		/// <remarks>
+		/// Can be <c>null</c>, which in that case,
+		/// the delete operation was called from
+		/// <seealso cref="ISettingsRecorder.DeleteAll"/>.
+		/// </remarks>
+		public string Key
+		{
+			get;
+		}
 	}
 }

@@ -54,10 +54,9 @@ namespace OmiyaGames.Saves
 		/// <summary>
 		/// The results of loading an object.
 		/// </summary>
-		public T Result
+		public abstract T Result
 		{
 			get;
-			protected set;
 		}
 	}
 
@@ -89,6 +88,14 @@ namespace OmiyaGames.Saves
 				}
 				return false;
 			}
+		}
+
+		/// <summary>
+		/// The results of loading an object.
+		/// </summary>
+		public override T Result
+		{
+			get;
 		}
 	}
 

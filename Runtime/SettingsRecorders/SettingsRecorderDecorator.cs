@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Globalization;
 
 namespace OmiyaGames.Saves
 {
@@ -36,64 +35,9 @@ namespace OmiyaGames.Saves
     /// </summary>
     /// <seealso cref="ISettingsRecorder"/>
     /// <seealso cref="GameSettings"/>
+    [Obsolete("Use AsyncSettingsRecorderDecorator instead")]
     public abstract class SettingsRecorderDecorator : ISettingsRecorder
     {
-        #region Static Helper Functions
-        public static int ToInt(bool flag)
-        {
-            return (flag ? 1 : 0);
-        }
-
-        public static int ToInt(IConvertible value)
-        {
-            return value.ToInt32(CultureInfo.InvariantCulture.NumberFormat);
-        }
-
-        public static bool ToBool(int value)
-        {
-            if (value != 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        public static string ToString(DateTime timeUtc)
-        {
-            return timeUtc.Ticks.ToString();
-        }
-
-        public static string ToString(TimeSpan duration)
-        {
-            return duration.Ticks.ToString();
-        }
-
-        public static DateTime ToDateTimeUtc(string value)
-        {
-            long ticks;
-            DateTime time = DateTime.MinValue;
-            if (long.TryParse(value, out ticks) == true)
-            {
-                time = new DateTime(ticks, DateTimeKind.Utc);
-            }
-            return time;
-        }
-
-        public static TimeSpan ToTimeSpan(string value)
-        {
-            long ticks;
-            TimeSpan span = TimeSpan.Zero;
-            if (long.TryParse(value, out ticks) == true)
-            {
-                span = new TimeSpan(ticks);
-            }
-            return span;
-        }
-        #endregion
-
         public abstract int GetInt(string key, int defaultValue);
         public abstract void SetInt(string key, int value);
 
@@ -117,7 +61,7 @@ namespace OmiyaGames.Saves
         /// <seealso cref="GetInt(string, int)"/>
         public virtual bool GetBool(string key, bool defaultValue)
         {
-            return ToBool(GetInt(key, ToInt(defaultValue)));
+            return WaitLoadBool.ToBool(GetInt(key, WaitLoadBool.ToInt(defaultValue)));
         }
 
         /// <summary>
@@ -127,7 +71,7 @@ namespace OmiyaGames.Saves
         /// <seealso cref="SetInt(string, int)"/>
         public virtual void SetBool(string key, bool value)
         {
-            SetInt(key, ToInt(value));
+            SetInt(key, WaitLoadBool.ToInt(value));
         }
         #endregion
 
@@ -143,7 +87,7 @@ namespace OmiyaGames.Saves
             {
                 throw new NotSupportedException("Generic type must be an enum");
             }
-            return (ENUM)(object)GetInt(key, ToInt(defaultValue));
+            return (ENUM)(object)GetInt(key, WaitLoadEnum<ENUM>.ToInt(defaultValue));
         }
 
         /// <summary>
@@ -157,7 +101,7 @@ namespace OmiyaGames.Saves
             {
                 throw new NotSupportedException("Generic type must be an enum");
             }
-            SetInt(key, ToInt(value));
+            SetInt(key, WaitLoadEnum<ENUM>.ToInt(value));
         }
         #endregion
 
@@ -169,7 +113,7 @@ namespace OmiyaGames.Saves
         /// <seealso cref="GetString(string, string)"/>
         public virtual DateTime GetDateTimeUtc(string key, DateTime defaultValue)
         {
-            return ToDateTimeUtc(GetString(key, ToString(defaultValue)));
+            return WaitLoadDateTime.ToDateTimeUtc(GetString(key, WaitLoadDateTime.ToString(defaultValue)));
         }
 
         /// <summary>
@@ -180,7 +124,7 @@ namespace OmiyaGames.Saves
         /// <seealso cref="SetString(string, string)"/>
         public virtual void SetDateTimeUtc(string key, DateTime value)
         {
-            SetString(key, ToString(value));
+            SetString(key, WaitLoadDateTime.ToString(value));
         }
         #endregion
 
@@ -192,7 +136,7 @@ namespace OmiyaGames.Saves
         /// <seealso cref="GetString(string, string)"/>
         public virtual TimeSpan GetTimeSpan(string key, TimeSpan defaultValue)
         {
-            return ToTimeSpan(GetString(key, ToString(defaultValue)));
+            return WaitLoadTimeSpan.ToTimeSpan(GetString(key, WaitLoadTimeSpan.ToString(defaultValue)));
         }
 
         /// <summary>
@@ -202,7 +146,7 @@ namespace OmiyaGames.Saves
         /// <seealso cref="SetString(string, string)"/>
         public virtual void SetTimeSpan(string key, TimeSpan value)
         {
-            SetString(key, ToString(value));
+            SetString(key, WaitLoadTimeSpan.ToString(value));
         }
         #endregion
     }

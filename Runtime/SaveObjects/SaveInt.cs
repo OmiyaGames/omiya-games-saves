@@ -47,7 +47,7 @@ namespace OmiyaGames.Saves
 	/// <summary>
 	/// Interface for loading an integer from 
 	/// </summary>
-	[CreateAssetMenu(menuName = "Omiya Games/Saves/Save Integer", fileName = "Integer Loader")]
+	[CreateAssetMenu(menuName = "Omiya Games/Saves/Save Integer", fileName = "Save Integer")]
 	public class SaveInt : SaveObject, ITrackable<int>
 	{
 		/// <inheritdoc/>

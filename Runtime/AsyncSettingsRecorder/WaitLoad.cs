@@ -93,6 +93,29 @@ namespace OmiyaGames.Saves
 	}
 
 	/// <summary>
+	/// A coroutine that immediately finishes with success status.
+	/// </summary>
+	public sealed class WaitLoadImmediate : WaitLoad
+	{
+		/// <inheritdoc/>
+		public override event LoadingFinished OnLoadingFinished;
+
+		/// <inheritdoc/>
+		public override bool keepWaiting
+		{
+			get
+			{
+				if (CurrentState == LoadState.Loading)
+				{
+					CurrentState = LoadState.Success;
+					OnLoadingFinished?.Invoke(this, SUCCESS_ARGS);
+				}
+				return false;
+			}
+		}
+	}
+
+	/// <summary>
 	/// Event arguments for <seealso cref="OnLoadingFinished"/>.
 	/// </summary>
 	public class LoadFinishedEventArgs : System.EventArgs
@@ -114,29 +137,6 @@ namespace OmiyaGames.Saves
 		public LoadState State
 		{
 			get;
-		}
-	}
-
-	/// <summary>
-	/// A coroutine that immediately finishes with success status.
-	/// </summary>
-	public sealed class WaitLoadImmediate : WaitLoad
-	{
-		/// <inheritdoc/>
-		public override event LoadingFinished OnLoadingFinished;
-
-		/// <inheritdoc/>
-		public override bool keepWaiting
-		{
-			get
-			{
-				if (CurrentState == LoadState.Loading)
-				{
-					CurrentState = LoadState.Success;
-					OnLoadingFinished?.Invoke(this, SUCCESS_ARGS);
-				}
-				return false;
-			}
 		}
 	}
 }
