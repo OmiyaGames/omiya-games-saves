@@ -33,6 +33,7 @@ namespace OmiyaGames.Saves
     /// An interface for storing settings. Useful for indicating where a game's settings should be saved.
     /// </summary>
     /// <seealso cref="GameSettings"/>
+    [Obsolete("Use IAsyncSettingsRecorder instead.")]
     public interface ISettingsRecorder
     {
         bool GetBool(string key, bool defaultValue);
