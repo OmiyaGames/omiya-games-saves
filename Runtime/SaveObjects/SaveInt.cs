@@ -105,7 +105,7 @@ namespace OmiyaGames.Saves
 			// Listen to the new recorder
 			if (Recorder != null)
 			{
-				Recorder.UnsubscribeToDeleteKey(Key, OnDeleteKey);
+				Recorder.SubscribeToDeleteKey(Key, OnDeleteKey);
 			}
 		}
 

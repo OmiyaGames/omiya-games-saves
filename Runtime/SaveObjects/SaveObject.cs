@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace OmiyaGames.Saves
@@ -51,7 +52,6 @@ namespace OmiyaGames.Saves
 	/// </summary>
 	public abstract partial class SaveObject : ScriptableObject, IEquatable<SaveObject>, IDisposable
 	{
-
 		[SerializeField]
 		[Tooltip("A unique per save object.")]
 		string key;
@@ -110,12 +110,31 @@ namespace OmiyaGames.Saves
 		}
 
 		/// <inheritdoc/>
-		public bool Equals(SaveObject other)
-		{
-			return string.Equals(key, other.key);
-		}
+		public bool Equals(SaveObject other) => (other != null) ? string.Equals(key, other.key) : false;
+
+		/// <inheritdoc/>
+		public override int GetHashCode() => (Key != null) ? Key.GetHashCode() : 0;
 
 		/// <inheritdoc/>
 		public void Dispose() => Setup(null);
+	}
+
+	public class SaveObjectComparer : IEqualityComparer<SaveObject>
+	{
+		/// <inheritdoc/>
+		public bool Equals(SaveObject x, SaveObject y)
+		{
+			if (x == null)
+			{
+				return (y == null) ? true : false;
+			}
+			else
+			{
+				return x.Equals(y);
+			}
+		}
+
+		/// <inheritdoc/>
+		public int GetHashCode(SaveObject obj) => (obj != null) ? obj.GetHashCode() : 0;
 	}
 }
