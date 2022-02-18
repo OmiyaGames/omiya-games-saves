@@ -37,7 +37,7 @@ namespace OmiyaGames.Saves
 	/// </listheader>
 	/// <item>
 	/// <term>
-	/// <strong>Version:</strong> 0.2.0-exp<br/>
+	/// <strong>Version:</strong> 0.2.0-exp.1<br/>
 	/// <strong>Date:</strong> 2/16/2022<br/>
 	/// <strong>Author:</strong> Taro Omiya
 	/// </term>
@@ -49,91 +49,12 @@ namespace OmiyaGames.Saves
 	/// </remarks>
 	///-----------------------------------------------------------------------
 	/// <summary>
-	/// A decorator that implements a couple of <code>IAsyncSettingsRecorder</code> methods by wrapping a couple of methods with other methods.
-	/// Extending this class should reduce the amount of work necessary to implement an <code>IAsyncSettingsRecorder</code>.
+	/// A decorator that implements a couple of <code>AsyncSettingsRecorder</code> methods by wrapping a couple of methods with other methods.
+	/// Extending this class should reduce the amount of work necessary to implement an <code>AsyncSettingsRecorder</code>.
 	/// </summary>
-	/// <seealso cref="IAsyncSettingsRecorder"/>
-	public abstract class AsyncSettingsRecorderDecorator : ScriptableObject, IAsyncSettingsRecorder, IDisposable
+	/// <seealso cref="AsyncSettingsRecorder"/>
+	public abstract class AsyncSettingsRecorderDecorator : AsyncSettingsRecorder
 	{
-		/// <summary>
-		/// Maps a key to an event.
-		/// </summary>
-		/// <remarks>
-		/// Any events held under an empty string key
-		/// are intended to be called by <see cref="DeleteAll"/>.
-		/// </remarks>
-		protected Dictionary<string, IAsyncSettingsRecorder.OnKeyDeleted> KeyToDeleteEventMap
-		{
-			get;
-		} = new Dictionary<string, IAsyncSettingsRecorder.OnKeyDeleted>();
-
-		/// <inheritdoc/>
-		public abstract WaitLoadValue<int> GetInt(string key, int defaultValue);
-		/// <inheritdoc/>
-		public abstract void SetInt(string key, int value);
-
-		/// <inheritdoc/>
-		public abstract WaitLoadValue<float> GetFloat(string key, float defaultValue);
-		/// <inheritdoc/>
-		public abstract void SetFloat(string key, float value);
-
-		/// <inheritdoc/>
-		public abstract WaitLoadValue<string> GetString(string key, string defaultValue);
-		/// <inheritdoc/>
-		public abstract void SetString(string key, string value);
-
-		/// <inheritdoc/>
-		public abstract WaitLoad DeleteKey(string key);
-		/// <inheritdoc/>
-		public abstract WaitLoad DeleteAll();
-
-		/// <inheritdoc/>
-		public abstract WaitLoad Save();
-		/// <inheritdoc/>
-		public abstract WaitLoadValue<bool> HasKey(string key);
-
-		/// <inheritdoc/>
-		public void SubscribeToDeleteKey(string key, IAsyncSettingsRecorder.OnKeyDeleted action)
-		{
-			// Fix key to always be valid
-			if (key == null)
-			{
-				key = string.Empty;
-			}
-
-			// Add event
-			if (KeyToDeleteEventMap.TryGetValue(key, out var events))
-			{
-				KeyToDeleteEventMap[key] = (events + action);
-			}
-			else
-			{
-				KeyToDeleteEventMap.Add(key, action);
-			}
-		}
-
-		/// <inheritdoc/>
-		public void UnsubscribeToDeleteKey(string key, IAsyncSettingsRecorder.OnKeyDeleted action)
-		{
-			// Fix key to always be valid
-			if (key == null)
-			{
-				key = string.Empty;
-			}
-
-			// Remove event
-			if (KeyToDeleteEventMap.TryGetValue(key, out var events))
-			{
-				KeyToDeleteEventMap[key] = (events - action);
-			}
-		}
-
-		/// <inheritdoc/>
-		public virtual void Dispose()
-		{
-			KeyToDeleteEventMap.Clear();
-		}
-
 		/// <summary>
 		/// Gets a <code>bool</code> from stored settings.
 		/// This method is actually a wrapper of <code>GetInt(string, int)</code>.

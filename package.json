@@ -1,7 +1,7 @@
 {
   "name": "com.omiyagames.saves",
   "displayName": "Omiya Games - Saves",
-  "version": "0.2.0-exp",
+  "version": "0.2.0-exp.1",
   "unity": "2021.2",
   "unityRelease": "11f1",
   "description": "Tool for handling game saves.",

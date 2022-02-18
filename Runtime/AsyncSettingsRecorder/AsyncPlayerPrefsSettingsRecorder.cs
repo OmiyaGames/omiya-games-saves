@@ -5,7 +5,7 @@ namespace OmiyaGames.Saves
 {
 	///-----------------------------------------------------------------------
 	/// <remarks>
-	/// <copyright file="WaitLoadValue.cs" company="Omiya Games">
+	/// <copyright file="AsyncPlayerPrefsSettingsRecorder.cs" company="Omiya Games">
 	/// The MIT License (MIT)
 	/// 
 	/// Copyright (c) 2022 Omiya Games
@@ -35,7 +35,7 @@ namespace OmiyaGames.Saves
 	/// </listheader>
 	/// <item>
 	/// <term>
-	/// <strong>Version:</strong> 0.2.0-exp<br/>
+	/// <strong>Version:</strong> 0.2.0-exp.1<br/>
 	/// <strong>Date:</strong> 2/16/2022<br/>
 	/// <strong>Author:</strong> Taro Omiya
 	/// </term>
@@ -103,7 +103,7 @@ namespace OmiyaGames.Saves
 			PlayerPrefs.DeleteKey(key);
 
 			// Invoke the corresponding event
-			if (KeyToDeleteEventMap.TryGetValue(key, out var events))
+			if (TryGetEvents(key, out var events))
 			{
 				events?.Invoke(this, new KeyDeletedEventArgs(key));
 			}
@@ -116,7 +116,7 @@ namespace OmiyaGames.Saves
 			PlayerPrefs.DeleteAll();
 
 			// Invoke all the stored events
-			foreach(var events in KeyToDeleteEventMap.Values)
+			foreach(var events in GetAllEvents())
 			{
 				events?.Invoke(this, new KeyDeletedEventArgs(null));
 			}

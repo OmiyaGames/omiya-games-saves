@@ -34,7 +34,7 @@ namespace OmiyaGames.Saves
 	/// </listheader>
 	/// <item>
 	/// <term>
-	/// <strong>Version:</strong> 0.2.0-exp<br/>
+	/// <strong>Version:</strong> 0.2.0-exp.1<br/>
 	/// <strong>Date:</strong> 2/16/2022<br/>
 	/// <strong>Author:</strong> Taro Omiya
 	/// </term>
