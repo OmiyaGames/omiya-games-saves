@@ -1,7 +1,7 @@
 {
   "name": "com.omiyagames.saves",
   "displayName": "Omiya Games - Saves",
-  "version": "0.1.1-exp",
+  "version": "0.2.0-exp",
   "unity": "2021.2",
   "unityRelease": "11f1",
   "description": "Tool for handling game saves.",
@@ -15,13 +15,16 @@
   },
   "dependencies": {
     "com.unity.ext.nunit": "1.0.0",
-    "com.omiyagames.common": "1.0.0",
-    "com.omiyagames.global": "1.0.0"
+    "com.omiyagames.common": "1.2.0",
+    "com.omiyagames.global": "1.3.0",
+    "com.omiyagames.global.settings": "1.0.1-pre.1"
   },
   "keywords": [
     "Omiya Games",
     "Scripts",
-    "Template",
+    "Saves",
+    "PlayerPrefs",
+    "ScriptableObjects",
     "Tool"
   ],
   "scopedRegistries": [
@@ -32,7 +35,7 @@
         "com.openupm",
         "com.omiyagames.common",
         "com.omiyagames.global",
-        "com.omiyagames.cryptography"
+        "com.omiyagames.global.settings"
       ]
     }
   ]
