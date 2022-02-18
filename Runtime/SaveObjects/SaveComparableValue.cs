@@ -4,7 +4,7 @@ namespace OmiyaGames.Saves
 {
 	///-----------------------------------------------------------------------
 	/// <remarks>
-	/// <copyright file="SaveInt.cs" company="Omiya Games">
+	/// <copyright file="SaveComparableValue.cs" company="Omiya Games">
 	/// The MIT License (MIT)
 	/// 
 	/// Copyright (c) 2022 Omiya Games
@@ -35,7 +35,7 @@ namespace OmiyaGames.Saves
 	/// <item>
 	/// <term>
 	/// <strong>Version:</strong> 0.2.0-exp<br/>
-	/// <strong>Date:</strong> 2/16/2022<br/>
+	/// <strong>Date:</strong> 2/17/2022<br/>
 	/// <strong>Author:</strong> Taro Omiya
 	/// </term>
 	/// <description>
@@ -46,18 +46,61 @@ namespace OmiyaGames.Saves
 	/// </remarks>
 	///-----------------------------------------------------------------------
 	/// <summary>
-	/// Interface for loading an integer from <see cref="IAsyncSettingsRecorder"/>
+	/// Helper abstract class with common methods already defined for most
+	/// comparable variable types.
 	/// </summary>
-	[CreateAssetMenu(menuName = "Omiya Games/Saves/Save Integer", fileName = "Save Integer")]
-	public class SaveInt : SaveComparableValue<int>
+	public abstract class SaveComparableValue<T> : SaveSingleValue<T> where T : System.IComparable<T>
 	{
-		/// <inheritdoc/>
-		public override bool HasValue => true;
+		[Header("Clamp Boundaries")]
+		[SerializeField]
+		bool hasMin = false;
+		[SerializeField]
+		T minValue;
+		[SerializeField]
+		bool hasMax = false;
+		[SerializeField]
+		T maxValue;
+
+		/// <summary>
+		/// TODO
+		/// </summary>
+		public bool HasMin => hasMin;
+		/// <summary>
+		/// TODO
+		/// </summary>
+		public T MinValue => minValue;
+		/// <summary>
+		/// TODO
+		/// </summary>
+		public bool HasMax => hasMax;
+		/// <summary>
+		/// TODO
+		/// </summary>
+		public T MaxValue => maxValue;
 
 		/// <inheritdoc/>
-		protected override void RecordValue(int newValue) => Recorder.SetInt(Key, newValue);
+		protected override T SetValue(T value, SaveState setState)
+		{
+			// Clamp the value first
+			return base.SetValue(Clamp(value), setState);
+		}
 
-		/// <inheritdoc/>
-		protected override WaitLoadValue<int> RetrieveValue() => Recorder.GetInt(Key, DefaultValue);
+		/// <summary>
+		/// TODO
+		/// </summary>
+		/// <param name="value"></param>
+		/// <returns></returns>
+		protected virtual T Clamp(T value)
+		{
+			if (HasMin && (MinValue.CompareTo(value) < 0))
+			{
+				value = MinValue;
+			}
+			else if(HasMax && (MaxValue.CompareTo(value) > 0))
+			{
+				value = MaxValue;
+			}
+			return value;
+		}
 	}
 }

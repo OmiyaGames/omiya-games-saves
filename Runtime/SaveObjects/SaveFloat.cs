@@ -4,7 +4,7 @@ namespace OmiyaGames.Saves
 {
 	///-----------------------------------------------------------------------
 	/// <remarks>
-	/// <copyright file="SaveInt.cs" company="Omiya Games">
+	/// <copyright file="SaveFloat.cs" company="Omiya Games">
 	/// The MIT License (MIT)
 	/// 
 	/// Copyright (c) 2022 Omiya Games
@@ -35,7 +35,7 @@ namespace OmiyaGames.Saves
 	/// <item>
 	/// <term>
 	/// <strong>Version:</strong> 0.2.0-exp<br/>
-	/// <strong>Date:</strong> 2/16/2022<br/>
+	/// <strong>Date:</strong> 2/17/2022<br/>
 	/// <strong>Author:</strong> Taro Omiya
 	/// </term>
 	/// <description>
@@ -46,18 +46,18 @@ namespace OmiyaGames.Saves
 	/// </remarks>
 	///-----------------------------------------------------------------------
 	/// <summary>
-	/// Interface for loading an integer from <see cref="IAsyncSettingsRecorder"/>
+	/// Interface for loading a float from 
 	/// </summary>
-	[CreateAssetMenu(menuName = "Omiya Games/Saves/Save Integer", fileName = "Save Integer")]
-	public class SaveInt : SaveComparableValue<int>
+	[CreateAssetMenu(menuName = "Omiya Games/Saves/Save Float", fileName = "Save Float")]
+	public class SaveFloat : SaveComparableValue<float>
 	{
 		/// <inheritdoc/>
 		public override bool HasValue => true;
 
 		/// <inheritdoc/>
-		protected override void RecordValue(int newValue) => Recorder.SetInt(Key, newValue);
+		protected override void RecordValue(float newValue) => Recorder.SetFloat(Key, newValue);
 
 		/// <inheritdoc/>
-		protected override WaitLoadValue<int> RetrieveValue() => Recorder.GetInt(Key, DefaultValue);
+		protected override WaitLoadValue<float> RetrieveValue() => Recorder.GetFloat(Key, DefaultValue);
 	}
 }
