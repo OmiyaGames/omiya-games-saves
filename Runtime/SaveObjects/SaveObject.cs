@@ -6,6 +6,7 @@ using UnityEngine;
 namespace OmiyaGames.Saves
 {
 	///-----------------------------------------------------------------------
+	/// <remarks>
 	/// <copyright file="SaveObject.cs" company="Omiya Games">
 	/// The MIT License (MIT)
 	/// 

@@ -1,6 +1,7 @@
 namespace OmiyaGames.Saves
 {
 	///-----------------------------------------------------------------------
+	/// <remarks>
 	/// <copyright file="LoadState.cs" company="Omiya Games">
 	/// The MIT License (MIT)
 	/// 
