@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace OmiyaGames.Saves
 {
@@ -52,7 +53,7 @@ namespace OmiyaGames.Saves
 	/// Extending this class should reduce the amount of work necessary to implement an <code>IAsyncSettingsRecorder</code>.
 	/// </summary>
 	/// <seealso cref="IAsyncSettingsRecorder"/>
-	public abstract class AsyncSettingsRecorderDecorator : IAsyncSettingsRecorder, IDisposable
+	public abstract class AsyncSettingsRecorderDecorator : ScriptableObject, IAsyncSettingsRecorder, IDisposable
 	{
 		/// <summary>
 		/// Maps a key to an event.
