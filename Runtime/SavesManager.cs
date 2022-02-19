@@ -6,6 +6,7 @@ using OmiyaGames.Global.Settings;
 namespace OmiyaGames.Saves
 {
 	///-----------------------------------------------------------------------
+	/// <remarks>
 	/// <copyright file="SavesManager.cs" company="Omiya Games">
 	/// The MIT License (MIT)
 	/// 
@@ -41,7 +42,6 @@ namespace OmiyaGames.Saves
 	/// <strong>Author:</strong> Taro Omiya
 	/// </term>
 	/// <description>Initial verison.</description>
-	/// </description>
 	/// </item>
 	/// </list>
 	/// </remarks>
