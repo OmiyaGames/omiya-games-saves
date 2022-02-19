@@ -81,13 +81,11 @@ namespace OmiyaGames.Saves
 
 		[Header("Version Handling")]
 		[SerializeField]
-		SaveObject versionSaver;
+		SaveInt versionSaver;
 		[SerializeField]
 		SavesUpgrader[] upgraders;
-
-		[Header("Saved Data")]
 		[SerializeField]
-		SerializableHashSet<SaveObject> saveObjects = new();
+		SerializableHashSet<SaveObject> saveData = new();
 
 #if UNITY_EDITOR
 		void Reset()
@@ -101,7 +99,7 @@ namespace OmiyaGames.Saves
 				};
 			}
 			
-			versionSaver = UnityEditor.AssetDatabase.LoadAssetAtPath<SaveObject>(VERSION_PATH);
+			versionSaver = UnityEditor.AssetDatabase.LoadAssetAtPath<SaveInt>(VERSION_PATH);
 
 			// TODO: consider adding these settings into the save settings as well.
 		}
