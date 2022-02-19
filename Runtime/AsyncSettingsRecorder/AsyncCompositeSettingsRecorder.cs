@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace OmiyaGames.Saves
 {
@@ -49,19 +48,14 @@ namespace OmiyaGames.Saves
 	/// <summary>
 	/// TODO.
 	/// </summary>
-	public class AsyncCompositeSettingsRecorder : IAsyncSettingsRecorder
+	public class AsyncCompositeSettingsRecorder : IAsyncSettingsRecorder, IReadOnlyList<IAsyncSettingsRecorder>
 	{
 		readonly ListSet<IAsyncSettingsRecorder> allRecorders;
+
 		/// <summary>
 		/// TODO
 		/// </summary>
 		/// <param name="settings"></param>
-		public AsyncCompositeSettingsRecorder(params IAsyncSettingsRecorder[] settings) : this((IEnumerable<IAsyncSettingsRecorder>)settings) { }
-		/// <summary>
-		/// TODO
-		/// </summary>
-		/// <param name="settings"></param>
-		/// <exception cref="NotImplementedException"></exception>
 		public AsyncCompositeSettingsRecorder(IEnumerable<IAsyncSettingsRecorder> settings)
 		{
 			// Attempt to discern the size of settings
@@ -87,13 +81,19 @@ namespace OmiyaGames.Saves
 		}
 
 		/// <inheritdoc/>
+		public int Count => allRecorders.Count;
+
+		/// <inheritdoc/>
+		public IAsyncSettingsRecorder this[int index] => allRecorders[index];
+
+		/// <inheritdoc/>
 		public WaitLoad Save()
 		{
 			// Call Save() on all recorders
 			WaitLoadComposite waitList = new();
 			foreach (IAsyncSettingsRecorder recorder in allRecorders)
 			{
-				waitList.Add(recorder.Save());
+				waitList.Add(recorder, recorder.Save());
 			}
 			return waitList;
 		}
@@ -105,7 +105,7 @@ namespace OmiyaGames.Saves
 			WaitLoadComposite waitList = new();
 			foreach (IAsyncSettingsRecorder recorder in allRecorders)
 			{
-				waitList.Add(recorder.DeleteAll());
+				waitList.Add(recorder, recorder.DeleteAll());
 			}
 			return waitList;
 		}
@@ -123,57 +123,212 @@ namespace OmiyaGames.Saves
 			WaitLoadComposite waitList = new();
 			foreach (IAsyncSettingsRecorder recorder in allRecorders)
 			{
-				waitList.Add(recorder.DeleteKey(key));
+				waitList.Add(recorder, recorder.DeleteKey(key));
 			}
 			return waitList;
 		}
 
-		/// <inheritdoc/>
+		/// <summary>
+		/// Asynchronously gets a boolean value from the
+		/// <em>first</em> <see cref="IAsyncSettingsRecorder"/>.
+		/// </summary>
+		/// <param name="key">
+		/// The key associated with this value.
+		/// </param>
+		/// <param name="defaultValue">
+		/// The default value if a value
+		/// associated with <paramref name="key"/>
+		/// is not found.
+		/// </param>
+		/// <returns>
+		/// A coroutine that indicates when it's finished
+		/// loading, and provides the retrieved results.
+		/// If list is empty, returns <c>null</c> instead.
+		/// </returns>
 		public WaitLoadValue<bool> GetBool(string key, bool defaultValue)
 		{
-			throw new NotImplementedException();
+			if (allRecorders.Count > 0)
+			{
+				return allRecorders[0].GetBool(key, defaultValue);
+			}
+			return null;
 		}
 
-		/// <inheritdoc/>
+		/// <summary>
+		/// Asynchronously gets a <see cref="DateTime"/> value from the
+		/// <em>first</em> <see cref="IAsyncSettingsRecorder"/>.
+		/// </summary>
+		/// <param name="key">
+		/// The key associated with this value.
+		/// </param>
+		/// <param name="defaultValue">
+		/// The default value if a value
+		/// associated with <paramref name="key"/>
+		/// is not found.
+		/// </param>
+		/// <returns>
+		/// A coroutine that indicates when it's finished
+		/// loading, and provides the retrieved results.
+		/// If list is empty, returns <c>null</c> instead.
+		/// </returns>
 		public WaitLoadValue<DateTime> GetDateTimeUtc(string key, DateTime defaultValue)
 		{
-			throw new NotImplementedException();
+			if (allRecorders.Count > 0)
+			{
+				return allRecorders[0].GetDateTimeUtc(key, defaultValue);
+			}
+			return null;
 		}
 
-		/// <inheritdoc/>
+		/// <summary>
+		/// Asynchronously gets an enum value from the
+		/// <em>first</em> <see cref="IAsyncSettingsRecorder"/>.
+		/// </summary>
+		/// <typeparam name="TEnum">
+		/// An enumerator type.
+		/// </typeparam>
+		/// <param name="key">
+		/// The key associated with this value.
+		/// </param>
+		/// <param name="defaultValue">
+		/// The default value if a value
+		/// associated with <paramref name="key"/>
+		/// is not found.
+		/// </param>
+		/// <returns>
+		/// A coroutine that indicates when it's finished
+		/// loading, and provides the retrieved results.
+		/// If list is empty, returns <c>null</c> instead.
+		/// </returns>
 		public WaitLoadValue<TEnum> GetEnum<TEnum>(string key, TEnum defaultValue) where TEnum : struct, IConvertible
 		{
-			throw new NotImplementedException();
+			if (allRecorders.Count > 0)
+			{
+				return allRecorders[0].GetEnum(key, defaultValue);
+			}
+			return null;
 		}
 
-		/// <inheritdoc/>
+		/// <summary>
+		/// Asynchronously gets a float value from the
+		/// <em>first</em> <see cref="IAsyncSettingsRecorder"/>.
+		/// </summary>
+		/// <param name="key">
+		/// The key associated with this value.
+		/// </param>
+		/// <param name="defaultValue">
+		/// The default value if a value
+		/// associated with <paramref name="key"/>
+		/// is not found.
+		/// </param>
+		/// <returns>
+		/// A coroutine that indicates when it's finished
+		/// loading, and provides the retrieved results.
+		/// If list is empty, returns <c>null</c> instead.
+		/// </returns>
 		public WaitLoadValue<float> GetFloat(string key, float defaultValue)
 		{
-			throw new NotImplementedException();
+			if (allRecorders.Count > 0)
+			{
+				return allRecorders[0].GetFloat(key, defaultValue);
+			}
+			return null;
 		}
 
-		/// <inheritdoc/>
+		/// <summary>
+		/// Asynchronously gets an integer value from the
+		/// <em>first</em> <see cref="IAsyncSettingsRecorder"/>.
+		/// </summary>
+		/// <param name="key">
+		/// The key associated with this value.
+		/// </param>
+		/// <param name="defaultValue">
+		/// The default value if a value
+		/// associated with <paramref name="key"/>
+		/// is not found.
+		/// </param>
+		/// <returns>
+		/// A coroutine that indicates when it's finished
+		/// loading, and provides the retrieved results.
+		/// If list is empty, returns <c>null</c> instead.
+		/// </returns>
 		public WaitLoadValue<int> GetInt(string key, int defaultValue)
 		{
-			throw new NotImplementedException();
+			if (allRecorders.Count > 0)
+			{
+				return allRecorders[0].GetInt(key, defaultValue);
+			}
+			return null;
 		}
 
-		/// <inheritdoc/>
+		/// <summary>
+		/// Asynchronously gets a string value from the
+		/// <em>first</em> <see cref="IAsyncSettingsRecorder"/>.
+		/// </summary>
+		/// <param name="key">
+		/// The key associated with this value.
+		/// </param>
+		/// <param name="defaultValue">
+		/// The default value if a value
+		/// associated with <paramref name="key"/>
+		/// is not found.
+		/// </param>
+		/// <returns>
+		/// A coroutine that indicates when it's finished
+		/// loading, and provides the retrieved results.
+		/// If list is empty, returns <c>null</c> instead.
+		/// </returns>
 		public WaitLoadValue<string> GetString(string key, string defaultValue)
 		{
-			throw new NotImplementedException();
+			if (allRecorders.Count > 0)
+			{
+				return allRecorders[0].GetString(key, defaultValue);
+			}
+			return null;
 		}
 
-		/// <inheritdoc/>
+		/// <summary>
+		/// Asynchronously gets a <see cref="TimeSpan"/> value from the
+		/// <em>first</em> <see cref="IAsyncSettingsRecorder"/>.
+		/// </summary>
+		/// <param name="key">
+		/// The key associated with this value.
+		/// </param>
+		/// <param name="defaultValue">
+		/// The default value if a value
+		/// associated with <paramref name="key"/>
+		/// is not found.
+		/// </param>
+		/// <returns>
+		/// A coroutine that indicates when it's finished
+		/// loading, and provides the retrieved results.
+		/// If list is empty, returns <c>null</c> instead.
+		/// </returns>
 		public WaitLoadValue<TimeSpan> GetTimeSpan(string key, TimeSpan defaultValue)
 		{
-			throw new NotImplementedException();
+			if (allRecorders.Count > 0)
+			{
+				return allRecorders[0].GetTimeSpan(key, defaultValue);
+			}
+			return null;
 		}
 
 		/// <inheritdoc/>
 		public WaitLoadValue<bool> HasKey(string key)
 		{
-			throw new NotImplementedException();
+			// Argument check
+			if (string.IsNullOrEmpty(key))
+			{
+				throw new ArgumentNullException(nameof(key));
+			}
+
+			// Call DeleteKey() on all recorders
+			WaitLoadFlags waitList = new();
+			foreach (IAsyncSettingsRecorder recorder in allRecorders)
+			{
+				waitList.Add(recorder, recorder.HasKey(key));
+			}
+			return waitList;
 		}
 
 		/// <inheritdoc/>
@@ -319,5 +474,11 @@ namespace OmiyaGames.Saves
 				recorder.UnsubscribeToDeleteKey(key, action);
 			}
 		}
+
+		/// <inheritdoc/>
+		public IEnumerator<IAsyncSettingsRecorder> GetEnumerator() => allRecorders.GetEnumerator();
+
+		/// <inheritdoc/>
+		IEnumerator IEnumerable.GetEnumerator() => ((IEnumerable)allRecorders).GetEnumerator();
 	}
 }

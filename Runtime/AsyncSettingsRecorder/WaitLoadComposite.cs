@@ -47,111 +47,101 @@ namespace OmiyaGames.Saves
 	/// <summary>
 	/// TODO.
 	/// </summary>
-	public class WaitLoadComposite : WaitLoad, ICollection<WaitLoad>
+	public class WaitLoadComposite : WaitLoad, IDictionary<IAsyncSettingsRecorder, WaitLoad>
 	{
 		/// <inheritdoc/>
 		public override event LoadingFinished OnLoadingFinished;
 
-		readonly HashSet<WaitLoad> allWaits;
+		readonly Dictionary<IAsyncSettingsRecorder, WaitLoad> allWaits;
 
 		/// <summary>
 		/// TODO
 		/// </summary>
-		/// <param name="waits"></param>
-		public WaitLoadComposite(params WaitLoad[] waits) : this((IEnumerable<WaitLoad>)waits) { }
+		public WaitLoadComposite() => allWaits = new();
 		/// <summary>
 		/// TODO
 		/// </summary>
-		/// <param name="waits"></param>
-		public WaitLoadComposite(IEnumerable<WaitLoad> waits)
-		{
-			if (waits != null)
-			{
-				allWaits = new HashSet<WaitLoad>(waits);
-				allWaits.Remove(null);
-			}
-			else
-			{
-				allWaits = new HashSet<WaitLoad>();
-			}
-		}
+		/// <param name="capacity"></param>
+		public WaitLoadComposite(int capacity) => allWaits = new(capacity);
 
 		/// <inheritdoc/>
 		public override bool keepWaiting
 		{
 			get
 			{
-				List<WaitLoad> failedWaits = new(allWaits.Count);
-				foreach (WaitLoad wait in allWaits)
+				var finalResult = LoadState.Success;
+				foreach (var pair in allWaits)
 				{
-					if (wait.keepWaiting)
+					if (pair.Value.keepWaiting)
 					{
 						return true;
 					}
-					else if (wait.CurrentState == LoadState.Fail)
+
+					if (pair.Value.CurrentState == LoadState.Fail)
 					{
-						failedWaits.Add(wait);
+						finalResult = LoadState.Fail;
 					}
 				}
 
-				OnLoadingFinished?.Invoke(this, new LoadFinishedCompositeEventArgs(failedWaits));
+				OnLoadingFinished?.Invoke(this, new LoadFinishedCompositeEventArgs<WaitLoad>(allWaits, finalResult));
 				return false;
 			}
 		}
 
 		/// <inheritdoc/>
-		public void Add(WaitLoad item)
-		{
-			if (item != null)
-			{
-				allWaits.Add(item);
-			}
-		}
+		public ICollection<IAsyncSettingsRecorder> Keys => allWaits.Keys;
+
+		/// <inheritdoc/>
+		public ICollection<WaitLoad> Values => allWaits.Values;
+
 		/// <inheritdoc/>
 		public int Count => allWaits.Count;
-		/// <inheritdoc/>
-		public bool IsReadOnly => ((ICollection<WaitLoad>)allWaits).IsReadOnly;
-		/// <inheritdoc/>
-		public void Clear() => allWaits.Clear();
-		/// <inheritdoc/>
-		public bool Contains(WaitLoad item) => allWaits.Contains(item);
-		/// <inheritdoc/>
-		public void CopyTo(WaitLoad[] array, int arrayIndex) => allWaits.CopyTo(array, arrayIndex);
-		/// <inheritdoc/>
-		public bool Remove(WaitLoad item) => allWaits.Remove(item);
-		/// <inheritdoc/>
-		public IEnumerator<WaitLoad> GetEnumerator() => allWaits.GetEnumerator();
-		/// <inheritdoc/>
-		IEnumerator IEnumerable.GetEnumerator() => ((IEnumerable)allWaits).GetEnumerator();
-	}
 
-	/// <summary>
-	/// TODO
-	/// </summary>
-	public class LoadFinishedCompositeEventArgs : LoadFinishedEventArgs
-	{
-		readonly WaitLoad[] failedWaits;
+		/// <inheritdoc/>
+		public bool IsReadOnly => ((ICollection<KeyValuePair<IAsyncSettingsRecorder, WaitLoad>>)allWaits).IsReadOnly;
 
-		/// <summary>
-		/// TODO
-		/// </summary>
-		/// <param name="failedWaits"></param>
-		public LoadFinishedCompositeEventArgs(List<WaitLoad> failedWaits) :
-			this(failedWaits, (failedWaits.Count > 0 ? LoadState.Success : LoadState.Fail))
-		{ }
-		/// <summary>
-		/// TODO
-		/// </summary>
-		/// <param name="failedWaits"></param>
-		/// <param name="overwriteState"></param>
-		public LoadFinishedCompositeEventArgs(List<WaitLoad> failedWaits, LoadState overwriteState) : base(overwriteState)
+		/// <inheritdoc/>
+		public WaitLoad this[IAsyncSettingsRecorder key]
 		{
-			this.failedWaits = failedWaits.ToArray();
+			get => allWaits[key];
+			set => allWaits[key] = value;
 		}
 
-		/// <summary>
-		/// TODO
-		/// </summary>
-		public IReadOnlyList<WaitLoad> FailedWaits => failedWaits;
+		/// <inheritdoc/>
+		public void Add(IAsyncSettingsRecorder key, WaitLoad value) => allWaits.Add(key, value);
+
+		/// <inheritdoc/>
+		public bool ContainsKey(IAsyncSettingsRecorder key) => allWaits.ContainsKey(key);
+
+		/// <inheritdoc/>
+		public bool Remove(IAsyncSettingsRecorder key) => allWaits.Remove(key);
+
+		/// <inheritdoc/>
+		public bool TryGetValue(IAsyncSettingsRecorder key, out WaitLoad value) => allWaits.TryGetValue(key, out value);
+
+		/// <inheritdoc/>
+		public void Add(KeyValuePair<IAsyncSettingsRecorder, WaitLoad> item) =>
+			((ICollection<KeyValuePair<IAsyncSettingsRecorder, WaitLoad>>)allWaits).Add(item);
+
+		/// <inheritdoc/>
+		public void Clear() => allWaits.Clear();
+
+		/// <inheritdoc/>
+		public bool Contains(KeyValuePair<IAsyncSettingsRecorder, WaitLoad> item) =>
+			((ICollection<KeyValuePair<IAsyncSettingsRecorder, WaitLoad>>)allWaits).Contains(item);
+
+		/// <inheritdoc/>
+		public void CopyTo(KeyValuePair<IAsyncSettingsRecorder, WaitLoad>[] array, int arrayIndex) =>
+			((ICollection<KeyValuePair<IAsyncSettingsRecorder, WaitLoad>>)allWaits).CopyTo(array, arrayIndex);
+
+		/// <inheritdoc/>
+		public bool Remove(KeyValuePair<IAsyncSettingsRecorder, WaitLoad> item) =>
+			((ICollection<KeyValuePair<IAsyncSettingsRecorder, WaitLoad>>)allWaits).Remove(item);
+
+		/// <inheritdoc/>
+		public IEnumerator<KeyValuePair<IAsyncSettingsRecorder, WaitLoad>> GetEnumerator() => allWaits.GetEnumerator();
+
+		/// <inheritdoc/>
+		IEnumerator IEnumerable.GetEnumerator() => allWaits.GetEnumerator();
 	}
 }
