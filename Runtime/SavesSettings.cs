@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using OmiyaGames.Global.Settings;
 
@@ -86,6 +87,23 @@ namespace OmiyaGames.Saves
 		SavesUpgrader[] upgraders;
 		[SerializeField]
 		SerializableHashSet<SaveObject> saveData = new();
+
+		/// <summary>
+		/// TODO
+		/// </summary>
+		public IReadOnlyList<SupportedRecorder> Recorders => recorders;
+		/// <summary>
+		/// TODO
+		/// </summary>
+		public SaveInt Version => versionSaver;
+		/// <summary>
+		/// TODO
+		/// </summary>
+		public IReadOnlyList<SavesUpgrader> Upgraders => upgraders;
+		/// <summary>
+		/// TODO
+		/// </summary>
+		public ISet<SaveObject> SaveData => saveData;
 
 #if UNITY_EDITOR
 		void Reset()

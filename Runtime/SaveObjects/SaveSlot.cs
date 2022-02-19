@@ -74,12 +74,13 @@ namespace OmiyaGames.Saves
 		AsyncSlotSettingsRecorder slotRecorder = null;
 
 		/// <inheritdoc/>
+		public override ErrorHandling HandleLoadFailure => ErrorHandling.ProceedLogError;
+		/// <inheritdoc/>
 		public int Value
 		{
 			get => (CurrentState != SaveState.NotSetup) ? slotNumber : DEFAULT_SLOT;
 			set => SetValue(value, SaveState.Desynced);
 		}
-
 		/// <summary>
 		/// The maximum number of slots provided.
 		/// </summary>

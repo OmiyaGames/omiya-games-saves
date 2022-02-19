@@ -58,6 +58,8 @@ namespace OmiyaGames.Saves
 		[SerializeField]
 		[Tooltip("The starting default value.")]
 		T defaultValue;
+		[SerializeField]
+		ErrorHandling onLoadFailed;
 
 #if UNITY_EDITOR
 		[SerializeField]
@@ -84,12 +86,13 @@ namespace OmiyaGames.Saves
 		protected abstract WaitLoadValue<T> RetrieveValue();
 
 		/// <inheritdoc/>
+		public override ErrorHandling HandleLoadFailure => onLoadFailed;
+		/// <inheritdoc/>
 		public T Value
 		{
 			get => (CurrentState != SaveState.NotSetup) ? storedValue : DefaultValue;
 			set => SetValue(value, SaveState.Desynced);
 		}
-
 		/// <summary>
 		/// Default value set in the inspector.
 		/// </summary>

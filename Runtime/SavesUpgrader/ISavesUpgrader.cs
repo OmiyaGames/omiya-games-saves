@@ -51,6 +51,14 @@ namespace OmiyaGames.Saves
 	public interface ISavesUpgrader
 	{
 		/// <summary>
+		/// Results of running <seealso cref="Upgrade(SavesSettings, IAsyncSettingsRecorder)"/>.
+		/// </summary>
+		LoadState CurrentState
+		{
+			get;
+		}
+
+		/// <summary>
 		/// A coroutine that upgrades saved settings.
 		/// </summary>
 		/// <param name="sourcer"></param>

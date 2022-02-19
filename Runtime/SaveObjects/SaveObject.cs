@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -58,6 +57,13 @@ namespace OmiyaGames.Saves
 		string key;
 
 		/// <summary>
+		/// Indicate how to handle errors calling <seealso cref="Load"/>.
+		/// </summary>
+		public abstract ErrorHandling HandleLoadFailure
+		{
+			get;
+		}
+		/// <summary>
 		/// Indicates if this object has been setup.
 		/// </summary>
 		public SaveState CurrentState
@@ -115,6 +121,9 @@ namespace OmiyaGames.Saves
 
 		/// <inheritdoc/>
 		public override int GetHashCode() => (Key != null) ? Key.GetHashCode() : 0;
+
+		/// <inheritdoc/>
+		public override string ToString() => $"{name} ({GetType()}), Key: \"{Key}\"";
 
 		/// <inheritdoc/>
 		public void Dispose() => Setup(null);

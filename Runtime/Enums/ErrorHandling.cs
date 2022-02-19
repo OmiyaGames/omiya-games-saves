@@ -1,11 +1,8 @@
-﻿using System.Collections;
-using UnityEngine;
-
 namespace OmiyaGames.Saves
 {
 	///-----------------------------------------------------------------------
 	/// <remarks>
-	/// <copyright file="AsyncSettingsRecorder.cs" company="Omiya Games">
+	/// <copyright file="ErrorHandling.cs" company="Omiya Games">
 	/// The MIT License (MIT)
 	/// 
 	/// Copyright (c) 2022 Omiya Games
@@ -35,8 +32,8 @@ namespace OmiyaGames.Saves
 	/// </listheader>
 	/// <item>
 	/// <term>
-	/// <strong>Version:</strong> 0.2.0-exp.1<br/>
-	/// <strong>Date:</strong> 2/18/2022<br/>
+	/// <strong>Version:</strong> 0.2.0-exp<br/>
+	/// <strong>Date:</strong> 2/19/2022<br/>
 	/// <strong>Author:</strong> Taro Omiya
 	/// </term>
 	/// <description>
@@ -47,22 +44,29 @@ namespace OmiyaGames.Saves
 	/// </remarks>
 	///-----------------------------------------------------------------------
 	/// <summary>
-	/// A <see cref="ScriptableObject"/> implementation of <code>ISavesUpgrader</code>.
+	/// Indicates the loading state of a coroutine.
 	/// </summary>
-	/// <seealso cref="ISavesUpgrader"/>
-	public abstract class SavesUpgrader : ScriptableObject, ISavesUpgrader
+	public enum ErrorHandling
 	{
-		/// <inheritdoc/>
-		public LoadState CurrentState
-		{
-			get;
-			protected set;
-		} = LoadState.Loading;
-
-		/// <inheritdoc/>
-		public abstract IEnumerator Upgrade(SavesSettings sourcer, IAsyncSettingsRecorder recorder);
-
-		/// <inheritdoc/>
-		public override string ToString() => $"{name} ({GetType()})";
+		/// <summary>
+		/// Log an error, and don't proceed.
+		/// </summary>
+		HaltLogError,
+		/// <summary>
+		/// Log an error, but continue proceeding.
+		/// </summary>
+		ProceedLogError,
+		/// <summary>
+		/// Log a warning, but continue proceeding.
+		/// </summary>
+		ProceedLogWarning,
+		/// <summary>
+		/// Log the issue, and continue proceeding.
+		/// </summary>
+		ProceedLogInfo,
+		/// <summary>
+		/// Proceed without logging.
+		/// </summary>
+		Silence
 	}
 }

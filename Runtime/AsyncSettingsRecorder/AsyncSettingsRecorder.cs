@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Globalization;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -113,6 +112,9 @@ namespace OmiyaGames.Saves
 		{
 			keyToDeleteEventMap.Clear();
 		}
+
+		/// <inheritdoc/>
+		public override string ToString() => $"{name} ({GetType()})";
 
 		/// <inheritdoc/>
 		public void SubscribeToDeleteKey(string key, IAsyncSettingsRecorder.OnKeyDeleted action)

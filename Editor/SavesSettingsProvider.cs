@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using UnityEngine;
 using UnityEditor;
 using OmiyaGames.Global.Settings.Editor;
 
@@ -52,6 +51,8 @@ namespace OmiyaGames.Saves.Editor
 	/// </summary>
 	public class SavesSettingsProvider : BaseSettingsEditor<SavesSettings>
 	{
+		static SavesSettingsProvider lastInstance = null;
+
 		/// <inheritdoc/>
 		public override string DefaultSettingsFileName => "SavesSettings";
 		/// <inheritdoc/>
@@ -80,7 +81,42 @@ namespace OmiyaGames.Saves.Editor
 		public static SettingsProvider CreateSettingsProvider()
 		{
 			// Create the settings provider
-			return new SavesSettingsProvider(SavesManager.SIDEBAR_PATH, GetSearchKeywordsFromGUIContentProperties<Styles>());
+			lastInstance = new SavesSettingsProvider(SavesManager.SIDEBAR_PATH, GetSearchKeywordsFromGUIContentProperties<Styles>());
+			return lastInstance;
+		}
+
+		/// <summary>
+		/// Helper function for editor in adding new save data slots in save settings.
+		/// </summary>
+		/// <param name="newData">
+		/// All the data to be added into settings.
+		/// </param>
+		/// <returns></returns>
+		/// <exception cref="System.NotImplementedException">
+		/// If this function is *not* called from the editor.
+		/// </exception>
+		public static int AddSaveData(params SaveObject[] newData)
+		{
+			// Confirm there are data to add,
+			// and that there's an instance of SavesSettings.
+			int returnNumSavesAdded = 0;
+			if ((newData != null) && (newData.Length > 0) && (EditorBuildSettings.TryGetConfigObject(SavesManager.CONFIG_NAME, out SavesSettings settings)))
+			{
+				// Add all the new data into settings
+				foreach (var data in newData)
+				{
+					if (data != null)
+					{
+						settings.SaveData.Add(data);
+						++returnNumSavesAdded;
+					}
+				}
+
+				// Save these changes
+				EditorUtility.SetDirty(settings);
+				AssetDatabase.SaveAssetIfDirty(settings);
+			}
+			return returnNumSavesAdded;
 		}
 
 		class Styles
