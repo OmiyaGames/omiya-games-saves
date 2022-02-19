@@ -212,9 +212,8 @@ namespace OmiyaGames.Saves
 			}
 			else
 			{
-				// FIXME: composite all the recorders into a single instance.
-				throw new System.NotImplementedException();
-				//return capturedRecorders[0];
+				// Composite the recorders into a single list
+				return new AsyncCompositeSettingsRecorder(capturedRecorders);
 			}
 		}
 
