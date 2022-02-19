@@ -50,7 +50,7 @@ namespace OmiyaGames.Saves
 	/// A <see cref="ScriptableObject"/> implementation of <code>ISavesUpgrader</code>.
 	/// </summary>
 	/// <seealso cref="ISavesUpgrader"/>
-	public abstract class AsyncSettingsRecorder : ScriptableObject, ISavesUpgrader
+	public abstract class SavesUpgrader : ScriptableObject, ISavesUpgrader
 	{
 		public abstract IEnumerator Upgrade(SavesSettings sourcer, IAsyncSettingsRecorder recorder);
 	}

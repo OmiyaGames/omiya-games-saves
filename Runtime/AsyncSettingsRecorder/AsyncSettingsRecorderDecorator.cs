@@ -60,7 +60,7 @@ namespace OmiyaGames.Saves
 		/// This method is actually a wrapper of <code>GetInt(string, int)</code>.
 		/// </summary>
 		/// <seealso cref="GetInt(string, int)"/>
-		public virtual WaitLoadValue<bool> GetBool(string key, bool defaultValue)
+		public override WaitLoadValue<bool> GetBool(string key, bool defaultValue)
 		{
 			WaitLoadValue<int> source = GetInt(key, WaitLoadBool.ToInt(defaultValue));
 			return new WaitLoadBool(source);
@@ -71,7 +71,7 @@ namespace OmiyaGames.Saves
 		/// This method is actually a wrapper of <code>SetInt(string, int)</code>.
 		/// </summary>
 		/// <seealso cref="SetInt(string, int)"/>
-		public virtual void SetBool(string key, bool value)
+		public override void SetBool(string key, bool value)
 		{
 			SetInt(key, WaitLoadBool.ToInt(value));
 		}
@@ -81,7 +81,7 @@ namespace OmiyaGames.Saves
 		/// This method is actually a wrapper of <code>GetInt(string, int)</code>.
 		/// </summary>
 		/// <seealso cref="GetInt(string, int)"/>
-		public virtual WaitLoadValue<TEnum> GetEnum<TEnum>(string key, TEnum defaultValue) where TEnum : struct, IConvertible
+		public override WaitLoadValue<TEnum> GetEnum<TEnum>(string key, TEnum defaultValue)
 		{
 			WaitLoadValue<int> source = GetInt(key, WaitLoadEnum<TEnum>.ToInt(defaultValue));
 			return new WaitLoadEnum<TEnum>(source);
@@ -92,7 +92,7 @@ namespace OmiyaGames.Saves
 		/// This method is actually a wrapper of <code>SetInt(string, int)</code>.
 		/// </summary>
 		/// <seealso cref="SetInt(string, int)"/>
-		public virtual void SetEnum<TEnum>(string key, TEnum value) where TEnum : struct, IConvertible
+		public override void SetEnum<TEnum>(string key, TEnum value)
 		{
 			if (typeof(TEnum).IsEnum == false)
 			{
@@ -106,7 +106,7 @@ namespace OmiyaGames.Saves
 		/// This method is actually a wrapper of <code>GetString(string, string)</code>.
 		/// </summary>
 		/// <seealso cref="GetString(string, string)"/>
-		public virtual WaitLoadValue<DateTime> GetDateTimeUtc(string key, DateTime defaultValue)
+		public override WaitLoadValue<DateTime> GetDateTimeUtc(string key, DateTime defaultValue)
 		{
 			WaitLoadValue<string> source = GetString(key, WaitLoadDateTime.ToString(defaultValue));
 			return new WaitLoadDateTime(source);
@@ -118,7 +118,7 @@ namespace OmiyaGames.Saves
 		/// This method is actually a wrapper of <code>SetString(string, string)</code>.
 		/// </summary>
 		/// <seealso cref="SetString(string, string)"/>
-		public virtual void SetDateTimeUtc(string key, DateTime value)
+		public override void SetDateTimeUtc(string key, DateTime value)
 		{
 			SetString(key, WaitLoadDateTime.ToString(value));
 		}
@@ -128,7 +128,7 @@ namespace OmiyaGames.Saves
 		/// This method is actually a wrapper of <code>GetString(string, string)</code>.
 		/// </summary>
 		/// <seealso cref="GetString(string, string)"/>
-		public virtual WaitLoadValue<TimeSpan> GetTimeSpan(string key, TimeSpan defaultValue)
+		public override WaitLoadValue<TimeSpan> GetTimeSpan(string key, TimeSpan defaultValue)
 		{
 			var source = GetString(key, WaitLoadTimeSpan.ToString(defaultValue));
 			return new WaitLoadTimeSpan(source);
@@ -139,7 +139,7 @@ namespace OmiyaGames.Saves
 		/// This method is actually a wrapper of <code>SetString(string, string)</code>.
 		/// </summary>
 		/// <seealso cref="SetString(string, string)"/>
-		public virtual void SetTimeSpan(string key, TimeSpan value)
+		public override void SetTimeSpan(string key, TimeSpan value)
 		{
 			SetString(key, WaitLoadTimeSpan.ToString(value));
 		}

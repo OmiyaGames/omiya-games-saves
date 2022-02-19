@@ -97,7 +97,7 @@ namespace OmiyaGames.Saves
 			{
 				recorders = new SupportedRecorder[]
 				{
-					new SupportedRecorder(SupportedPlatforms.AllPlatforms, defaultRecorder);
+					new SupportedRecorder(SupportedPlatforms.AllPlatforms, defaultRecorder)
 				};
 			}
 			

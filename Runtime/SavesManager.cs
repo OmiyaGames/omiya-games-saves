@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using OmiyaGames.Managers;
 using OmiyaGames.Global;
 using OmiyaGames.Global.Settings;
 
@@ -74,195 +73,26 @@ namespace OmiyaGames.Saves
 
 		/// <inheritdoc/>
 		protected override string AddressableName => ADDRESSABLE_NAME;
-		/// <summary>
-		/// TODO
-		/// </summary>
-		public static float MuteVolumeDb => GetData().MuteVolumeDb;
-		/// <summary>
-		/// TODO
-		/// </summary>
-		public static float MainVolumeDb
-		{
-			get
-			{
-				SavesSettings setting = GetData();
-				return GetVolumeDb(setting, setting.MainVolume);
-			}
-		}
-		/// <summary>
-		/// TODO
-		/// </summary>
-		public static float MusicVolumeDb
-		{
-			get
-			{
-				SavesSettings setting = GetData();
-				return GetVolumeDb(setting, setting.MusicVolume);
-			}
-		}
-		/// <summary>
-		/// TODO
-		/// </summary>
-		public static float SoundEffectsVolumeDb
-		{
-			get
-			{
-				SavesSettings setting = GetData();
-				return GetVolumeDb(setting, setting.SoundEffectsVolume);
-			}
-		}
-		/// <summary>
-		/// TODO
-		/// </summary>
-		public static float VoiceVolumeDb
-		{
-			get
-			{
-				SavesSettings setting = GetData();
-				return GetVolumeDb(setting, setting.VoiceVolume);
-			}
-		}
-		/// <summary>
-		/// TODO
-		/// </summary>
-		public static float AmbienceVolumeDb
-		{
-			get
-			{
-				SavesSettings setting = GetData();
-				return GetVolumeDb(setting, setting.AmbienceVolume);
-			}
-		}
+		//public static float MuteVolumeDb => GetData().MuteVolumeDb;
+		// void Start()
+		// {
+		// 	// Retrieve settings
+		// 	SavesSettings SavesData = GetData();
+		// 	GameSettings saveData = Singleton.Get<GameSettings>();
+		// 	if (saveData != null)
+		// 	{
+		// 		UpdateVolumeDb(SavesData, SavesData.MusicVolume, saveData.MusicVolume, saveData.IsMusicMuted);
+		// 		UpdateVolumeDb(SavesData, SavesData.SoundEffectsVolume, saveData.SoundVolume, saveData.IsSoundMuted);
+		// 	}
 
-		// FIXME: convert this to an ITrackable
-		/// <summary>
-		/// TODO
-		/// </summary>
-		public static float MainVolumePercent
-		{
-			get
-			{
-				// FIXME: this is incorrect
-				SavesSettings setting = GetData();
-				return GetVolumeDb(setting, setting.MainVolume);
-			}
-			set
-			{
-				SavesSettings setting = GetData();
-				float volumeDecibels = Mathf.Clamp01(value);
-				volumeDecibels = ConvertPercentToVolumeDb(setting, volumeDecibels);
-				SetMixerFloat(setting, setting.MainVolume, volumeDecibels);
-			}
-		}
+		// 	// Check the TimeManager event
+		// 	TimeManager.OnAfterManualPauseChanged += OnPauseChanged;
+		// }
 
-		/// <summary>
-		/// TODO
-		/// </summary>
-		public static float MainPitch
-		{
-			get
-			{
-				SavesSettings setting = GetData();
-				return GetPitch(setting, setting.MainPitch);
-			}
-			set
-			{
-				SavesSettings setting = GetData();
-				SetMixerFloat(setting, setting.MainPitch, value);
-			}
-		}
-		/// <summary>
-		/// TODO
-		/// </summary>
-		public static float MusicPitch
-		{
-			get
-			{
-				SavesSettings setting = GetData();
-				return GetPitch(setting, setting.MusicPitch);
-			}
-			set
-			{
-				SavesSettings setting = GetData();
-				SetMixerFloat(setting, setting.MusicPitch, value);
-			}
-		}
-		/// <summary>
-		/// TODO
-		/// </summary>
-		public static float SoundEffectsPitch
-		{
-			get
-			{
-				SavesSettings setting = GetData();
-				return GetPitch(setting, setting.SoundEffectsPitch);
-			}
-			set
-			{
-				SavesSettings setting = GetData();
-				SetMixerFloat(setting, setting.SoundEffectsPitch, value);
-			}
-		}
-		/// <summary>
-		/// TODO
-		/// </summary>
-		public static float VoicePitch
-		{
-			get
-			{
-				SavesSettings setting = GetData();
-				return GetPitch(setting, setting.VoicePitch);
-			}
-			set
-			{
-				SavesSettings setting = GetData();
-				SetMixerFloat(setting, setting.VoicePitch, value);
-			}
-		}
-		/// <summary>
-		/// TODO
-		/// </summary>
-		public static float AmbiencePitch
-		{
-			get
-			{
-				SavesSettings setting = GetData();
-				return GetPitch(setting, setting.AmbiencePitch);
-			}
-			set
-			{
-				SavesSettings setting = GetData();
-				SetMixerFloat(setting, setting.AmbiencePitch, value);
-			}
-		}
-
-		/// <summary>
-		/// TODO
-		/// </summary>
-		/// <param name="percent"></param>
-		/// <returns></returns>
-		public static float ConvertPercentToVolumeDb(float percent) => ConvertPercentToVolumeDb(GetData(), percent);
-
-		// Start is called before the first frame update
-		void Start()
-		{
-			// Retrieve settings
-			SavesSettings SavesData = GetData();
-			GameSettings saveData = Singleton.Get<GameSettings>();
-			if (saveData != null)
-			{
-				UpdateVolumeDb(SavesData, SavesData.MusicVolume, saveData.MusicVolume, saveData.IsMusicMuted);
-				UpdateVolumeDb(SavesData, SavesData.SoundEffectsVolume, saveData.SoundVolume, saveData.IsSoundMuted);
-			}
-
-			// Check the TimeManager event
-			TimeManager.OnAfterManualPauseChanged += OnPauseChanged;
-		}
-
-		protected override void OnDestroy()
-		{
-			base.OnDestroy();
-			TimeManager.OnAfterManualPauseChanged -= OnPauseChanged;
-		}
+		// protected override void OnDestroy()
+		// {
+		// 	base.OnDestroy();
+		// 	TimeManager.OnAfterManualPauseChanged -= OnPauseChanged;
+		// }
 	}
 }
