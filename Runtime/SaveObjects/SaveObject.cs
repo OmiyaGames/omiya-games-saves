@@ -49,7 +49,7 @@ namespace OmiyaGames.Saves
 	/// <summary>
 	/// Interface for implementing saving and loading a value.
 	/// </summary>
-	public abstract partial class SaveObject : ScriptableObject, System.IEquatable<SaveObject>, System.IDisposable
+	public abstract partial class SaveObject : ScriptableObject, System.IDisposable
 	{
 		public const string RANDOM_CHAR_ARRAY = "0123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM.,;:?-_=+!@#$%&*";
 		const string PREPEND_KEY = "Key - ";
@@ -142,34 +142,33 @@ namespace OmiyaGames.Saves
 		}
 
 		/// <inheritdoc/>
-		public bool Equals(SaveObject other) => (other != null) ? string.Equals(key, other.key) : false;
-
-		/// <inheritdoc/>
-		public override int GetHashCode() => (Key != null) ? Key.GetHashCode() : 0;
-
-		/// <inheritdoc/>
 		public override string ToString() => $"{name} ({GetType()}), Key: \"{Key}\"";
 
 		/// <inheritdoc/>
 		public void Dispose() => Setup(null);
 	}
 
+	/// <summary>
+	/// TODO
+	/// </summary>
 	public class SaveObjectComparer : IEqualityComparer<SaveObject>
 	{
+		static string GetKey(SaveObject x) => (x.Key != null) ? x.Key : string.Empty;
+
 		/// <inheritdoc/>
 		public bool Equals(SaveObject x, SaveObject y)
 		{
-			if (x == null)
+			if ((x != null) && (y != null))
 			{
-				return (y == null) ? true : false;
+				return string.Equals(GetKey(x), GetKey(y));
 			}
 			else
 			{
-				return x.Equals(y);
+				return x == y;
 			}
 		}
 
 		/// <inheritdoc/>
-		public int GetHashCode(SaveObject obj) => (obj != null) ? obj.GetHashCode() : 0;
+		public int GetHashCode(SaveObject obj) => (obj != null) ? GetKey(obj).GetHashCode() : 0;
 	}
 }
