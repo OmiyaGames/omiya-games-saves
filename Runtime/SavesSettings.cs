@@ -85,7 +85,7 @@ namespace OmiyaGames.Saves
 		[SerializeField]
 		SavesUpgrader[] upgraders;
 		[SerializeField]
-		SerializableHashSet<SaveObject> saveData = new();
+		SerializableListSet<SaveObject> saveData = new();
 
 		/// <summary>
 		/// TODO
