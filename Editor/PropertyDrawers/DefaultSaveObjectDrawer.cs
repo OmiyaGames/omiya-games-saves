@@ -49,12 +49,13 @@ namespace OmiyaGames.Saves.Editor
 	/// <summary>
 	/// TODO
 	/// </summary>
+#if false
 	[CustomPropertyDrawer(typeof(SaveObject))]
 	public class DefaultSaveObjectDrawer : PropertyDrawer
 	{
 		// FIXME: do something!
 	}
-#if false
+
 	public class SceneReferencePropertyDrawer : PropertyDrawer
 	{
 		// The exact name of the asset Object variable in the SceneReference object

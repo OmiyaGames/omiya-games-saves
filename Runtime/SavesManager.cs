@@ -123,7 +123,7 @@ namespace OmiyaGames.Saves
 				}
 
 				// Check if this version number is smaller than expected
-				if (data.Version.Value < data.Upgraders.Count)
+				if (data.Version.Value < data.Upgraders.Length)
 				{
 					// Run the upgraders
 					yield return manager.StartCoroutine(RunUpgraders(manager, data));
@@ -143,6 +143,88 @@ namespace OmiyaGames.Saves
 				manager.setupState = manager.lastCoroutineState;
 			}
 		}
+
+		/// <summary>
+		/// TODO
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="key"></param>
+		/// <param name="saveObject"></param>
+		/// <returns></returns>
+		/// <exception cref="System.Exception"></exception>
+		public static bool TryGetSave<T>(string key, out T saveObject) where T : SaveObject
+		{
+			// Check if setup yet
+			SavesManager manager = CheckInstance();
+
+			// Setup return stuff
+			saveObject = null;
+			bool returnFlag = manager.keyToSaveMap.ContainsKey(key);
+
+			// Check if key exists
+			if (returnFlag)
+			{
+				saveObject = manager.keyToSaveMap[key] as T;
+			}
+			return returnFlag;
+		}
+
+		public static bool Contains(SaveObject saveObject)
+		{
+			// Check if setup yet
+			SavesManager manager = CheckInstance();
+
+			// Attempt to grab a save object with the same key.
+			bool returnFlag = false;
+			if (manager.keyToSaveMap.TryGetValue(saveObject.Key, out var compare))
+			{
+				// Verify these are the same objects
+				returnFlag = (saveObject == compare);
+			}
+			return returnFlag;
+		}
+
+		/// <summary>
+		/// TODO
+		/// </summary>
+		/// <returns></returns>
+		public static WaitLoad Save() => CheckInstance().currentRecorder.Save();
+
+		/// <summary>
+		/// TODO
+		/// </summary>
+		/// <returns></returns>
+		public static WaitLoad DeleteAllKeys() => CheckInstance().currentRecorder.DeleteAll();
+
+		/// <summary>
+		/// TODO
+		/// </summary>
+		/// <param name="key"></param>
+		/// <returns></returns>
+		public static WaitLoad DeleteKey(string key) => CheckInstance().currentRecorder.DeleteKey(key);
+
+		/// <summary>
+		/// TODO
+		/// </summary>
+		/// <param name="key"></param>
+		/// <returns></returns>
+		public static WaitLoadValue<bool> HasKey(string key) => CheckInstance().currentRecorder.HasKey(key);
+
+		/// <summary>
+		/// TODO
+		/// </summary>
+		/// <param name="key"></param>
+		/// <param name="action"></param>
+		public static void SubscribeToDeleteKey(string key, IAsyncSettingsRecorder.OnKeyDeleted action) =>
+			CheckInstance().currentRecorder.SubscribeToDeleteKey(key, action);
+
+		/// <summary>
+		/// TODO
+		/// </summary>
+		/// <param name="key"></param>
+		/// <param name="action"></param>
+		public static void UnsubscribeToDeleteKey(string key, IAsyncSettingsRecorder.OnKeyDeleted action) =>
+			CheckInstance().currentRecorder.UnsubscribeToDeleteKey(key, action);
 
 		/// <inheritdoc/>
 		public void Dispose()
@@ -237,13 +319,13 @@ namespace OmiyaGames.Saves
 			manager.lastCoroutineState = LoadState.Loading;
 
 			// Go through all the upgraders
-			for (int i = data.Version.Value; i < data.Upgraders.Count; ++i)
+			for (int i = data.Version.Value; i < data.Upgraders.Length; ++i)
 			{
 				// Run the upgrade
-				yield return data.Upgraders[i].Upgrade(data, manager.currentRecorder);
+				yield return manager.StartCoroutine(data.Upgraders[i].Upgrade(data, manager.currentRecorder));
 
 				// Check if upgrade failed
-				if (data.Upgraders[i].CurrentState == LoadState.Fail)
+				if (data.Upgraders[i].CurrentState != LoadState.Success)
 				{
 					// Print an error, and flag that this coroutine failed
 					Debug.LogErrorFormat(manager, "Unable to run upgrader \"{0}\", to version {1}", data.Upgraders[i], i);
@@ -256,7 +338,7 @@ namespace OmiyaGames.Saves
 			}
 
 			// Set the version
-			data.Version.Value = data.Upgraders.Count;
+			data.Version.Value = data.Upgraders.Length;
 			WaitLoad loadStatus = manager.currentRecorder.Save();
 			yield return loadStatus;
 
@@ -317,6 +399,16 @@ namespace OmiyaGames.Saves
 
 			// Indicate this coroutine succeeded
 			manager.lastCoroutineState = LoadState.Success;
+		}
+
+		static SavesManager CheckInstance()
+		{
+			SavesManager manager = GetInstance();
+			if (manager.setupState != LoadState.Success)
+			{
+				throw new System.Exception("SavesManager is not setup yet.");
+			}
+			return manager;
 		}
 		#endregion
 	}

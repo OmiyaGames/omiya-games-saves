@@ -90,7 +90,7 @@ namespace OmiyaGames.Saves
 		/// <summary>
 		/// TODO
 		/// </summary>
-		public IReadOnlyList<SupportedRecorder> Recorders => recorders;
+		public SupportedRecorder[] Recorders => recorders;
 		/// <summary>
 		/// TODO
 		/// </summary>
@@ -98,7 +98,7 @@ namespace OmiyaGames.Saves
 		/// <summary>
 		/// TODO
 		/// </summary>
-		public IReadOnlyList<SavesUpgrader> Upgraders => upgraders;
+		public SavesUpgrader[] Upgraders => upgraders;
 		/// <summary>
 		/// TODO
 		/// </summary>

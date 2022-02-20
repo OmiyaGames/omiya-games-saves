@@ -59,5 +59,13 @@ namespace OmiyaGames.Saves
 
 		/// <inheritdoc/>
 		protected override WaitLoadValue<float> RetrieveValue() => Recorder.GetFloat(Key, DefaultValue);
+
+		/// <inheritdoc/>
+		public override void Reset()
+		{
+			base.Reset();
+			MinValue = 0f;
+			MaxValue = 1f;
+		}
 	}
 }

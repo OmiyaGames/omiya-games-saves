@@ -68,7 +68,11 @@ namespace OmiyaGames.Saves
 		/// <summary>
 		/// TODO
 		/// </summary>
-		public T MinValue => minValue;
+		public T MinValue
+		{
+			get => minValue;
+			protected set => minValue = value;
+		}
 		/// <summary>
 		/// TODO
 		/// </summary>
@@ -76,7 +80,11 @@ namespace OmiyaGames.Saves
 		/// <summary>
 		/// TODO
 		/// </summary>
-		public T MaxValue => maxValue;
+		public T MaxValue
+		{
+			get => maxValue;
+			protected set => maxValue = value;
+		}
 
 		/// <inheritdoc/>
 		protected override T SetValue(T value, SaveState setState)
@@ -92,11 +100,11 @@ namespace OmiyaGames.Saves
 		/// <returns></returns>
 		protected virtual T Clamp(T value)
 		{
-			if (HasMin && (MinValue.CompareTo(value) < 0))
+			if (HasMin && (MinValue.CompareTo(value) > 0))
 			{
 				value = MinValue;
 			}
-			else if(HasMax && (MaxValue.CompareTo(value) > 0))
+			else if(HasMax && (MaxValue.CompareTo(value) < 0))
 			{
 				value = MaxValue;
 			}

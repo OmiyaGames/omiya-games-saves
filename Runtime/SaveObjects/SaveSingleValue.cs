@@ -59,7 +59,7 @@ namespace OmiyaGames.Saves
 		[Tooltip("The starting default value.")]
 		T defaultValue;
 		[SerializeField]
-		ErrorHandling onLoadFailed;
+		ErrorHandling onLoadFailed = ErrorHandling.ProceedLogWarning;
 
 #if UNITY_EDITOR
 		[SerializeField]
@@ -134,6 +134,12 @@ namespace OmiyaGames.Saves
 				}
 			};
 			return loadInt;
+		}
+
+		/// <inheritdoc/>
+		public override void Reset()
+		{
+			base.Reset();
 		}
 
 		/// <summary>

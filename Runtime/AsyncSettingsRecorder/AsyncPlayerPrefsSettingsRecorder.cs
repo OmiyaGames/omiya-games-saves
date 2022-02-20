@@ -49,7 +49,6 @@ namespace OmiyaGames.Saves
 	/// An implementation of <seealso cref="IAsyncSettingsRecorder"/>
 	/// using <seealso cref="PlayerPrefs"/>.
 	/// </summary>
-	[CreateAssetMenu(menuName = "Omiya Games/Saves/PlayerPrefsRecorder", fileName = "PlayerPrefsRecorder")]
 	public class AsyncPlayerPrefsSettingsRecorder : AsyncSettingsRecorderDecorator
 	{
 		/// <inheritdoc/>

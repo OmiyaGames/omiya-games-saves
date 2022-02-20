@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -50,8 +49,12 @@ namespace OmiyaGames.Saves
 	/// <summary>
 	/// Interface for implementing saving and loading a value.
 	/// </summary>
-	public abstract partial class SaveObject : ScriptableObject, IEquatable<SaveObject>, IDisposable
+	public abstract partial class SaveObject : ScriptableObject, System.IEquatable<SaveObject>, System.IDisposable
 	{
+		public const string RANDOM_CHAR_ARRAY = "0123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM.,;:?-_=+!@#$%&*";
+		const string PREPEND_KEY = "Key - ";
+		const int RANDOM_KEY_LENGTH = 12;
+
 		[SerializeField]
 		[Tooltip("A unique per save object.")]
 		string key;
@@ -114,6 +117,28 @@ namespace OmiyaGames.Saves
 			{
 				CurrentState = SaveState.Desynced;
 			}
+		}
+
+		/// <summary>
+		/// TODO
+		/// </summary>
+		public virtual void Reset()
+		{
+			// Setup a text builder
+			System.Text.StringBuilder builder = new(PREPEND_KEY.Length + RANDOM_KEY_LENGTH);
+
+			// Prepend common key phrase
+			builder.Append(PREPEND_KEY);
+
+			// Generate a short random phrase
+			for (int i = 0; i < RANDOM_KEY_LENGTH; ++i)
+			{
+				int randomIndex = Random.Range(0, RANDOM_CHAR_ARRAY.Length);
+				builder.Append(RANDOM_CHAR_ARRAY[randomIndex]);
+			}
+
+			// Set member variable
+			key = builder.ToString();
 		}
 
 		/// <inheritdoc/>
