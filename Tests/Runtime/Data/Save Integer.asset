@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: Key - gyRI;i%t+5;&
   comments: 
-  defaultValue: 0
+  defaultValue: 5
   onLoadFailed: 3
-  hasMin: 0
-  minValue: 0
-  hasMax: 0
-  maxValue: 10
+  hasMin: 1
+  minValue: 1
+  hasMax: 1
+  maxValue: 5
