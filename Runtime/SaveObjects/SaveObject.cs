@@ -56,8 +56,13 @@ namespace OmiyaGames.Saves
 		const int RANDOM_KEY_LENGTH = 12;
 
 		[SerializeField]
-		[Tooltip("A unique per save object.")]
 		string key;
+
+#if UNITY_EDITOR
+		[SerializeField]
+		[TextArea]
+		string comments;
+#endif
 
 		/// <summary>
 		/// Indicate how to handle errors calling <seealso cref="Load"/>.
@@ -120,7 +125,7 @@ namespace OmiyaGames.Saves
 		}
 
 		/// <summary>
-		/// TODO
+		/// Set default values here.
 		/// </summary>
 		public virtual void Reset()
 		{
@@ -139,6 +144,11 @@ namespace OmiyaGames.Saves
 
 			// Set member variable
 			key = builder.ToString();
+
+			// Setup comments
+#if UNITY_EDITOR
+			comments = "(Add notes here!)";
+#endif
 		}
 
 		/// <inheritdoc/>

@@ -1,8 +1,14 @@
-namespace OmiyaGames.Saves
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEditor;
+using UnityEngine.UIElements;
+
+namespace OmiyaGames.Saves.Editor
 {
 	///-----------------------------------------------------------------------
 	/// <remarks>
-	/// <copyright file="ErrorHandling.cs" company="Omiya Games">
+	/// <copyright file="SaveBoolEditor.cs" company="Omiya Games">
 	/// The MIT License (MIT)
 	/// 
 	/// Copyright (c) 2022 Omiya Games
@@ -33,7 +39,7 @@ namespace OmiyaGames.Saves
 	/// <item>
 	/// <term>
 	/// <strong>Version:</strong> 0.2.0-exp<br/>
-	/// <strong>Date:</strong> 2/19/2022<br/>
+	/// <strong>Date:</strong> 2/20/2022<br/>
 	/// <strong>Author:</strong> Taro Omiya
 	/// </term>
 	/// <description>
@@ -44,33 +50,18 @@ namespace OmiyaGames.Saves
 	/// </remarks>
 	///-----------------------------------------------------------------------
 	/// <summary>
-	/// Indicates the loading state of a coroutine.
+	/// Editor for <seealso cref="SaveBool"/>.
 	/// </summary>
-	public enum ErrorHandling
+	[CustomEditor(typeof(SaveBool))]
+	public class SaveBoolEditor : SaveObjectEditor
 	{
-		/// <summary>
-		/// Log an error, and don't proceed.
-		/// </summary>
-		HaltLogError,
-		/// <summary>
-		/// Log an error, but continue proceeding.
-		/// </summary>
-		ProceedLogError,
-		/// <summary>
-		/// Log a warning, but continue proceeding.
-		/// </summary>
-		ProceedLogWarning,
-		/// <summary>
-		/// Log the issue, and continue proceeding.
-		/// </summary>
-		ProceedLogInfo,
-		/// <summary>
-		/// Proceed without logging.
-		/// </summary>
-		Silence,
-		/// <summary>
-		/// Number of potential options.
-		/// </summary>
-		NumberOfOptions
+		const string UXML_PATH = UXML_DIRECTORY + "SaveBoolContent.uxml";
+
+		/// <inheritdoc/>
+		protected override void FillContent(VisualElement content)
+		{
+			AssetDatabase.LoadAssetAtPath<VisualTreeAsset>(UXML_PATH).CloneTree(content);
+			SetupErrorHandlingDropDown(content, "onLoadFailed", "onLoadFailed");
+		}
 	}
 }

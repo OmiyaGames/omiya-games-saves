@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-using UnityEditor.AnimatedValues;
 using OmiyaGames.Common.Editor;
 
 namespace OmiyaGames.Saves.Editor
@@ -55,6 +52,9 @@ namespace OmiyaGames.Saves.Editor
 	[CustomPropertyDrawer(typeof(SaveFloat))]
 	[CustomPropertyDrawer(typeof(SaveBool))]
 	[CustomPropertyDrawer(typeof(SaveString))]
+	[CustomPropertyDrawer(typeof(SaveDateTime))]
+	[CustomPropertyDrawer(typeof(SaveTimeSpan))]
+	[CustomPropertyDrawer(typeof(SaveEnum<>))]
 	[CustomPropertyDrawer(typeof(SaveObjectInfoAttribute))]
 	public class SaveObjectInfoDrawer : PropertyDrawer
 	{
@@ -172,12 +172,12 @@ namespace OmiyaGames.Saves.Editor
 					break;
 
 				default:
-					// FIXME: draw buttons?
-					buttonContent.text = "(No Action)";
-					buttonContent.tooltip = "Not implemented";
+					// Draw the setup button
+					buttonContent.text = "Open Save Settings";
+					buttonContent.tooltip = "Opens the save settings window so one can set it up.";
 					if (GUI.Button(buttonPosition, buttonContent))
 					{
-						// FIXME: do something!
+						SettingsService.OpenProjectSettings(SavesManager.SIDEBAR_PATH);
 					}
 					break;
 			}
@@ -195,127 +195,5 @@ namespace OmiyaGames.Saves.Editor
 				return EditorGUIUtility.singleLineHeight;
 			}
 		}
-
-		///// <summary>
-		///// Draws info box of the provided scene
-		///// </summary>
-		//void DrawSceneInfoGUI(Rect position, int sceneControlID)
-		//{
-		//	// Label Prefix
-		//	var iconContent = new GUIContent();
-		//	var labelContent = new GUIContent();
-
-		//	// Missing from build scenes
-		//	if (buildScene.buildIndex == -1)
-		//	{
-		//		iconContent = EditorGUIUtility.IconContent("d_winbtn_mac_close");
-		//		labelContent.text = "NOT In Build";
-		//		labelContent.tooltip = "This scene is NOT in build settings.\nIt will be NOT included in builds.";
-		//	}
-		//	// In build scenes and enabled
-		//	else if (buildScene.scene.enabled)
-		//	{
-		//		iconContent = EditorGUIUtility.IconContent("d_winbtn_mac_max");
-		//		labelContent.text = "BuildIndex: " + buildScene.buildIndex;
-		//		labelContent.tooltip = "This scene is in build settings and ENABLED.\nIt will be included in builds.";
-		//	}
-		//	// In build scenes and disabled
-		//	else
-		//	{
-		//		iconContent = EditorGUIUtility.IconContent("d_winbtn_mac_min");
-		//		labelContent.text = "BuildIndex: " + buildScene.buildIndex;
-		//		labelContent.tooltip = "This scene is in build settings and DISABLED.\nIt will be NOT included in builds.";
-		//	}
-
-		//	// Left status label
-		//	using (new EditorGUI.DisabledScope(readOnly))
-		//	{
-		//		var labelRect = DrawUtils.GetLabelRect(position);
-		//		var iconRect = labelRect;
-		//		iconRect.width = iconContent.image.width + PAD_SIZE;
-		//		labelRect.width -= iconRect.width;
-		//		labelRect.x += iconRect.width;
-		//		EditorGUI.PrefixLabel(iconRect, sceneControlID, iconContent);
-		//		EditorGUI.PrefixLabel(labelRect, sceneControlID, labelContent);
-		//	}
-
-		//	// Right context buttons
-		//	var buttonRect = DrawUtils.GetFieldRect(position);
-		//	buttonRect.width = (buttonRect.width) / 3;
-
-		//	var tooltipMsg = "";
-		//	using (new EditorGUI.DisabledScope(readOnly))
-		//	{
-		//		// NOT in build settings
-		//		if (buildScene.buildIndex == -1)
-		//		{
-		//			buttonRect.width *= 2;
-		//			var addIndex = EditorBuildSettings.scenes.Length;
-		//			tooltipMsg = "Add this scene to build settings. It will be appended to the end of the build scenes as buildIndex: " + addIndex + "." + readOnlyWarning;
-		//			if (DrawUtils.ButtonHelper(buttonRect, "Add...", "Add (buildIndex " + addIndex + ")", EditorStyles.miniButtonLeft, tooltipMsg))
-		//				BuildUtils.AddBuildScene(buildScene);
-		//			buttonRect.width /= 2;
-		//			buttonRect.x += buttonRect.width;
-		//		}
-		//		// In build settings
-		//		else
-		//		{
-		//			var isEnabled = buildScene.scene.enabled;
-		//			var stateString = isEnabled ? "Disable" : "Enable";
-		//			tooltipMsg = stateString + " this scene in build settings.\n" + (isEnabled ? "It will no longer be included in builds" : "It will be included in builds") + "." + readOnlyWarning;
-
-		//			// FIXME: show buttons
-		//			//if (DrawUtils.ButtonHelper(buttonRect, stateString, stateString + " In Build", EditorStyles.miniButtonLeft, tooltipMsg))
-		//			//	BuildUtils.SetBuildSceneState(buildScene, !isEnabled);
-		//			buttonRect.x += buttonRect.width;
-
-		//			tooltipMsg = "Completely remove this scene from build settings.\nYou will need to add it again for it to be included in builds!" + readOnlyWarning;
-		//			if (DrawUtils.ButtonHelper(buttonRect, "Remove...", "Remove from Build", EditorStyles.miniButtonMid, tooltipMsg))
-		//				BuildUtils.RemoveBuildScene(buildScene);
-		//		}
-		//	}
-
-		//	buttonRect.x += buttonRect.width;
-
-		//	tooltipMsg = "Open the 'Build Settings' Window for managing scenes." + readOnlyWarning;
-		//	if (DrawUtils.ButtonHelper(buttonRect, "Settings", "Build Settings", EditorStyles.miniButtonRight, tooltipMsg))
-		//	{
-		//		BuildUtils.OpenBuildSettings();
-		//	}
-		//}
-
-		//private static class DrawUtils
-		//{
-		//	/// <summary>
-		//	/// Draw a GUI button, choosing between a short and a long button text based on if it fits
-		//	/// </summary>
-		//	public static bool ButtonHelper(Rect position, string msgShort, string msgLong, GUIStyle style, string tooltip = null)
-		//	{
-		//		var content = new GUIContent(msgLong) { tooltip = tooltip };
-
-		//		var longWidth = style.CalcSize(content).x;
-		//		if (longWidth > position.width) content.text = msgShort;
-
-		//		return GUI.Button(position, content, style);
-		//	}
-
-		//	/// <summary>
-		//	/// Given a position rect, get its field portion
-		//	/// </summary>
-		//	public static Rect GetFieldRect(Rect position)
-		//	{
-		//		position.width -= EditorGUIUtility.labelWidth;
-		//		position.x += EditorGUIUtility.labelWidth;
-		//		return position;
-		//	}
-		//	/// <summary>
-		//	/// Given a position rect, get its label portion
-		//	/// </summary>
-		//	public static Rect GetLabelRect(Rect position)
-		//	{
-		//		position.width = EditorGUIUtility.labelWidth - PAD_SIZE;
-		//		return position;
-		//	}
-		//}
 	}
 }

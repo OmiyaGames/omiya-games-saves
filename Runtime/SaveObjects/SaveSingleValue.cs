@@ -68,13 +68,6 @@ namespace OmiyaGames.Saves
 		[SerializeField]
 		ErrorHandling onLoadFailed = ErrorHandling.ProceedLogWarning;
 
-#if UNITY_EDITOR
-		[SerializeField]
-		[TextArea]
-		[Tooltip("Comments on this value.")]
-		string comments;
-#endif
-
 		protected TValue storedValue;
 
 		/// <inheritdoc/>
@@ -144,12 +137,6 @@ namespace OmiyaGames.Saves
 				}
 			};
 			return loadInt;
-		}
-
-		/// <inheritdoc/>
-		public override void Reset()
-		{
-			base.Reset();
 		}
 
 		/// <summary>

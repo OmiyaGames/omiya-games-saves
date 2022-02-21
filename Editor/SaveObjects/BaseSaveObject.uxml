@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" oge="OmiyaGames.Common.Editor" editor-extension-mode="True">
+    <ui:ScrollView horizontal-scroller-visibility="Hidden">
+        <ui:TextField label="Key" name="key" tooltip="A unique identifier per save object." binding-path="key" />
+        <ui:VisualElement name="content" />
+        <OmiyaGames.Common.Editor.Spacer />
+        <ui:TextField label="Comments" name="comments" tooltip="Notes about this Save Object." tabindex="100" multiline="true" binding-path="comments" style="flex-direction: column;" />
+    </ui:ScrollView>
+</ui:UXML>
