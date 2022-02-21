@@ -32,20 +32,20 @@ namespace OmiyaGames.Saves
     /// <summary>
     /// Generates an enum property in <see cref="GameSettings"/>.
     /// </summary>
-    public class StoredEnumGenerator<ENUM> : PropertyStoredSettingsGenerator<ENUM> where ENUM : struct, IConvertible
+    public class StoredEnumGenerator<T> : PropertyStoredSettingsGenerator<T> where T : Enum
     {
-        public StoredEnumGenerator(string key, ENUM defaultValue) : base(key, defaultValue)
+        public StoredEnumGenerator(string key, T defaultValue) : base(key, defaultValue)
         {
         }
 
         #region Overrides
 
-        public override bool IsSameValue(ENUM compareValue)
+        public override bool IsSameValue(T compareValue)
         {
             return Value.Equals(compareValue);
         }
 
-        public override ENUM DefaultSettingsRetrieval(ISettingsRecorder settings, int recordedVersion, ENUM defaultValue)
+        public override T DefaultSettingsRetrieval(ISettingsRecorder settings, int recordedVersion, T defaultValue)
         {
             return settings.GetEnum(Key, defaultValue);
         }

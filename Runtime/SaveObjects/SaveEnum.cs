@@ -46,7 +46,7 @@ namespace OmiyaGames.Saves
 	/// <summary>
 	/// Interface for loading a enum from a <seealso cref="IAsyncSettingsRecorder"/>.
 	/// </summary>
-	public class SaveEnum<T> : SaveSingleValue<T, T> where T : struct, System.IConvertible
+	public class SaveEnum<T> : SaveSingleValue<T, T> where T : System.Enum
 	{
 		/// <inheritdoc/>
 		public override T ConvertedDefaultValue => defaultValue;

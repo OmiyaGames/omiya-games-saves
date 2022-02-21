@@ -83,9 +83,9 @@ namespace OmiyaGames.Saves
 		public abstract void SetBool(string key, bool value);
 
 		/// <inheritdoc/>
-		public abstract WaitLoadValue<TEnum> GetEnum<TEnum>(string key, TEnum defaultValue) where TEnum : struct, IConvertible;
+		public abstract WaitLoadValue<T> GetEnum<T>(string key, T defaultValue) where T : Enum;
 		/// <inheritdoc/>
-		public abstract void SetEnum<TEnum>(string key, TEnum value) where TEnum : struct, IConvertible;
+		public abstract void SetEnum<T>(string key, T value) where T : Enum;
 		
 		/// <inheritdoc/>
 		public abstract WaitLoadValue<DateTime> GetDateTimeUtc(string key, DateTime defaultValue);

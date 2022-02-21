@@ -145,6 +145,9 @@ namespace OmiyaGames.Saves
 			return loadInt;
 		}
 
+		/// <inheritdoc/>
+		public override void RevertToDefault() => SetValue(DEFAULT_SLOT, SaveState.Desynced);
+
 		/// <summary>
 		/// Called on deletion of key.
 		/// </summary>
@@ -236,7 +239,7 @@ namespace OmiyaGames.Saves
 				throw new NotImplementedException();
 			}
 
-			public WaitLoadValue<TEnum> GetEnum<TEnum>(string key, TEnum defaultValue) where TEnum : struct, IConvertible
+			public WaitLoadValue<T> GetEnum<T>(string key, T defaultValue) where T : Enum
 			{
 				throw new NotImplementedException();
 			}
@@ -281,7 +284,7 @@ namespace OmiyaGames.Saves
 				throw new NotImplementedException();
 			}
 
-			public void SetEnum<TEnum>(string key, TEnum value) where TEnum : struct, IConvertible
+			public void SetEnum<T>(string key, T value) where T : Enum
 			{
 				throw new NotImplementedException();
 			}

@@ -48,8 +48,8 @@ namespace OmiyaGames.Saves
         string GetString(string key, string defaultValue);
         void SetString(string key, string value);
 
-        ENUM GetEnum<ENUM>(string key, ENUM defaultValue) where ENUM : struct, IConvertible;
-        void SetEnum<ENUM>(string key, ENUM value) where ENUM : struct, IConvertible;
+        T GetEnum<T>(string key, T defaultValue) where T : Enum;
+        void SetEnum<T>(string key, T value) where T : Enum;
 
         DateTime GetDateTimeUtc(string key, DateTime defaultValue);
         void SetDateTimeUtc(string key, DateTime value);

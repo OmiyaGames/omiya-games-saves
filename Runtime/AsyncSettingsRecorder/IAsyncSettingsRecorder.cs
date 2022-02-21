@@ -204,7 +204,7 @@ namespace OmiyaGames.Saves
 		/// <summary>
 		/// Asynchronously gets an enum value.
 		/// </summary>
-		/// <typeparam name="TEnum">
+		/// <typeparam name="T">
 		/// An enumerator type.
 		/// </typeparam>
 		/// <param name="key">
@@ -220,11 +220,11 @@ namespace OmiyaGames.Saves
 		/// finished loading, and provides the
 		/// retrieved results.
 		/// </returns>
-		WaitLoadValue<TEnum> GetEnum<TEnum>(string key, TEnum defaultValue) where TEnum : struct, IConvertible;
+		WaitLoadValue<T> GetEnum<T>(string key, T defaultValue) where T : Enum;
 		/// <summary>
 		/// Store a key-value pair with enum as value type.
 		/// </summary>
-		/// <typeparam name="TEnum">
+		/// <typeparam name="T">
 		/// An enumerator type.
 		/// </typeparam>
 		/// <param name="key">
@@ -240,7 +240,7 @@ namespace OmiyaGames.Saves
 		/// Make sure to call <seealso cref="Save"/> after
 		/// this method so <paramref name="value"/> presists.
 		/// </remarks>
-		void SetEnum<TEnum>(string key, TEnum value) where TEnum : struct, IConvertible;
+		void SetEnum<T>(string key, T value) where T : Enum;
 
 		/// <summary>
 		/// Asynchronously gets a <see cref="DateTime"/> value.

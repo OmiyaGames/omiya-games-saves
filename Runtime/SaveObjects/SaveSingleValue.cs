@@ -139,6 +139,9 @@ namespace OmiyaGames.Saves
 			return loadInt;
 		}
 
+		/// <inheritdoc/>
+		public override void RevertToDefault() => SetValue(ConvertedDefaultValue, SaveState.Desynced);
+
 		/// <summary>
 		/// TODO
 		/// </summary>

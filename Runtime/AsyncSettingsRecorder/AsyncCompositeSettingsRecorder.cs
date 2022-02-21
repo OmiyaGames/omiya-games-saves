@@ -184,7 +184,7 @@ namespace OmiyaGames.Saves
 		/// Asynchronously gets an enum value from the
 		/// <em>first</em> <see cref="IAsyncSettingsRecorder"/>.
 		/// </summary>
-		/// <typeparam name="TEnum">
+		/// <typeparam name="T">
 		/// An enumerator type.
 		/// </typeparam>
 		/// <param name="key">
@@ -200,7 +200,7 @@ namespace OmiyaGames.Saves
 		/// loading, and provides the retrieved results.
 		/// If list is empty, returns <c>null</c> instead.
 		/// </returns>
-		public WaitLoadValue<TEnum> GetEnum<TEnum>(string key, TEnum defaultValue) where TEnum : struct, IConvertible
+		public WaitLoadValue<T> GetEnum<T>(string key, T defaultValue) where T : Enum
 		{
 			if (allRecorders.Count > 0)
 			{
@@ -364,7 +364,7 @@ namespace OmiyaGames.Saves
 		}
 
 		/// <inheritdoc/>
-		public void SetEnum<TEnum>(string key, TEnum value) where TEnum : struct, IConvertible
+		public void SetEnum<T>(string key, T value) where T : Enum
 		{
 			// Argument check
 			if (string.IsNullOrEmpty(key))
@@ -375,7 +375,7 @@ namespace OmiyaGames.Saves
 			// Call SetEnum<TEnum>() on all recorders
 			foreach (IAsyncSettingsRecorder recorder in allRecorders)
 			{
-				recorder.SetEnum<TEnum>(key, value);
+				recorder.SetEnum<T>(key, value);
 			}
 		}
 

@@ -178,7 +178,7 @@ namespace OmiyaGames.Saves
 	/// Wraps <c>WaitLoadValue&lt;int&gt;</c>, converting
 	/// <see cref="Result"/> to an enum.
 	/// </summary>
-	public class WaitLoadEnum<TEnum> : WaitLoadConvertValue<TEnum, int> where TEnum : struct, IConvertible
+	public class WaitLoadEnum<T> : WaitLoadConvertValue<T, int> where T : Enum
 	{
 		public static int ToInt(IConvertible value)
 		{
@@ -187,14 +187,14 @@ namespace OmiyaGames.Saves
 
 		public WaitLoadEnum(WaitLoadValue<int> source) : base(source)
 		{
-			if (typeof(TEnum).IsEnum == false)
+			if (typeof(T).IsEnum == false)
 			{
 				throw new NotSupportedException("Generic type must be an enum");
 			}
 		}
 
 		/// <inheritdoc/>
-		public override TEnum Result => (TEnum)(object)Parent.Result;
+		public override T Result => (T)(object)Parent.Result;
 	}
 
 	/// <summary>

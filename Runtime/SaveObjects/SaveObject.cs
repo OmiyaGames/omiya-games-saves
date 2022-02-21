@@ -51,7 +51,7 @@ namespace OmiyaGames.Saves
 	/// </summary>
 	public abstract partial class SaveObject : ScriptableObject, System.IDisposable
 	{
-		public const string RANDOM_CHAR_ARRAY = "0123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM.,;:?-_=+!@#$%&*";
+		public const string RANDOM_CHAR_ARRAY = "0123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM.:_=#%*";
 		const string PREPEND_KEY = "Key - ";
 		const int RANDOM_KEY_LENGTH = 12;
 
@@ -91,7 +91,6 @@ namespace OmiyaGames.Saves
 		/// The unique key for this object.
 		/// </summary>
 		public string Key => key;
-
 		/// <summary>
 		/// Attempts to load the data from <see cref="Recorder"/>
 		/// asynchronously.
@@ -101,6 +100,11 @@ namespace OmiyaGames.Saves
 		/// succeeded or not.
 		/// </returns>
 		public abstract WaitLoad Load();
+
+		/// <summary>
+		/// Sets the saves value back to default.
+		/// </summary>
+		public abstract void RevertToDefault();
 
 		/// <summary>
 		/// Configures this save object.
