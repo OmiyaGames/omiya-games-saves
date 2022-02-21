@@ -49,8 +49,11 @@ namespace OmiyaGames.Saves
 	/// Interface for loading a float from 
 	/// </summary>
 	[CreateAssetMenu(menuName = "Omiya Games/Saves/Save Bool", fileName = "Save Bool")]
-	public class SaveBool : SaveSingleValue<bool>
+	public class SaveBool : SaveSingleValue<bool, bool>
 	{
+		/// <inheritdoc/>
+		public override bool ConvertedDefaultValue => defaultValue;
+
 		/// <inheritdoc/>
 		public override bool HasValue => true;
 
@@ -58,6 +61,6 @@ namespace OmiyaGames.Saves
 		protected override void RecordValue(bool newValue) => Recorder.SetBool(Key, newValue);
 
 		/// <inheritdoc/>
-		protected override WaitLoadValue<bool> RetrieveValue() => Recorder.GetBool(Key, DefaultValue);
+		protected override WaitLoadValue<bool> RetrieveValue() => Recorder.GetBool(Key, ConvertedDefaultValue);
 	}
 }

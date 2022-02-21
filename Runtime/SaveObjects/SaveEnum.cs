@@ -1,10 +1,8 @@
-using UnityEngine;
-
 namespace OmiyaGames.Saves
 {
 	///-----------------------------------------------------------------------
 	/// <remarks>
-	/// <copyright file="SaveString.cs" company="Omiya Games">
+	/// <copyright file="SaveEnum.cs" company="Omiya Games">
 	/// The MIT License (MIT)
 	/// 
 	/// Copyright (c) 2022 Omiya Games
@@ -35,7 +33,7 @@ namespace OmiyaGames.Saves
 	/// <item>
 	/// <term>
 	/// <strong>Version:</strong> 0.2.0-exp<br/>
-	/// <strong>Date:</strong> 2/18/2022<br/>
+	/// <strong>Date:</strong> 2/20/2022<br/>
 	/// <strong>Author:</strong> Taro Omiya
 	/// </term>
 	/// <description>
@@ -46,21 +44,20 @@ namespace OmiyaGames.Saves
 	/// </remarks>
 	///-----------------------------------------------------------------------
 	/// <summary>
-	/// Interface for loading a string from 
+	/// Interface for loading a enum from a <seealso cref="IAsyncSettingsRecorder"/>.
 	/// </summary>
-	[CreateAssetMenu(menuName = "Omiya Games/Saves/Save String", fileName = "Save String")]
-	public class SaveString : SaveSingleValue<string, string>
+	public class SaveEnum<T> : SaveSingleValue<T, T> where T : struct, System.IConvertible
 	{
 		/// <inheritdoc/>
-		public override string ConvertedDefaultValue => defaultValue;
+		public override T ConvertedDefaultValue => defaultValue;
 
 		/// <inheritdoc/>
 		public override bool HasValue => true;
 
 		/// <inheritdoc/>
-		protected override void RecordValue(string newValue) => Recorder.SetString(Key, newValue);
+		protected override void RecordValue(T newValue) => Recorder.SetEnum<T>(Key, newValue);
 
 		/// <inheritdoc/>
-		protected override WaitLoadValue<string> RetrieveValue() => Recorder.GetString(Key, ConvertedDefaultValue);
+		protected override WaitLoadValue<T> RetrieveValue() => Recorder.GetEnum<T>(Key, ConvertedDefaultValue);
 	}
 }

@@ -49,8 +49,11 @@ namespace OmiyaGames.Saves
 	/// Interface for loading an integer from <see cref="IAsyncSettingsRecorder"/>
 	/// </summary>
 	[CreateAssetMenu(menuName = "Omiya Games/Saves/Save Integer", fileName = "Save Integer")]
-	public class SaveInt : SaveComparableValue<int>
+	public class SaveInt : SaveComparableValue<int, int>
 	{
+		/// <inheritdoc/>
+		public override int ConvertedDefaultValue => defaultValue;
+
 		/// <inheritdoc/>
 		public override bool HasValue => true;
 
@@ -58,7 +61,7 @@ namespace OmiyaGames.Saves
 		protected override void RecordValue(int newValue) => Recorder.SetInt(Key, newValue);
 
 		/// <inheritdoc/>
-		protected override WaitLoadValue<int> RetrieveValue() => Recorder.GetInt(Key, DefaultValue);
+		protected override WaitLoadValue<int> RetrieveValue() => Recorder.GetInt(Key, ConvertedDefaultValue);
 
 		/// <inheritdoc/>
 		public override void Reset()

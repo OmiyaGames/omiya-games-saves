@@ -48,16 +48,23 @@ namespace OmiyaGames.Saves
 	/// <summary>
 	/// Helper abstract class with common methods already defined for most situations.
 	/// </summary>
-	public abstract class SaveSingleValue<T> : SaveObject, ITrackable<T>
+	/// <typeparam name="TValue">
+	/// The type of value being tracked.
+	/// </typeparam>
+	/// <typeparam name="TSerialized">
+	/// The type that is actually serialized;
+	/// specifically, <seealso cref="defaultValue"/>.
+	/// </typeparam>
+	public abstract class SaveSingleValue<TValue, TSerialized> : SaveObject, ITrackable<TValue>
 	{
 		/// <inheritdoc/>
-		public event ITrackable<T>.ChangeEvent OnBeforeValueChanged;
+		public event ITrackable<TValue>.ChangeEvent OnBeforeValueChanged;
 		/// <inheritdoc/>
-		public event ITrackable<T>.ChangeEvent OnAfterValueChanged;
+		public event ITrackable<TValue>.ChangeEvent OnAfterValueChanged;
 
-		[SerializeField]
+		[SerializeField, UnityEngine.Serialization.FormerlySerializedAs("defaultValue")]
 		[Tooltip("The starting default value.")]
-		T defaultValue;
+		protected TSerialized defaultValue;
 		[SerializeField]
 		ErrorHandling onLoadFailed = ErrorHandling.ProceedLogWarning;
 
@@ -68,7 +75,7 @@ namespace OmiyaGames.Saves
 		string comments;
 #endif
 
-		protected T storedValue;
+		protected TValue storedValue;
 
 		/// <inheritdoc/>
 		public abstract bool HasValue { get; }
@@ -77,26 +84,29 @@ namespace OmiyaGames.Saves
 		/// TODO
 		/// </summary>
 		/// <param name="newValue"></param>
-		protected abstract void RecordValue(T newValue);
+		protected abstract void RecordValue(TValue newValue);
 		/// <summary>
 		/// TODO
 		/// </summary>
 		/// <param name="defaultValue"></param>
 		/// <returns></returns>
-		protected abstract WaitLoadValue<T> RetrieveValue();
+		protected abstract WaitLoadValue<TValue> RetrieveValue();
 
 		/// <inheritdoc/>
 		public override ErrorHandling HandleLoadFailure => onLoadFailed;
 		/// <inheritdoc/>
-		public T Value
+		public TValue Value
 		{
-			get => (CurrentState != SaveState.NotSetup) ? storedValue : DefaultValue;
+			get => (CurrentState != SaveState.NotSetup) ? storedValue : ConvertedDefaultValue;
 			set => SetValue(value, SaveState.Desynced);
 		}
 		/// <summary>
 		/// Default value set in the inspector.
 		/// </summary>
-		public T DefaultValue => defaultValue;
+		public abstract TValue ConvertedDefaultValue
+		{
+			get;
+		}
 
 		/// <inheritdoc/>
 		public override void Setup(IAsyncSettingsRecorder recorder)
@@ -125,12 +135,12 @@ namespace OmiyaGames.Saves
 				throw new System.Exception("Object not setup yet.");
 			}
 
-			WaitLoadValue<T> loadInt = RetrieveValue();
+			WaitLoadValue<TValue> loadInt = RetrieveValue();
 			loadInt.OnLoadingFinished += (source, args) =>
 			{
 				if (args.State == LoadState.Success)
 				{
-					SetValue(((LoadValueFinishedEventArgs<T>)args).Result, SaveState.Synced);
+					SetValue(((LoadValueFinishedEventArgs<TValue>)args).Result, SaveState.Synced);
 				}
 			};
 			return loadInt;
@@ -149,7 +159,7 @@ namespace OmiyaGames.Saves
 		/// <param name="setState"></param>
 		/// <returns></returns>
 		/// <exception cref="System.Exception"></exception>
-		protected virtual T SetValue(T value, SaveState setState)
+		protected virtual TValue SetValue(TValue value, SaveState setState)
 		{
 			if (CurrentState == SaveState.NotSetup)
 			{
@@ -163,7 +173,7 @@ namespace OmiyaGames.Saves
 				OnBeforeValueChanged?.Invoke(storedValue, value);
 
 				// Update the values (and cache the old one)
-				T oldValue = storedValue;
+				TValue oldValue = storedValue;
 				storedValue = value;
 
 				// Update state
@@ -188,7 +198,7 @@ namespace OmiyaGames.Saves
 		/// <param name="args"></param>
 		void OnDeleteKey(IAsyncSettingsRecorder source, KeyDeletedEventArgs args)
 		{
-			SetValue(DefaultValue, SaveState.Synced);
+			SetValue(ConvertedDefaultValue, SaveState.Synced);
 		}
 	}
 }

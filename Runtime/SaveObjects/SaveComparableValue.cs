@@ -49,17 +49,24 @@ namespace OmiyaGames.Saves
 	/// Helper abstract class with common methods already defined for most
 	/// comparable variable types.
 	/// </summary>
-	public abstract class SaveComparableValue<T> : SaveSingleValue<T> where T : System.IComparable<T>
+	/// <typeparam name="TValue">
+	/// The type of value being tracked.
+	/// </typeparam>
+	/// <typeparam name="TSerialized">
+	/// The type that is actually serialized;
+	/// specifically, <seealso cref="SaveSingleValue.defaultValue"/>.
+	/// </typeparam>
+	public abstract class SaveComparableValue<TValue, TSerialized> : SaveSingleValue<TValue, TSerialized> where TValue : System.IComparable<TValue>
 	{
 		[Header("Clamp Boundaries")]
 		[SerializeField]
 		bool hasMin = false;
 		[SerializeField]
-		T minValue;
+		TValue minValue;
 		[SerializeField]
 		bool hasMax = false;
 		[SerializeField]
-		T maxValue;
+		TValue maxValue;
 
 		/// <summary>
 		/// TODO
@@ -68,7 +75,7 @@ namespace OmiyaGames.Saves
 		/// <summary>
 		/// TODO
 		/// </summary>
-		public T MinValue
+		public TValue MinValue
 		{
 			get => minValue;
 			protected set => minValue = value;
@@ -80,14 +87,14 @@ namespace OmiyaGames.Saves
 		/// <summary>
 		/// TODO
 		/// </summary>
-		public T MaxValue
+		public TValue MaxValue
 		{
 			get => maxValue;
 			protected set => maxValue = value;
 		}
 
 		/// <inheritdoc/>
-		protected override T SetValue(T value, SaveState setState)
+		protected override TValue SetValue(TValue value, SaveState setState)
 		{
 			// Clamp the value first
 			return base.SetValue(Clamp(value), setState);
@@ -98,7 +105,7 @@ namespace OmiyaGames.Saves
 		/// </summary>
 		/// <param name="value"></param>
 		/// <returns></returns>
-		protected virtual T Clamp(T value)
+		protected virtual TValue Clamp(TValue value)
 		{
 			if (HasMin && (MinValue.CompareTo(value) > 0))
 			{

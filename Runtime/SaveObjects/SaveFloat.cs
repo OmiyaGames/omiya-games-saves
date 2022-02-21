@@ -49,8 +49,11 @@ namespace OmiyaGames.Saves
 	/// Interface for loading a float from 
 	/// </summary>
 	[CreateAssetMenu(menuName = "Omiya Games/Saves/Save Float", fileName = "Save Float")]
-	public class SaveFloat : SaveComparableValue<float>
+	public class SaveFloat : SaveComparableValue<float, float>
 	{
+		/// <inheritdoc/>
+		public override float ConvertedDefaultValue => defaultValue;
+
 		/// <inheritdoc/>
 		public override bool HasValue => true;
 
@@ -58,7 +61,7 @@ namespace OmiyaGames.Saves
 		protected override void RecordValue(float newValue) => Recorder.SetFloat(Key, newValue);
 
 		/// <inheritdoc/>
-		protected override WaitLoadValue<float> RetrieveValue() => Recorder.GetFloat(Key, DefaultValue);
+		protected override WaitLoadValue<float> RetrieveValue() => Recorder.GetFloat(Key, ConvertedDefaultValue);
 
 		/// <inheritdoc/>
 		public override void Reset()

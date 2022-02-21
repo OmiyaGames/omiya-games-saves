@@ -1,10 +1,11 @@
+using System;
 using UnityEngine;
 
 namespace OmiyaGames.Saves
 {
 	///-----------------------------------------------------------------------
 	/// <remarks>
-	/// <copyright file="SaveString.cs" company="Omiya Games">
+	/// <copyright file="SaveTimeSpan.cs" company="Omiya Games">
 	/// The MIT License (MIT)
 	/// 
 	/// Copyright (c) 2022 Omiya Games
@@ -35,7 +36,7 @@ namespace OmiyaGames.Saves
 	/// <item>
 	/// <term>
 	/// <strong>Version:</strong> 0.2.0-exp<br/>
-	/// <strong>Date:</strong> 2/18/2022<br/>
+	/// <strong>Date:</strong> 2/20/2022<br/>
 	/// <strong>Author:</strong> Taro Omiya
 	/// </term>
 	/// <description>
@@ -46,21 +47,47 @@ namespace OmiyaGames.Saves
 	/// </remarks>
 	///-----------------------------------------------------------------------
 	/// <summary>
-	/// Interface for loading a string from 
+	/// Interface for loading a <see cref="TimeSpan"/> from <see cref="IAsyncSettingsRecorder"/>
 	/// </summary>
-	[CreateAssetMenu(menuName = "Omiya Games/Saves/Save String", fileName = "Save String")]
-	public class SaveString : SaveSingleValue<string, string>
+	[CreateAssetMenu(menuName = "Omiya Games/Saves/Save Time Duration", fileName = "Save TimeSpan")]
+	public class SaveTimeSpan : SaveSingleValue<TimeSpan, string>
 	{
+		/// <summary>
+		/// 5-Minutes.
+		/// </summary>
+		static readonly TimeSpan DEFAULT_TIME_SPAN = TimeSpan.FromMinutes(5);
+
+		TimeSpan? cacheDefaultValue = null;
+
 		/// <inheritdoc/>
-		public override string ConvertedDefaultValue => defaultValue;
+		public override TimeSpan ConvertedDefaultValue
+		{
+			get
+			{
+				if (cacheDefaultValue == null)
+				{
+					// Convert the default value into DateTime
+					long ticks = long.Parse(defaultValue);
+					cacheDefaultValue = new(ticks);
+				}
+				return cacheDefaultValue.Value;
+			}
+		}
 
 		/// <inheritdoc/>
 		public override bool HasValue => true;
 
 		/// <inheritdoc/>
-		protected override void RecordValue(string newValue) => Recorder.SetString(Key, newValue);
+		protected override void RecordValue(TimeSpan newValue) => Recorder.SetTimeSpan(Key, newValue);
 
 		/// <inheritdoc/>
-		protected override WaitLoadValue<string> RetrieveValue() => Recorder.GetString(Key, ConvertedDefaultValue);
+		protected override WaitLoadValue<TimeSpan> RetrieveValue() => Recorder.GetTimeSpan(Key, ConvertedDefaultValue);
+
+		/// <inheritdoc/>
+		public override void Reset()
+		{
+			base.Reset();
+			defaultValue = DEFAULT_TIME_SPAN.Ticks.ToString();
+		}
 	}
 }

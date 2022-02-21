@@ -1,10 +1,11 @@
+using System;
 using UnityEngine;
 
 namespace OmiyaGames.Saves
 {
 	///-----------------------------------------------------------------------
 	/// <remarks>
-	/// <copyright file="SaveString.cs" company="Omiya Games">
+	/// <copyright file="SaveDateTime.cs" company="Omiya Games">
 	/// The MIT License (MIT)
 	/// 
 	/// Copyright (c) 2022 Omiya Games
@@ -35,7 +36,7 @@ namespace OmiyaGames.Saves
 	/// <item>
 	/// <term>
 	/// <strong>Version:</strong> 0.2.0-exp<br/>
-	/// <strong>Date:</strong> 2/18/2022<br/>
+	/// <strong>Date:</strong> 2/20/2022<br/>
 	/// <strong>Author:</strong> Taro Omiya
 	/// </term>
 	/// <description>
@@ -46,21 +47,51 @@ namespace OmiyaGames.Saves
 	/// </remarks>
 	///-----------------------------------------------------------------------
 	/// <summary>
-	/// Interface for loading a string from 
+	/// Interface for loading a <see cref="DateTime"/> from <see cref="IAsyncSettingsRecorder"/>
 	/// </summary>
-	[CreateAssetMenu(menuName = "Omiya Games/Saves/Save String", fileName = "Save String")]
-	public class SaveString : SaveSingleValue<string, string>
+	[CreateAssetMenu(menuName = "Omiya Games/Saves/Save Date & Time", fileName = "Save DateTime")]
+	public class SaveDateTime : SaveSingleValue<DateTime, string>
 	{
+		[SerializeField]
+		bool defaultToNow = true;
+
+		DateTime? cacheDefaultValue = null;
+
 		/// <inheritdoc/>
-		public override string ConvertedDefaultValue => defaultValue;
+		/// <remarks>
+		/// Time will always be in UTC.
+		/// </remarks>
+		public override DateTime ConvertedDefaultValue
+		{
+			get
+			{
+				if (defaultToNow)
+				{
+					return DateTime.UtcNow;
+				}
+				else if (cacheDefaultValue == null)
+				{
+					// Convert the default value into DateTime
+					long ticks = long.Parse(defaultValue);
+					cacheDefaultValue = new(ticks, DateTimeKind.Utc);
+				}
+				return cacheDefaultValue.Value;
+			}
+		}
 
 		/// <inheritdoc/>
 		public override bool HasValue => true;
 
 		/// <inheritdoc/>
-		protected override void RecordValue(string newValue) => Recorder.SetString(Key, newValue);
+		/// <remarks>
+		/// Make sure <paramref name="newValue"/> is in UTC.
+		/// </remarks>
+		protected override void RecordValue(DateTime newValue) => Recorder.SetDateTimeUtc(Key, newValue);
 
 		/// <inheritdoc/>
-		protected override WaitLoadValue<string> RetrieveValue() => Recorder.GetString(Key, ConvertedDefaultValue);
+		/// <remarks>
+		/// Retrieved value will be in UTC.
+		/// </remarks>
+		protected override WaitLoadValue<DateTime> RetrieveValue() => Recorder.GetDateTimeUtc(Key, ConvertedDefaultValue);
 	}
 }
