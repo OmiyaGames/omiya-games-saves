@@ -107,11 +107,19 @@ namespace OmiyaGames.Saves
 		/// <returns></returns>
 		protected virtual TValue Clamp(TValue value)
 		{
+			// Make sure the min and max values are valid first
+			if (HasMin && HasMax && (MinValue.CompareTo(MaxValue) >= 0))
+			{
+				// If not, don't clamp at all
+				return value;
+			}
+
+			// Do bounds checking
 			if (HasMin && (MinValue.CompareTo(value) > 0))
 			{
 				value = MinValue;
 			}
-			else if(HasMax && (MaxValue.CompareTo(value) < 0))
+			else if (HasMax && (MaxValue.CompareTo(value) < 0))
 			{
 				value = MaxValue;
 			}

@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Save Float
   m_EditorClassIdentifier: 
   key: Key - UcAeTI$af:x&
-  defaultValue: 0
-  onLoadFailed: 2
   comments: 
-  hasMin: 0
+  defaultValue: 0.5
+  onLoadFailed: 2
+  hasMin: 1
   minValue: 0
-  hasMax: 0
-  maxValue: 1
+  hasMax: 1
+  maxValue: 0.5

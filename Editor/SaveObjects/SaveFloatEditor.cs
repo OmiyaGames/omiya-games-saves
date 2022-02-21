@@ -6,7 +6,7 @@ namespace OmiyaGames.Saves.Editor
 {
 	///-----------------------------------------------------------------------
 	/// <remarks>
-	/// <copyright file="SaveIntEditor.cs" company="Omiya Games">
+	/// <copyright file="SaveFloatEditor.cs" company="Omiya Games">
 	/// The MIT License (MIT)
 	/// 
 	/// Copyright (c) 2022 Omiya Games
@@ -48,12 +48,12 @@ namespace OmiyaGames.Saves.Editor
 	/// </remarks>
 	///-----------------------------------------------------------------------
 	/// <summary>
-	/// Editor for <seealso cref="SaveInt"/>.
+	/// Editor for <seealso cref="SaveFloat"/>.
 	/// </summary>
-	[CustomEditor(typeof(SaveInt))]
-	public class SaveIntEditor : SaveComparableEditor<int, SaveInt, IntegerField, SliderInt>
+	[CustomEditor(typeof(SaveFloat))]
+	public class SaveFloatEditor : SaveComparableEditor<float, SaveFloat, FloatField, Slider>
 	{
-		const string UXML_PATH = UXML_DIRECTORY + "SaveIntContent.uxml";
+		const string UXML_PATH = UXML_DIRECTORY + "SaveFloatContent.uxml";
 
 		/// <inheritdoc/>
 		protected override string UxmlPath => UXML_PATH;
