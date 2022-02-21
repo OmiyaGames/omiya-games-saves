@@ -48,14 +48,14 @@ namespace OmiyaGames.Saves.Editor
 	/// <summary>
 	/// TODO
 	/// </summary>
-	[CustomPropertyDrawer(typeof(SaveInt))]
-	[CustomPropertyDrawer(typeof(SaveFloat))]
-	[CustomPropertyDrawer(typeof(SaveBool))]
-	[CustomPropertyDrawer(typeof(SaveString))]
-	[CustomPropertyDrawer(typeof(SaveDateTime))]
-	[CustomPropertyDrawer(typeof(SaveTimeSpan))]
-	[CustomPropertyDrawer(typeof(SaveEnum<>))]
 	[CustomPropertyDrawer(typeof(SaveObjectInfoAttribute))]
+	[CustomPropertyDrawer(typeof(SaveBool))]
+	[CustomPropertyDrawer(typeof(SaveDateTime))]
+	[CustomPropertyDrawer(typeof(SaveEnum<>))]
+	[CustomPropertyDrawer(typeof(SaveFloat))]
+	[CustomPropertyDrawer(typeof(SaveInt))]
+	[CustomPropertyDrawer(typeof(SaveString))]
+	[CustomPropertyDrawer(typeof(SaveTimeSpan))]
 	public class SaveObjectInfoDrawer : PropertyDrawer
 	{
 		const int BUTTON_WIDTH = 160;
