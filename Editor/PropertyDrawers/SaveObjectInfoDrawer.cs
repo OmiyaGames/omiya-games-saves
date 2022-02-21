@@ -58,7 +58,8 @@ namespace OmiyaGames.Saves.Editor
 	[CustomPropertyDrawer(typeof(SaveTimeSpan))]
 	public class SaveObjectInfoDrawer : PropertyDrawer
 	{
-		const int BUTTON_WIDTH = 160;
+		const int SETTINGS_BUTTON_WIDTH = 110;
+		const int ACTION_BUTTON_WIDTH = 150;
 
 		/// <inheritdoc/>
 		public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
@@ -75,7 +76,7 @@ namespace OmiyaGames.Saves.Editor
 				property.isExpanded = EditorGUI.Foldout(drawPosition, property.isExpanded, GUIContent.none);
 
 				// Indent everything else
-				using (var indentScope = new EditorGUI.IndentLevelScope())
+				//using (var indentScope = new EditorGUI.IndentLevelScope())
 				{
 					// Calculate where to draw the object
 					drawPosition = position;
@@ -85,63 +86,96 @@ namespace OmiyaGames.Saves.Editor
 					EditorGUI.ObjectField(drawPosition, property, label);
 					if (property.isExpanded)
 					{
-						DrawStatus(position, property);
+						DrawExpandedInfo(position, property);
 					}
 				}
 			}
 		}
 
-		static void DrawStatus(Rect position, SerializedProperty property)
+		/// <inheritdoc/>
+		public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
 		{
-			const string NO_KEY = "Key:";
-			const string LABEL_PREPEND = NO_KEY + " \"";
+			if (property.isExpanded)
+			{
+				return EditorGUIUtility.singleLineHeight * 2 + EditorHelpers.VerticalMargin;
+			}
+			else
+			{
+				return EditorGUIUtility.singleLineHeight;
+			}
+		}
+
+		static void DrawExpandedInfo(Rect position, SerializedProperty property)
+		{
+			/// Calculate where to add the settings button
+			float xPos = position.x + Mathf.Max(0, (position.width - SETTINGS_BUTTON_WIDTH));
+			float yPos = position.y + EditorGUIUtility.singleLineHeight + EditorHelpers.VerticalMargin;
+			Rect settingsButtonPosition = new Rect(xPos, yPos, SETTINGS_BUTTON_WIDTH, EditorGUIUtility.singleLineHeight);
+
+			Rect objectButtonPosition = settingsButtonPosition;
+			objectButtonPosition.width = ACTION_BUTTON_WIDTH;
+			objectButtonPosition.x -= (objectButtonPosition.width + EditorHelpers.VerticalMargin);
+			if (objectButtonPosition.x < position.x)
+			{
+				objectButtonPosition.x = position.x;
+			}
 
 			// Calculate where to draw status information
-			Rect labelPosition = position;
-			labelPosition.y += (EditorGUIUtility.singleLineHeight + EditorHelpers.VerticalMargin);
-			labelPosition.height = EditorGUIUtility.singleLineHeight;
-			labelPosition.width -= (BUTTON_WIDTH + EditorHelpers.VerticalMargin);
-
-			Rect buttonPosition = position;
-			buttonPosition.x += (labelPosition.width + EditorHelpers.VerticalMargin);
-			buttonPosition.y = labelPosition.y;
-			buttonPosition.height = labelPosition.height;
-			buttonPosition.width = BUTTON_WIDTH;
-
-			// Setup other stuff
-			GUIContent labelContent = new(NO_KEY, "The key name stored in this save object.");
-			GUIContent buttonContent = new("Add Into Settings", "Add this save object into save settings.");
+			Rect labelPosition = objectButtonPosition;
+			labelPosition.x = position.x;
+			labelPosition.width = Mathf.Max(0, (objectButtonPosition.x - position.x - EditorHelpers.VerticalMargin));
 
 			// Retrieve property object
 			SaveObject saveObject = property.objectReferenceValue as SaveObject;
-			if (saveObject == null)
-			{
-				using (var disableScope = new EditorGUI.DisabledGroupScope(true))
-				{
-					// Draw label and button
-					EditorGUI.LabelField(labelPosition, labelContent);
-					GUI.Button(buttonPosition, buttonContent);
-				}
-				return;
-			}
-
-			// Generate a string displaying key name
-			System.Text.StringBuilder builder = new(saveObject.Key.Length + LABEL_PREPEND.Length + 1);
-			builder.Append(LABEL_PREPEND);
-			builder.Append(saveObject.Key);
-			builder.Append('"');
-
-			// Draw label
-			labelContent.text = builder.ToString();
-			EditorGUI.LabelField(labelPosition, labelContent);
+			DrawKeyLabel(saveObject, in labelPosition);
 
 			// Check if object is in save settings
+			DrawActionButton(saveObject, in objectButtonPosition);
+
+			// Draw open settings
+			GUIContent buttonContent = new("Open Settings", "Open the saves settings window, where it can be setup and configured.");
+			if (GUI.Button(settingsButtonPosition, buttonContent))
+			{
+				SettingsService.OpenProjectSettings(SavesManager.SIDEBAR_PATH);
+			}
+		}
+
+		static void DrawKeyLabel(SaveObject saveObject, in Rect labelPosition)
+		{
+			const string NO_KEY = "Key:";
+			const string LABEL_PREPEND = NO_KEY + " \"";
+			GUIContent labelContent = new(NO_KEY, "The key name stored in this save object.");
+			if (saveObject != null)
+			{
+				// Generate a string displaying key name
+				System.Text.StringBuilder builder = new(saveObject.Key.Length + LABEL_PREPEND.Length + 1);
+				builder.Append(LABEL_PREPEND);
+				builder.Append(saveObject.Key);
+				builder.Append('"');
+
+				// Draw label
+				labelContent.text = builder.ToString();
+				EditorGUI.LabelField(labelPosition, labelContent);
+			}
+			else
+			{
+				// Draw label
+				using (var disableScope = new EditorGUI.DisabledGroupScope(true))
+				{
+					EditorGUI.LabelField(labelPosition, labelContent);
+				}
+			}
+		}
+
+		static void DrawActionButton(SaveObject saveObject, in Rect objectButtonPosition)
+		{
 			SavesSettingsProvider.ContainsData result = SavesSettingsProvider.ContainsSaveData(saveObject);
+			GUIContent buttonContent = new("Add Into Settings", "Add this save object into save settings.");
 			switch (result)
 			{
 				case SavesSettingsProvider.ContainsData.No:
 					// Draw the add button
-					if (GUI.Button(buttonPosition, buttonContent))
+					if (GUI.Button(objectButtonPosition, buttonContent))
 					{
 						if (SavesSettingsProvider.RemoveSaveData(saveObject) == 1)
 						{
@@ -158,7 +192,7 @@ namespace OmiyaGames.Saves.Editor
 					// Draw the remove button
 					buttonContent.text = "Remove From Settings";
 					buttonContent.tooltip = "Remove this save object from save settings.";
-					if (GUI.Button(buttonPosition, buttonContent))
+					if (GUI.Button(objectButtonPosition, buttonContent))
 					{
 						if (SavesSettingsProvider.RemoveSaveData(saveObject) == 1)
 						{
@@ -171,28 +205,25 @@ namespace OmiyaGames.Saves.Editor
 					}
 					break;
 
-				default:
+				case SavesSettingsProvider.ContainsData.SettingsNotSetup:
 					// Draw the setup button
-					buttonContent.text = "Open Save Settings";
-					buttonContent.tooltip = "Opens the save settings window so one can set it up.";
-					if (GUI.Button(buttonPosition, buttonContent))
+					buttonContent.text = "(Settings Not Setup)";
+					buttonContent.tooltip = "Settings needs to be setup before this object can be added to it.";
+					using (var disableScope = new EditorGUI.DisabledGroupScope(true))
 					{
-						SettingsService.OpenProjectSettings(SavesManager.SIDEBAR_PATH);
+						GUI.Button(objectButtonPosition, buttonContent);
 					}
 					break;
-			}
-		}
 
-		/// <inheritdoc/>
-		public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
-		{
-			if (property.isExpanded)
-			{
-				return EditorGUIUtility.singleLineHeight * 2 + EditorHelpers.VerticalMargin;
-			}
-			else
-			{
-				return EditorGUIUtility.singleLineHeight;
+				case SavesSettingsProvider.ContainsData.NullArg:
+					// Draw the null button
+					buttonContent.text = "(Can't Add Null)";
+					buttonContent.tooltip = "Cannot add null into settings.";
+					using (var disableScope = new EditorGUI.DisabledGroupScope(true))
+					{
+						GUI.Button(objectButtonPosition, buttonContent);
+					}
+					break;
 			}
 		}
 	}
