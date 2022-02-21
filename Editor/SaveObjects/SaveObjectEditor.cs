@@ -124,9 +124,11 @@ namespace OmiyaGames.Saves.Editor
 
 			// Bind the property to the drop down
 			field.index = property.enumValueIndex;
-			field.RegisterCallback<ChangeEvent<int>>(e =>
+			field.RegisterCallback<ChangeEvent<string>>(e =>
 			{
-				property.enumValueIndex = e.newValue;
+				serializedObject.Update();
+				property.enumValueIndex = field.index;
+				serializedObject.ApplyModifiedProperties();
 			});
 		}
 	}

@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Save Bool
   m_EditorClassIdentifier: 
   key: Key - Fm!bGIjFM-TG
+  comments: 'Hohoo
+
+    MERY'
   defaultValue: 0
-  onLoadFailed: 2
-  comments: 
+  onLoadFailed: 0

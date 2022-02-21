@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Save Integer
   m_EditorClassIdentifier: 
   key: Key - gyRI;i%t+5;&
-  defaultValue: 0
-  onLoadFailed: 2
   comments: 
+  defaultValue: 0
+  onLoadFailed: 3
   hasMin: 0
   minValue: 0
   hasMax: 0

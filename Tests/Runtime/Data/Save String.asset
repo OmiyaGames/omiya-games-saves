@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Save String
   m_EditorClassIdentifier: 
   key: Key - iQ!CyA#0ZEDe
-  defaultValue: 
-  onLoadFailed: 2
   comments: 
+  defaultValue: 
+  onLoadFailed: 4

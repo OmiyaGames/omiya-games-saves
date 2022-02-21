@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Save DateTime
   m_EditorClassIdentifier: 
   key: Key - 9.0hv6zgX2rV
-  defaultValue: 
-  onLoadFailed: 2
   comments: 
+  defaultValue: 
+  onLoadFailed: 1
   defaultToNow: 1
