@@ -50,7 +50,7 @@ namespace OmiyaGames.Saves.Editor
 	/// <summary>
 	/// Abstract editor for <seealso cref="SaveComparableValue{TValue, TValue}"/>.
 	/// </summary>
-	public abstract class SaveComparableEditor<TValue, TSave, TTextField, TSliderField> : SaveObjectEditor
+	public abstract class SaveComparableEditor<TValue, TSave, TTextField, TSliderField> : BaseSaveObjectEditor
 		where TValue : System.IComparable<TValue>
 		where TSave : SaveComparableValue<TValue, TValue>
 		where TTextField : TextValueField<TValue>

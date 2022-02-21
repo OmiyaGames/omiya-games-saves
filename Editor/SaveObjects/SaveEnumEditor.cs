@@ -51,7 +51,7 @@ namespace OmiyaGames.Saves.Editor
 	/// Editor for <seealso cref="SaveEnum{T}"/>.
 	/// </summary>
 	[CustomEditor(typeof(SaveEnum<>))]
-	public class SaveEnumEditor<T> : SaveObjectEditor where T : System.Enum
+	public class SaveEnumEditor<T> : BaseSaveObjectEditor where T : System.Enum
 	{
 		const string UXML_PATH = UXML_DIRECTORY + "SaveEnumContent.uxml";
 

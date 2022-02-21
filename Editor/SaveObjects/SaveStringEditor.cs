@@ -50,7 +50,7 @@ namespace OmiyaGames.Saves.Editor
 	/// Editor for <seealso cref="SaveString"/>.
 	/// </summary>
 	[CustomEditor(typeof(SaveString))]
-	public class SaveStringEditor : SaveObjectEditor
+	public class SaveStringEditor : BaseSaveObjectEditor
 	{
 		const string UXML_PATH = UXML_DIRECTORY + "SaveStringContent.uxml";
 
