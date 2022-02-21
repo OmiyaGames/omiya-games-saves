@@ -51,14 +51,12 @@ namespace OmiyaGames.Saves.Editor
 	/// <summary>
 	/// TODO
 	/// </summary>
-	[CustomPropertyDrawer(typeof(SaveObject))]
-	[CustomPropertyDrawer(typeof(SaveSingleValue<>))]
-	[CustomPropertyDrawer(typeof(SaveComparableValue<>))]
 	[CustomPropertyDrawer(typeof(SaveInt))]
 	[CustomPropertyDrawer(typeof(SaveFloat))]
 	[CustomPropertyDrawer(typeof(SaveBool))]
 	[CustomPropertyDrawer(typeof(SaveString))]
-	public class DefaultSaveObjectDrawer : PropertyDrawer
+	[CustomPropertyDrawer(typeof(SaveObjectInfoAttribute))]
+	public class SaveObjectInfoDrawer : PropertyDrawer
 	{
 		const int BUTTON_WIDTH = 160;
 
