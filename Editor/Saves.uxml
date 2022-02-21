@@ -7,7 +7,6 @@
             <ui:Label text="Version Handling" display-tooltip-when-elided="false" enable-rich-text="false" name="header" class="header" />
             <uie:ObjectField label="Version Saver" allow-scene-objects="false" type="OmiyaGames.Saves.SaveInt, OmiyaGames.Saves" name="versionSaver" binding-path="versionSaver" tabindex="1" />
             <uie:PropertyField name="upgraders" binding-path="upgraders" label="Upgraders" tooltip="Scripts assisting backwards-compatibilty by upgrading save data." />
-            <uie:PropertyField name="testSaver" binding-path="versionSaver" label="test" />
         </ui:VisualElement>
         <OmiyaGames.Common.Editor.Spacer />
         <ui:VisualElement name="separator" style="background-color: rgb(128, 128, 128); width: 95%; height: 2px; margin-left: auto; margin-right: auto;" />

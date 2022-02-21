@@ -51,6 +51,14 @@ namespace OmiyaGames.Saves.Editor
 	/// </summary>
 	public class SavesSettingsProvider : BaseSettingsEditor<SavesSettings>
 	{
+		public enum ContainsData
+		{
+			Yes,
+			No,
+			SettingsNotSetup,
+			NullArg,
+		}
+
 		static SavesSettingsProvider lastInstance = null;
 
 		/// <inheritdoc/>
@@ -95,6 +103,36 @@ namespace OmiyaGames.Saves.Editor
 		/// <exception cref="System.NotImplementedException">
 		/// If this function is *not* called from the editor.
 		/// </exception>
+		public static ContainsData ContainsSaveData(SaveObject checkData)
+		{
+			SavesSettings settings;
+			if (checkData == null)
+			{
+				return ContainsData.NullArg;
+			}
+			else if (EditorBuildSettings.TryGetConfigObject(SavesManager.CONFIG_NAME, out settings) == false)
+			{
+				return ContainsData.SettingsNotSetup;
+			}
+			else if (settings.SaveData.Contains(checkData))
+			{
+				return ContainsData.Yes;
+			}
+			else
+			{
+				return ContainsData.No;
+			}
+		}
+
+		/// <summary>
+		/// Adds new save data slots in save settings.
+		/// </summary>
+		/// <param name="newData">
+		/// All the data to be added into settings.
+		/// </param>
+		/// <returns>
+		/// Number of save data successfully added.
+		/// </returns>
 		public static int AddSaveData(params SaveObject[] newData)
 		{
 			// Confirm there are data to add,
@@ -105,9 +143,8 @@ namespace OmiyaGames.Saves.Editor
 				// Add all the new data into settings
 				foreach (var data in newData)
 				{
-					if (data != null)
+					if ((data != null) && settings.SaveData.Add(data))
 					{
-						settings.SaveData.Add(data);
 						++returnNumSavesAdded;
 					}
 				}
@@ -117,6 +154,37 @@ namespace OmiyaGames.Saves.Editor
 				AssetDatabase.SaveAssetIfDirty(settings);
 			}
 			return returnNumSavesAdded;
+		}
+
+
+		/// <summary>
+		/// Removes existing save data slots from save settings.
+		/// </summary>
+		/// <param name="removeData">
+		/// All the data to be removed from settings.
+		/// </param>
+		/// <returns></returns>
+		public static int RemoveSaveData(params SaveObject[] removeData)
+		{
+			// Confirm there are data to add,
+			// and that there's an instance of SavesSettings.
+			int returnNumSavesRemoved = 0;
+			if ((removeData != null) && (removeData.Length > 0) && (EditorBuildSettings.TryGetConfigObject(SavesManager.CONFIG_NAME, out SavesSettings settings)))
+			{
+				// Remove the new data from settings
+				foreach (var data in removeData)
+				{
+					if ((data != null) && settings.SaveData.Remove(data))
+					{
+						++returnNumSavesRemoved;
+					}
+				}
+
+				// Save these changes
+				EditorUtility.SetDirty(settings);
+				AssetDatabase.SaveAssetIfDirty(settings);
+			}
+			return returnNumSavesRemoved;
 		}
 
 		class Styles

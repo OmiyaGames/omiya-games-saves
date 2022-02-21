@@ -83,8 +83,10 @@ namespace OmiyaGames.Saves
 		[SerializeField]
 		SaveInt versionSaver;
 		[SerializeField]
+		[SingleLineObjectField]
 		SavesUpgrader[] upgraders;
 		[SerializeField]
+		//[SingleLineObjectField]
 		SerializableListSet<SaveObject> saveData = new();
 
 		/// <summary>
