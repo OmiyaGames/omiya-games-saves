@@ -127,10 +127,15 @@ namespace OmiyaGames.Saves.Editor
 
 			// Retrieve property object
 			SaveObject saveObject = property.objectReferenceValue as SaveObject;
-			DrawKeyLabel(saveObject, in labelPosition);
+			SavesSettingsProvider.ContainsData result = SavesSettingsProvider.ContainsSaveData(saveObject);
+
+			// Draw the status label
+			BaseSaveObjectEditor.GetStatusText(result, out string text, out string tooltip);
+			GUIContent labelContent = new(text, tooltip);
+			EditorGUI.LabelField(labelPosition, labelContent);
 
 			// Check if object is in save settings
-			DrawActionButton(saveObject, in objectButtonPosition);
+			DrawActionButton(result, saveObject, in objectButtonPosition);
 
 			// Draw open settings
 			GUIContent buttonContent = new("Open Settings", "Open the saves settings window, where it can be setup and configured.");
@@ -140,94 +145,47 @@ namespace OmiyaGames.Saves.Editor
 			}
 		}
 
-		static void DrawKeyLabel(SaveObject saveObject, in Rect labelPosition)
+		static void DrawActionButton(SavesSettingsProvider.ContainsData result, SaveObject saveObject, in Rect objectButtonPosition)
 		{
-			const string NO_KEY = "Key:";
-			const string LABEL_PREPEND = NO_KEY + " \"";
-			GUIContent labelContent = new(NO_KEY, "The key name stored in this save object.");
-			if (saveObject != null)
+			BaseSaveObjectEditor.GetButtonText(result, out string text, out string tooltip, out bool isEnabled);
+			GUIContent buttonContent = new(text, tooltip);
+			if (result == SavesSettingsProvider.ContainsData.No)
 			{
-				// Generate a string displaying key name
-				System.Text.StringBuilder builder = new(saveObject.Key.Length + LABEL_PREPEND.Length + 1);
-				builder.Append(LABEL_PREPEND);
-				builder.Append(saveObject.Key);
-				builder.Append('"');
-
-				// Draw label
-				labelContent.text = builder.ToString();
-				EditorGUI.LabelField(labelPosition, labelContent);
+				// Draw the add button
+				if (GUI.Button(objectButtonPosition, buttonContent))
+				{
+					if (SavesSettingsProvider.AddSaveData(saveObject) == 1)
+					{
+						EditorUtility.DisplayDialog("Success!", $"Successfully added \"{saveObject.name}\" into settings.", "OK");
+					}
+					else
+					{
+						EditorUtility.DisplayDialog("Fail!", $"Could not added \"{saveObject.name}\" into settings.", "OK");
+					}
+				}
+			}
+			else if (result == SavesSettingsProvider.ContainsData.Yes)
+			{
+				// Draw remove button
+				if (GUI.Button(objectButtonPosition, buttonContent))
+				{
+					if (SavesSettingsProvider.RemoveSaveData(saveObject) == 1)
+					{
+						EditorUtility.DisplayDialog("Success!", $"Successfully removed \"{saveObject.name}\" from settings.", "OK");
+					}
+					else
+					{
+						EditorUtility.DisplayDialog("Fail!", $"Could not remove \"{saveObject.name}\" from settings.", "OK");
+					}
+				}
 			}
 			else
 			{
-				// Draw label
+				// Draw a disabled button
 				using (var disableScope = new EditorGUI.DisabledGroupScope(true))
 				{
-					EditorGUI.LabelField(labelPosition, labelContent);
+					GUI.Button(objectButtonPosition, buttonContent);
 				}
-			}
-		}
-
-		static void DrawActionButton(SaveObject saveObject, in Rect objectButtonPosition)
-		{
-			SavesSettingsProvider.ContainsData result = SavesSettingsProvider.ContainsSaveData(saveObject);
-			GUIContent buttonContent = new("Add Into Settings", "Add this save object into save settings.");
-			switch (result)
-			{
-				case SavesSettingsProvider.ContainsData.No:
-					// Draw the add button
-					if (GUI.Button(objectButtonPosition, buttonContent))
-					{
-						if (SavesSettingsProvider.RemoveSaveData(saveObject) == 1)
-						{
-							EditorUtility.DisplayDialog("Success!", $"Successfully added \"{saveObject.name}\" into settings.", "OK");
-						}
-						else
-						{
-							EditorUtility.DisplayDialog("Fail!", $"Could not added \"{saveObject.name}\" into settings.", "OK");
-						}
-					}
-					return;
-
-				case SavesSettingsProvider.ContainsData.Yes:
-					// Draw the remove button
-					buttonContent.text = "Remove From Settings";
-					buttonContent.tooltip = "Remove this save object from save settings.";
-					if (GUI.Button(objectButtonPosition, buttonContent))
-					{
-						if (SavesSettingsProvider.RemoveSaveData(saveObject) == 1)
-						{
-							EditorUtility.DisplayDialog("Success!", $"Successfully removed \"{saveObject.name}\" from settings", "OK");
-						}
-						else
-						{
-							EditorUtility.DisplayDialog("Fail!", $"Could not remove \"{saveObject.name}\" from settings", "OK");
-						}
-					}
-					return;
-
-				case SavesSettingsProvider.ContainsData.IsVersion:
-					// Draw the remove button
-					buttonContent.text = "(Can't Remove)";
-					buttonContent.tooltip = "This save object cannot be removed from settings.";
-					break;
-
-				case SavesSettingsProvider.ContainsData.SettingsNotSetup:
-					// Draw the setup button
-					buttonContent.text = "(Settings Not Setup)";
-					buttonContent.tooltip = "Settings needs to be setup before this object can be added to it.";
-					break;
-
-				case SavesSettingsProvider.ContainsData.NullArg:
-					// Draw the null button
-					buttonContent.text = "(Can't Add Null)";
-					buttonContent.tooltip = "Cannot add null into settings.";
-					break;
-			}
-
-			// Draw a disabled button
-			using (var disableScope = new EditorGUI.DisabledGroupScope(true))
-			{
-				GUI.Button(objectButtonPosition, buttonContent);
 			}
 		}
 	}

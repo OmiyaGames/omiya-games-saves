@@ -145,18 +145,132 @@ namespace OmiyaGames.Saves.Editor
 			});
 		}
 
+		/// <summary>
+		/// Gets text and tooltip to display for status label.
+		/// </summary>
+		/// <param name="result"></param>
+		/// <param name="text"></param>
+		/// <param name="tooltip"></param>
+		public static void GetStatusText(SavesSettingsProvider.ContainsData result, out string text, out string tooltip)
+		{
+			// Setup default return
+			text = "! Unrecognized Asset";
+			tooltip = "Was unable to convert this asset to SaveObject";
+
+			// Change text based on result
+			switch (result)
+			{
+				case SavesSettingsProvider.ContainsData.Yes:
+					text = "O In settings";
+					tooltip = "This asset is in saves settings.";
+					break;
+				case SavesSettingsProvider.ContainsData.No:
+					text = "X Not in settings";
+					tooltip = "This asset is not in saves settings.";
+					break;
+				case SavesSettingsProvider.ContainsData.IsVersion:
+					text = "O In settings (as Version)";
+					tooltip = "This asset is in saves settings as version field.";
+					break;
+				case SavesSettingsProvider.ContainsData.SettingsNotSetup:
+					text = "! No Saves Settings";
+					tooltip = "No saves settings was setup for this project.";
+					break;
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="result"></param>
+		/// <param name="text"></param>
+		/// <param name="tooltip"></param>
+		public static void GetButtonText(SavesSettingsProvider.ContainsData result, out string text, out string tooltip, out bool enableButton)
+		{
+			// Setup default return
+			text = "(Can't Add Null)";
+			tooltip = "Cannot add null into settings.";
+			enableButton = false;
+
+			// Change text based on result
+			switch (result)
+			{
+				case SavesSettingsProvider.ContainsData.Yes:
+					text = "Remove From Settings";
+					tooltip = "Remove this save object from save settings.";
+					enableButton = true;
+					break;
+				case SavesSettingsProvider.ContainsData.No:
+					text = "Add Into Settings";
+					tooltip = "Add this save object into saves settings.";
+					enableButton = true;
+					break;
+				case SavesSettingsProvider.ContainsData.IsVersion:
+					text = "(Can't Remove)";
+					tooltip = "This save object cannot be removed from settings.";
+					break;
+				case SavesSettingsProvider.ContainsData.SettingsNotSetup:
+					text = "(Settings Not Setup)";
+					tooltip = "Saves settings needs to be setup before this object can be added to it.";
+					break;
+			}
+		}
+
 		void UpdateSettings()
 		{
-			// FIXME: Update member variables
-			//statusLabel
-			//settingsActionButton
+			// Check whether saveObject is already in settings
+			SaveObject saveObject = target as SaveObject;
+			SavesSettingsProvider.ContainsData result = SavesSettingsProvider.ContainsSaveData(saveObject);
+
+			// Update status label
+			GetStatusText(result, out string text, out string tooltip);
+			statusLabel.text = text;
+			statusLabel.tooltip = tooltip;
+
+			// Update action button
+			GetButtonText(result, out text, out tooltip, out bool isEnabled);
+			settingsActionButton.text = text;
+			settingsActionButton.tooltip = tooltip;
+			settingsActionButton.SetEnabled(isEnabled);
 		}
 
 		void OnActionButtonClicked(ClickEvent e)
 		{
-			// FIXME: Perform some action
-			throw new System.NotImplementedException();
-			UpdateSettings();
+			// Check whether saveObject is already in settings
+			SaveObject saveObject = target as SaveObject;
+			SavesSettingsProvider.ContainsData result = SavesSettingsProvider.ContainsSaveData(saveObject);
+			switch (result)
+			{
+				case SavesSettingsProvider.ContainsData.No:
+					// Add object into setings
+					if (SavesSettingsProvider.AddSaveData(saveObject) == 1)
+					{
+						EditorUtility.DisplayDialog("Success!", $"Successfully added \"{saveObject.name}\" into settings.", "OK");
+						UpdateSettings();
+					}
+					else
+					{
+						EditorUtility.DisplayDialog("Fail!", $"Could not added \"{saveObject.name}\" into settings.", "OK");
+					}
+					break;
+
+				case SavesSettingsProvider.ContainsData.Yes:
+					// Remove object from setings
+					if (SavesSettingsProvider.RemoveSaveData(saveObject) == 1)
+					{
+						EditorUtility.DisplayDialog("Success!", $"Successfully removed \"{saveObject.name}\" from settings.", "OK");
+						UpdateSettings();
+					}
+					else
+					{
+						EditorUtility.DisplayDialog("Fail!", $"Could not remove \"{saveObject.name}\" from settings.", "OK");
+					}
+					break;
+
+				default:
+					EditorUtility.DisplayDialog("Error!", $"No action could be performed on settings.", "OK");
+					break;
+			}
 		}
 	}
 }
