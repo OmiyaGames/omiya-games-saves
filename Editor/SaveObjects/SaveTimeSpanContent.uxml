@@ -1,0 +1,14 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" oge="OmiyaGames.Common.Editor" editor-extension-mode="True">
+    <ui:Foldout text="Default TimeSpan" name="default" tabindex="11">
+        <uie:IntegerField label="Days" name="days" tabindex="20" />
+        <uie:IntegerField label="Hours" name="hours" tabindex="21" />
+        <uie:IntegerField label="Minutes" name="minutes" tabindex="22" />
+        <uie:IntegerField label="Seconds" name="seconds" tabindex="23" />
+        <uie:IntegerField label="Milliseconds" name="milliseconds" tabindex="24" />
+        <ui:VisualElement style="flex-direction: row;">
+            <ui:VisualElement name="padding" style="min-width: 135px;" />
+            <ui:Button text="Simplify" display-tooltip-when-elided="true" name="simplifyButton" tabindex="25" style="flex-grow: 1;" />
+        </ui:VisualElement>
+    </ui:Foldout>
+    <ui:DropdownField label="When Loading Fails..." index="0" tabindex="30" name="onLoadFailed" tooltip="What should happen if loading this value fails." />
+</ui:UXML>

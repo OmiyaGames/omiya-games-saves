@@ -52,6 +52,13 @@ namespace OmiyaGames.Saves
 	[CreateAssetMenu(menuName = "Omiya Games/Saves/Save Time Duration", fileName = "Save TimeSpan")]
 	public class SaveTimeSpan : SaveSingleValue<TimeSpan, string>
 	{
+		public static TimeSpan Convert(string value)
+		{
+			long.TryParse(value, out long ticks);
+			return new(ticks);
+		}
+		public static string Convert(in TimeSpan value) => value.Ticks.ToString();
+
 		/// <summary>
 		/// 5-Minutes.
 		/// </summary>
@@ -67,8 +74,7 @@ namespace OmiyaGames.Saves
 				if (cacheDefaultValue == null)
 				{
 					// Convert the default value into DateTime
-					long ticks = long.Parse(defaultValue);
-					cacheDefaultValue = new(ticks);
+					cacheDefaultValue = Convert(defaultValue);
 				}
 				return cacheDefaultValue.Value;
 			}

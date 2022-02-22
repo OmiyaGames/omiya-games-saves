@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Save TimeSpan
   m_EditorClassIdentifier: 
   key: Key - cdC08q%uBRMo
-  defaultValue: 3000000000
-  onLoadFailed: 2
   comments: 
+  defaultValue: 1800000000
+  onLoadFailed: 2
