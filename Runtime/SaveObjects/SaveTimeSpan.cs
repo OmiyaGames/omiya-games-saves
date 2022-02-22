@@ -52,11 +52,29 @@ namespace OmiyaGames.Saves
 	[CreateAssetMenu(menuName = "Omiya Games/Saves/Save Time Duration", fileName = "Save TimeSpan")]
 	public class SaveTimeSpan : SaveSingleValue<TimeSpan, string>
 	{
+		/// <summary>
+		/// Converts a string to <see cref="TimeSpan"/>.
+		/// </summary>
+		/// <param name="value">
+		/// Value to convert.
+		/// </param>
+		/// <returns>
+		/// Equivalent <see cref="TimeSpan"/>.
+		/// </returns>
 		public static TimeSpan Convert(string value)
 		{
 			long.TryParse(value, out long ticks);
 			return new(ticks);
 		}
+		/// <summary>
+		/// Converts a <see cref="TimeSpan"/> to string.
+		/// </summary>
+		/// <param name="value">
+		/// Value to convert.
+		/// </param>
+		/// <returns>
+		/// Equivalent string.
+		/// </returns>
 		public static string Convert(in TimeSpan value) => value.Ticks.ToString();
 
 		/// <summary>
