@@ -86,8 +86,7 @@ namespace OmiyaGames.Saves
 		[SingleLineObjectField]
 		SavesUpgrader[] upgraders;
 		[SerializeField]
-		//[SingleLineObjectField]
-		SerializableListSet<SaveObject> saveData = new();
+		SerializableListSet<SaveObject> saveData = new(new SaveObjectComparer());
 
 		/// <summary>
 		/// TODO

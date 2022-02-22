@@ -55,6 +55,7 @@ namespace OmiyaGames.Saves.Editor
 		{
 			Yes,
 			No,
+			IsVersion,
 			SettingsNotSetup,
 			NullArg,
 		}
@@ -113,6 +114,10 @@ namespace OmiyaGames.Saves.Editor
 			else if (EditorBuildSettings.TryGetConfigObject(SavesManager.CONFIG_NAME, out settings) == false)
 			{
 				return ContainsData.SettingsNotSetup;
+			}
+			else if ((settings.Version != null) && (string.Equals(settings.Version.Key, checkData.Key)))
+			{
+				return ContainsData.IsVersion;
 			}
 			else if (settings.SaveData.Contains(checkData))
 			{

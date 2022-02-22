@@ -186,7 +186,7 @@ namespace OmiyaGames.Saves.Editor
 							EditorUtility.DisplayDialog("Fail!", $"Could not added \"{saveObject.name}\" into settings.", "OK");
 						}
 					}
-					break;
+					return;
 
 				case SavesSettingsProvider.ContainsData.Yes:
 					// Draw the remove button
@@ -203,27 +203,31 @@ namespace OmiyaGames.Saves.Editor
 							EditorUtility.DisplayDialog("Fail!", $"Could not remove \"{saveObject.name}\" from settings", "OK");
 						}
 					}
+					return;
+
+				case SavesSettingsProvider.ContainsData.IsVersion:
+					// Draw the remove button
+					buttonContent.text = "(Can't Remove)";
+					buttonContent.tooltip = "This save object cannot be removed from settings.";
 					break;
 
 				case SavesSettingsProvider.ContainsData.SettingsNotSetup:
 					// Draw the setup button
 					buttonContent.text = "(Settings Not Setup)";
 					buttonContent.tooltip = "Settings needs to be setup before this object can be added to it.";
-					using (var disableScope = new EditorGUI.DisabledGroupScope(true))
-					{
-						GUI.Button(objectButtonPosition, buttonContent);
-					}
 					break;
 
 				case SavesSettingsProvider.ContainsData.NullArg:
 					// Draw the null button
 					buttonContent.text = "(Can't Add Null)";
 					buttonContent.tooltip = "Cannot add null into settings.";
-					using (var disableScope = new EditorGUI.DisabledGroupScope(true))
-					{
-						GUI.Button(objectButtonPosition, buttonContent);
-					}
 					break;
+			}
+
+			// Draw a disabled button
+			using (var disableScope = new EditorGUI.DisabledGroupScope(true))
+			{
+				GUI.Button(objectButtonPosition, buttonContent);
 			}
 		}
 	}
