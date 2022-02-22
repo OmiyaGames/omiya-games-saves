@@ -51,7 +51,7 @@ namespace OmiyaGames.Saves
 	/// </summary>
 	public abstract partial class SaveObject : ScriptableObject, System.IDisposable
 	{
-		public const string RANDOM_CHAR_ARRAY = "0123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM.:_=#%*";
+		public const string RANDOM_CHAR_ARRAY = "0123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM_*";
 		const string PREPEND_KEY = "Key - ";
 		const int RANDOM_KEY_LENGTH = 12;
 

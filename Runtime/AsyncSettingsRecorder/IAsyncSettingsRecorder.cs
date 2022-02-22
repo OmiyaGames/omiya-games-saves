@@ -61,6 +61,18 @@ namespace OmiyaGames.Saves
 		/// </param>
 		public delegate void OnKeyDeleted(IAsyncSettingsRecorder source, KeyDeletedEventArgs args);
 
+		// FIXME: Setup these methods (more for JSON serialization)
+		//public interface GetListScope : IDisposable { }
+		//GetObjectScope GetList(string key);
+		//public interface SetListScope : IDisposable { }
+		//SetObjectScope SetList(string key);
+
+		// FIXME: Setup these methods (more for JSON serialization)
+		//public interface GetObjectScope : IDisposable { }
+		//GetObjectScope GetObject(string key);
+		//public interface SetObjectScope : IDisposable { }
+		//SetObjectScope SetObject(string key);
+
 		/// <summary>
 		/// Asynchronously gets a boolean value.
 		/// </summary>
