@@ -52,6 +52,32 @@ namespace OmiyaGames.Saves
 	[CreateAssetMenu(menuName = "Omiya Games/Saves/Save Date & Time", fileName = "Save DateTime")]
 	public class SaveDateTime : SaveSingleValue<DateTime, string>
 	{
+
+		/// <summary>
+		/// Converts a string to <see cref="DateTime"/>.
+		/// </summary>
+		/// <param name="value">
+		/// Value to convert.
+		/// </param>
+		/// <returns>
+		/// Equivalent <see cref="DateTime"/>.
+		/// </returns>
+		public static DateTime Convert(string value)
+		{
+			long.TryParse(value, out long ticks);
+			return new(ticks, DateTimeKind.Utc);
+		}
+		/// <summary>
+		/// Converts a <see cref="DateTime"/> to string.
+		/// </summary>
+		/// <param name="value">
+		/// Value to convert.
+		/// </param>
+		/// <returns>
+		/// Equivalent string.
+		/// </returns>
+		public static string Convert(in DateTime value) => value.Ticks.ToString();
+
 		[SerializeField]
 		bool defaultToNow = true;
 
@@ -72,8 +98,7 @@ namespace OmiyaGames.Saves
 				else if (cacheDefaultValue == null)
 				{
 					// Convert the default value into DateTime
-					long ticks = long.Parse(defaultValue);
-					cacheDefaultValue = new(ticks, DateTimeKind.Utc);
+					cacheDefaultValue = Convert(defaultValue);
 				}
 				return cacheDefaultValue.Value;
 			}
@@ -81,6 +106,15 @@ namespace OmiyaGames.Saves
 
 		/// <inheritdoc/>
 		public override bool HasValue => true;
+
+		/// <inheritdoc/>
+		public override void Reset()
+		{
+			base.Reset();
+
+			// On reset, set the custom default time to now
+			defaultValue = Convert(DateTime.UtcNow);
+		}
 
 		/// <inheritdoc/>
 		/// <remarks>

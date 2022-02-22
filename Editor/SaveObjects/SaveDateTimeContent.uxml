@@ -1,0 +1,27 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" oge="OmiyaGames.Common.Editor" editor-extension-mode="True">
+    <ui:Toggle label="Default To Now" name="defaultToNow" binding-path="defaultToNow" value="true" tabindex="10" tooltip="If checked, the current date and time will be used as default, instead of a custom value." />
+    <ui:Foldout text="Default DateTime (UTC)" name="customDataTime" style="display: flex;">
+        <ui:VisualElement name="ymdRow" style="flex-direction: row; align-items: stretch;">
+            <ui:Label text="Year" display-tooltip-when-elided="true" name="yearLabel" style="-unity-text-align: middle-left;" />
+            <uie:IntegerField name="year" tabindex="20" style="flex-grow: 1;" />
+            <ui:Label text="Month" display-tooltip-when-elided="true" name="monthLabel" style="-unity-text-align: middle-left;" />
+            <uie:IntegerField name="month" tabindex="21" style="flex-grow: 1;" />
+            <ui:Label text="Day" display-tooltip-when-elided="true" name="dayLabel" style="-unity-text-align: middle-left;" />
+            <uie:IntegerField name="day" tabindex="23" style="flex-grow: 1;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="hmsRow" style="flex-direction: row; flex-grow: 1;">
+            <ui:Label text="Hour (24)" display-tooltip-when-elided="true" name="hourLabel" style="-unity-text-align: middle-left;" />
+            <uie:IntegerField name="hour" tabindex="30" style="flex-grow: 1;" />
+            <ui:Label text="Minute" display-tooltip-when-elided="true" name="minuteLabel" style="-unity-text-align: middle-left;" />
+            <uie:IntegerField name="minute" tabindex="31" style="flex-grow: 1;" />
+            <ui:Label text="Second" display-tooltip-when-elided="true" name="secondLabel" style="-unity-text-align: middle-left;" />
+            <uie:IntegerField name="second" tabindex="32" style="flex-grow: 1;" />
+        </ui:VisualElement>
+        <uie:IntegerField label="Millisecond" name="millisecond" tabindex="40" />
+        <ui:VisualElement name="buttonRow" style="flex-direction: row;">
+            <ui:VisualElement name="padding" style="min-width: 135px;" />
+            <ui:Button text="Convert to UTC" display-tooltip-when-elided="true" name="convertToUtc" tabindex="41" style="flex-grow: 1;" />
+        </ui:VisualElement>
+    </ui:Foldout>
+    <ui:DropdownField label="When Loading Fails..." index="0" tabindex="30" name="onLoadFailed" tooltip="What should happen if loading this value fails." />
+</ui:UXML>
