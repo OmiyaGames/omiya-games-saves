@@ -76,7 +76,6 @@ namespace OmiyaGames.Saves
 		LoadState setupState = LoadState.Fail;
 		bool cleanUpRecorder = false;
 		IAsyncSettingsRecorder currentRecorder = null;
-		Dictionary<string, SaveObject> keyToSaveMap = null;
 		LoadState lastCoroutineState = LoadState.Loading;
 
 		/// <summary>
@@ -147,36 +146,38 @@ namespace OmiyaGames.Saves
 		/// <summary>
 		/// TODO
 		/// </summary>
-		/// <typeparam name="T"></typeparam>
 		/// <param name="key"></param>
 		/// <param name="saveObject"></param>
 		/// <returns></returns>
-		/// <exception cref="System.Exception"></exception>
-		public static bool TryGetSave<T>(string key, out T saveObject) where T : SaveObject
+		public static bool TryGetSave(string key, out SaveObject saveObject)
 		{
 			// Check if setup yet
-			SavesManager manager = CheckInstance();
+			SavesSettings settings = GetData();
 
 			// Setup return stuff
-			saveObject = null;
-			bool returnFlag = manager.keyToSaveMap.ContainsKey(key);
-
-			// Check if key exists
-			if (returnFlag)
-			{
-				saveObject = manager.keyToSaveMap[key] as T;
-			}
-			return returnFlag;
+			return settings.SaveData.TryGetValue(key, out saveObject);
 		}
 
+		/// <summary>
+		/// TODO
+		/// </summary>
+		/// <param name="saveObject"></param>
+		/// <returns></returns>
+		/// <exception cref="System.ArgumentNullException"></exception>
 		public static bool Contains(SaveObject saveObject)
 		{
+			// Null-check argument
+			if (saveObject == null)
+			{
+				throw new System.ArgumentNullException(nameof(saveObject));
+			}
+
 			// Check if setup yet
-			SavesManager manager = CheckInstance();
+			SavesSettings settings = GetData();
 
 			// Attempt to grab a save object with the same key.
 			bool returnFlag = false;
-			if (manager.keyToSaveMap.TryGetValue(saveObject.Key, out var compare))
+			if (settings.SaveData.TryGetValue(saveObject.Key, out var compare))
 			{
 				// Verify these are the same objects
 				returnFlag = (saveObject == compare);
@@ -239,13 +240,6 @@ namespace OmiyaGames.Saves
 				// Flag as destroyed
 				manager.currentRecorder = null;
 				manager.cleanUpRecorder = false;
-			}
-
-			// Check if map needs to be cleaned
-			if (keyToSaveMap != null)
-			{
-				keyToSaveMap.Clear();
-				keyToSaveMap = null;
 			}
 		}
 
@@ -352,12 +346,12 @@ namespace OmiyaGames.Saves
 			manager.lastCoroutineState = LoadState.Success;
 		}
 
-		static IEnumerator LoadAllSaveObjects(SavesManager manager, ISet<SaveObject> allData)
+		static IEnumerator LoadAllSaveObjects(SavesManager manager, SaveObjectMap<SaveObject> allData)
 		{
 			// Set load state to default
 			manager.lastCoroutineState = LoadState.Loading;
 
-			foreach (SaveObject data in allData)
+			foreach (SaveObject data in allData.Values)
 			{
 				if (data == null)
 				{
@@ -377,13 +371,11 @@ namespace OmiyaGames.Saves
 					switch (data.HandleLoadFailure)
 					{
 						case ErrorHandling.HaltLogError:
-							{
-								// Clean-up, and don't proceed any further
-								Debug.LogErrorFormat(manager, "Unable to load \"{0}\"", data);
-								manager.lastCoroutineState = LoadState.Fail;
-								manager.Dispose();
-								yield break;
-							}
+							// Clean-up, and don't proceed any further
+							Debug.LogErrorFormat(manager, "Unable to load \"{0}\"", data);
+							manager.lastCoroutineState = LoadState.Fail;
+							manager.Dispose();
+							yield break;
 						case ErrorHandling.ProceedLogError:
 							Debug.LogErrorFormat(manager, "Unable to load \"{0}\"", data);
 							break;

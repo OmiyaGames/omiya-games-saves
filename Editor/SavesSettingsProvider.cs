@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using UnityEngine.UIElements;
 using UnityEditor;
+using UnityEditor.UIElements;
 using OmiyaGames.Global.Settings.Editor;
 
 namespace OmiyaGames.Saves.Editor
@@ -119,7 +121,7 @@ namespace OmiyaGames.Saves.Editor
 			{
 				return ContainsData.IsVersion;
 			}
-			else if (settings.SaveData.Contains(checkData))
+			else if (settings.SaveData.ContainsKey(checkData.Key))
 			{
 				return ContainsData.Yes;
 			}
@@ -179,7 +181,7 @@ namespace OmiyaGames.Saves.Editor
 				// Remove the new data from settings
 				foreach (var data in removeData)
 				{
-					if ((data != null) && settings.SaveData.Remove(data))
+					if ((data != null) && settings.SaveData.Remove(data.Key))
 					{
 						++returnNumSavesRemoved;
 					}
@@ -190,6 +192,30 @@ namespace OmiyaGames.Saves.Editor
 				AssetDatabase.SaveAssetIfDirty(settings);
 			}
 			return returnNumSavesRemoved;
+		}
+
+		/// <inheritdoc/>
+		protected override VisualElement GetEditSettingsTree()
+		{
+			// Grab the serialized property
+			VisualElement returnTree = base.GetEditSettingsTree();
+
+			ListView listView = returnTree.Q<ListView>("upgraders");
+			listView.fixedItemHeight = EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
+			//listView.makeItem = () =>
+			//{
+			//	ObjectField returnField = new();
+			//	returnField.objectType = typeof(SavesUpgrader);
+			//	returnField.allowSceneObjects = false;
+			//	return returnField;
+			//};
+			//listView.bindItem = (e, index) =>
+			//{
+			//	ObjectField field = (ObjectField)e;
+			//	field.label = $"Version {index + 1}";
+			//	field.value = 
+			//};
+			return returnTree;
 		}
 
 		class Styles

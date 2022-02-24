@@ -6,7 +6,7 @@ namespace OmiyaGames.Saves
 {
 	///-----------------------------------------------------------------------
 	/// <remarks>
-	/// <copyright file="SaveObjectSet.cs" company="Omiya Games">
+	/// <copyright file="SaveObjectMap.cs" company="Omiya Games">
 	/// The MIT License (MIT)
 	/// 
 	/// Copyright (c) 2022 Omiya Games
@@ -51,7 +51,7 @@ namespace OmiyaGames.Saves
 	/// A collection of <seealso cref="SaveObject"/>s.
 	/// </summary>
 	[System.Serializable]
-	public class SaveObjectSet<T> : IDictionary<string, T>, ISerializationCallbackReceiver where T : SaveObject
+	public class SaveObjectMap<T> : IDictionary<string, T>, ISerializationCallbackReceiver where T : SaveObject
 	{
 		[SerializeField]
 		List<T> serializedList;
@@ -63,7 +63,7 @@ namespace OmiyaGames.Saves
 		/// <summary>
 		/// Default constructor that sets up an empty set.
 		/// </summary>
-		public SaveObjectSet()
+		public SaveObjectMap()
 		{
 			serializedList = new();
 			actualMap = new();
@@ -76,7 +76,7 @@ namespace OmiyaGames.Saves
 		/// <param name="comparer">
 		/// Comparer to check if two elements matches.
 		/// </param>
-		public SaveObjectSet(IEqualityComparer<string> comparer)
+		public SaveObjectMap(IEqualityComparer<string> comparer)
 		{
 			serializedList = new List<T>();
 			actualMap = new Dictionary<string, T>(comparer);
@@ -86,7 +86,7 @@ namespace OmiyaGames.Saves
 		/// Constructor an empty set with initial capacity defined.
 		/// </summary>
 		/// <param name="capacity">Initial capacity of this list.</param>
-		public SaveObjectSet(int capacity)
+		public SaveObjectMap(int capacity)
 		{
 			serializedList = new(capacity);
 			actualMap = new(capacity);
@@ -100,7 +100,7 @@ namespace OmiyaGames.Saves
 		/// <param name="comparer">
 		/// Comparer to check if two elements matches.
 		/// </param>
-		public SaveObjectSet(int capacity, IEqualityComparer<string> comparer)
+		public SaveObjectMap(int capacity, IEqualityComparer<string> comparer)
 		{
 			serializedList = new List<T>(capacity);
 			actualMap = new(capacity, comparer);
@@ -131,6 +131,20 @@ namespace OmiyaGames.Saves
 			}
 
 			return false;
+		}
+
+		/// <summary>
+		/// TODO
+		/// </summary>
+		/// <param name="saveObject"></param>
+		/// <returns></returns>
+		public bool Contains(T saveObject)
+		{
+			if (saveObject == null)
+			{
+				return false;
+			}
+			return actualMap.ContainsKey(saveObject.Key);
 		}
 
 		#region IDictionary<string, T> Implementations
@@ -198,18 +212,44 @@ namespace OmiyaGames.Saves
 			// Indicate we started serializing
 			isSerializing = true;
 
-			// FIXME: Sync this set's data into the list
-			throw new System.NotImplementedException();
-			//SerializableHelpers.PushSetIntoSerializedList(this, serializedList, false);
+			// Remove entries from the serialized list that are not in the set
+			T element;
+			for (int i = 0; i < serializedList.Count; ++i)
+			{
+				element = serializedList[i];
+				if ((element != null) && (actualMap.ContainsKey(element.Key) == false))
+				{
+					serializedList.RemoveAt(i);
+					--i;
+				}
+			}
+
+			// Populate the list with new entries
+			HashSet<T> serializedSet = new(serializedList);
+			foreach (T item in actualMap.Values)
+			{
+				if (serializedSet.Contains(item) == false)
+				{
+					serializedList.Add(item);
+				}
+			}
 		}
 
 		/// <inheritdoc/>
 		[System.Obsolete("Manual call not supported.", true)]
 		public void OnAfterDeserialize()
 		{
-			// FIXME: Sync the list's data into the set.
-			//SerializableHelpers.PushSerializedListIntoSet(serializedList, this, false);
-			throw new System.NotImplementedException();
+			// Clear this Dictionary's contents
+			actualMap.Clear();
+
+			// Populate this HashSet
+			foreach (T item in serializedList)
+			{
+				if ((item != null) && (actualMap.ContainsKey(item.Key) == false))
+				{
+					actualMap.Add(item.Key, item);
+				}
+			}
 
 			// Indicate we're done serializing
 			isSerializing = false;

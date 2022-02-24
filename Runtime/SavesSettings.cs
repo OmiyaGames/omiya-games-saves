@@ -86,8 +86,7 @@ namespace OmiyaGames.Saves
 		[SingleLineObjectField]
 		SavesUpgrader[] upgraders;
 		[SerializeField]
-		// FIXME: replaces this with SaveObjectSet
-		SerializableListSet<SaveObject> saveData = new(new SaveObjectComparer());
+		SaveObjectMap<SaveObject> saveData = new();
 
 		/// <summary>
 		/// TODO
@@ -104,7 +103,7 @@ namespace OmiyaGames.Saves
 		/// <summary>
 		/// TODO
 		/// </summary>
-		public ISet<SaveObject> SaveData => saveData;
+		public SaveObjectMap<SaveObject> SaveData => saveData;
 
 #if UNITY_EDITOR
 		void Reset()
