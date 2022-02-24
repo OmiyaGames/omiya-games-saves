@@ -63,7 +63,16 @@ namespace OmiyaGames.Saves.Editor
 			InvalidKey,
 		}
 
+		class Styles
+		{
+			public static readonly GUIContent recorders = new GUIContent("Recorders");
+			public static readonly GUIContent versionSaver = new GUIContent("Version Saver");
+			public static readonly GUIContent upgraders = new GUIContent("Upgraders");
+			public static readonly GUIContent saveData = new GUIContent("Save Data");
+		}
+
 		static SavesSettingsProvider lastInstance = null;
+		static readonly Color ERROR = new Color(1, 0, 0, 0.25f);
 
 		/// <inheritdoc/>
 		public override string DefaultSettingsFileName => "SavesSettings";
@@ -215,18 +224,36 @@ namespace OmiyaGames.Saves.Editor
 				{
 					if (index < upgraders.arraySize)
 					{
-						// Update object field
+						// Retrieve info
 						ObjectField field = (ObjectField)e;
+						SerializedProperty item = upgraders.GetArrayElementAtIndex(index);
+
+						// Update object field
 						field.label = $"Version {index + 1}";
-						field.tooltip = $"The script upgrading saves from version {index} to {index + 1}.";
+						UpdateBackground(index, field, item.objectReferenceValue);
 
 						// Bind to the appropriate property
-						field.BindProperty(upgraders.GetArrayElementAtIndex(index));
+						field.BindProperty(item);
+						field.RegisterCallback<ChangeEvent<Object>>(e => UpdateBackground(index, field, e.newValue));
 					}
 				};
 
 				// Bind list to the appropriate property
 				listView.BindProperty(upgraders);
+
+				static void UpdateBackground(int index, ObjectField field, Object objectReference)
+				{
+					if (objectReference != null)
+					{
+						field.tooltip = $"The script upgrading saves from version {index} to {index + 1}.";
+						field.style.backgroundColor =  Color.clear;
+					}
+					else
+					{
+						field.tooltip = "Upgrader can't be null!";
+						field.style.backgroundColor = ERROR;
+					}
+				}
 			}
 
 			static void CustomizeSaveDataList(VisualElement returnTree, SerializedObject settingsProperty)
@@ -242,8 +269,11 @@ namespace OmiyaGames.Saves.Editor
 				{
 					if (index < saveData.arraySize)
 					{
+						// Retrieve info
 						ObjectField field = (ObjectField)e;
 						SerializedProperty item = saveData.GetArrayElementAtIndex(index);
+
+						// Update object field
 						UpdateLabel(field, item.objectReferenceValue);
 						field.BindProperty(item);
 						field.RegisterCallback<ChangeEvent<Object>>(e => UpdateLabel(field, e.newValue));
@@ -259,10 +289,14 @@ namespace OmiyaGames.Saves.Editor
 					if ((item != null) && (string.IsNullOrEmpty(item.Key) == false))
 					{
 						field.label = item.Key;
+						field.tooltip = "A save object that will be loaded automatically by SavesManager.";
+						field.style.backgroundColor = Color.clear;
 					}
 					else
 					{
 						field.label = "(Invalid Key)";
+						field.tooltip = "Save object must have a non-null, non-empty key!";
+						field.style.backgroundColor = ERROR;
 					}
 				}
 			}
@@ -276,14 +310,6 @@ namespace OmiyaGames.Saves.Editor
 				returnField.style.paddingBottom = 1;
 				return returnField;
 			}
-		}
-
-		class Styles
-		{
-			public static readonly GUIContent recorders = new GUIContent("Recorders");
-			public static readonly GUIContent versionSaver = new GUIContent("Version Saver");
-			public static readonly GUIContent upgraders = new GUIContent("Upgraders");
-			public static readonly GUIContent saveData = new GUIContent("Save Data");
 		}
 	}
 }
