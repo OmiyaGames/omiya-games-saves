@@ -59,7 +59,7 @@ namespace OmiyaGames.Saves.Editor
 			No,
 			IsVersion,
 			SettingsNotSetup,
-			NullArg,
+			InvalidKey,
 		}
 
 		static SavesSettingsProvider lastInstance = null;
@@ -109,13 +109,13 @@ namespace OmiyaGames.Saves.Editor
 		public static ContainsData ContainsSaveData(SaveObject checkData)
 		{
 			SavesSettings settings;
-			if (checkData == null)
-			{
-				return ContainsData.NullArg;
-			}
-			else if (EditorBuildSettings.TryGetConfigObject(SavesManager.CONFIG_NAME, out settings) == false)
+			if (EditorBuildSettings.TryGetConfigObject(SavesManager.CONFIG_NAME, out settings) == false)
 			{
 				return ContainsData.SettingsNotSetup;
+			}
+			else if ((checkData == null) || string.IsNullOrEmpty(checkData.Key))
+			{
+				return ContainsData.InvalidKey;
 			}
 			else if ((settings.Version != null) && (string.Equals(settings.Version.Key, checkData.Key)))
 			{
@@ -195,27 +195,27 @@ namespace OmiyaGames.Saves.Editor
 		}
 
 		/// <inheritdoc/>
-		protected override VisualElement GetEditSettingsTree()
+		protected override VisualElement CustomizeEditSettingsTree(VisualElement returnTree, SerializedObject settingsProperty)
 		{
-			// Grab the serialized property
-			VisualElement returnTree = base.GetEditSettingsTree();
+			SerializedProperty property = settingsProperty.FindProperty("upgraders");
 
+			// Grab the serialized property
 			ListView listView = returnTree.Q<ListView>("upgraders");
 			listView.fixedItemHeight = EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
-			//listView.makeItem = () =>
-			//{
-			//	ObjectField returnField = new();
-			//	returnField.objectType = typeof(SavesUpgrader);
-			//	returnField.allowSceneObjects = false;
-			//	return returnField;
-			//};
-			//listView.bindItem = (e, index) =>
-			//{
-			//	ObjectField field = (ObjectField)e;
-			//	field.label = $"Version {index + 1}";
-			//	field.value = 
-			//};
-			return returnTree;
+			listView.makeItem = () =>
+			{
+				ObjectField returnField = new();
+				returnField.objectType = typeof(SavesUpgrader);
+				returnField.allowSceneObjects = false;
+				return returnField;
+			};
+			listView.bindItem = (e, index) =>
+			{
+				ObjectField field = (ObjectField)e;
+				field.label = $"Version {index + 1}";
+				field.value = property.objectReferenceValue;
+			};
+			return base.CustomizeEditSettingsTree(returnTree, settingsProperty);
 		}
 
 		class Styles

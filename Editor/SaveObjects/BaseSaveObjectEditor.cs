@@ -188,8 +188,8 @@ namespace OmiyaGames.Saves.Editor
 		public static void GetButtonText(SavesSettingsProvider.ContainsData result, out string text, out string tooltip, out bool enableButton)
 		{
 			// Setup default return
-			text = "(Can't Add Null)";
-			tooltip = "Cannot add null into settings.";
+			text = "(Invalid Key)";
+			tooltip = "Cannot add save object into settings due to invalid key.";
 			enableButton = false;
 
 			// Change text based on result

@@ -116,36 +116,48 @@ namespace OmiyaGames.Saves
 		/// </summary>
 		/// <param name="saveObject"></param>
 		/// <returns></returns>
-		/// <exception cref="System.ArgumentNullException"></exception>
 		public bool Add(T saveObject)
-		{
-			if (saveObject == null)
-			{
-				throw new System.ArgumentNullException(nameof(saveObject));
-			}
-
-			if (actualMap.ContainsKey(saveObject.Key) == false)
-			{
-				actualMap.Add(saveObject.Key, saveObject);
-				return true;
-			}
-
-			return false;
-		}
-
-		/// <summary>
-		/// TODO
-		/// </summary>
-		/// <param name="saveObject"></param>
-		/// <returns></returns>
-		public bool Contains(T saveObject)
 		{
 			if (saveObject == null)
 			{
 				return false;
 			}
-			return actualMap.ContainsKey(saveObject.Key);
+			else if(string.IsNullOrEmpty(saveObject.Key))
+			{
+				return false;
+			}
+			else if (actualMap.ContainsKey(saveObject.Key))
+			{
+				return false;
+			}
+
+			actualMap.Add(saveObject.Key, saveObject);
+			return true;
 		}
+
+		/// <summary>
+		/// TODO
+		/// </summary>
+		/// <param name="item"></param>
+		/// <returns></returns>
+		public bool Contains(T item)
+		{
+			if ((item == null) || string.IsNullOrEmpty(item.Key))
+			{
+				return false;
+			}
+			else if (actualMap.TryGetValue(item.Key, out var result))
+			{
+				return result == item;
+			}
+			return false;
+		}
+		/// <summary>
+		/// TODO
+		/// </summary>
+		/// <param name="item"></param>
+		/// <returns></returns>
+		public bool ContainsKey(T item) => (item != null) && (string.IsNullOrEmpty(item.Key) == false) && actualMap.ContainsKey(item.Key);
 
 		#region IDictionary<string, T> Implementations
 		/// <inheritdoc/>
@@ -176,7 +188,22 @@ namespace OmiyaGames.Saves
 		/// <inheritdoc/>
 		void IDictionary<string, T>.Add(string key, T value)
 		{
-			((IDictionary<string, T>)actualMap).Add(key, value);
+			if (value == null)
+			{
+				throw new System.ArgumentNullException(nameof(value));
+			}
+			else if (string.IsNullOrEmpty(key))
+			{
+				throw new System.ArgumentException("Key is invalid.", nameof(key));
+			}
+			else if (value.Key != key)
+			{
+				throw new System.ArgumentException($"{nameof(value)}'s key does not match.", nameof(key));
+			}
+			else
+			{
+				actualMap.Add(key, value);
+			}
 		}
 		/// <inheritdoc/>
 		bool ICollection<KeyValuePair<string, T>>.Contains(KeyValuePair<string, T> item)
@@ -184,10 +211,7 @@ namespace OmiyaGames.Saves
 			return ((ICollection<KeyValuePair<string, T>>)actualMap).Contains(item);
 		}
 		/// <inheritdoc/>
-		void ICollection<KeyValuePair<string, T>>.Add(KeyValuePair<string, T> item)
-		{
-			((ICollection<KeyValuePair<string, T>>)actualMap).Add(item);
-		}
+		void ICollection<KeyValuePair<string, T>>.Add(KeyValuePair<string, T> item) => actualMap.Add(item.Key, item.Value);
 		/// <inheritdoc/>
 		void ICollection<KeyValuePair<string, T>>.CopyTo(KeyValuePair<string, T>[] array, int arrayIndex)
 		{
@@ -213,11 +237,9 @@ namespace OmiyaGames.Saves
 			isSerializing = true;
 
 			// Remove entries from the serialized list that are not in the set
-			T element;
 			for (int i = 0; i < serializedList.Count; ++i)
 			{
-				element = serializedList[i];
-				if ((element != null) && (actualMap.ContainsKey(element.Key) == false))
+				if (ContainsKey(serializedList[i]) == false)
 				{
 					serializedList.RemoveAt(i);
 					--i;
@@ -245,7 +267,7 @@ namespace OmiyaGames.Saves
 			// Populate this HashSet
 			foreach (T item in serializedList)
 			{
-				if ((item != null) && (actualMap.ContainsKey(item.Key) == false))
+				if (ContainsKey(item) == false)
 				{
 					actualMap.Add(item.Key, item);
 				}
