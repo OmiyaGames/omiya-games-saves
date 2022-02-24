@@ -53,8 +53,5 @@ namespace OmiyaGames.Saves.Editor
 	{
 		/// <inheritdoc/>
 		public override string SidebarDisplayPath => SavesManager.SIDEBAR_PATH;
-
-		/// <inheritdoc/>
-		public override string UxmlPath => SavesManager.UXML_PATH;
 	}
 }

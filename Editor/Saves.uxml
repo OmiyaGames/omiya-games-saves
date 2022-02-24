@@ -6,12 +6,11 @@
         <ui:VisualElement name="versionHandling">
             <ui:Label text="Version Handling" display-tooltip-when-elided="false" enable-rich-text="false" name="header" class="header" />
             <uie:ObjectField label="Version Saver" allow-scene-objects="false" type="OmiyaGames.Saves.SaveInt, OmiyaGames.Saves" name="versionSaver" binding-path="versionSaver" tabindex="1" />
-            <ui:ListView focusable="true" name="upgraders" binding-path="upgraders" show-add-remove-footer="true" header-title="Upgraders" show-border="true" show-alternating-row-backgrounds="ContentOnly" tooltip="Scripts assisting backwards-compatibilty by upgrading save data." tabindex="2" show-foldout-header="true" />
+            <ui:ListView focusable="true" name="upgraders" tooltip="Scripts assisting backwards-compatibilty by upgrading save data." tabindex="2" show-border="true" show-add-remove-footer="true" header-title="Upgraders" show-foldout-header="true" show-alternating-row-backgrounds="All" />
         </ui:VisualElement>
         <OmiyaGames.Common.Editor.Spacer />
         <ui:VisualElement name="separator" style="background-color: rgb(128, 128, 128); width: 95%; height: 2px; margin-left: auto; margin-right: auto;" />
         <OmiyaGames.Common.Editor.Spacer />
-        <uie:PropertyField name="saveData" binding-path="saveData" label="Save Data" tooltip="Set of save data" tabindex="3" />
-        <ui:ListView focusable="true" name="saveDataList" tabindex="4" show-add-remove-footer="true" header-title="Testing" reorderable="true" reorder-mode="Animated" show-border="true" show-foldout-header="true" selection-type="Multiple" show-alternating-row-backgrounds="ContentOnly" />
+        <ui:ListView focusable="true" name="saveData" tabindex="4" show-add-remove-footer="true" header-title="Save Data" reorderable="true" reorder-mode="Animated" show-border="true" show-foldout-header="true" show-alternating-row-backgrounds="All" tooltip="Set of save data" />
     </ui:ScrollView>
 </ui:UXML>

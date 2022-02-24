@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEditor;
 using UnityEditor.UIElements;
@@ -197,31 +198,92 @@ namespace OmiyaGames.Saves.Editor
 		/// <inheritdoc/>
 		protected override VisualElement CustomizeEditSettingsTree(VisualElement returnTree, SerializedObject settingsProperty)
 		{
-			SerializedProperty property = settingsProperty.FindProperty("upgraders");
+			CustomizeUpgradersList(returnTree, settingsProperty);
+			CustomizeSaveDataList(returnTree, settingsProperty);
+			return base.CustomizeEditSettingsTree(returnTree, settingsProperty);
 
-			// Grab the serialized property
-			ListView listView = returnTree.Q<ListView>("upgraders");
-			listView.fixedItemHeight = EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
-			listView.makeItem = () =>
+			static void CustomizeUpgradersList(VisualElement returnTree, SerializedObject settingsProperty)
+			{
+				// Grab the serialized property
+				SerializedProperty upgraders = settingsProperty.FindProperty("upgraders");
+
+				// Update the list
+				ListView listView = returnTree.Q<ListView>("upgraders");
+				listView.fixedItemHeight = EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
+				listView.makeItem = () => GenerateItem(typeof(SavesUpgrader));
+				listView.bindItem = (e, index) =>
+				{
+					if (index < upgraders.arraySize)
+					{
+						// Update object field
+						ObjectField field = (ObjectField)e;
+						field.label = $"Version {index + 1}";
+						field.tooltip = $"The script upgrading saves from version {index} to {index + 1}.";
+
+						// Bind to the appropriate property
+						field.BindProperty(upgraders.GetArrayElementAtIndex(index));
+					}
+				};
+
+				// Bind list to the appropriate property
+				listView.BindProperty(upgraders);
+			}
+
+			static void CustomizeSaveDataList(VisualElement returnTree, SerializedObject settingsProperty)
+			{
+				// Grab the serialized property
+				ListView listView = returnTree.Q<ListView>("saveData");
+
+				// Update the list
+				SerializedProperty saveData = settingsProperty.FindProperty("saveData").FindPropertyRelative("serializedList");
+				listView.fixedItemHeight = EditorGUIUtility.singleLineHeight + (EditorGUIUtility.standardVerticalSpacing * 2);
+				listView.makeItem = () => GenerateItem(typeof(SaveObject));
+				listView.bindItem = (e, index) =>
+				{
+					if (index < saveData.arraySize)
+					{
+						ObjectField field = (ObjectField)e;
+						SerializedProperty item = saveData.GetArrayElementAtIndex(index);
+						UpdateLabel(field, item.objectReferenceValue);
+						field.BindProperty(item);
+						field.RegisterCallback<ChangeEvent<Object>>(e => UpdateLabel(field, e.newValue));
+					}
+				};
+
+				// Bind list to the appropriate property
+				listView.BindProperty(saveData);
+
+				static void UpdateLabel(ObjectField field, Object objectReference)
+				{
+					var item = objectReference as SaveObject;
+					if ((item != null) && (string.IsNullOrEmpty(item.Key) == false))
+					{
+						field.label = item.Key;
+					}
+					else
+					{
+						field.label = "(Invalid Key)";
+					}
+				}
+			}
+
+			static ObjectField GenerateItem(System.Type type)
 			{
 				ObjectField returnField = new();
-				returnField.objectType = typeof(SavesUpgrader);
+				returnField.objectType = type;
 				returnField.allowSceneObjects = false;
+				returnField.style.paddingTop = 1;
+				returnField.style.paddingBottom = 1;
 				return returnField;
-			};
-			listView.bindItem = (e, index) =>
-			{
-				ObjectField field = (ObjectField)e;
-				field.label = $"Version {index + 1}";
-				field.value = property.objectReferenceValue;
-			};
-			return base.CustomizeEditSettingsTree(returnTree, settingsProperty);
+			}
 		}
 
 		class Styles
 		{
-			// FIXME: fill this group
-			//public static readonly GUIContent defaultHitPauseDuration = new GUIContent("Default Hit Pause Duration Seconds");
+			public static readonly GUIContent recorders = new GUIContent("Recorders");
+			public static readonly GUIContent versionSaver = new GUIContent("Version Saver");
+			public static readonly GUIContent upgraders = new GUIContent("Upgraders");
+			public static readonly GUIContent saveData = new GUIContent("Save Data");
 		}
 	}
 }

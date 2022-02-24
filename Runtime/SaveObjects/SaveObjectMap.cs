@@ -122,7 +122,7 @@ namespace OmiyaGames.Saves
 			{
 				return false;
 			}
-			else if(string.IsNullOrEmpty(saveObject.Key))
+			else if (string.IsNullOrEmpty(saveObject.Key))
 			{
 				return false;
 			}
@@ -152,12 +152,6 @@ namespace OmiyaGames.Saves
 			}
 			return false;
 		}
-		/// <summary>
-		/// TODO
-		/// </summary>
-		/// <param name="item"></param>
-		/// <returns></returns>
-		public bool ContainsKey(T item) => (item != null) && (string.IsNullOrEmpty(item.Key) == false) && actualMap.ContainsKey(item.Key);
 
 		#region IDictionary<string, T> Implementations
 		/// <inheritdoc/>
@@ -239,7 +233,7 @@ namespace OmiyaGames.Saves
 			// Remove entries from the serialized list that are not in the set
 			for (int i = 0; i < serializedList.Count; ++i)
 			{
-				if (ContainsKey(serializedList[i]) == false)
+				if (CanAddKey(serializedList[i]))
 				{
 					serializedList.RemoveAt(i);
 					--i;
@@ -267,7 +261,7 @@ namespace OmiyaGames.Saves
 			// Populate this HashSet
 			foreach (T item in serializedList)
 			{
-				if (ContainsKey(item) == false)
+				if (CanAddKey(item))
 				{
 					actualMap.Add(item.Key, item);
 				}
@@ -276,5 +270,7 @@ namespace OmiyaGames.Saves
 			// Indicate we're done serializing
 			isSerializing = false;
 		}
+
+		bool CanAddKey(T item) => (item != null) && (string.IsNullOrEmpty(item.Key) == false) && (actualMap.ContainsKey(item.Key) == false);
 	}
 }
