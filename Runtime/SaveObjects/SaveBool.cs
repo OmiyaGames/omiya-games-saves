@@ -34,7 +34,7 @@ namespace OmiyaGames.Saves
 	/// </listheader>
 	/// <item>
 	/// <term>
-	/// <strong>Version:</strong> 0.2.0-exp<br/>
+	/// <strong>Version:</strong> 0.2.0-exp.1<br/>
 	/// <strong>Date:</strong> 2/17/2022<br/>
 	/// <strong>Author:</strong> Taro Omiya
 	/// </term>
@@ -48,7 +48,7 @@ namespace OmiyaGames.Saves
 	/// <summary>
 	/// Interface for loading a float from 
 	/// </summary>
-	[CreateAssetMenu(menuName = "Omiya Games/Saves/Save Bool", fileName = "Save Bool")]
+	[CreateAssetMenu(menuName = "Omiya Games/Save Bool", fileName = "Save Bool", order = (MENU_ORDER + 3))]
 	public class SaveBool : SaveSingleValue<bool, bool>
 	{
 		/// <inheritdoc/>
