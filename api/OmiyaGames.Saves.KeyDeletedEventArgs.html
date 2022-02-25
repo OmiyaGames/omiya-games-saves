@@ -5,9 +5,11 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Change Log: | Saves documentation </title>
+    <title>Class KeyDeletedEventArgs
+   | Saves documentation </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Change Log: | Saves documentation ">
+    <meta name="title" content="Class KeyDeletedEventArgs
+   | Saves documentation ">
     <meta name="generator" content="docfx 2.59.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
@@ -76,43 +78,89 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
-<h1 id="change-log">Change Log:</h1>
-
-<h2 id="020-exp">0.2.0-exp</h2>
-<ul>
-<li><strong>New Features</strong>: starting on a new, <code>ScriptableObject</code> driven framework to save and recall <code>PlayerPrefs</code> data.  It&#39;s currently a work-in-progress, but we believe is the more intuitive and flexible method for saving and recalling persistent data.<ul>
-<li>Created <a href="/Editor/SavesSettingsProvider.cs"><code>SavesSettingsProvider.cs</code></a>, which can be edited in Project Settings window.  It contains the method save data will be stored, scripts that can upgrade previous data (for adding backwards compatibility,) and what <code>SaveObjects</code> to pre-load.</li>
-<li>Created <a href="/Runtime/SavesManager.cs"><code>SavesManager.cs</code></a>, which handles loading and saving <code>SaveObjects</code>.  The singleton is accessible anyhere.</li>
-<li>Created <a href="/Runtime/AsyncSettingsRecorder/AsyncSettingsRecorder.cs"><code>AsyncSettingsRecorder.cs</code></a>: an abstract <code>ScriptableObject</code> provides an interface for writing and recording data asynchronously.<ul>
-<li>Created <a href="/Runtime/AsyncSettingsRecorder/AsyncPlayerPrefsSettingsRecorder.cs"><code>AsyncPlayerPrefsSettingsRecorder.cs</code></a>, an implementation that uses <code>PlayerPrefs</code>.</li>
-</ul>
-</li>
-<li>Created <a href="/Runtime/SaveObjects/SaveObject.cs"><code>SaveObject.cs</code></a> <code>ScriptableObject</code>.  It&#39;s an abstract class for saving and recalling a specific save data.  <code>SavesManager</code> configures a <code>SaveObject</code> by setting up which <code>AsyncSettingsRecorder</code> all objects should use based on platform.<ul>
-<li>Created <a href="/Runtime/SaveObjects/SaveInt.cs"><code>SaveInt.cs</code></a>, an implementation that stores and recalls an integer.</li>
-<li>Created <a href="/Runtime/SaveObjects/SaveFloat.cs"><code>SaveFloat.cs</code></a>, an implementation that stores and recalls a float.</li>
-<li>Created <a href="/Runtime/SaveObjects/SaveString.cs"><code>SaveString.cs</code></a>, an implementation that stores and recalls a string.</li>
-<li>Created <a href="/Runtime/SaveObjects/SaveBool.cs"><code>SaveBool.cs</code></a>, an implementation that stores and recalls a bool.</li>
-<li>Created <a href="/Runtime/SaveObjects/SaveEnum.cs"><code>SaveEnum.cs</code></a>, an abstract implementation that stores and recalls an enum.</li>
-<li>Created <a href="/Runtime/SaveObjects/SaveDateTime.cs"><code>SaveDateTime.cs</code></a>, an abstract implementation that stores and recalls a <code>DateTime</code> in UTC timezone.</li>
-<li>Created <a href="/Runtime/SaveObjects/SaveTimeSpan.cs"><code>SaveTimeSpan.cs</code></a>, an abstract implementation that stores and recalls a <code>TimeSpan</code>.</li>
-</ul>
-</li>
-<li>Created <a href="/Runtime/SavesUpgrader/SavesUpgrader.cs"><code>SavesUpgrader.cs</code></a> <code>ScriptableObject</code>.  It&#39;s an abstract class for upgrading previous saves into the latest expectation.  <code>SavesManager.cs</code> calls these scripts first before retrieving any <code>SaveObject.cs</code> data.</li>
-</ul>
-</li>
-</ul>
-<h2 id="011-exp">0.1.1-exp</h2>
-<ul>
-<li>Polishing DocFX setup.</li>
-</ul>
-<h2 id="010-exp">0.1.0-exp</h2>
-<ul>
-<li>Initial release:<ul>
-<li>Copied source from <a href="https://github.com/OmiyaGames/template-unity-project">Template Unity Project</a>.</li>
-</ul>
-</li>
-</ul>
+            <article class="content wrap" id="_content" data-uid="OmiyaGames.Saves.KeyDeletedEventArgs">
+  
+  
+  <h1 id="OmiyaGames_Saves_KeyDeletedEventArgs" data-uid="OmiyaGames.Saves.KeyDeletedEventArgs" class="text-break">Class KeyDeletedEventArgs
+  </h1>
+  <div class="markdown level0 summary"><p>Event arguments for <seealso cref="!:IAsyncSettingsRecorder.SubscribeToDeleteKey(string, ISettingsRecorder.OnKeyDeleted)"></seealso>.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><span class="xref">KeyDeletedEventArgs</span></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="OmiyaGames.Saves.html">OmiyaGames.Saves</a></h6>
+  <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
+  <h5 id="OmiyaGames_Saves_KeyDeletedEventArgs_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class KeyDeletedEventArgs : EventArgs</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="OmiyaGames_Saves_KeyDeletedEventArgs__ctor_" data-uid="OmiyaGames.Saves.KeyDeletedEventArgs.#ctor*"></a>
+  <h4 id="OmiyaGames_Saves_KeyDeletedEventArgs__ctor_System_String_" data-uid="OmiyaGames.Saves.KeyDeletedEventArgs.#ctor(System.String)">KeyDeletedEventArgs(String)</h4>
+  <div class="markdown level1 summary"><p>Constructor to set <a class="xref" href="OmiyaGames.Saves.KeyDeletedEventArgs.html#OmiyaGames_Saves_KeyDeletedEventArgs_Key">Key</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public KeyDeletedEventArgs(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>Sets <a class="xref" href="OmiyaGames.Saves.KeyDeletedEventArgs.html#OmiyaGames_Saves_KeyDeletedEventArgs_Key">Key</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="OmiyaGames_Saves_KeyDeletedEventArgs_Key_" data-uid="OmiyaGames.Saves.KeyDeletedEventArgs.Key*"></a>
+  <h4 id="OmiyaGames_Saves_KeyDeletedEventArgs_Key" data-uid="OmiyaGames.Saves.KeyDeletedEventArgs.Key">Key</h4>
+  <div class="markdown level1 summary"><p>The key that got deleted.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Key { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="OmiyaGames_Saves_KeyDeletedEventArgs_Key_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Can be <code>null</code>, which in that case,
+the delete operation was called from
+<a class="xref" href="OmiyaGames.Saves.ISettingsRecorder.html#OmiyaGames_Saves_ISettingsRecorder_DeleteAll">DeleteAll()</a>.</p>
+</div>
 </article>
           </div>
           
@@ -120,9 +168,6 @@
             <div class="sideaffix">
               <div class="contribution">
                 <ul class="nav">
-                  <li>
-                    <a href="https://github.com/OmiyaGames/omiya-games-saves/blob/main/Documentation~/manual/changelog.md/#L1" class="contribution-link">Improve this Doc</a>
-                  </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">

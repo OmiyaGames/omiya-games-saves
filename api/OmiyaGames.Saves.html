@@ -104,6 +104,18 @@ how many levels they have unlocked, etc.) to
       <h4><a class="xref" href="OmiyaGames.Saves.AddOptions.html">AddOptions</a></h4>
       <section><p>Adds Options settings to <a class="xref" href="OmiyaGames.Saves.GameSettings.html">GameSettings</a>.</p>
 </section>
+      <h4><a class="xref" href="OmiyaGames.Saves.AsyncCompositeSettingsRecorder.html">AsyncCompositeSettingsRecorder</a></h4>
+      <section><p>TODO.</p>
+</section>
+      <h4><a class="xref" href="OmiyaGames.Saves.AsyncPlayerPrefsSettingsRecorder.html">AsyncPlayerPrefsSettingsRecorder</a></h4>
+      <section></section>
+      <h4><a class="xref" href="OmiyaGames.Saves.AsyncSettingsRecorder.html">AsyncSettingsRecorder</a></h4>
+      <section><p>A <see cref="!:ScriptableObject"></see> implementation of <pre><code>IAsyncSettingsRecorder</code></pre>.</p>
+</section>
+      <h4><a class="xref" href="OmiyaGames.Saves.AsyncSettingsRecorderDecorator.html">AsyncSettingsRecorderDecorator</a></h4>
+      <section><p>A decorator that implements a couple of <pre><code>AsyncSettingsRecorder</code></pre> methods by wrapping a couple of methods with other methods.
+Extending this class should reduce the amount of work necessary to implement an <pre><code>AsyncSettingsRecorder</code></pre>.</p>
+</section>
       <h4><a class="xref" href="OmiyaGames.Saves.Clamp-1.html">Clamp&lt;T&gt;</a></h4>
       <section><p>Prevents a setting from going beyond the specified bounds.</p>
 </section>
@@ -142,6 +154,18 @@ Useful for keeping track of high scores.</p>
       <section></section>
       <h4><a class="xref" href="OmiyaGames.Saves.ISortedRecords-1.DescendingOrder.html">ISortedRecords&lt;T&gt;.DescendingOrder</a></h4>
       <section></section>
+      <h4><a class="xref" href="OmiyaGames.Saves.KeyDeletedEventArgs.html">KeyDeletedEventArgs</a></h4>
+      <section><p>Event arguments for <seealso cref="!:IAsyncSettingsRecorder.SubscribeToDeleteKey(string, ISettingsRecorder.OnKeyDeleted)"></seealso>.</p>
+</section>
+      <h4><a class="xref" href="OmiyaGames.Saves.LoadFinishedCompositeEventArgs-1.html">LoadFinishedCompositeEventArgs&lt;T&gt;</a></h4>
+      <section><p>TODO.</p>
+</section>
+      <h4><a class="xref" href="OmiyaGames.Saves.LoadFinishedEventArgs.html">LoadFinishedEventArgs</a></h4>
+      <section><p>Event arguments for <seealso cref="!:OnLoadingFinished"></seealso>.</p>
+</section>
+      <h4><a class="xref" href="OmiyaGames.Saves.LoadValueFinishedEventArgs-1.html">LoadValueFinishedEventArgs&lt;T&gt;</a></h4>
+      <section><p>Event arguments for <seealso cref="!:OnLoadingFinished"></seealso>.</p>
+</section>
       <h4><a class="xref" href="OmiyaGames.Saves.MaxCap-1.html">MaxCap&lt;T&gt;</a></h4>
       <section><p>Prevents a setting from becoming larger than the specified bound.</p>
 </section>
@@ -160,6 +184,63 @@ Useful for keeping track of high scores.</p>
       <h4><a class="xref" href="OmiyaGames.Saves.PropertyStoredSettingsGenerator-1.html">PropertyStoredSettingsGenerator&lt;T&gt;</a></h4>
       <section><p>Abstract class that helps generate a property in <a class="xref" href="OmiyaGames.Saves.GameSettings.html">GameSettings</a>.</p>
 </section>
+      <h4><a class="xref" href="OmiyaGames.Saves.SaveBool.html">SaveBool</a></h4>
+      <section><p>Interface for loading a float from </p>
+</section>
+      <h4><a class="xref" href="OmiyaGames.Saves.SaveComparableValue-2.html">SaveComparableValue&lt;TValue, TSerialized&gt;</a></h4>
+      <section><p>Helper abstract class with common methods already defined for most
+comparable variable types.</p>
+</section>
+      <h4><a class="xref" href="OmiyaGames.Saves.SaveDateTime.html">SaveDateTime</a></h4>
+      <section><p>Interface for loading a <see cref="!:DateTime"></see> from <a class="xref" href="OmiyaGames.Saves.IAsyncSettingsRecorder.html">IAsyncSettingsRecorder</a></p>
+</section>
+      <h4><a class="xref" href="OmiyaGames.Saves.SaveEnum-1.html">SaveEnum&lt;T&gt;</a></h4>
+      <section><p>Interface for loading a enum from a <a class="xref" href="OmiyaGames.Saves.IAsyncSettingsRecorder.html">IAsyncSettingsRecorder</a>.</p>
+</section>
+      <h4><a class="xref" href="OmiyaGames.Saves.SaveEnumFlags-1.html">SaveEnumFlags&lt;T&gt;</a></h4>
+      <section><p>Interface for loading a enum from a <a class="xref" href="OmiyaGames.Saves.IAsyncSettingsRecorder.html">IAsyncSettingsRecorder</a>.
+Meant for enums with <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.flagsattribute">FlagsAttribute</a>.</p>
+</section>
+      <h4><a class="xref" href="OmiyaGames.Saves.SaveFloat.html">SaveFloat</a></h4>
+      <section><p>Interface for loading a float from </p>
+</section>
+      <h4><a class="xref" href="OmiyaGames.Saves.SaveInt.html">SaveInt</a></h4>
+      <section><p>Interface for loading an integer from <a class="xref" href="OmiyaGames.Saves.IAsyncSettingsRecorder.html">IAsyncSettingsRecorder</a></p>
+</section>
+      <h4><a class="xref" href="OmiyaGames.Saves.SaveObject.html">SaveObject</a></h4>
+      <section><p>Interface for implementing saving and loading a value.</p>
+</section>
+      <h4><a class="xref" href="OmiyaGames.Saves.SaveObjectComparer.html">SaveObjectComparer</a></h4>
+      <section><p>TODO</p>
+</section>
+      <h4><a class="xref" href="OmiyaGames.Saves.SaveObjectInfoAttribute.html">SaveObjectInfoAttribute</a></h4>
+      <section><p>Attribute for showing more helper functionality to SaveObject</p>
+</section>
+      <h4><a class="xref" href="OmiyaGames.Saves.SaveObjectMap-1.html">SaveObjectMap&lt;T&gt;</a></h4>
+      <section><p>A collection of <a class="xref" href="OmiyaGames.Saves.SaveObject.html">SaveObject</a>s.</p>
+</section>
+      <h4><a class="xref" href="OmiyaGames.Saves.SaveSingleValue-2.html">SaveSingleValue&lt;TValue, TSerialized&gt;</a></h4>
+      <section><p>Helper abstract class with common methods already defined for most situations.</p>
+</section>
+      <h4><a class="xref" href="OmiyaGames.Saves.SaveSlot.html">SaveSlot</a></h4>
+      <section><p>Collection of SaveObjects, acting like a save slot.</p>
+</section>
+      <h4><a class="xref" href="OmiyaGames.Saves.SavesManager.html">SavesManager</a></h4>
+      <section><p>A manager file that allows adjusting an <see cref="!:SavesMixer"></see>
+from settings.</p>
+</section>
+      <h4><a class="xref" href="OmiyaGames.Saves.SavesSettings.html">SavesSettings</a></h4>
+      <section><p>Scriptable object with settings info.</p>
+</section>
+      <h4><a class="xref" href="OmiyaGames.Saves.SaveString.html">SaveString</a></h4>
+      <section><p>Interface for loading a string from </p>
+</section>
+      <h4><a class="xref" href="OmiyaGames.Saves.SavesUpgrader.html">SavesUpgrader</a></h4>
+      <section><p>A <see cref="!:ScriptableObject"></see> implementation of <pre><code>ISavesUpgrader</code></pre>.</p>
+</section>
+      <h4><a class="xref" href="OmiyaGames.Saves.SaveTimeSpan.html">SaveTimeSpan</a></h4>
+      <section><p>Interface for loading a <see cref="!:TimeSpan"></see> from <a class="xref" href="OmiyaGames.Saves.IAsyncSettingsRecorder.html">IAsyncSettingsRecorder</a></p>
+</section>
       <h4><a class="xref" href="OmiyaGames.Saves.SettingsGeneratorArgs.html">SettingsGeneratorArgs</a></h4>
       <section><p>Arguments providing a collection of <a class="xref" href="OmiyaGames.Saves.IGenerator.html">IGenerator</a></p>
 </section>
@@ -169,6 +250,10 @@ Extending this class should reduce the amount of work necessary to implement an 
 </section>
       <h4><a class="xref" href="OmiyaGames.Saves.SettingsVersionGeneratorDecorator.html">SettingsVersionGeneratorDecorator</a></h4>
       <section></section>
+      <h4><a class="xref" href="OmiyaGames.Saves.SingleLineObjectFieldAttribute.html">SingleLineObjectFieldAttribute</a></h4>
+      <section><p>Attribute for making object fields take up only a single line,
+taking up the full width (no label.)  Useful for lists of objects.</p>
+</section>
       <h4><a class="xref" href="OmiyaGames.Saves.SortedFloatRecords.html">SortedFloatRecords</a></h4>
       <section><p>Stores a sorted list of <a class="xref" href="OmiyaGames.Saves.FloatRecord.html">FloatRecord</a> with a limited capacity.
 Useful for keeping track of high scores.</p>
@@ -186,7 +271,7 @@ Useful for keeping track of high scores.</p>
       <h4><a class="xref" href="OmiyaGames.Saves.StoredDateTimeUtcGenerator.html">StoredDateTimeUtcGenerator</a></h4>
       <section><p>Generates a <see cref="!:DateTime"></see> (in UTC) property in <a class="xref" href="OmiyaGames.Saves.GameSettings.html">GameSettings</a>.</p>
 </section>
-      <h4><a class="xref" href="OmiyaGames.Saves.StoredEnumGenerator-1.html">StoredEnumGenerator&lt;ENUM&gt;</a></h4>
+      <h4><a class="xref" href="OmiyaGames.Saves.StoredEnumGenerator-1.html">StoredEnumGenerator&lt;T&gt;</a></h4>
       <section><p>Generates an enum property in <a class="xref" href="OmiyaGames.Saves.GameSettings.html">GameSettings</a>.</p>
 </section>
       <h4><a class="xref" href="OmiyaGames.Saves.StoredFloatGenerator.html">StoredFloatGenerator</a></h4>
@@ -208,14 +293,62 @@ Useful for keeping track of high scores.</p>
       <section><p>Arguments providing a collection of <pre><code>ISettingsVersionGenerator</code></pre>,
 sorted by version number in ascending order.</p>
 </section>
+      <h4><a class="xref" href="OmiyaGames.Saves.WaitLoad.html">WaitLoad</a></h4>
+      <section><p>An abstract coroutine that waits for a loading operation to finish.
+Contains a property indicating if the operation succeeded or not.</p>
+</section>
+      <h4><a class="xref" href="OmiyaGames.Saves.WaitLoadBool.html">WaitLoadBool</a></h4>
+      <section><p>Wraps <code>WaitLoadValue&lt;int&gt;</code>, converting
+<a class="xref" href="OmiyaGames.Saves.WaitLoadBool.html#OmiyaGames_Saves_WaitLoadBool_Result">Result</a> to a boolean.</p>
+</section>
+      <h4><a class="xref" href="OmiyaGames.Saves.WaitLoadComposite.html">WaitLoadComposite</a></h4>
+      <section><p>TODO.</p>
+</section>
+      <h4><a class="xref" href="OmiyaGames.Saves.WaitLoadConvertValue-2.html">WaitLoadConvertValue&lt;TNew, TOld&gt;</a></h4>
+      <section><p>Wrapper class that converts a <a class="xref" href="OmiyaGames.Saves.WaitLoadValue-1.html#OmiyaGames_Saves_WaitLoadValue_1_Result">Result</a>
+from <code data-dev-comment-type="typeparamref" class="typeparamref">TOld</code> to <code data-dev-comment-type="typeparamref" class="typeparamref">TNew</code>.</p>
+</section>
+      <h4><a class="xref" href="OmiyaGames.Saves.WaitLoadDateTime.html">WaitLoadDateTime</a></h4>
+      <section><p>Wraps <code>WaitLoadValue&lt;string&gt;</code>, converting
+<a class="xref" href="OmiyaGames.Saves.WaitLoadDateTime.html#OmiyaGames_Saves_WaitLoadDateTime_Result">Result</a> to a <see cref="!:DateTime"></see>.</p>
+</section>
+      <h4><a class="xref" href="OmiyaGames.Saves.WaitLoadEnum-1.html">WaitLoadEnum&lt;T&gt;</a></h4>
+      <section><p>Wraps <code>WaitLoadValue&lt;int&gt;</code>, converting
+<a class="xref" href="OmiyaGames.Saves.WaitLoadEnum-1.html#OmiyaGames_Saves_WaitLoadEnum_1_Result">Result</a> to an enum.</p>
+</section>
+      <h4><a class="xref" href="OmiyaGames.Saves.WaitLoadFlags.html">WaitLoadFlags</a></h4>
+      <section><p>A coroutine that waits for all listed flags to finish loading.</p>
+</section>
+      <h4><a class="xref" href="OmiyaGames.Saves.WaitLoadImmediate.html">WaitLoadImmediate</a></h4>
+      <section><p>A coroutine that immediately finishes with success status.</p>
+</section>
+      <h4><a class="xref" href="OmiyaGames.Saves.WaitLoadTimeSpan.html">WaitLoadTimeSpan</a></h4>
+      <section><p>Wraps <code>WaitLoadValue&lt;string&gt;</code>, converting
+<a class="xref" href="OmiyaGames.Saves.WaitLoadTimeSpan.html#OmiyaGames_Saves_WaitLoadTimeSpan_Result">Result</a> to a <see cref="!:TimeSpan"></see>.</p>
+</section>
+      <h4><a class="xref" href="OmiyaGames.Saves.WaitLoadValue-1.html">WaitLoadValue&lt;T&gt;</a></h4>
+      <section><p>An abstract coroutine that waits for a loading operation to finish.
+Contains a property indicating if the operation succeeded or not,
+as well as the retrieved value if successful.</p>
+</section>
+      <h4><a class="xref" href="OmiyaGames.Saves.WaitLoadValueImmediate-1.html">WaitLoadValueImmediate&lt;T&gt;</a></h4>
+      <section></section>
     <h3 id="structs">Structs
   </h3>
+      <h4><a class="xref" href="OmiyaGames.Saves.SavesSettings.SupportedRecorder.html">SavesSettings.SupportedRecorder</a></h4>
+      <section></section>
       <h4><a class="xref" href="OmiyaGames.Saves.SettingsGeneratorArgs.SingleSettingsInfo.html">SettingsGeneratorArgs.SingleSettingsInfo</a></h4>
       <section></section>
     <h3 id="interfaces">Interfaces
   </h3>
+      <h4><a class="xref" href="OmiyaGames.Saves.IAsyncSettingsRecorder.html">IAsyncSettingsRecorder</a></h4>
+      <section><p>An interface for storing settings. Useful for indicating where a game&apos;s settings should be saved.</p>
+</section>
       <h4><a class="xref" href="OmiyaGames.Saves.IGenerator.html">IGenerator</a></h4>
       <section><p>Interface that generates a property.</p>
+</section>
+      <h4><a class="xref" href="OmiyaGames.Saves.ISavesUpgrader.html">ISavesUpgrader</a></h4>
+      <section><p>An interface for upgrading stored settings.</p>
 </section>
       <h4><a class="xref" href="OmiyaGames.Saves.ISettingsRecorder.html">ISettingsRecorder</a></h4>
       <section><p>An interface for storing settings. Useful for indicating where a game&apos;s settings should be saved.</p>
@@ -255,18 +388,33 @@ Anything that implements this interface must be a
       <h4><a class="xref" href="OmiyaGames.Saves.AccessModifier.html">AccessModifier</a></h4>
       <section><p>Enumerator indicating the access permissions of a generated property.</p>
 </section>
+      <h4><a class="xref" href="OmiyaGames.Saves.ErrorHandling.html">ErrorHandling</a></h4>
+      <section><p>Indicates the loading state of a coroutine.</p>
+</section>
       <h4><a class="xref" href="OmiyaGames.Saves.GameSettings.AppStatus.html">GameSettings.AppStatus</a></h4>
       <section></section>
+      <h4><a class="xref" href="OmiyaGames.Saves.LoadState.html">LoadState</a></h4>
+      <section><p>Indicates the loading state of a coroutine.</p>
+</section>
+      <h4><a class="xref" href="OmiyaGames.Saves.SaveState.html">SaveState</a></h4>
+      <section><p>Indicates the state of this object.</p>
+</section>
     <h3 id="delegates">Delegates
   </h3>
       <h4><a class="xref" href="OmiyaGames.Saves.GeneratorDecorator.PropertyWriter.html">GeneratorDecorator.PropertyWriter</a></h4>
       <section></section>
+      <h4><a class="xref" href="OmiyaGames.Saves.IAsyncSettingsRecorder.OnKeyDeleted.html">IAsyncSettingsRecorder.OnKeyDeleted</a></h4>
+      <section><p>TODO</p>
+</section>
       <h4><a class="xref" href="OmiyaGames.Saves.IRecord-1.TryConvertOldRecord.html">IRecord&lt;T&gt;.TryConvertOldRecord</a></h4>
       <section></section>
       <h4><a class="xref" href="OmiyaGames.Saves.PropertyStoredSettingsGenerator-1.ConvertOldSettings.html">PropertyStoredSettingsGenerator&lt;T&gt;.ConvertOldSettings</a></h4>
       <section></section>
       <h4><a class="xref" href="OmiyaGames.Saves.PropertyStoredSettingsGenerator-1.ValueChange.html">PropertyStoredSettingsGenerator&lt;T&gt;.ValueChange</a></h4>
       <section></section>
+      <h4><a class="xref" href="OmiyaGames.Saves.WaitLoad.LoadingFinished.html">WaitLoad.LoadingFinished</a></h4>
+      <section><p>TODO</p>
+</section>
 </article>
           </div>
           

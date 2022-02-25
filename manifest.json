@@ -96,11 +96,299 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.AsyncCompositeSettingsRecorder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.AsyncCompositeSettingsRecorder.html",
+          "hash": "cHjInGgFPKgZvg3p2FQZEsRFsadbBwNxKF9FCxtZIAg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.AsyncPlayerPrefsSettingsRecorder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.AsyncPlayerPrefsSettingsRecorder.html",
+          "hash": "dcTT4fhkfEJ2zpUd8JaVoeRoH0/cr8RMio/7EZSwIhk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.AsyncSettingsRecorder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.AsyncSettingsRecorder.html",
+          "hash": "5y4ANH9bf8jfd8luKvrekEUkvjkFtd34e4a237lQ0Ms="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.AsyncSettingsRecorderDecorator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.AsyncSettingsRecorderDecorator.html",
+          "hash": "AbVo0qJnLcDvrdtk9/XH0USa+IMBXwWbtULopOwdZCI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/OmiyaGames.Saves.Clamp-1.yml",
       "output": {
         ".html": {
           "relative_path": "api/OmiyaGames.Saves.Clamp-1.html",
           "hash": "t4YkYXGG7cp4+f5ypIVzKWRtSHZ7IGwEwQ1VBpu4ztI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.Editor.BaseSaveObjectEditor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.Editor.BaseSaveObjectEditor.html",
+          "hash": "1jkn5fsPexg9fkZylBTjnL+VGDRjBet2K0ozwY7lRiY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.Editor.SaveBoolEditor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.Editor.SaveBoolEditor.html",
+          "hash": "PjIwyBYV8S9dshxQI2bRH2QMq/NZhygZQFmuwng/qE0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.Editor.SaveComparableEditor-4.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.Editor.SaveComparableEditor-4.html",
+          "hash": "Ar1l4i8YEnhv6U0m47fckdg4qrLtzRE3N1yTaTN7Zqs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.Editor.SaveDateTimeEditor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.Editor.SaveDateTimeEditor.html",
+          "hash": "VFftK/bjn0D5YEwYpwwZoI428iwn8NoaZ9Omte63snY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.Editor.SaveEnumEditor-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.Editor.SaveEnumEditor-1.html",
+          "hash": "FHICcw0ZDII/q9G9KDFh6EXzUeWOn+EONLFCbihiIR8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.Editor.SaveEnumFlagsEditor-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.Editor.SaveEnumFlagsEditor-1.html",
+          "hash": "c1nvTlk89U0dGQo/xljXi827+3aIKuuck32BYXPCX1M="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.Editor.SaveFloatEditor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.Editor.SaveFloatEditor.html",
+          "hash": "4IuSb1zl29mWaLm+twaWwBKZ2ylzT7rKx8hQ7luL9wU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.Editor.SaveIntEditor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.Editor.SaveIntEditor.html",
+          "hash": "NntNaz7rr9vtZxXBEkFH549ethr9dbukUrLo+BDoju4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.Editor.SaveObjectInfoDrawer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.Editor.SaveObjectInfoDrawer.html",
+          "hash": "NRAC2worYIk60cufrygaXhY9L3tRV34q6i8x5njszP8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.Editor.SaveObjectMapDrawer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.Editor.SaveObjectMapDrawer.html",
+          "hash": "UrJgmcgScerAbGRlXxmfDUH7ERk3LDwdXRjES0/wFcg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.Editor.SaveStringEditor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.Editor.SaveStringEditor.html",
+          "hash": "MqrHT0FZl1L16ZXe9YI7SiGX6aDn+HOB0HWndHlWq+M="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.Editor.SaveTimeSpanEditor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.Editor.SaveTimeSpanEditor.html",
+          "hash": "A6aAZ9LlpVWu6xtwSk2ivdL/LnzyrwyWr0YUWbvUdCc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.Editor.SavesSettingsBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.Editor.SavesSettingsBuilder.html",
+          "hash": "UbShpVULb1qm9K3q83O2GsxSDFE3qRVgid0+LOVHjVA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.Editor.SavesSettingsEditor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.Editor.SavesSettingsEditor.html",
+          "hash": "aW2oZ/RQcNGzRxUoMWvKW7da+foPTQoDY69zDLNvV0Y="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.Editor.SavesSettingsProvider.ContainsData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.Editor.SavesSettingsProvider.ContainsData.html",
+          "hash": "l+jjuvDjOCNM+TmjMv1SfNuZ/ExSm5kiXYyVtjTSbRw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.Editor.SavesSettingsProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.Editor.SavesSettingsProvider.html",
+          "hash": "uPb0/vOA8yGIOvrNYHwco/p3cTnjcpqB+wPDPvFYAzE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.Editor.SingleLineObjectFieldDrawer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.Editor.SingleLineObjectFieldDrawer.html",
+          "hash": "HqvUJhm/RWd+5HRGPsxTxWkZ++a5elnxQcbK7O0DB08="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.Editor.SupportedRecordersDrawer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.Editor.SupportedRecordersDrawer.html",
+          "hash": "TWt/RETh7llVOtvYn6hjYrw9/Rd+MiXbPcbT7YsUn3Q="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.Editor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.Editor.html",
+          "hash": "r9flka8KmrK/OxzK/4xuhbdgBT7sa9ycS3B2lZrY5/M="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.ErrorHandling.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.ErrorHandling.html",
+          "hash": "2goTNB76hBjiI+1h1OzHQx6XIkbKIIMhBDlIKRvnREg="
         }
       },
       "is_incremental": false,
@@ -204,6 +492,30 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.IAsyncSettingsRecorder.OnKeyDeleted.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.IAsyncSettingsRecorder.OnKeyDeleted.html",
+          "hash": "mTv88/KYvZItXcu4zcM6W9lxqGhBLWXCpknXNRL4UJQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.IAsyncSettingsRecorder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.IAsyncSettingsRecorder.html",
+          "hash": "epzdmqlPRhnT2tPA7vtu8KuZaiq96CxzIedKR2rMztY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/OmiyaGames.Saves.IGenerator.yml",
       "output": {
         ".html": {
@@ -232,7 +544,19 @@
       "output": {
         ".html": {
           "relative_path": "api/OmiyaGames.Saves.IRecord-1.html",
-          "hash": "eQgPElrIQ7toygnnFdxTTj9tUrqkLMQGPmjA+2R2fco="
+          "hash": "4jn9UzSuxSEEkB9zcuiN9GcMKWhuGzhr/yfm7kbsrAM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.ISavesUpgrader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.ISavesUpgrader.html",
+          "hash": "uSnHP7YcjUKhQ44QYn/KAeDDGistfPs+4u/tMFCouPA="
         }
       },
       "is_incremental": false,
@@ -244,7 +568,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OmiyaGames.Saves.ISettingsRecorder.html",
-          "hash": "WU8as4bgysRdNJw/0BoGZRd2L+JDtlhieatV9+MIt2E="
+          "hash": "jfgERDOwA8Zbomg7hw5CVD0oydvrkbr+JlQSSNvXZFY="
         }
       },
       "is_incremental": false,
@@ -360,6 +684,66 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.KeyDeletedEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.KeyDeletedEventArgs.html",
+          "hash": "Hdq/Ll7pCQNp5AQioPJAAQWLjd++YDI0suf+04pK86A="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.LoadFinishedCompositeEventArgs-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.LoadFinishedCompositeEventArgs-1.html",
+          "hash": "PWi/XD2zjBisprOk726HLeAcUwk6Q0nsENcipImA0Xg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.LoadFinishedEventArgs.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.LoadFinishedEventArgs.html",
+          "hash": "iWLrUV1DSPRx9FUtUpV0aiyyow4tVygAUpXZCPNHq18="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.LoadState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.LoadState.html",
+          "hash": "o8frVxgDJlI2YLRHsUeNff+2wdjs53yUAHBNTgy64Ac="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.LoadValueFinishedEventArgs-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.LoadValueFinishedEventArgs-1.html",
+          "hash": "vgCF5dnrYlKB6e0aH8TOR1JvZGoM9XUWU71IeHlJ2NA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/OmiyaGames.Saves.MaxCap-1.yml",
       "output": {
         ".html": {
@@ -400,7 +784,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OmiyaGames.Saves.PlayerPrefsSettingsRecorder.html",
-          "hash": "DDGiUSLOD0Sowb1bhxaD+b7eEbxs3OPU+a9TBc9XviE="
+          "hash": "x14i4TI+mifzwnPZf2yaxlJj646HuWX11vzsDniaGm4="
         }
       },
       "is_incremental": false,
@@ -460,7 +844,247 @@
       "output": {
         ".html": {
           "relative_path": "api/OmiyaGames.Saves.PropertyStoredSettingsGenerator-1.html",
-          "hash": "UWQmf6+Z2SLRrmGnKfX8ytFST6t2wcLZFFsfudckX5Q="
+          "hash": "BPk8GEVRYplDzTtNMEEk/681C8FtaHUmJNvuBZQl6mM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.SaveBool.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.SaveBool.html",
+          "hash": "UccDL5dosph3CPyRCoaYxxiaJTsDjZ/smtrFAwCtpjg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.SaveComparableValue-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.SaveComparableValue-2.html",
+          "hash": "HXkLSgY5c3DzK/QfKfX2nIatm4I7FTIR7O9kmUCiOKA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.SaveDateTime.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.SaveDateTime.html",
+          "hash": "DIVeF+Gen8Ces66BAgUFOLohy4k1ZaU4LV3OUjtB5As="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.SaveEnum-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.SaveEnum-1.html",
+          "hash": "kRYwPcZrbCtcV3M2DGvbpS7elTIrfMdNaUruTpwNSKE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.SaveEnumFlags-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.SaveEnumFlags-1.html",
+          "hash": "3ecshORRg3Xa/f1dphZmBhFgR0USE5soeljeEGjRMcM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.SaveFloat.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.SaveFloat.html",
+          "hash": "dJwYHWhM/0IjtbX6IPp+DH7YJsMYCDyRZTKNOx0tlwY="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.SaveInt.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.SaveInt.html",
+          "hash": "noTn78gs01eso5kyw1M8PRj399J9TAYJkJj5EW6EfX4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.SaveObject.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.SaveObject.html",
+          "hash": "TbxPj4jf07gEqstHaF2ABwXn/7ipGahBFWBFO4pdZ6A="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.SaveObjectComparer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.SaveObjectComparer.html",
+          "hash": "9jAYRdLHi9DTDujcP5h7SVqezQJBadd72mjyUfDdvqs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.SaveObjectInfoAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.SaveObjectInfoAttribute.html",
+          "hash": "rixIYgPssrufFJNU+J6KnJn+cXwpr4Jddd1tEsPfzeE="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.SaveObjectMap-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.SaveObjectMap-1.html",
+          "hash": "MBYGybH0ix4nxJF4WWGxKqUf6jYbkC8+1LEyg63dQIk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.SaveSingleValue-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.SaveSingleValue-2.html",
+          "hash": "MKMyo3dW1rbW0l1KWjQkJbg0Xzp/BSl24zXYtHuZQ5o="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.SaveSlot.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.SaveSlot.html",
+          "hash": "QN4eJVWYQ4+sGHd8I6pPOZ0DdWku3qcho5ZNhCaVawI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.SaveState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.SaveState.html",
+          "hash": "crbViXQC2Ju6OgFzItH2tg4edXKt2CmhVkVV6qJCwr8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.SaveString.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.SaveString.html",
+          "hash": "fm978DKl6wQlU1+8o5WFGN9iIbdNhKKZqRFwIJsjgvk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.SaveTimeSpan.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.SaveTimeSpan.html",
+          "hash": "jjsxM/ML8PPGIXTiAX14etVAqfQmvBOr/faRINQCdMs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.SavesManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.SavesManager.html",
+          "hash": "qUU/NBsGCr2ecKopuocLrxJgnm16E2pXUk6rS/GasSI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.SavesSettings.SupportedRecorder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.SavesSettings.SupportedRecorder.html",
+          "hash": "zVmdYQZWmEYOzclx9QaTarSWuKpNpayRQcL9OL8wF3k="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.SavesSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.SavesSettings.html",
+          "hash": "s9WS59/ARQm8YMjt6FiUS4if25VFgan21rlpgvK/FG4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.SavesUpgrader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.SavesUpgrader.html",
+          "hash": "yuOYr8ZPPT4q0H6ZkYuvqzOWtwt+Dc/Eh5DK4Y0xke0="
         }
       },
       "is_incremental": false,
@@ -496,7 +1120,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OmiyaGames.Saves.SettingsRecorderDecorator.html",
-          "hash": "2V9g3mFl4W5grsa4/BJ2M7DMA54xJumABJDwAlvuMtA="
+          "hash": "aSKtMdk597UNnO86xWu03ZhRVRU/MNIlAr+07ALRobY="
         }
       },
       "is_incremental": false,
@@ -509,6 +1133,18 @@
         ".html": {
           "relative_path": "api/OmiyaGames.Saves.SettingsVersionGeneratorDecorator.html",
           "hash": "6v5xfjR15Stkp8rzX5FRjrtqq27wfcc8JR5nAvbMtq8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.SingleLineObjectFieldAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.SingleLineObjectFieldAttribute.html",
+          "hash": "0Q0aLlBMfAIa9eRB8ijMG8koqrUvXD0FBE5W/At+GlQ="
         }
       },
       "is_incremental": false,
@@ -580,7 +1216,7 @@
       "output": {
         ".html": {
           "relative_path": "api/OmiyaGames.Saves.StoredEnumGenerator-1.html",
-          "hash": "v4odxku56n6gs/2AYw1+Kt/L1i96ZLQhWOXi7U9TMN4="
+          "hash": "HiyfHNaVKI62V64YWRf6k4AmOuWmIahnp7qoDDVzum4="
         }
       },
       "is_incremental": false,
@@ -660,11 +1296,155 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.WaitLoad.LoadingFinished.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.WaitLoad.LoadingFinished.html",
+          "hash": "lX5j0gPciD6Qr/b2vTSa/2h1jXKn0OrNkOm3T6mXFc0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.WaitLoad.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.WaitLoad.html",
+          "hash": "RVsgFy/rj4Ka1ksolj9brXqmfAUvmOCc6DWnRqS627o="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.WaitLoadBool.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.WaitLoadBool.html",
+          "hash": "AjmNfb9R+kwAqhNgVXrz8uTsiBc+oc6wbFfyGtOEYhg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.WaitLoadComposite.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.WaitLoadComposite.html",
+          "hash": "Rqv5zv3v82eIpUoE97ZCykBbfVyG1kZ5WpEniW/Fs/E="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.WaitLoadConvertValue-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.WaitLoadConvertValue-2.html",
+          "hash": "Jdv3VwPde71y4cNomoyR83uMFMg3HcVfGZ4kZ7ntHo4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.WaitLoadDateTime.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.WaitLoadDateTime.html",
+          "hash": "XUYcsL452DQonieL0LMnbgcdrs1hfjJGt/xNXe9kNRs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.WaitLoadEnum-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.WaitLoadEnum-1.html",
+          "hash": "Vo8K/7Z2ParCmdYYNbLq6fvmf0EQApABPH1rI5rdLHg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.WaitLoadFlags.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.WaitLoadFlags.html",
+          "hash": "YLjVHNv08hoYKzTuGuLRHB5CWchdoVHFFPehwVSAPPQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.WaitLoadImmediate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.WaitLoadImmediate.html",
+          "hash": "0mos74aOT+C0Eu23PfaKq/tT7d2eEYEfXYMJc10lVnI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.WaitLoadTimeSpan.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.WaitLoadTimeSpan.html",
+          "hash": "rjhRmCm5CzHWgaVNoMyu2FoDkG0zrfHoobRT7h5Q+rc="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.WaitLoadValue-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.WaitLoadValue-1.html",
+          "hash": "R6TCypGG9Qryf2cBPRjthIRcgOfNp3ifGBG08s/VKkw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/OmiyaGames.Saves.WaitLoadValueImmediate-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/OmiyaGames.Saves.WaitLoadValueImmediate-1.html",
+          "hash": "wASehmNwQLWUZNT79dfVErpSTm3HLkH2tXG/b80kq3M="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/OmiyaGames.Saves.yml",
       "output": {
         ".html": {
           "relative_path": "api/OmiyaGames.Saves.html",
-          "hash": "NpIHcOLMsv/CEVjGtA+2hfCxhyKVc3pzmBMZw7jK7Mo="
+          "hash": "r6e09WNzzqax3m893Cr6nt7JbRqzTae6mGyWuP11Uc4="
         }
       },
       "is_incremental": false,
@@ -676,7 +1456,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "b7kgFrUHpSzz2moC/VPBn1EfBpdZiVk4K48SYmVJ9fU="
+          "hash": "6PC6gA+TKfyEn3f8WPVswMG0JNI2hBa+sFUi9tlw5Yc="
         }
       },
       "is_incremental": false,
@@ -688,7 +1468,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "tKC+KgD2U83sTHoaHkIyKrd1hvtY0/SttRZhSosrbug="
+          "hash": "ehvQ7EbLlTPk+UGKYOBHmg6Ck9LAKK0RFjR09LiUOYA="
         }
       },
       "is_incremental": false,
@@ -712,7 +1492,7 @@
       "output": {
         ".html": {
           "relative_path": "manual/changelog.html",
-          "hash": "BTQR19wlxUm3LhcC65PWwA6SKcImQnCCaL6KZmovCRo="
+          "hash": "I1g3+mES3gMM8gCHpAafhXZrtC8+p/8wskk0ojOsxlE="
         }
       },
       "is_incremental": false,
@@ -774,7 +1554,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 54,
+          "total_file_count": 119,
           "skipped_file_count": 0
         },
         "ResourceDocumentProcessor": {

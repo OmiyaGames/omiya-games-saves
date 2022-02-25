@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class IRecord&lt;T&gt;
+    <title>Class BaseSaveObjectEditor
    | Saves documentation </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class IRecord&lt;T&gt;
+    <meta name="title" content="Class BaseSaveObjectEditor
    | Saves documentation ">
     <meta name="generator" content="docfx 2.59.0.0">
     
@@ -78,47 +78,36 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="OmiyaGames.Saves.IRecord`1">
+            <article class="content wrap" id="_content" data-uid="OmiyaGames.Saves.Editor.BaseSaveObjectEditor">
   
   
-  <h1 id="OmiyaGames_Saves_IRecord_1" data-uid="OmiyaGames.Saves.IRecord`1" class="text-break">Class IRecord&lt;T&gt;
+  <h1 id="OmiyaGames_Saves_Editor_BaseSaveObjectEditor" data-uid="OmiyaGames.Saves.Editor.BaseSaveObjectEditor" class="text-break">Class BaseSaveObjectEditor
   </h1>
-  <div class="markdown level0 summary"><p>Stores a record that can be stored in <a class="xref" href="OmiyaGames.Saves.GameSettings.html">GameSettings</a>.</p>
+  <div class="markdown level0 summary"><p>Abstract editor for any <a class="xref" href="OmiyaGames.Saves.SaveObject.html">SaveObject</a>.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
-    <div class="level1"><span class="xref">IRecord&lt;T&gt;</span></div>
-      <div class="level2"><a class="xref" href="OmiyaGames.Saves.FloatRecord.html">FloatRecord</a></div>
-      <div class="level2"><a class="xref" href="OmiyaGames.Saves.IntRecord.html">IntRecord</a></div>
+    <div class="level1"><span class="xref">BaseSaveObjectEditor</span></div>
+      <div class="level2"><a class="xref" href="OmiyaGames.Saves.Editor.SaveBoolEditor.html">SaveBoolEditor</a></div>
+      <div class="level2"><a class="xref" href="OmiyaGames.Saves.Editor.SaveComparableEditor-4.html">SaveComparableEditor&lt;TValue, TSave, TTextField, TSliderField&gt;</a></div>
+      <div class="level2"><a class="xref" href="OmiyaGames.Saves.Editor.SaveDateTimeEditor.html">SaveDateTimeEditor</a></div>
+      <div class="level2"><a class="xref" href="OmiyaGames.Saves.Editor.SaveEnumEditor-1.html">SaveEnumEditor&lt;T&gt;</a></div>
+      <div class="level2"><a class="xref" href="OmiyaGames.Saves.Editor.SaveEnumFlagsEditor-1.html">SaveEnumFlagsEditor&lt;T&gt;</a></div>
+      <div class="level2"><a class="xref" href="OmiyaGames.Saves.Editor.SaveStringEditor.html">SaveStringEditor</a></div>
+      <div class="level2"><a class="xref" href="OmiyaGames.Saves.Editor.SaveTimeSpanEditor.html">SaveTimeSpanEditor</a></div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="OmiyaGames.Saves.html">OmiyaGames.Saves</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="OmiyaGames.Saves.Editor.html">OmiyaGames.Saves.Editor</a></h6>
   <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
-  <h5 id="OmiyaGames_Saves_IRecord_1_syntax">Syntax</h5>
+  <h5 id="OmiyaGames_Saves_Editor_BaseSaveObjectEditor_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract class IRecord&lt;T&gt;
-    where T : IComparable&lt;T&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract class BaseSaveObjectEditor : UnityEditor.Editor</code></pre>
   </div>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="OmiyaGames_Saves_IRecord_1_remarks"><strong>Remarks</strong></h5>
-  <div class="markdown level0 remarks"><p><copyright file="IRecord.cs" company="Omiya Games">
+  <h5 id="OmiyaGames_Saves_Editor_BaseSaveObjectEditor_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p><copyright file="SaveObjectEditor.cs" company="Omiya Games">
 The MIT License (MIT)<p>
-<p>Copyright (c) 2014-2022 Omiya Games</p>
+<p>Copyright (c) 2022 Omiya Games</p>
 <p>Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the &quot;Software&quot;), to deal
 in the Software without restriction, including without limitation the rights
@@ -136,97 +125,23 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 </copyright>
 <table><thead><tr><th>Revision</th><th>Description</th></tr></thead><tbody><tr><td>
-<strong>Date:</strong> 5/28/2017<br>
-<strong>Author:</strong> Taro Omiya
-</td><td>Initial version.</td></tr><tr><td>
-<strong>Version:</strong> 0.2.0-exp.1<br>
-<strong>Date:</strong> 2/19/2022<br>
+<strong>Version:</strong> 0.2.0-exp<br>
+<strong>Date:</strong> 2/20/2022<br>
 <strong>Author:</strong> Taro Omiya
 </td><td>
-Converting to package.
+Initial draft.
 </td></tr></tbody></table></p>
 </div>
-  <h3 id="constructors">Constructors
-  </h3>
-  
-  
-  <a id="OmiyaGames_Saves_IRecord_1__ctor_" data-uid="OmiyaGames.Saves.IRecord`1.#ctor*"></a>
-  <h4 id="OmiyaGames_Saves_IRecord_1__ctor__0_System_String_" data-uid="OmiyaGames.Saves.IRecord`1.#ctor(`0,System.String)">IRecord(T, String)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IRecord(T newRecord, string newName)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">T</span></td>
-        <td><span class="parametername">newRecord</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
-        <td><span class="parametername">newName</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="OmiyaGames_Saves_IRecord_1__ctor_" data-uid="OmiyaGames.Saves.IRecord`1.#ctor*"></a>
-  <h4 id="OmiyaGames_Saves_IRecord_1__ctor_System_String_System_Int32_OmiyaGames_Saves_IRecord__0__TryConvertOldRecord_" data-uid="OmiyaGames.Saves.IRecord`1.#ctor(System.String,System.Int32,OmiyaGames.Saves.IRecord{`0}.TryConvertOldRecord)">IRecord(String, Int32, IRecord&lt;T&gt;.TryConvertOldRecord)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IRecord(string pastRecord, int appVersion, IRecord&lt;T&gt;.TryConvertOldRecord converter)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
-        <td><span class="parametername">pastRecord</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
-        <td><span class="parametername">appVersion</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="OmiyaGames.Saves.IRecord-1.TryConvertOldRecord.html">IRecord.TryConvertOldRecord</a>&lt;&gt;</td>
-        <td><span class="parametername">converter</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
   <h3 id="fields">Fields
   </h3>
   
   
-  <h4 id="OmiyaGames_Saves_IRecord_1_Divider" data-uid="OmiyaGames.Saves.IRecord`1.Divider">Divider</h4>
+  <h4 id="OmiyaGames_Saves_Editor_BaseSaveObjectEditor_UXML_DIRECTORY" data-uid="OmiyaGames.Saves.Editor.BaseSaveObjectEditor.UXML_DIRECTORY">UXML_DIRECTORY</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public const char Divider = '|'</code></pre>
+    <pre><code class="lang-csharp hljs">protected const string UXML_DIRECTORY = &quot;Packages/com.omiyagames.saves/Editor/SaveObjects/&quot;</code></pre>
   </div>
   <h5 class="fieldValue">Field Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -238,7 +153,7 @@ Converting to package.
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.char">Char</a></td>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -247,13 +162,15 @@ Converting to package.
   </h3>
   
   
-  <a id="OmiyaGames_Saves_IRecord_1_DateAchievedUtc_" data-uid="OmiyaGames.Saves.IRecord`1.DateAchievedUtc*"></a>
-  <h4 id="OmiyaGames_Saves_IRecord_1_DateAchievedUtc" data-uid="OmiyaGames.Saves.IRecord`1.DateAchievedUtc">DateAchievedUtc</h4>
-  <div class="markdown level1 summary"></div>
+  <a id="OmiyaGames_Saves_Editor_BaseSaveObjectEditor_RootElement_" data-uid="OmiyaGames.Saves.Editor.BaseSaveObjectEditor.RootElement*"></a>
+  <h4 id="OmiyaGames_Saves_Editor_BaseSaveObjectEditor_RootElement" data-uid="OmiyaGames.Saves.Editor.BaseSaveObjectEditor.RootElement">RootElement</h4>
+  <div class="markdown level1 summary"><p>The root visual element generated by
+<a class="xref" href="OmiyaGames.Saves.Editor.BaseSaveObjectEditor.html#OmiyaGames_Saves_Editor_BaseSaveObjectEditor_CreateInspectorGUI">CreateInspectorGUI()</a>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DateTime DateAchievedUtc { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">protected VisualElement RootElement { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -265,57 +182,7 @@ Converting to package.
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">DateTime</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="OmiyaGames_Saves_IRecord_1_Name_" data-uid="OmiyaGames.Saves.IRecord`1.Name*"></a>
-  <h4 id="OmiyaGames_Saves_IRecord_1_Name" data-uid="OmiyaGames.Saves.IRecord`1.Name">Name</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string Name { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="OmiyaGames_Saves_IRecord_1_Record_" data-uid="OmiyaGames.Saves.IRecord`1.Record*"></a>
-  <h4 id="OmiyaGames_Saves_IRecord_1_Record" data-uid="OmiyaGames.Saves.IRecord`1.Record">Record</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual T Record { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">T</span></td>
+        <td><span class="xref">VisualElement</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -324,13 +191,13 @@ Converting to package.
   </h3>
   
   
-  <a id="OmiyaGames_Saves_IRecord_1_ConvertRecordToString_" data-uid="OmiyaGames.Saves.IRecord`1.ConvertRecordToString*"></a>
-  <h4 id="OmiyaGames_Saves_IRecord_1_ConvertRecordToString" data-uid="OmiyaGames.Saves.IRecord`1.ConvertRecordToString">ConvertRecordToString()</h4>
+  <a id="OmiyaGames_Saves_Editor_BaseSaveObjectEditor_CreateInspectorGUI_" data-uid="OmiyaGames.Saves.Editor.BaseSaveObjectEditor.CreateInspectorGUI*"></a>
+  <h4 id="OmiyaGames_Saves_Editor_BaseSaveObjectEditor_CreateInspectorGUI" data-uid="OmiyaGames.Saves.Editor.BaseSaveObjectEditor.CreateInspectorGUI">CreateInspectorGUI()</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract string ConvertRecordToString()</code></pre>
+    <pre><code class="lang-csharp hljs">public override VisualElement CreateInspectorGUI()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -342,20 +209,21 @@ Converting to package.
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="xref">VisualElement</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
   
   
-  <a id="OmiyaGames_Saves_IRecord_1_ParseRecord_" data-uid="OmiyaGames.Saves.IRecord`1.ParseRecord*"></a>
-  <h4 id="OmiyaGames_Saves_IRecord_1_ParseRecord_System_String_System_Int32_OmiyaGames_Saves_IRecord__0__TryConvertOldRecord_" data-uid="OmiyaGames.Saves.IRecord`1.ParseRecord(System.String,System.Int32,OmiyaGames.Saves.IRecord{`0}.TryConvertOldRecord)">ParseRecord(String, Int32, IRecord&lt;T&gt;.TryConvertOldRecord)</h4>
-  <div class="markdown level1 summary"></div>
+  <a id="OmiyaGames_Saves_Editor_BaseSaveObjectEditor_FillContent_" data-uid="OmiyaGames.Saves.Editor.BaseSaveObjectEditor.FillContent*"></a>
+  <h4 id="OmiyaGames_Saves_Editor_BaseSaveObjectEditor_FillContent_VisualElement_" data-uid="OmiyaGames.Saves.Editor.BaseSaveObjectEditor.FillContent(VisualElement)">FillContent(VisualElement)</h4>
+  <div class="markdown level1 summary"><p>Fills the content section of editor.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected abstract void ParseRecord(string record, int appVersion, IRecord&lt;T&gt;.TryConvertOldRecord converter)</code></pre>
+    <pre><code class="lang-csharp hljs">protected abstract void FillContent(VisualElement content)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -368,49 +236,136 @@ Converting to package.
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
-        <td><span class="parametername">record</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
-        <td><span class="parametername">appVersion</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="OmiyaGames.Saves.IRecord-1.TryConvertOldRecord.html">IRecord.TryConvertOldRecord</a>&lt;&gt;</td>
-        <td><span class="parametername">converter</span></td>
-        <td></td>
+        <td><span class="xref">VisualElement</span></td>
+        <td><span class="parametername">content</span></td>
+        <td><p>The blank content section.
+Add <see cref="!:VisualElement"></see>s in it!</p>
+</td>
       </tr>
     </tbody>
   </table>
   
   
-  <a id="OmiyaGames_Saves_IRecord_1_ToString_" data-uid="OmiyaGames.Saves.IRecord`1.ToString*"></a>
-  <h4 id="OmiyaGames_Saves_IRecord_1_ToString" data-uid="OmiyaGames.Saves.IRecord`1.ToString">ToString()</h4>
+  <a id="OmiyaGames_Saves_Editor_BaseSaveObjectEditor_GetButtonText_" data-uid="OmiyaGames.Saves.Editor.BaseSaveObjectEditor.GetButtonText*"></a>
+  <h4 id="OmiyaGames_Saves_Editor_BaseSaveObjectEditor_GetButtonText_OmiyaGames_Saves_Editor_SavesSettingsProvider_ContainsData_System_String__System_String__System_Boolean__" data-uid="OmiyaGames.Saves.Editor.BaseSaveObjectEditor.GetButtonText(OmiyaGames.Saves.Editor.SavesSettingsProvider.ContainsData,System.String@,System.String@,System.Boolean@)">GetButtonText(SavesSettingsProvider.ContainsData, out String, out String, out Boolean)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+    <pre><code class="lang-csharp hljs">public static void GetButtonText(SavesSettingsProvider.ContainsData result, out string text, out string tooltip, out bool enableButton)</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
+  <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
+        <th>Name</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
       <tr>
+        <td><a class="xref" href="OmiyaGames.Saves.Editor.SavesSettingsProvider.ContainsData.html">SavesSettingsProvider.ContainsData</a></td>
+        <td><span class="parametername">result</span></td>
+        <td></td>
+      </tr>
+      <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">text</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">tooltip</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="parametername">enableButton</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object.tostring#system-object-tostring">Object.ToString()</a></div>
+  
+  
+  <a id="OmiyaGames_Saves_Editor_BaseSaveObjectEditor_GetStatusText_" data-uid="OmiyaGames.Saves.Editor.BaseSaveObjectEditor.GetStatusText*"></a>
+  <h4 id="OmiyaGames_Saves_Editor_BaseSaveObjectEditor_GetStatusText_OmiyaGames_Saves_Editor_SavesSettingsProvider_ContainsData_System_String__System_String__" data-uid="OmiyaGames.Saves.Editor.BaseSaveObjectEditor.GetStatusText(OmiyaGames.Saves.Editor.SavesSettingsProvider.ContainsData,System.String@,System.String@)">GetStatusText(SavesSettingsProvider.ContainsData, out String, out String)</h4>
+  <div class="markdown level1 summary"><p>Gets text and tooltip to display for status label.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void GetStatusText(SavesSettingsProvider.ContainsData result, out string text, out string tooltip)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OmiyaGames.Saves.Editor.SavesSettingsProvider.ContainsData.html">SavesSettingsProvider.ContainsData</a></td>
+        <td><span class="parametername">result</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">text</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">tooltip</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="OmiyaGames_Saves_Editor_BaseSaveObjectEditor_SetupErrorHandlingDropDown_" data-uid="OmiyaGames.Saves.Editor.BaseSaveObjectEditor.SetupErrorHandlingDropDown*"></a>
+  <h4 id="OmiyaGames_Saves_Editor_BaseSaveObjectEditor_SetupErrorHandlingDropDown_VisualElement_System_String_System_String_" data-uid="OmiyaGames.Saves.Editor.BaseSaveObjectEditor.SetupErrorHandlingDropDown(VisualElement,System.String,System.String)">SetupErrorHandlingDropDown(VisualElement, String, String)</h4>
+  <div class="markdown level1 summary"><p>Helper method to setup a drop-down
+for the error handling enum value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void SetupErrorHandlingDropDown(VisualElement content, string variableName, string dropDownName)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">VisualElement</span></td>
+        <td><span class="parametername">content</span></td>
+        <td><p>TODO</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">variableName</span></td>
+        <td><p>TODO</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">dropDownName</span></td>
+        <td><p>TODO</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 </article>
           </div>
           

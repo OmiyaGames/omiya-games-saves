@@ -251,15 +251,15 @@ This method is actually a wrapper of <pre><code>GetString(string, string)</code>
   
   
   <a id="OmiyaGames_Saves_SettingsRecorderDecorator_GetEnum_" data-uid="OmiyaGames.Saves.SettingsRecorderDecorator.GetEnum*"></a>
-  <h4 id="OmiyaGames_Saves_SettingsRecorderDecorator_GetEnum__1_System_String___0_" data-uid="OmiyaGames.Saves.SettingsRecorderDecorator.GetEnum``1(System.String,``0)">GetEnum&lt;ENUM&gt;(String, ENUM)</h4>
+  <h4 id="OmiyaGames_Saves_SettingsRecorderDecorator_GetEnum__1_System_String___0_" data-uid="OmiyaGames.Saves.SettingsRecorderDecorator.GetEnum``1(System.String,``0)">GetEnum&lt;T&gt;(String, T)</h4>
   <div class="markdown level1 summary"><p>Gets an <pre><code>enum</code></pre> from stored settings.
 This method is actually a wrapper of <pre><code>GetInt(string, int)</code></pre>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual ENUM GetEnum&lt;ENUM&gt;(string key, ENUM defaultValue)
-    where ENUM : struct, IConvertible</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual T GetEnum&lt;T&gt;(string key, T defaultValue)
+    where T : Enum</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -277,7 +277,7 @@ This method is actually a wrapper of <pre><code>GetInt(string, int)</code></pre>
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">ENUM</span></td>
+        <td><span class="xref">T</span></td>
         <td><span class="parametername">defaultValue</span></td>
         <td></td>
       </tr>
@@ -293,7 +293,7 @@ This method is actually a wrapper of <pre><code>GetInt(string, int)</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ENUM</span></td>
+        <td><span class="xref">T</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -308,7 +308,7 @@ This method is actually a wrapper of <pre><code>GetInt(string, int)</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><span class="parametername">ENUM</span></td>
+        <td><span class="parametername">T</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -643,15 +643,15 @@ This method is actually a wrapper of <pre><code>SetString(string, string)</code>
   
   
   <a id="OmiyaGames_Saves_SettingsRecorderDecorator_SetEnum_" data-uid="OmiyaGames.Saves.SettingsRecorderDecorator.SetEnum*"></a>
-  <h4 id="OmiyaGames_Saves_SettingsRecorderDecorator_SetEnum__1_System_String___0_" data-uid="OmiyaGames.Saves.SettingsRecorderDecorator.SetEnum``1(System.String,``0)">SetEnum&lt;ENUM&gt;(String, ENUM)</h4>
+  <h4 id="OmiyaGames_Saves_SettingsRecorderDecorator_SetEnum__1_System_String___0_" data-uid="OmiyaGames.Saves.SettingsRecorderDecorator.SetEnum``1(System.String,``0)">SetEnum&lt;T&gt;(String, T)</h4>
   <div class="markdown level1 summary"><p>Sets an <pre><code>enum</code></pre> in the stored settings.
 This method is actually a wrapper of <pre><code>SetInt(string, int)</code></pre>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual void SetEnum&lt;ENUM&gt;(string key, ENUM value)
-    where ENUM : struct, IConvertible</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual void SetEnum&lt;T&gt;(string key, T value)
+    where T : Enum</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -669,7 +669,7 @@ This method is actually a wrapper of <pre><code>SetInt(string, int)</code></pre>
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">ENUM</span></td>
+        <td><span class="xref">T</span></td>
         <td><span class="parametername">value</span></td>
         <td></td>
       </tr>
@@ -685,7 +685,7 @@ This method is actually a wrapper of <pre><code>SetInt(string, int)</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><span class="parametername">ENUM</span></td>
+        <td><span class="parametername">T</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -828,300 +828,6 @@ This method is actually a wrapper of <pre><code>SetString(string, string)</code>
   <div class="seealso">
       <div><a class="xref" href="OmiyaGames.Saves.SettingsRecorderDecorator.html#OmiyaGames_Saves_SettingsRecorderDecorator_SetString_System_String_System_String_">SetString(String, String)</a></div>
   </div>
-  
-  
-  <a id="OmiyaGames_Saves_SettingsRecorderDecorator_ToBool_" data-uid="OmiyaGames.Saves.SettingsRecorderDecorator.ToBool*"></a>
-  <h4 id="OmiyaGames_Saves_SettingsRecorderDecorator_ToBool_System_Int32_" data-uid="OmiyaGames.Saves.SettingsRecorderDecorator.ToBool(System.Int32)">ToBool(Int32)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static bool ToBool(int value)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
-        <td><span class="parametername">value</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="OmiyaGames_Saves_SettingsRecorderDecorator_ToDateTimeUtc_" data-uid="OmiyaGames.Saves.SettingsRecorderDecorator.ToDateTimeUtc*"></a>
-  <h4 id="OmiyaGames_Saves_SettingsRecorderDecorator_ToDateTimeUtc_System_String_" data-uid="OmiyaGames.Saves.SettingsRecorderDecorator.ToDateTimeUtc(System.String)">ToDateTimeUtc(String)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static DateTime ToDateTimeUtc(string value)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
-        <td><span class="parametername">value</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">DateTime</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="OmiyaGames_Saves_SettingsRecorderDecorator_ToInt_" data-uid="OmiyaGames.Saves.SettingsRecorderDecorator.ToInt*"></a>
-  <h4 id="OmiyaGames_Saves_SettingsRecorderDecorator_ToInt_IConvertible_" data-uid="OmiyaGames.Saves.SettingsRecorderDecorator.ToInt(IConvertible)">ToInt(IConvertible)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static int ToInt(IConvertible value)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">IConvertible</span></td>
-        <td><span class="parametername">value</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="OmiyaGames_Saves_SettingsRecorderDecorator_ToInt_" data-uid="OmiyaGames.Saves.SettingsRecorderDecorator.ToInt*"></a>
-  <h4 id="OmiyaGames_Saves_SettingsRecorderDecorator_ToInt_System_Boolean_" data-uid="OmiyaGames.Saves.SettingsRecorderDecorator.ToInt(System.Boolean)">ToInt(Boolean)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static int ToInt(bool flag)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
-        <td><span class="parametername">flag</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="OmiyaGames_Saves_SettingsRecorderDecorator_ToString_" data-uid="OmiyaGames.Saves.SettingsRecorderDecorator.ToString*"></a>
-  <h4 id="OmiyaGames_Saves_SettingsRecorderDecorator_ToString_DateTime_" data-uid="OmiyaGames.Saves.SettingsRecorderDecorator.ToString(DateTime)">ToString(DateTime)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static string ToString(DateTime timeUtc)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">DateTime</span></td>
-        <td><span class="parametername">timeUtc</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="OmiyaGames_Saves_SettingsRecorderDecorator_ToString_" data-uid="OmiyaGames.Saves.SettingsRecorderDecorator.ToString*"></a>
-  <h4 id="OmiyaGames_Saves_SettingsRecorderDecorator_ToString_TimeSpan_" data-uid="OmiyaGames.Saves.SettingsRecorderDecorator.ToString(TimeSpan)">ToString(TimeSpan)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static string ToString(TimeSpan duration)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TimeSpan</span></td>
-        <td><span class="parametername">duration</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="OmiyaGames_Saves_SettingsRecorderDecorator_ToTimeSpan_" data-uid="OmiyaGames.Saves.SettingsRecorderDecorator.ToTimeSpan*"></a>
-  <h4 id="OmiyaGames_Saves_SettingsRecorderDecorator_ToTimeSpan_System_String_" data-uid="OmiyaGames.Saves.SettingsRecorderDecorator.ToTimeSpan(System.String)">ToTimeSpan(String)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static TimeSpan ToTimeSpan(string value)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
-        <td><span class="parametername">value</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TimeSpan</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
   <h3 id="implements">Implements</h3>
   <div>
       <a class="xref" href="OmiyaGames.Saves.ISettingsRecorder.html">ISettingsRecorder</a>
