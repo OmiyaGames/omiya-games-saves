@@ -35,7 +35,7 @@ namespace OmiyaGames.Saves
 	/// </listheader>
 	/// <item>
 	/// <term>
-	/// <strong>Version:</strong> 0.2.0-exp<br/>
+	/// <strong>Version:</strong> 0.2.0-exp.1<br/>
 	/// <strong>Date:</strong> 2/20/2022<br/>
 	/// <strong>Author:</strong> Taro Omiya
 	/// </term>
@@ -49,7 +49,7 @@ namespace OmiyaGames.Saves
 	/// <summary>
 	/// Interface for loading a <see cref="TimeSpan"/> from <see cref="IAsyncSettingsRecorder"/>
 	/// </summary>
-	[CreateAssetMenu(menuName = "Omiya Games/Saves/Save Time Duration", fileName = "Save TimeSpan")]
+	[CreateAssetMenu(menuName = "Omiya Games/Save Time Duration", fileName = "Save TimeSpan", order = (MENU_ORDER + 5))]
 	public class SaveTimeSpan : SaveSingleValue<TimeSpan, string>
 	{
 		/// <summary>

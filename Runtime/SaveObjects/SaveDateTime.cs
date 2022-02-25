@@ -35,7 +35,7 @@ namespace OmiyaGames.Saves
 	/// </listheader>
 	/// <item>
 	/// <term>
-	/// <strong>Version:</strong> 0.2.0-exp<br/>
+	/// <strong>Version:</strong> 0.2.0-exp.1<br/>
 	/// <strong>Date:</strong> 2/20/2022<br/>
 	/// <strong>Author:</strong> Taro Omiya
 	/// </term>
@@ -49,7 +49,7 @@ namespace OmiyaGames.Saves
 	/// <summary>
 	/// Interface for loading a <see cref="DateTime"/> from <see cref="IAsyncSettingsRecorder"/>
 	/// </summary>
-	[CreateAssetMenu(menuName = "Omiya Games/Saves/Save Date & Time", fileName = "Save DateTime")]
+	[CreateAssetMenu(menuName = "Omiya Games/Save Date and Time", fileName = "Save DateTime", order = (MENU_ORDER + 4))]
 	public class SaveDateTime : SaveSingleValue<DateTime, string>
 	{
 

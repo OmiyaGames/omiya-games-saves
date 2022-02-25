@@ -4,7 +4,7 @@
 
 ![Unity Package Manager](https://omiyagames.github.io/omiya-games-saves/resources/preview.png)
 
-**Omiya Games - Saves** is a work-in-progress save system for persistent in-game settings.
+**Omiya Games - Saves** is a work-in-progress save system for persistent in-game data.  Uses `ScriptableObject` extensively.
 
 ## Install
 

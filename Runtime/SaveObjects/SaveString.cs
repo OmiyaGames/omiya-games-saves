@@ -34,7 +34,7 @@ namespace OmiyaGames.Saves
 	/// </listheader>
 	/// <item>
 	/// <term>
-	/// <strong>Version:</strong> 0.2.0-exp<br/>
+	/// <strong>Version:</strong> 0.2.0-exp.1<br/>
 	/// <strong>Date:</strong> 2/18/2022<br/>
 	/// <strong>Author:</strong> Taro Omiya
 	/// </term>
@@ -48,7 +48,7 @@ namespace OmiyaGames.Saves
 	/// <summary>
 	/// Interface for loading a string from 
 	/// </summary>
-	[CreateAssetMenu(menuName = "Omiya Games/Saves/Save String", fileName = "Save String")]
+	[CreateAssetMenu(menuName = "Omiya Games/Save String", fileName = "Save String", order = (MENU_ORDER + 2))]
 	public class SaveString : SaveSingleValue<string, string>
 	{
 		/// <inheritdoc/>
