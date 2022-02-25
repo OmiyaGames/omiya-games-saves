@@ -1,0 +1,14 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" oge="OmiyaGames.Common.Editor" editor-extension-mode="True">
+    <uie:IntegerField label="Default Integer" name="defaultValueInput" binding-path="defaultValue" tabindex="1" tooltip="The default number if starting a new game." style="display: flex;" />
+    <ui:VisualElement name="sliderGroup" style="flex-direction: row;">
+        <ui:SliderInt label="Default Integer" name="defaultValueSlider" tooltip="The default number if starting a new game." tabindex="10" binding-path="defaultValue" style="display: flex; flex-grow: 1;" />
+        <uie:IntegerField name="defaultValueSliderInput" binding-path="defaultValue" tabindex="11" tooltip="The default number if starting a new game." style="display: flex; flex-grow: 1;" />
+    </ui:VisualElement>
+    <ui:VisualElement name="clampGroup" style="flex-direction: row;">
+        <ui:Toggle text="Min" name="hasMin" binding-path="hasMin" label="Clamp" tabindex="20" />
+        <uie:IntegerField name="minValue" binding-path="minValue" tabindex="21" style="flex-grow: 1;" />
+        <ui:Toggle text="Max" name="hasMax" binding-path="hasMax" tabindex="22" />
+        <uie:IntegerField name="maxValue" binding-path="maxValue" tabindex="23" style="flex-grow: 1;" />
+    </ui:VisualElement>
+    <ui:DropdownField label="When Loading Fails..." index="0" tabindex="30" name="onLoadFailed" tooltip="What should happen if loading this value fails." />
+</ui:UXML>

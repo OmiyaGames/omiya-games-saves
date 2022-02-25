@@ -1,0 +1,15 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" oge="OmiyaGames.Common.Editor" editor-extension-mode="True">
+    <ui:ScrollView horizontal-scroller-visibility="Hidden">
+        <ui:TextField label="Key" name="key" tooltip="A unique identifier per save object." binding-path="key" />
+        <ui:VisualElement name="content" />
+        <OmiyaGames.Common.Editor.Spacer />
+        <ui:VisualElement name="separator" style="background-color: rgb(128, 128, 128); width: 95%; height: 2px; margin-left: auto; margin-right: auto;" />
+        <OmiyaGames.Common.Editor.Spacer />
+        <ui:VisualElement name="actions" style="flex-direction: row; align-items: center;">
+            <ui:Label text="Not in Settings" display-tooltip-when-elided="true" name="statusLabel" style="min-width: 150px;" />
+            <ui:Button text="Add to Settings" display-tooltip-when-elided="true" name="addRemoveObject" tabindex="100" style="flex-grow: 1;" />
+            <ui:Button text="Open Settings" display-tooltip-when-elided="true" name="openSettings" tabindex="101" style="flex-grow: 1;" />
+        </ui:VisualElement>
+        <ui:TextField label="Comments" name="comments" tooltip="Notes about this Save Object." tabindex="102" multiline="true" binding-path="comments" style="flex-direction: column;" />
+    </ui:ScrollView>
+</ui:UXML>

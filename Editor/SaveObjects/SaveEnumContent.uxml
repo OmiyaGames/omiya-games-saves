@@ -1,0 +1,4 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" oge="OmiyaGames.Common.Editor" editor-extension-mode="True">
+    <uie:EnumField label="Default Enum" name="defaultValue" binding-path="defaultValue" tabindex="1" tooltip="The default value if starting a new game." />
+    <ui:DropdownField label="When Loading Fails..." index="0" tabindex="2" name="onLoadFailed" tooltip="What should happen if loading this value fails." />
+</ui:UXML>
