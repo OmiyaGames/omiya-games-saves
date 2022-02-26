@@ -40,15 +40,26 @@ namespace OmiyaGames.Saves
 	/// <strong>Date:</strong> 2/21/2022<br/>
 	/// <strong>Author:</strong> Taro Omiya
 	/// </term>
+	/// <description>Initial draft.</description>
+	/// </item><item>
+	/// <term>
+	/// <strong>Version:</strong> 0.2.1-exp<br/>
+	/// <strong>Date:</strong> 2/26/2022<br/>
+	/// <strong>Author:</strong> Taro Omiya
+	/// </term>
 	/// <description>
-	/// Initial draft.
+	/// Fixing deserialization logic.  Since <see cref="SaveObject"/>s are
+	/// not guaranteed to be setup by the time <see cref="OnAfterDeserialize"/>
+	/// is called, moved its logic into <see cref="Setup"/> instead.
 	/// </description>
 	/// </item>
 	/// </list>
 	/// </remarks>
 	///-----------------------------------------------------------------------
 	/// <summary>
-	/// A collection of <seealso cref="SaveObject"/>s.
+	/// A collection of <seealso cref="SaveObject"/>s. If used as an
+	/// inspector-exposed variable, <seealso cref="Setup"/> <strong>must</strong>
+	/// be called before using this map.
 	/// </summary>
 	[System.Serializable]
 	public class SaveObjectMap<T> : IDictionary<string, T>, ISerializationCallbackReceiver where T : SaveObject
@@ -58,6 +69,7 @@ namespace OmiyaGames.Saves
 		[SerializeField, HideInInspector]
 		bool isSerializing = false;
 
+		bool isDeserializedNeedSetup = false;
 		readonly Dictionary<string, T> actualMap;
 
 		/// <summary>
@@ -107,9 +119,41 @@ namespace OmiyaGames.Saves
 		}
 
 		/// <summary>
+		/// Indicates if the map is setup or not.
+		/// </summary>
+		public bool IsSetup => (isDeserializedNeedSetup == false);
+		/// <summary>
 		/// Indicates if this collection is in the middle of serializing.
 		/// </summary>
 		public bool IsSerializing => isSerializing;
+
+		/// <summary>
+		/// Sets up this map. Necessary if this map
+		/// is edited in the Unity inspector.
+		/// </summary>
+		public void Setup()
+		{
+			// Check if this map needs setup.
+			if (isDeserializedNeedSetup)
+			{
+				// Clear this Dictionary's contents
+				actualMap.Clear();
+
+				// Populate this HashSet with temporary keys,
+				// as there's no guarantee these SaveObjects has
+				// been deserialized yet.
+				foreach (T item in serializedList)
+				{
+					if (CanAddKey(item))
+					{
+						actualMap.Add(item.Key, item);
+					}
+				}
+
+				// Indicate setup is done
+				isDeserializedNeedSetup = false;
+			}
+		}
 
 		/// <summary>
 		/// Adds an object ont this set.
@@ -118,7 +162,11 @@ namespace OmiyaGames.Saves
 		/// <returns></returns>
 		public bool Add(T saveObject)
 		{
-			if (saveObject == null)
+			if (isDeserializedNeedSetup)
+			{
+				throw new System.Exception("SaveObjectMap is not setup!");
+			}
+			else if (saveObject == null)
 			{
 				return false;
 			}
@@ -142,7 +190,11 @@ namespace OmiyaGames.Saves
 		/// <returns></returns>
 		public bool Contains(T item)
 		{
-			if ((item == null) || string.IsNullOrEmpty(item.Key))
+			if (isDeserializedNeedSetup)
+			{
+				throw new System.Exception("SaveObjectMap is not setup!");
+			}
+			else if ((item == null) || string.IsNullOrEmpty(item.Key))
 			{
 				return false;
 			}
@@ -157,32 +209,125 @@ namespace OmiyaGames.Saves
 		/// <inheritdoc/>
 		public T this[string key]
 		{
-			get => actualMap[key];
-			set => actualMap[key] = value;
+			get
+			{
+				if (isDeserializedNeedSetup)
+				{
+					throw new System.Exception("SaveObjectMap is not setup!");
+				}
+
+				return actualMap[key];
+			}
+			set
+			{
+				if (isDeserializedNeedSetup)
+				{
+					throw new System.Exception("SaveObjectMap is not setup!");
+				}
+
+				actualMap[key] = value;
+			}
 		}
 		/// <inheritdoc/>
-		public ICollection<string> Keys => actualMap.Keys;
+		public ICollection<string> Keys
+		{
+			get
+			{
+				if (isDeserializedNeedSetup)
+				{
+					throw new System.Exception("SaveObjectMap is not setup!");
+				}
+
+				return actualMap.Keys;
+			}
+		}
 		/// <inheritdoc/>
-		public ICollection<T> Values => actualMap.Values;
+		public ICollection<T> Values
+		{
+			get
+			{
+				if (isDeserializedNeedSetup)
+				{
+					throw new System.Exception("SaveObjectMap is not setup!");
+				}
+
+				return actualMap.Values;
+			}
+		}
 		/// <inheritdoc/>
-		public int Count => actualMap.Count;
+		public int Count
+		{
+			get
+			{
+				if (isDeserializedNeedSetup)
+				{
+					throw new System.Exception("SaveObjectMap is not setup!");
+				}
+
+				return actualMap.Count;
+			}
+		}
 		/// <inheritdoc/>
 		public bool IsReadOnly => ((ICollection<KeyValuePair<string, T>>)actualMap).IsReadOnly;
+
 		/// <inheritdoc/>
-		public bool ContainsKey(string key) => actualMap.ContainsKey(key);
+		public bool ContainsKey(string key)
+		{
+			if (isDeserializedNeedSetup)
+			{
+				throw new System.Exception("SaveObjectMap is not setup!");
+			}
+			return actualMap.ContainsKey(key);
+		}
+		
 		/// <inheritdoc/>
-		public bool Remove(string key) => actualMap.Remove(key);
+		public bool Remove(string key)
+		{
+			if (isDeserializedNeedSetup)
+			{
+				throw new System.Exception("SaveObjectMap is not setup!");
+			}
+			return actualMap.Remove(key);
+		}
+		
 		/// <inheritdoc/>
-		public bool TryGetValue(string key, out T value) => actualMap.TryGetValue(key, out value);
+		public bool TryGetValue(string key, out T value)
+		{
+			if (isDeserializedNeedSetup)
+			{
+				throw new System.Exception("SaveObjectMap is not setup!");
+			}
+			return actualMap.TryGetValue(key, out value);
+		}
+
 		/// <inheritdoc/>
-		public void Clear() => actualMap.Clear();
+		public void Clear()
+		{
+			if (isDeserializedNeedSetup)
+			{
+				throw new System.Exception("SaveObjectMap is not setup!");
+			}
+			actualMap.Clear();
+		}
+
 		/// <inheritdoc/>
-		public IEnumerator<KeyValuePair<string, T>> GetEnumerator() => actualMap.GetEnumerator();
+		public IEnumerator<KeyValuePair<string, T>> GetEnumerator()
+		{
+			if (isDeserializedNeedSetup)
+			{
+				throw new System.Exception("SaveObjectMap is not setup!");
+			}
+			return actualMap.GetEnumerator();
+		}
 
 		/// <inheritdoc/>
 		void IDictionary<string, T>.Add(string key, T value)
 		{
-			if (value == null)
+			if (isDeserializedNeedSetup)
+			{
+				throw new System.Exception("SaveObjectMap is not setup!");
+			}
+			else if (value == null)
 			{
 				throw new System.ArgumentNullException(nameof(value));
 			}
@@ -199,26 +344,47 @@ namespace OmiyaGames.Saves
 				actualMap.Add(key, value);
 			}
 		}
+
 		/// <inheritdoc/>
 		bool ICollection<KeyValuePair<string, T>>.Contains(KeyValuePair<string, T> item)
 		{
+			if (isDeserializedNeedSetup)
+			{
+				throw new System.Exception("SaveObjectMap is not setup!");
+			}
 			return ((ICollection<KeyValuePair<string, T>>)actualMap).Contains(item);
 		}
+
 		/// <inheritdoc/>
-		void ICollection<KeyValuePair<string, T>>.Add(KeyValuePair<string, T> item) => actualMap.Add(item.Key, item.Value);
+		void ICollection<KeyValuePair<string, T>>.Add(KeyValuePair<string, T> pair) => ((IDictionary<string, T>)this).Add(pair.Key, pair.Value);
+
 		/// <inheritdoc/>
 		void ICollection<KeyValuePair<string, T>>.CopyTo(KeyValuePair<string, T>[] array, int arrayIndex)
 		{
+			if (isDeserializedNeedSetup)
+			{
+				throw new System.Exception("SaveObjectMap is not setup!");
+			}
 			((ICollection<KeyValuePair<string, T>>)actualMap).CopyTo(array, arrayIndex);
 		}
+
 		/// <inheritdoc/>
 		bool ICollection<KeyValuePair<string, T>>.Remove(KeyValuePair<string, T> item)
 		{
+			if (isDeserializedNeedSetup)
+			{
+				throw new System.Exception("SaveObjectMap is not setup!");
+			}
 			return ((ICollection<KeyValuePair<string, T>>)actualMap).Remove(item);
 		}
+
 		/// <inheritdoc/>
 		IEnumerator IEnumerable.GetEnumerator()
 		{
+			if (isDeserializedNeedSetup)
+			{
+				throw new System.Exception("SaveObjectMap is not setup!");
+			}
 			return ((IEnumerable)actualMap).GetEnumerator();
 		}
 		#endregion
@@ -229,6 +395,9 @@ namespace OmiyaGames.Saves
 		{
 			// Indicate we started serializing
 			isSerializing = true;
+
+			// Setup the map, just in case
+			Setup();
 
 			// Remove entries from the serialized list that are not in the set
 			for (int i = 0; i < serializedList.Count; ++i)
@@ -255,17 +424,10 @@ namespace OmiyaGames.Saves
 		[System.Obsolete("Manual call not supported.", true)]
 		public void OnAfterDeserialize()
 		{
-			// Clear this Dictionary's contents
-			actualMap.Clear();
-
-			// Populate this HashSet
-			foreach (T item in serializedList)
-			{
-				if (CanAddKey(item))
-				{
-					actualMap.Add(item.Key, item);
-				}
-			}
+			// Indicate actualMap contains placeholder data.
+			// Setup needs to happen *after* each SaveObject
+			// has been properly deserialized.
+			isDeserializedNeedSetup = true;
 
 			// Indicate we're done serializing
 			isSerializing = false;

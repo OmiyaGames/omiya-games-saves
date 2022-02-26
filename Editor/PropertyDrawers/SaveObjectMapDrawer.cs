@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using UnityEditor;
 
 namespace OmiyaGames.Saves.Editor
@@ -47,7 +44,7 @@ namespace OmiyaGames.Saves.Editor
 	/// </remarks>
 	///-----------------------------------------------------------------------
 	/// <summary>
-	/// TODO
+	/// <seealso cref="PropertyDrawer"/> for <seealso cref="SaveObjectMap{T}"/>.
 	/// </summary>
 	[CustomPropertyDrawer(typeof(SaveObjectMap<>))]
 	public class SaveObjectMapDrawer : Common.Editor.SingleChildDrawer

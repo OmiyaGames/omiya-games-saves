@@ -1,5 +1,10 @@
 # Change Log:
 
+## 0.2.1-exp
+
+- **Bug Fix**: fixed [`SaveObjectMap.cs`](/Runtime/SaveObjects/SaveObjectMap.cs) not deserializing correctly on the inspector and Project Settings window, thus losing all data.  The fix requires future code to call the new method `Setup()`.
+- **Breaking Change**: renamed [`SavesManager.cs`](/Runtime/SavesManager.cs) method `TryGetSave()` to `TryGet()` to remove the implication that any save operation is being performed.
+
 ## 0.2.0-exp
 
 - **New Features**: starting on a new, `ScriptableObject` driven framework to save and recall `PlayerPrefs` data.  It's currently a work-in-progress, but we believe is the more intuitive and flexible method for saving and recalling persistent data.
