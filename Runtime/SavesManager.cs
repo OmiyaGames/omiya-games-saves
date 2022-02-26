@@ -42,13 +42,28 @@ namespace OmiyaGames.Saves
 	/// <strong>Author:</strong> Taro Omiya
 	/// </term>
 	/// <description>Initial verison.</description>
+	/// </item><item>
+	/// <term>
+	/// <strong>Version:</strong> 0.2.1-exp.1<br/>
+	/// <strong>Date:</strong> 2/26/2022<br/>
+	/// <strong>Author:</strong> Taro Omiya
+	/// </term>
+	/// <description>
+	/// Throwing exceptions if manager is not setup when calling
+	/// <see cref="TryGet(string, out SaveObject)"/> and
+	/// <see cref="Contains(SaveObject)"/>. Renamed
+	/// <c>TryGetSave(string, out SaveObject)</c> to
+	/// <see cref="TryGet(string, out SaveObject)"/>.
+	/// Added <see cref="Contains(string)"/>.
+	/// </description>
 	/// </item>
 	/// </list>
 	/// </remarks>
 	///-----------------------------------------------------------------------
 	/// <summary>
-	/// A manager file that allows adjusting an <see cref="SavesMixer"/>
-	/// from settings.
+	/// A manager file that configures and loads <seealso cref="SaveObject"/>s
+	/// on <seealso cref="Setup"/>. Allows retrieving <seealso cref="SaveObject"/>
+	/// by their keys. Handles global <seealso cref="Save"/>.
 	/// </summary>
 	public class SavesManager : BaseSettingsManager<SavesManager, SavesSettings>, System.IDisposable
 	{
@@ -104,6 +119,7 @@ namespace OmiyaGames.Saves
 
 				// Setup a recorder
 				SavesSettings data = GetData();
+				data.SaveData.Setup();
 				manager.currentRecorder = GetSupportedRecorder(data.Recorders, out manager.cleanUpRecorder);
 
 				// Load the version number
@@ -149,13 +165,13 @@ namespace OmiyaGames.Saves
 		/// <param name="key"></param>
 		/// <param name="saveObject"></param>
 		/// <returns></returns>
-		public static bool TryGetSave(string key, out SaveObject saveObject)
+		public static bool TryGet(string key, out SaveObject saveObject)
 		{
 			// Check if setup yet
-			SavesSettings settings = GetData();
+			CheckInstance();
 
 			// Setup return stuff
-			return settings.SaveData.TryGetValue(key, out saveObject);
+			return GetData().SaveData.TryGetValue(key, out saveObject);
 		}
 
 		/// <summary>
@@ -173,16 +189,35 @@ namespace OmiyaGames.Saves
 			}
 
 			// Check if setup yet
-			SavesSettings settings = GetData();
+			CheckInstance();
 
 			// Attempt to grab a save object with the same key.
 			bool returnFlag = false;
-			if (settings.SaveData.TryGetValue(saveObject.Key, out var compare))
+			if (GetData().SaveData.TryGetValue(saveObject.Key, out var compare))
 			{
 				// Verify these are the same objects
 				returnFlag = (saveObject == compare);
 			}
 			return returnFlag;
+		}
+
+		/// <summary>
+		/// TODO
+		/// </summary>
+		/// <param name="key"></param>
+		/// <returns></returns>
+		/// <exception cref="System.ArgumentException"></exception>
+		public static bool Contains(string key)
+		{
+			// Null-check argument
+			if (string.IsNullOrEmpty(key))
+			{
+				throw new System.ArgumentException(nameof(key));
+			}
+
+			// Check if setup yet
+			CheckInstance();
+			return GetData().SaveData.ContainsKey(key);
 		}
 
 		/// <summary>
@@ -351,6 +386,7 @@ namespace OmiyaGames.Saves
 			// Set load state to default
 			manager.lastCoroutineState = LoadState.Loading;
 
+			// Go through all data
 			foreach (SaveObject data in allData.Values)
 			{
 				if (data == null)
