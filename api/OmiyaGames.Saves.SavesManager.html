@@ -83,8 +83,9 @@
   
   <h1 id="OmiyaGames_Saves_SavesManager" data-uid="OmiyaGames.Saves.SavesManager" class="text-break">Class SavesManager
   </h1>
-  <div class="markdown level0 summary"><p>A manager file that allows adjusting an <see cref="!:SavesMixer"></see>
-from settings.</p>
+  <div class="markdown level0 summary"><p>A manager file that configures and loads <a class="xref" href="OmiyaGames.Saves.SaveObject.html">SaveObject</a>s
+on <a class="xref" href="OmiyaGames.Saves.SavesManager.html#OmiyaGames_Saves_SavesManager_Setup">Setup()</a>. Allows retrieving <a class="xref" href="OmiyaGames.Saves.SaveObject.html">SaveObject</a>
+by their keys. Handles global <a class="xref" href="OmiyaGames.Saves.SavesManager.html#OmiyaGames_Saves_SavesManager_Save">Save()</a>.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -122,7 +123,18 @@ THE SOFTWARE.
 <strong>Version:</strong> 0.2.0-exp.1<br>
 <strong>Date:</strong> 2/18/2022<br>
 <strong>Author:</strong> Taro Omiya
-</td><td>Initial verison.</td></tr></tbody></table></p>
+</td><td>Initial verison.</td></tr><tr><td>
+<strong>Version:</strong> 0.2.1-exp.1<br>
+<strong>Date:</strong> 2/26/2022<br>
+<strong>Author:</strong> Taro Omiya
+</td><td>
+Throwing exceptions if manager is not setup when calling
+<a class="xref" href="OmiyaGames.Saves.SavesManager.html#OmiyaGames_Saves_SavesManager_TryGet_System_String_OmiyaGames_Saves_SaveObject__">TryGet(String, out SaveObject)</a> and
+<a class="xref" href="OmiyaGames.Saves.SavesManager.html#OmiyaGames_Saves_SavesManager_Contains_OmiyaGames_Saves_SaveObject_">Contains(SaveObject)</a>. Renamed
+<code>TryGetSave(string, out SaveObject)</code> to
+<a class="xref" href="OmiyaGames.Saves.SavesManager.html#OmiyaGames_Saves_SavesManager_TryGet_System_String_OmiyaGames_Saves_SaveObject__">TryGet(String, out SaveObject)</a>.
+Added <a class="xref" href="OmiyaGames.Saves.SavesManager.html#OmiyaGames_Saves_SavesManager_Contains_System_String_">Contains(String)</a>.
+</td></tr></tbody></table></p>
 </div>
   <h3 id="fields">Fields
   </h3>
@@ -337,6 +349,64 @@ in the middle of setting up, or is already setup.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="OmiyaGames_Saves_SavesManager_Contains_" data-uid="OmiyaGames.Saves.SavesManager.Contains*"></a>
+  <h4 id="OmiyaGames_Saves_SavesManager_Contains_System_String_" data-uid="OmiyaGames.Saves.SavesManager.Contains(System.String)">Contains(String)</h4>
+  <div class="markdown level1 summary"><p>TODO</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool Contains(string key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.argumentexception">ArgumentException</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -560,14 +630,14 @@ in the middle of setting up, or is already setup.</p>
   </table>
   
   
-  <a id="OmiyaGames_Saves_SavesManager_TryGetSave_" data-uid="OmiyaGames.Saves.SavesManager.TryGetSave*"></a>
-  <h4 id="OmiyaGames_Saves_SavesManager_TryGetSave_System_String_OmiyaGames_Saves_SaveObject__" data-uid="OmiyaGames.Saves.SavesManager.TryGetSave(System.String,OmiyaGames.Saves.SaveObject@)">TryGetSave(String, out SaveObject)</h4>
+  <a id="OmiyaGames_Saves_SavesManager_TryGet_" data-uid="OmiyaGames.Saves.SavesManager.TryGet*"></a>
+  <h4 id="OmiyaGames_Saves_SavesManager_TryGet_System_String_OmiyaGames_Saves_SaveObject__" data-uid="OmiyaGames.Saves.SavesManager.TryGet(System.String,OmiyaGames.Saves.SaveObject@)">TryGet(String, out SaveObject)</h4>
   <div class="markdown level1 summary"><p>TODO</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static bool TryGetSave(string key, out SaveObject saveObject)</code></pre>
+    <pre><code class="lang-csharp hljs">public static bool TryGet(string key, out SaveObject saveObject)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">

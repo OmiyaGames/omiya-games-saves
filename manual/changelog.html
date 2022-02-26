@@ -79,6 +79,11 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="change-log">Change Log:</h1>
 
+<h2 id="021-exp">0.2.1-exp</h2>
+<ul>
+<li><strong>Bug Fix</strong>: fixed <a href="/Runtime/SaveObjects/SaveObjectMap.cs"><code>SaveObjectMap.cs</code></a> not deserializing correctly on the inspector and Project Settings window, thus losing all data.  The fix requires future code to call the new method <code>Setup()</code>.</li>
+<li><strong>Breaking Change</strong>: renamed <a href="/Runtime/SavesManager.cs"><code>SavesManager.cs</code></a> method <code>TryGetSave()</code> to <code>TryGet()</code> to remove the implication that any save operation is being performed.</li>
+</ul>
 <h2 id="020-exp">0.2.0-exp</h2>
 <ul>
 <li><strong>New Features</strong>: starting on a new, <code>ScriptableObject</code> driven framework to save and recall <code>PlayerPrefs</code> data.  It&#39;s currently a work-in-progress, but we believe is the more intuitive and flexible method for saving and recalling persistent data.<ul>

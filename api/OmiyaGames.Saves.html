@@ -217,7 +217,9 @@ Meant for enums with <a class="xref" href="https://docs.microsoft.com/dotnet/api
       <section><p>Attribute for showing more helper functionality to SaveObject</p>
 </section>
       <h4><a class="xref" href="OmiyaGames.Saves.SaveObjectMap-1.html">SaveObjectMap&lt;T&gt;</a></h4>
-      <section><p>A collection of <a class="xref" href="OmiyaGames.Saves.SaveObject.html">SaveObject</a>s.</p>
+      <section><p>A collection of <a class="xref" href="OmiyaGames.Saves.SaveObject.html">SaveObject</a>s. If used as an
+inspector-exposed variable, <a class="xref" href="OmiyaGames.Saves.SaveObjectMap-1.html#OmiyaGames_Saves_SaveObjectMap_1_Setup">Setup()</a> <strong>must</strong>
+be called before using this map.</p>
 </section>
       <h4><a class="xref" href="OmiyaGames.Saves.SaveSingleValue-2.html">SaveSingleValue&lt;TValue, TSerialized&gt;</a></h4>
       <section><p>Helper abstract class with common methods already defined for most situations.</p>
@@ -226,8 +228,9 @@ Meant for enums with <a class="xref" href="https://docs.microsoft.com/dotnet/api
       <section><p>Collection of SaveObjects, acting like a save slot.</p>
 </section>
       <h4><a class="xref" href="OmiyaGames.Saves.SavesManager.html">SavesManager</a></h4>
-      <section><p>A manager file that allows adjusting an <see cref="!:SavesMixer"></see>
-from settings.</p>
+      <section><p>A manager file that configures and loads <a class="xref" href="OmiyaGames.Saves.SaveObject.html">SaveObject</a>s
+on <a class="xref" href="OmiyaGames.Saves.SavesManager.html#OmiyaGames_Saves_SavesManager_Setup">Setup()</a>. Allows retrieving <a class="xref" href="OmiyaGames.Saves.SaveObject.html">SaveObject</a>
+by their keys. Handles global <a class="xref" href="OmiyaGames.Saves.SavesManager.html#OmiyaGames_Saves_SavesManager_Save">Save()</a>.</p>
 </section>
       <h4><a class="xref" href="OmiyaGames.Saves.SavesSettings.html">SavesSettings</a></h4>
       <section><p>Scriptable object with settings info.</p>

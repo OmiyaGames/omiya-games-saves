@@ -6188,6 +6188,23 @@ references:
   fullName.vb: OmiyaGames.Saves.SaveObjectMap(Of T).IsSerializing
   nameWithType: SaveObjectMap<T>.IsSerializing
   nameWithType.vb: SaveObjectMap(Of T).IsSerializing
+- uid: OmiyaGames.Saves.SaveObjectMap`1.IsSetup
+  name: IsSetup
+  href: api/OmiyaGames.Saves.SaveObjectMap-1.html#OmiyaGames_Saves_SaveObjectMap_1_IsSetup
+  commentId: P:OmiyaGames.Saves.SaveObjectMap`1.IsSetup
+  fullName: OmiyaGames.Saves.SaveObjectMap<T>.IsSetup
+  fullName.vb: OmiyaGames.Saves.SaveObjectMap(Of T).IsSetup
+  nameWithType: SaveObjectMap<T>.IsSetup
+  nameWithType.vb: SaveObjectMap(Of T).IsSetup
+- uid: OmiyaGames.Saves.SaveObjectMap`1.IsSetup*
+  name: IsSetup
+  href: api/OmiyaGames.Saves.SaveObjectMap-1.html#OmiyaGames_Saves_SaveObjectMap_1_IsSetup_
+  commentId: Overload:OmiyaGames.Saves.SaveObjectMap`1.IsSetup
+  isSpec: "True"
+  fullName: OmiyaGames.Saves.SaveObjectMap<T>.IsSetup
+  fullName.vb: OmiyaGames.Saves.SaveObjectMap(Of T).IsSetup
+  nameWithType: SaveObjectMap<T>.IsSetup
+  nameWithType.vb: SaveObjectMap(Of T).IsSetup
 - uid: OmiyaGames.Saves.SaveObjectMap`1.Item(System.String)
   name: Item[String]
   href: api/OmiyaGames.Saves.SaveObjectMap-1.html#OmiyaGames_Saves_SaveObjectMap_1_Item_System_String_
@@ -6274,6 +6291,23 @@ references:
   fullName.vb: OmiyaGames.Saves.SaveObjectMap(Of T).Remove
   nameWithType: SaveObjectMap<T>.Remove
   nameWithType.vb: SaveObjectMap(Of T).Remove
+- uid: OmiyaGames.Saves.SaveObjectMap`1.Setup
+  name: Setup()
+  href: api/OmiyaGames.Saves.SaveObjectMap-1.html#OmiyaGames_Saves_SaveObjectMap_1_Setup
+  commentId: M:OmiyaGames.Saves.SaveObjectMap`1.Setup
+  fullName: OmiyaGames.Saves.SaveObjectMap<T>.Setup()
+  fullName.vb: OmiyaGames.Saves.SaveObjectMap(Of T).Setup()
+  nameWithType: SaveObjectMap<T>.Setup()
+  nameWithType.vb: SaveObjectMap(Of T).Setup()
+- uid: OmiyaGames.Saves.SaveObjectMap`1.Setup*
+  name: Setup
+  href: api/OmiyaGames.Saves.SaveObjectMap-1.html#OmiyaGames_Saves_SaveObjectMap_1_Setup_
+  commentId: Overload:OmiyaGames.Saves.SaveObjectMap`1.Setup
+  isSpec: "True"
+  fullName: OmiyaGames.Saves.SaveObjectMap<T>.Setup
+  fullName.vb: OmiyaGames.Saves.SaveObjectMap(Of T).Setup
+  nameWithType: SaveObjectMap<T>.Setup
+  nameWithType.vb: SaveObjectMap(Of T).Setup
 - uid: OmiyaGames.Saves.SaveObjectMap`1.TryGetValue(System.String,`0@)
   name: TryGetValue(String, out T)
   href: api/OmiyaGames.Saves.SaveObjectMap-1.html#OmiyaGames_Saves_SaveObjectMap_1_TryGetValue_System_String__0__
@@ -6705,6 +6739,12 @@ references:
   commentId: M:OmiyaGames.Saves.SavesManager.Contains(OmiyaGames.Saves.SaveObject)
   fullName: OmiyaGames.Saves.SavesManager.Contains(OmiyaGames.Saves.SaveObject)
   nameWithType: SavesManager.Contains(SaveObject)
+- uid: OmiyaGames.Saves.SavesManager.Contains(System.String)
+  name: Contains(String)
+  href: api/OmiyaGames.Saves.SavesManager.html#OmiyaGames_Saves_SavesManager_Contains_System_String_
+  commentId: M:OmiyaGames.Saves.SavesManager.Contains(System.String)
+  fullName: OmiyaGames.Saves.SavesManager.Contains(System.String)
+  nameWithType: SavesManager.Contains(String)
 - uid: OmiyaGames.Saves.SavesManager.Contains*
   name: Contains
   href: api/OmiyaGames.Saves.SavesManager.html#OmiyaGames_Saves_SavesManager_Contains_
@@ -6835,22 +6875,22 @@ references:
   isSpec: "True"
   fullName: OmiyaGames.Saves.SavesManager.SubscribeToDeleteKey
   nameWithType: SavesManager.SubscribeToDeleteKey
-- uid: OmiyaGames.Saves.SavesManager.TryGetSave(System.String,OmiyaGames.Saves.SaveObject@)
-  name: TryGetSave(String, out SaveObject)
-  href: api/OmiyaGames.Saves.SavesManager.html#OmiyaGames_Saves_SavesManager_TryGetSave_System_String_OmiyaGames_Saves_SaveObject__
-  commentId: M:OmiyaGames.Saves.SavesManager.TryGetSave(System.String,OmiyaGames.Saves.SaveObject@)
-  name.vb: TryGetSave(String, ByRef SaveObject)
-  fullName: OmiyaGames.Saves.SavesManager.TryGetSave(System.String, out OmiyaGames.Saves.SaveObject)
-  fullName.vb: OmiyaGames.Saves.SavesManager.TryGetSave(System.String, ByRef OmiyaGames.Saves.SaveObject)
-  nameWithType: SavesManager.TryGetSave(String, out SaveObject)
-  nameWithType.vb: SavesManager.TryGetSave(String, ByRef SaveObject)
-- uid: OmiyaGames.Saves.SavesManager.TryGetSave*
-  name: TryGetSave
-  href: api/OmiyaGames.Saves.SavesManager.html#OmiyaGames_Saves_SavesManager_TryGetSave_
-  commentId: Overload:OmiyaGames.Saves.SavesManager.TryGetSave
+- uid: OmiyaGames.Saves.SavesManager.TryGet(System.String,OmiyaGames.Saves.SaveObject@)
+  name: TryGet(String, out SaveObject)
+  href: api/OmiyaGames.Saves.SavesManager.html#OmiyaGames_Saves_SavesManager_TryGet_System_String_OmiyaGames_Saves_SaveObject__
+  commentId: M:OmiyaGames.Saves.SavesManager.TryGet(System.String,OmiyaGames.Saves.SaveObject@)
+  name.vb: TryGet(String, ByRef SaveObject)
+  fullName: OmiyaGames.Saves.SavesManager.TryGet(System.String, out OmiyaGames.Saves.SaveObject)
+  fullName.vb: OmiyaGames.Saves.SavesManager.TryGet(System.String, ByRef OmiyaGames.Saves.SaveObject)
+  nameWithType: SavesManager.TryGet(String, out SaveObject)
+  nameWithType.vb: SavesManager.TryGet(String, ByRef SaveObject)
+- uid: OmiyaGames.Saves.SavesManager.TryGet*
+  name: TryGet
+  href: api/OmiyaGames.Saves.SavesManager.html#OmiyaGames_Saves_SavesManager_TryGet_
+  commentId: Overload:OmiyaGames.Saves.SavesManager.TryGet
   isSpec: "True"
-  fullName: OmiyaGames.Saves.SavesManager.TryGetSave
-  nameWithType: SavesManager.TryGetSave
+  fullName: OmiyaGames.Saves.SavesManager.TryGet
+  nameWithType: SavesManager.TryGet
 - uid: OmiyaGames.Saves.SavesManager.UnsubscribeToDeleteKey(System.String,OmiyaGames.Saves.IAsyncSettingsRecorder.OnKeyDeleted)
   name: UnsubscribeToDeleteKey(String, IAsyncSettingsRecorder.OnKeyDeleted)
   href: api/OmiyaGames.Saves.SavesManager.html#OmiyaGames_Saves_SavesManager_UnsubscribeToDeleteKey_System_String_OmiyaGames_Saves_IAsyncSettingsRecorder_OnKeyDeleted_

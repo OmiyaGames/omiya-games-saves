@@ -83,7 +83,9 @@
   
   <h1 id="OmiyaGames_Saves_SaveObjectMap_1" data-uid="OmiyaGames.Saves.SaveObjectMap`1" class="text-break">Class SaveObjectMap&lt;T&gt;
   </h1>
-  <div class="markdown level0 summary"><p>A collection of <a class="xref" href="OmiyaGames.Saves.SaveObject.html">SaveObject</a>s.</p>
+  <div class="markdown level0 summary"><p>A collection of <a class="xref" href="OmiyaGames.Saves.SaveObject.html">SaveObject</a>s. If used as an
+inspector-exposed variable, <a class="xref" href="OmiyaGames.Saves.SaveObjectMap-1.html#OmiyaGames_Saves_SaveObjectMap_1_Setup">Setup()</a> <strong>must</strong>
+be called before using this map.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -141,8 +143,14 @@ THE SOFTWARE.
 <strong>Version:</strong> 0.2.0-exp<br>
 <strong>Date:</strong> 2/21/2022<br>
 <strong>Author:</strong> Taro Omiya
+</td><td>Initial draft.</td></tr><tr><td>
+<strong>Version:</strong> 0.2.1-exp<br>
+<strong>Date:</strong> 2/26/2022<br>
+<strong>Author:</strong> Taro Omiya
 </td><td>
-Initial draft.
+Fixing deserialization logic.  Since <a class="xref" href="OmiyaGames.Saves.SaveObject.html">SaveObject</a>s are
+not guaranteed to be setup by the time <a class="xref" href="OmiyaGames.Saves.SaveObjectMap-1.html#OmiyaGames_Saves_SaveObjectMap_1_OnAfterDeserialize">OnAfterDeserialize()</a>
+is called, moved its logic into <a class="xref" href="OmiyaGames.Saves.SaveObjectMap-1.html#OmiyaGames_Saves_SaveObjectMap_1_Setup">Setup()</a> instead.
 </td></tr></tbody></table></p>
 </div>
   <h3 id="constructors">Constructors
@@ -315,6 +323,32 @@ used to check if two elements matches.</p>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool IsSerializing { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="OmiyaGames_Saves_SaveObjectMap_1_IsSetup_" data-uid="OmiyaGames.Saves.SaveObjectMap`1.IsSetup*"></a>
+  <h4 id="OmiyaGames_Saves_SaveObjectMap_1_IsSetup" data-uid="OmiyaGames.Saves.SaveObjectMap`1.IsSetup">IsSetup</h4>
+  <div class="markdown level1 summary"><p>Indicates if the map is setup or not.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsSetup { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -652,6 +686,18 @@ public void OnBeforeSerialize()</code></pre>
       </tr>
     </tbody>
   </table>
+  
+  
+  <a id="OmiyaGames_Saves_SaveObjectMap_1_Setup_" data-uid="OmiyaGames.Saves.SaveObjectMap`1.Setup*"></a>
+  <h4 id="OmiyaGames_Saves_SaveObjectMap_1_Setup" data-uid="OmiyaGames.Saves.SaveObjectMap`1.Setup">Setup()</h4>
+  <div class="markdown level1 summary"><p>Sets up this map. Necessary if this map
+is edited in the Unity inspector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Setup()</code></pre>
+  </div>
   
   
   <a id="OmiyaGames_Saves_SaveObjectMap_1_TryGetValue_" data-uid="OmiyaGames.Saves.SaveObjectMap`1.TryGetValue*"></a>
