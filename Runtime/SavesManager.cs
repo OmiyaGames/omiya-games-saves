@@ -1,6 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using OmiyaGames.Global;
 using OmiyaGames.Global.Settings;
 
 namespace OmiyaGames.Saves
@@ -65,7 +65,7 @@ namespace OmiyaGames.Saves
 	/// on <seealso cref="Setup"/>. Allows retrieving <seealso cref="SaveObject"/>
 	/// by their keys. Handles global <seealso cref="Save"/>.
 	/// </summary>
-	public class SavesManager : BaseSettingsManager<SavesManager, SavesSettings>, System.IDisposable
+	public static class SavesManager
 	{
 		/// <summary>
 		/// The configuration name stored in Editor Settings.
@@ -85,77 +85,33 @@ namespace OmiyaGames.Saves
 		/// </summary>
 		public const string UXML_PATH = "Packages/com.omiyagames.saves/Editor/Saves.uxml";
 
-		/// <inheritdoc/>
-		protected override string AddressableName => ADDRESSABLE_NAME;
-
-		LoadState setupState = LoadState.Fail;
-		bool cleanUpRecorder = false;
-		IAsyncSettingsRecorder currentRecorder = null;
-		LoadState lastCoroutineState = LoadState.Loading;
-
 		/// <summary>
 		/// Indicates whether the manager is either still
 		/// in the middle of setting up, or is already setup.
 		/// </summary>
-		public static LoadState SetupState => GetInstance().setupState;
+		public static LoadState SetupState => SavesSettingsManager.GetInstance().SetupState;
 
 		/// <summary>
 		/// A coroutine to setup this manager.
 		/// </summary>
 		/// <returns></returns>
-		public static IEnumerator Setup()
+		public static IEnumerator Setup(bool forceSetup = false)
 		{
 			// Check if setup yet
-			SavesManager manager = GetInstance();
-
-			if (manager.setupState == LoadState.Fail)
+			SavesSettingsManager manager = SavesSettingsManager.GetInstance();
+			forceSetup |= (manager.SetupState == LoadState.Loading);
+			if (forceSetup)
 			{
-				// Reset flags
-				manager.cleanUpRecorder = false;
-				manager.setupState = LoadState.Loading;
-
-				// First wait to make sure the manager is ready.
-				yield return manager.StartCoroutine(WaitUntilReady());
-
-				// Setup a recorder
-				SavesSettings data = GetData();
-				data.SaveData.Setup();
-				manager.currentRecorder = GetSupportedRecorder(data.Recorders, out manager.cleanUpRecorder);
-
-				// Load the version number
-				yield return manager.StartCoroutine(SetupSaveObject(manager, data.Version));
-
-				// Confirm load succeeded
-				if (manager.lastCoroutineState == LoadState.Fail)
+				// Check if manager previously was setup before
+				if (manager.SetupState != LoadState.Loading)
 				{
-					// Indicate failure
-					Debug.LogErrorFormat(manager, "Unable to retrieve the stored version number from Recorder \"{0}\"", manager.currentRecorder);
-					manager.setupState = LoadState.Fail;
-
-					// Clean-up, and don't proceed any further
-					manager.Dispose();
-					yield break;
+					// Force setup
+					manager.ForceSetup();
 				}
 
-				// Check if this version number is smaller than expected
-				if (data.Version.Value < data.Upgraders.Length)
-				{
-					// Run the upgraders
-					yield return manager.StartCoroutine(RunUpgraders(manager, data));
-
-					// If upgrade failed, break immediately
-					if (manager.lastCoroutineState == LoadState.Fail)
-					{
-						manager.setupState = LoadState.Fail;
-						yield break;
-					}
-				}
-
-				// Setup and load all the save data
-				yield return manager.StartCoroutine(LoadAllSaveObjects(manager, data.SaveData));
-
-				// "return" the state of the loading all save objects
-				manager.setupState = manager.lastCoroutineState;
+				// Wait until the manager is ready
+				yield return new WaitUntil(IsReady);
+				bool IsReady() => manager.SetupState != LoadState.Loading;
 			}
 		}
 
@@ -163,16 +119,18 @@ namespace OmiyaGames.Saves
 		/// TODO
 		/// </summary>
 		/// <param name="key"></param>
+		/// <returns></returns>
+		public static SaveObject Get(string key) =>
+			CheckInstance().Settings.SaveData[key];
+
+		/// <summary>
+		/// TODO
+		/// </summary>
+		/// <param name="key"></param>
 		/// <param name="saveObject"></param>
 		/// <returns></returns>
-		public static bool TryGet(string key, out SaveObject saveObject)
-		{
-			// Check if setup yet
-			CheckInstance();
-
-			// Setup return stuff
-			return GetData().SaveData.TryGetValue(key, out saveObject);
-		}
+		public static bool TryGet(string key, out SaveObject saveObject) =>
+			CheckInstance().Settings.SaveData.TryGetValue(key, out saveObject);
 
 		/// <summary>
 		/// TODO
@@ -180,26 +138,8 @@ namespace OmiyaGames.Saves
 		/// <param name="saveObject"></param>
 		/// <returns></returns>
 		/// <exception cref="System.ArgumentNullException"></exception>
-		public static bool Contains(SaveObject saveObject)
-		{
-			// Null-check argument
-			if (saveObject == null)
-			{
-				throw new System.ArgumentNullException(nameof(saveObject));
-			}
-
-			// Check if setup yet
-			CheckInstance();
-
-			// Attempt to grab a save object with the same key.
-			bool returnFlag = false;
-			if (GetData().SaveData.TryGetValue(saveObject.Key, out var compare))
-			{
-				// Verify these are the same objects
-				returnFlag = (saveObject == compare);
-			}
-			return returnFlag;
-		}
+		public static bool Contains(SaveObject saveObject) =>
+			CheckInstance().Settings.SaveData.Contains(saveObject);
 
 		/// <summary>
 		/// TODO
@@ -207,44 +147,33 @@ namespace OmiyaGames.Saves
 		/// <param name="key"></param>
 		/// <returns></returns>
 		/// <exception cref="System.ArgumentException"></exception>
-		public static bool Contains(string key)
-		{
-			// Null-check argument
-			if (string.IsNullOrEmpty(key))
-			{
-				throw new System.ArgumentException(nameof(key));
-			}
-
-			// Check if setup yet
-			CheckInstance();
-			return GetData().SaveData.ContainsKey(key);
-		}
+		public static bool Contains(string key) => CheckInstance().Settings.SaveData.ContainsKey(key);
 
 		/// <summary>
 		/// TODO
 		/// </summary>
 		/// <returns></returns>
-		public static WaitLoad Save() => CheckInstance().currentRecorder.Save();
+		public static WaitLoad Save() => CheckInstance().CurrentRecorder.Save();
 
 		/// <summary>
 		/// TODO
 		/// </summary>
 		/// <returns></returns>
-		public static WaitLoad DeleteAllKeys() => CheckInstance().currentRecorder.DeleteAll();
+		public static WaitLoad DeleteAllKeys() => CheckInstance().CurrentRecorder.DeleteAll();
 
 		/// <summary>
 		/// TODO
 		/// </summary>
 		/// <param name="key"></param>
 		/// <returns></returns>
-		public static WaitLoad DeleteKey(string key) => CheckInstance().currentRecorder.DeleteKey(key);
+		public static WaitLoad DeleteKey(string key) => CheckInstance().CurrentRecorder.DeleteKey(key);
 
 		/// <summary>
 		/// TODO
 		/// </summary>
 		/// <param name="key"></param>
 		/// <returns></returns>
-		public static WaitLoadValue<bool> HasKey(string key) => CheckInstance().currentRecorder.HasKey(key);
+		public static WaitLoadValue<bool> HasKey(string key) => CheckInstance().CurrentRecorder.HasKey(key);
 
 		/// <summary>
 		/// TODO
@@ -252,7 +181,7 @@ namespace OmiyaGames.Saves
 		/// <param name="key"></param>
 		/// <param name="action"></param>
 		public static void SubscribeToDeleteKey(string key, IAsyncSettingsRecorder.OnKeyDeleted action) =>
-			CheckInstance().currentRecorder.SubscribeToDeleteKey(key, action);
+			CheckInstance().CurrentRecorder.SubscribeToDeleteKey(key, action);
 
 		/// <summary>
 		/// TODO
@@ -260,44 +189,27 @@ namespace OmiyaGames.Saves
 		/// <param name="key"></param>
 		/// <param name="action"></param>
 		public static void UnsubscribeToDeleteKey(string key, IAsyncSettingsRecorder.OnKeyDeleted action) =>
-			CheckInstance().currentRecorder.UnsubscribeToDeleteKey(key, action);
+			CheckInstance().CurrentRecorder.UnsubscribeToDeleteKey(key, action);
 
-		/// <inheritdoc/>
-		public void Dispose()
+		static SavesSettingsManager CheckInstance()
 		{
-			// Check if recorder needs to be cleaned
-			SavesManager manager = GetInstance();
-			if (manager.cleanUpRecorder)
+			SavesSettingsManager manager = SavesSettingsManager.GetInstance();
+			if (manager.SetupState != LoadState.Success)
 			{
-				// Destroy the recorder
-				Destroy((ScriptableObject)manager.currentRecorder);
-
-				// Flag as destroyed
-				manager.currentRecorder = null;
-				manager.cleanUpRecorder = false;
+				throw new System.Exception("SavesManager is not setup yet.");
 			}
+			return manager;
 		}
 
-		/// <inheritdoc/>
-		protected override void OnDestroy()
-		{
-			Dispose();
-			base.OnDestroy();
-		}
-
-		#region Helper Functions
 		/// <summary>
 		/// Retrieves the recorder that is supported for this build.
 		/// If there are multiple, a composite recorder is generated.
 		/// </summary>
-		/// <param name="recorders"></param>
-		/// <param name="isNewRecorderCreated"></param>
-		/// <returns></returns>
-		static IAsyncSettingsRecorder GetSupportedRecorder(IReadOnlyList<SavesSettings.SupportedRecorder> recorders, out bool isNewRecorderCreated)
+		static IAsyncSettingsRecorder GetSupportedRecorder(SavesSettings.SupportedRecorder[] recorders, out bool isNewRecorderCreated)
 		{
 			// Setup variables
 			isNewRecorderCreated = false;
-			ListSet<AsyncSettingsRecorder> capturedRecorders = new(recorders.Count);
+			ListSet<AsyncSettingsRecorder> capturedRecorders = new(recorders.Length);
 
 			// Go through all the recorders
 			foreach (SavesSettings.SupportedRecorder pair in recorders)
@@ -328,116 +240,183 @@ namespace OmiyaGames.Saves
 			}
 		}
 
-		static IEnumerator SetupSaveObject(SavesManager manager, SaveObject save)
+		class SavesSettingsManager : BaseSettingsManager<SavesSettingsManager, SavesSettings>, System.IDisposable
 		{
-			// Set load state to default
-			manager.lastCoroutineState = LoadState.Loading;
+			bool cleanUpRecorder = false;
 
-			// Setup and load
-			save.Setup(manager.currentRecorder);
-			WaitLoad loadStatus = save.Load();
-			yield return loadStatus;
+			/// <inheritdoc/>
+			protected override string AddressableName => ADDRESSABLE_NAME;
 
-			// Confirm load succeeded
-			manager.lastCoroutineState = loadStatus.CurrentState;
-		}
-
-		static IEnumerator RunUpgraders(SavesManager manager, SavesSettings data)
-		{
-			// Set load state to default
-			manager.lastCoroutineState = LoadState.Loading;
-
-			// Go through all the upgraders
-			for (int i = data.Version.Value; i < data.Upgraders.Length; ++i)
+			internal LoadState SetupState
 			{
-				// Run the upgrade
-				yield return manager.StartCoroutine(data.Upgraders[i].Upgrade(data, manager.currentRecorder));
+				get;
+				private set;
+			} = LoadState.Fail;
+			internal IAsyncSettingsRecorder CurrentRecorder
+			{
+				get;
+				private set;
+			} = null;
+			internal SavesSettings Settings => Data;
 
-				// Check if upgrade failed
-				if (data.Upgraders[i].CurrentState != LoadState.Success)
+			internal IEnumerator ForceSetup()
+			{
+				if (SetupState != LoadState.Loading)
 				{
-					// Print an error, and flag that this coroutine failed
-					Debug.LogErrorFormat(manager, "Unable to run upgrader \"{0}\", to version {1}", data.Upgraders[i], i);
-					manager.lastCoroutineState = LoadState.Fail;
+					// Load the data
+					yield return Manager.StartCoroutine(OnSetup());
+				}
+			}
+
+			/// <inheritdoc/>
+			protected override IEnumerator OnSetup()
+			{
+				// Reset flags
+				cleanUpRecorder = false;
+				SetupState = LoadState.Loading;
+				WaitLoad loadStatus;
+
+				// Load the data
+				yield return Manager.StartCoroutine(base.OnSetup());
+
+				// Setup data
+				SavesSettings data = GetData();
+				data.SaveData.Setup();
+
+				// Setup recorders
+				CurrentRecorder = GetSupportedRecorder(data.Recorders, out cleanUpRecorder);
+
+				#region Load the version number
+				// Setup and load version saver
+				data.Version.Setup(CurrentRecorder);
+				loadStatus = data.Version.Load();
+				yield return loadStatus;
+
+				// Confirm load succeeded
+				if (loadStatus.CurrentState == LoadState.Fail)
+				{
+					// Indicate failure
+					Debug.LogErrorFormat(this, "Unable to retrieve the stored version number from Recorder \"{0}\"", CurrentRecorder);
+					SetupState = LoadState.Fail;
 
 					// Clean-up, and don't proceed any further
-					manager.Dispose();
+					Dispose();
 					yield break;
 				}
-			}
+				#endregion
 
-			// Set the version
-			data.Version.Value = data.Upgraders.Length;
-			WaitLoad loadStatus = manager.currentRecorder.Save();
-			yield return loadStatus;
-
-			// If saving failed for some reason, indicate as such
-			if (loadStatus.CurrentState == LoadState.Fail)
-			{
-				Debug.LogWarningFormat(manager, "Unable to save the version number, \"{0}\".  Proceeding, anyway.", data.Version.Value);
-			}
-
-			// Indicate this coroutine succeeded
-			manager.lastCoroutineState = LoadState.Success;
-		}
-
-		static IEnumerator LoadAllSaveObjects(SavesManager manager, SaveObjectMap<SaveObject> allData)
-		{
-			// Set load state to default
-			manager.lastCoroutineState = LoadState.Loading;
-
-			// Go through all data
-			foreach (SaveObject data in allData.Values)
-			{
-				if (data == null)
+				#region Upgrade Data
+				// Check if this version number is smaller than expected
+				int lastVersion = data.Version.Value,
+					currentVersion = data.Upgraders.Length;
+				if (lastVersion < currentVersion)
 				{
-					continue;
-				}
-
-				// Setup the save object
-				yield return manager.StartCoroutine(SetupSaveObject(manager, data));
-
-				// Check if load failed
-				if (manager.lastCoroutineState == LoadState.Fail)
-				{
-					// Briefly revert coroutine state (in case anything is listening to this coroutine)
-					manager.lastCoroutineState = LoadState.Loading;
-
-					// Check how to handle this load failure
-					switch (data.HandleLoadFailure)
+					// Go through all the upgraders
+					for (int i = lastVersion; i < currentVersion; ++i)
 					{
-						case ErrorHandling.HaltLogError:
+						// Run the upgrade
+						yield return StartCoroutine(data.Upgraders[i].Upgrade(data, CurrentRecorder));
+
+						// Check if upgrade failed
+						if (data.Upgraders[i].CurrentState != LoadState.Success)
+						{
+							// Print an error, and flag that this coroutine failed
+							Debug.LogErrorFormat(this, "Unable to run upgrader \"{0}\", to version {1}", data.Upgraders[i], i);
+							SetupState = LoadState.Fail;
+
 							// Clean-up, and don't proceed any further
-							Debug.LogErrorFormat(manager, "Unable to load \"{0}\"", data);
-							manager.lastCoroutineState = LoadState.Fail;
-							manager.Dispose();
+							Dispose();
 							yield break;
-						case ErrorHandling.ProceedLogError:
-							Debug.LogErrorFormat(manager, "Unable to load \"{0}\"", data);
-							break;
-						case ErrorHandling.ProceedLogWarning:
-							Debug.LogWarningFormat(manager, "Unable to load \"{0}\"", data);
-							break;
-						case ErrorHandling.ProceedLogInfo:
-							Debug.LogFormat(manager, "Unable to load \"{0}\"", data);
-							break;
+						}
+					}
+
+					// Set the version
+					data.Version.Value = currentVersion;
+					loadStatus = CurrentRecorder.Save();
+					yield return loadStatus;
+
+					// If saving failed for some reason, indicate as such
+					if (loadStatus.CurrentState == LoadState.Fail)
+					{
+						// Print an error, and flag that this coroutine failed
+						Debug.LogErrorFormat(this, "Unable to save the version number, \"{0}\".  Proceeding, anyway.", data.Version.Value);
+						SetupState = LoadState.Fail;
+
+						// Clean-up, and don't proceed any further
+						Dispose();
+						yield break;
 					}
 				}
+				#endregion
+
+				#region Load All Data
+				// Go through all data
+				foreach (SaveObject save in data.SaveData.Values)
+				{
+					// Of course, disregard nulls
+					if (save == null)
+					{
+						continue;
+					}
+
+					// Setup the save object
+					save.Setup(CurrentRecorder);
+					loadStatus = save.Load();
+					yield return loadStatus;
+
+					// Check if load failed
+					if (loadStatus.CurrentState == LoadState.Fail)
+					{
+						// Check how to handle this load failure
+						switch (save.HandleLoadFailure)
+						{
+							case ErrorHandling.HaltLogError:
+								// Indicate failure
+								Debug.LogErrorFormat(this, "Unable to load \"{0}\"", save);
+								SetupState = LoadState.Fail;
+
+								// Clean-up, and don't proceed any further
+								Dispose();
+								yield break;
+							case ErrorHandling.ProceedLogError:
+								Debug.LogErrorFormat(this, "Unable to load \"{0}\"", save);
+								break;
+							case ErrorHandling.ProceedLogWarning:
+								Debug.LogWarningFormat(this, "Unable to load \"{0}\"", save);
+								break;
+							case ErrorHandling.ProceedLogInfo:
+								Debug.LogFormat(this, "Unable to load \"{0}\"", save);
+								break;
+						}
+					}
+				}
+				#endregion
+
+				// Made it to the end, everything passed!
+				SetupState = LoadState.Success;
 			}
 
-			// Indicate this coroutine succeeded
-			manager.lastCoroutineState = LoadState.Success;
-		}
-
-		static SavesManager CheckInstance()
-		{
-			SavesManager manager = GetInstance();
-			if (manager.setupState != LoadState.Success)
+			/// <inheritdoc/>
+			protected override void OnDestroy()
 			{
-				throw new System.Exception("SavesManager is not setup yet.");
+				Dispose();
+				base.OnDestroy();
 			}
-			return manager;
+
+			/// <inheritdoc/>
+			public void Dispose()
+			{
+				// Check if recorder needs to be cleaned
+				if (cleanUpRecorder)
+				{
+					// Destroy the recorder
+					Destroy((ScriptableObject)CurrentRecorder);
+
+					// Flag as destroyed
+					CurrentRecorder = null;
+					cleanUpRecorder = false;
+				}
+			}
 		}
-		#endregion
 	}
 }
