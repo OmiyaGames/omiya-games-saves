@@ -1,5 +1,11 @@
 # Change Log:
 
+## 0.2.2-exp
+
+- **Bug Fix**: fixed [`AsyncSettingsRecorderDecorator.cs`](/Runtime/AsyncSettingsRecorder/AsyncSettingsRecorderDecorator.cs) so returns of `SetBool(string, bool)`, `SetEnum<TEnum>(string, TEnum)`, `GetDateTimeUtc(string, DateTime)`, `GetTimeSpan(string, TimeSpan)` has the event format expected by [`SaveBool.cs`](/Runtime/SaveObjects/SaveBool.cs), [`SaveEnum.cs`](/Runtime/SaveObjects/SaveEnum.cs), [`SaveDateTime.cs`](/Runtime/SaveObjects/SaveDateTime.cs), and [`SaveTimeSpan.cs`](/Runtime/SaveObjects/SaveTimeSpan.cs).
+    - This should also fix [`AsyncPlayerPrefsSettingsRecorder.cs`](/Runtime/AsyncSettingsRecorder/AsyncPlayerPrefsSettingsRecorder.cs).
+- **New Enhancement**: changed [`SavesManager.cs`](/Runtime/SavesManager.cs) to a `static class`.  This prevents `SavesManager` from being attached to a `GameObject`.
+
 ## 0.2.1-exp
 
 - **Bug Fix**: fixed [`SaveObjectMap.cs`](/Runtime/SaveObjects/SaveObjectMap.cs) not deserializing correctly on the inspector and Project Settings window, thus losing all data.  The fix requires future code to call the new method `Setup()`.
