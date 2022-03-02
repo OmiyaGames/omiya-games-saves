@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Globalization;
-using System.Collections.Generic;
-using UnityEngine;
 
 namespace OmiyaGames.Saves
 {
@@ -151,11 +149,21 @@ namespace OmiyaGames.Saves
 	/// </summary>
 	public class WaitLoadBool : WaitLoadConvertValue<bool, int>
 	{
+		/// <summary>
+		/// TODO
+		/// </summary>
+		/// <param name="flag"></param>
+		/// <returns></returns>
 		public static int ToInt(bool flag)
 		{
 			return (flag ? 1 : 0);
 		}
 
+		/// <summary>
+		/// TODO
+		/// </summary>
+		/// <param name="value"></param>
+		/// <returns></returns>
 		public static bool ToBool(int value)
 		{
 			if (value != 0)
@@ -171,7 +179,7 @@ namespace OmiyaGames.Saves
 		public WaitLoadBool(WaitLoadValue<int> source) : base(source) { }
 
 		/// <inheritdoc/>
-		public override bool Result => ToBool(Parent.Result);
+		public override bool Convert(int oldValue) => ToBool(oldValue);
 	}
 
 	/// <summary>
@@ -180,21 +188,21 @@ namespace OmiyaGames.Saves
 	/// </summary>
 	public class WaitLoadEnum<T> : WaitLoadConvertValue<T, int> where T : Enum
 	{
+		/// <summary>
+		/// TODO
+		/// </summary>
+		/// <param name="value"></param>
+		/// <returns></returns>
 		public static int ToInt(IConvertible value)
 		{
 			return value.ToInt32(CultureInfo.InvariantCulture.NumberFormat);
 		}
 
-		public WaitLoadEnum(WaitLoadValue<int> source) : base(source)
-		{
-			if (typeof(T).IsEnum == false)
-			{
-				throw new NotSupportedException("Generic type must be an enum");
-			}
-		}
+		/// <inheritdoc/>
+		public WaitLoadEnum(WaitLoadValue<int> source) : base(source) { }
 
 		/// <inheritdoc/>
-		public override T Result => (T)(object)Parent.Result;
+		public override T Convert(int oldValue) => (T)(object)oldValue;
 	}
 
 	/// <summary>
@@ -203,11 +211,21 @@ namespace OmiyaGames.Saves
 	/// </summary>
 	public class WaitLoadDateTime : WaitLoadConvertValue<DateTime, string>
 	{
+		/// <summary>
+		/// TODO
+		/// </summary>
+		/// <param name="timeUtc"></param>
+		/// <returns></returns>
 		public static string ToString(DateTime timeUtc)
 		{
 			return timeUtc.Ticks.ToString();
 		}
 
+		/// <summary>
+		/// TODO
+		/// </summary>
+		/// <param name="value"></param>
+		/// <returns></returns>
 		public static DateTime ToDateTimeUtc(string value)
 		{
 			long ticks;
@@ -219,10 +237,11 @@ namespace OmiyaGames.Saves
 			return time;
 		}
 
+		/// <inheritdoc/>
 		public WaitLoadDateTime(WaitLoadValue<string> source) : base(source) { }
 
 		/// <inheritdoc/>
-		public override DateTime Result => ToDateTimeUtc(Parent.Result);
+		public override DateTime Convert(string oldValue) => ToDateTimeUtc(oldValue);
 	}
 
 	/// <summary>
@@ -231,11 +250,21 @@ namespace OmiyaGames.Saves
 	/// </summary>
 	public class WaitLoadTimeSpan : WaitLoadConvertValue<TimeSpan, string>
 	{
+		/// <summary>
+		/// TODO
+		/// </summary>
+		/// <param name="duration"></param>
+		/// <returns></returns>
 		public static string ToString(TimeSpan duration)
 		{
 			return duration.Ticks.ToString();
 		}
 
+		/// <summary>
+		/// TODO
+		/// </summary>
+		/// <param name="value"></param>
+		/// <returns></returns>
 		public static TimeSpan ToTimeSpan(string value)
 		{
 			long ticks;
@@ -247,10 +276,11 @@ namespace OmiyaGames.Saves
 			return span;
 		}
 
+		/// <inheritdoc/>
 		public WaitLoadTimeSpan(WaitLoadValue<string> source) : base(source) { }
 
 		/// <inheritdoc/>
-		public override TimeSpan Result => ToTimeSpan(Parent.Result);
+		public override TimeSpan Convert(string oldValue) => ToTimeSpan(oldValue);
 	}
 
 	/// <summary>
@@ -263,25 +293,72 @@ namespace OmiyaGames.Saves
 	/// <typeparam name="TOld">
 	/// The original type.
 	/// </typeparam>
-	public abstract class WaitLoadConvertValue<TNew, TOld> : WaitLoadValue<TNew>
+	public abstract class WaitLoadConvertValue<TNew, TOld> : WaitLoadValue<TNew>, IDisposable
 	{
+		LoadingFinished finishAction;
 		protected WaitLoadValue<TOld> Parent
 		{
 			get;
 		}
 
+		/// <summary>
+		/// TODO
+		/// </summary>
+		/// <param name="source"></param>
 		public WaitLoadConvertValue(WaitLoadValue<TOld> source)
 		{
 			Parent = source;
+			finishAction = new LoadingFinished((source, args) =>
+			{
+				// Check if listening to any events
+				if (OnLoadingFinished != null)
+				{
+					// Convert the old args to new
+					LoadValueFinishedEventArgs<TNew> newArgs;
+					if (args.State == LoadState.Success)
+					{
+						var oldArgs = (LoadValueFinishedEventArgs<TOld>)args;
+						newArgs = new(Convert(oldArgs.Result));
+					}
+					else
+					{
+						newArgs = new();
+					}
+
+					// Call new event
+					OnLoadingFinished(this, newArgs);
+				}
+			});
+			Parent.OnLoadingFinished += finishAction;
+		}
+
+		~WaitLoadConvertValue()
+		{
+			Dispose();
 		}
 
 		/// <inheritdoc/>
-		public override event LoadingFinished OnLoadingFinished
-		{
-			add => Parent.OnLoadingFinished += value;
-			remove => Parent.OnLoadingFinished -= value;
-		}
+		public override event LoadingFinished OnLoadingFinished;
 		/// <inheritdoc/>
 		public override bool keepWaiting => Parent.keepWaiting;
+		/// <inheritdoc/>
+		public override sealed TNew Result => Convert(Parent.Result);
+
+		/// <summary>
+		/// Convert value from one to other.
+		/// </summary>
+		/// <param name="oldValue"></param>
+		/// <returns></returns>
+		public abstract TNew Convert(TOld oldValue);
+
+		/// <inheritdoc/>
+		public void Dispose()
+		{
+			if (finishAction != null)
+			{
+				Parent.OnLoadingFinished -= finishAction;
+				finishAction = null;
+			}
+		}
 	}
 }
