@@ -39,9 +39,7 @@ namespace OmiyaGames.Saves
 	/// <strong>Date:</strong> 2/16/2022<br/>
 	/// <strong>Author:</strong> Taro Omiya
 	/// </term>
-	/// <description>
-	/// Initial draft.
-	/// </description>
+	/// <description>Initial draft.</description>
 	/// </item>
 	/// </list>
 	/// </remarks>
@@ -176,6 +174,7 @@ namespace OmiyaGames.Saves
 			}
 		}
 
+		/// <inheritdoc/>
 		public WaitLoadBool(WaitLoadValue<int> source) : base(source) { }
 
 		/// <inheritdoc/>
@@ -293,6 +292,34 @@ namespace OmiyaGames.Saves
 	/// <typeparam name="TOld">
 	/// The original type.
 	/// </typeparam>
+	/// <remarks>
+	/// <list type="table">
+	/// <listheader>
+	/// <term>Revision</term>
+	/// <description>Description</description>
+	/// </listheader>
+	/// <item>
+	/// <term>
+	/// <strong>Version:</strong> 0.2.0-exp.1<br/>
+	/// <strong>Date:</strong> 2/16/2022<br/>
+	/// <strong>Author:</strong> Taro Omiya
+	/// </term>
+	/// <description>Initial draft.</description>
+	/// </item><item>
+	/// <term>
+	/// <strong>Version:</strong> 0.2.2-exp.1<br/>
+	/// <strong>Date:</strong> 3/2/2022<br/>
+	/// <strong>Author:</strong> Taro Omiya
+	/// </term>
+	/// <description>
+	/// Changed <see cref="OnLoadingFinished"/> to convert the <c>args</c> parameter
+	/// from <see cref="LoadValueFinishedEventArgs{TOld}"/> to
+	/// <see cref="LoadValueFinishedEventArgs{TNew}"/>.  Added abstract method,
+	/// <see cref="Convert(TOld)"/>.  Made <see cref="Result"/> <c>sealed</c>.
+	/// </description>
+	/// </item>
+	/// </list>
+	/// </remarks>
 	public abstract class WaitLoadConvertValue<TNew, TOld> : WaitLoadValue<TNew>, IDisposable
 	{
 		LoadingFinished finishAction;

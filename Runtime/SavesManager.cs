@@ -56,6 +56,16 @@ namespace OmiyaGames.Saves
 	/// <see cref="TryGet(string, out SaveObject)"/>.
 	/// Added <see cref="Contains(string)"/>.
 	/// </description>
+	/// </item><item>
+	/// <term>
+	/// <strong>Version:</strong> 0.2.2-exp.1<br/>
+	/// <strong>Date:</strong> 3/2/2022<br/>
+	/// <strong>Author:</strong> Taro Omiya
+	/// </term>
+	/// <description>
+	/// Updated class to be <c>static</c>, preventing it from being attached
+	/// to any <see cref="GameObject"/>.
+	/// </description>
 	/// </item>
 	/// </list>
 	/// </remarks>
