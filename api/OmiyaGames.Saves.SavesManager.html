@@ -84,7 +84,7 @@
   <h1 id="OmiyaGames_Saves_SavesManager" data-uid="OmiyaGames.Saves.SavesManager" class="text-break">Class SavesManager
   </h1>
   <div class="markdown level0 summary"><p>A manager file that configures and loads <a class="xref" href="OmiyaGames.Saves.SaveObject.html">SaveObject</a>s
-on <a class="xref" href="OmiyaGames.Saves.SavesManager.html#OmiyaGames_Saves_SavesManager_Setup">Setup()</a>. Allows retrieving <a class="xref" href="OmiyaGames.Saves.SaveObject.html">SaveObject</a>
+on <a class="xref" href="OmiyaGames.Saves.SavesManager.html#OmiyaGames_Saves_SavesManager_Setup_System_Boolean_">Setup(Boolean)</a>. Allows retrieving <a class="xref" href="OmiyaGames.Saves.SaveObject.html">SaveObject</a>
 by their keys. Handles global <a class="xref" href="OmiyaGames.Saves.SavesManager.html#OmiyaGames_Saves_SavesManager_Save">Save()</a>.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
@@ -97,7 +97,7 @@ by their keys. Handles global <a class="xref" href="OmiyaGames.Saves.SavesManage
   <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
   <h5 id="OmiyaGames_Saves_SavesManager_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class SavesManager : BaseSettingsManager&lt;SavesManager, SavesSettings&gt;, IDisposable</code></pre>
+    <pre><code class="lang-csharp hljs">public static class SavesManager</code></pre>
   </div>
   <h5 id="OmiyaGames_Saves_SavesManager_remarks"><strong>Remarks</strong></h5>
   <div class="markdown level0 remarks"><p><copyright file="SavesManager.cs" company="Omiya Games">
@@ -134,6 +134,13 @@ Throwing exceptions if manager is not setup when calling
 <code>TryGetSave(string, out SaveObject)</code> to
 <a class="xref" href="OmiyaGames.Saves.SavesManager.html#OmiyaGames_Saves_SavesManager_TryGet_System_String_OmiyaGames_Saves_SaveObject__">TryGet(String, out SaveObject)</a>.
 Added <a class="xref" href="OmiyaGames.Saves.SavesManager.html#OmiyaGames_Saves_SavesManager_Contains_System_String_">Contains(String)</a>.
+</td></tr><tr><td>
+<strong>Version:</strong> 0.2.2-exp.1<br>
+<strong>Date:</strong> 3/2/2022<br>
+<strong>Author:</strong> Taro Omiya
+</td><td>
+Updated class to be <code>static</code>, preventing it from being attached
+to any <see cref="!:GameObject"></see>.
 </td></tr></tbody></table></p>
 </div>
   <h3 id="fields">Fields
@@ -241,31 +248,6 @@ Project Setting&apos;s left-sidebar.</p>
   </table>
   <h3 id="properties">Properties
   </h3>
-  
-  
-  <a id="OmiyaGames_Saves_SavesManager_AddressableName_" data-uid="OmiyaGames.Saves.SavesManager.AddressableName*"></a>
-  <h4 id="OmiyaGames_Saves_SavesManager_AddressableName" data-uid="OmiyaGames.Saves.SavesManager.AddressableName">AddressableName</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected override string AddressableName { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
   
   
   <a id="OmiyaGames_Saves_SavesManager_SetupState_" data-uid="OmiyaGames.Saves.SavesManager.SetupState*"></a>
@@ -482,14 +464,47 @@ in the middle of setting up, or is already setup.</p>
   </table>
   
   
-  <a id="OmiyaGames_Saves_SavesManager_Dispose_" data-uid="OmiyaGames.Saves.SavesManager.Dispose*"></a>
-  <h4 id="OmiyaGames_Saves_SavesManager_Dispose" data-uid="OmiyaGames.Saves.SavesManager.Dispose">Dispose()</h4>
-  <div class="markdown level1 summary"></div>
+  <a id="OmiyaGames_Saves_SavesManager_Get_" data-uid="OmiyaGames.Saves.SavesManager.Get*"></a>
+  <h4 id="OmiyaGames_Saves_SavesManager_Get_System_String_" data-uid="OmiyaGames.Saves.SavesManager.Get(System.String)">Get(String)</h4>
+  <div class="markdown level1 summary"><p>TODO</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+    <pre><code class="lang-csharp hljs">public static SaveObject Get(string key)</code></pre>
   </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">key</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="OmiyaGames.Saves.SaveObject.html">SaveObject</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   
   
   <a id="OmiyaGames_Saves_SavesManager_HasKey_" data-uid="OmiyaGames.Saves.SavesManager.HasKey*"></a>
@@ -535,16 +550,6 @@ in the middle of setting up, or is already setup.</p>
   </table>
   
   
-  <a id="OmiyaGames_Saves_SavesManager_OnDestroy_" data-uid="OmiyaGames.Saves.SavesManager.OnDestroy*"></a>
-  <h4 id="OmiyaGames_Saves_SavesManager_OnDestroy" data-uid="OmiyaGames.Saves.SavesManager.OnDestroy">OnDestroy()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected override void OnDestroy()</code></pre>
-  </div>
-  
-  
   <a id="OmiyaGames_Saves_SavesManager_Save_" data-uid="OmiyaGames.Saves.SavesManager.Save*"></a>
   <h4 id="OmiyaGames_Saves_SavesManager_Save" data-uid="OmiyaGames.Saves.SavesManager.Save">Save()</h4>
   <div class="markdown level1 summary"><p>TODO</p>
@@ -572,14 +577,31 @@ in the middle of setting up, or is already setup.</p>
   
   
   <a id="OmiyaGames_Saves_SavesManager_Setup_" data-uid="OmiyaGames.Saves.SavesManager.Setup*"></a>
-  <h4 id="OmiyaGames_Saves_SavesManager_Setup" data-uid="OmiyaGames.Saves.SavesManager.Setup">Setup()</h4>
+  <h4 id="OmiyaGames_Saves_SavesManager_Setup_System_Boolean_" data-uid="OmiyaGames.Saves.SavesManager.Setup(System.Boolean)">Setup(Boolean)</h4>
   <div class="markdown level1 summary"><p>A coroutine to setup this manager.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IEnumerator Setup()</code></pre>
+    <pre><code class="lang-csharp hljs">public static IEnumerator Setup(bool forceSetup = false)</code></pre>
   </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="parametername">forceSetup</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>

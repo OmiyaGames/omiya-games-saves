@@ -79,6 +79,14 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="change-log">Change Log:</h1>
 
+<h2 id="022-exp">0.2.2-exp</h2>
+<ul>
+<li><strong>Bug Fix</strong>: fixed <a href="/Runtime/AsyncSettingsRecorder/AsyncSettingsRecorderDecorator.cs"><code>AsyncSettingsRecorderDecorator.cs</code></a> so returns of <code>SetBool(string, bool)</code>, <code>SetEnum&lt;TEnum&gt;(string, TEnum)</code>, <code>GetDateTimeUtc(string, DateTime)</code>, <code>GetTimeSpan(string, TimeSpan)</code> has the event format expected by <a href="/Runtime/SaveObjects/SaveBool.cs"><code>SaveBool.cs</code></a>, <a href="/Runtime/SaveObjects/SaveEnum.cs"><code>SaveEnum.cs</code></a>, <a href="/Runtime/SaveObjects/SaveDateTime.cs"><code>SaveDateTime.cs</code></a>, and <a href="/Runtime/SaveObjects/SaveTimeSpan.cs"><code>SaveTimeSpan.cs</code></a>.<ul>
+<li>This should also fix <a href="/Runtime/AsyncSettingsRecorder/AsyncPlayerPrefsSettingsRecorder.cs"><code>AsyncPlayerPrefsSettingsRecorder.cs</code></a>.</li>
+</ul>
+</li>
+<li><strong>New Enhancement</strong>: changed <a href="/Runtime/SavesManager.cs"><code>SavesManager.cs</code></a> to a <code>static class</code>.  This prevents <code>SavesManager</code> from being attached to a <code>GameObject</code>.</li>
+</ul>
 <h2 id="021-exp">0.2.1-exp</h2>
 <ul>
 <li><strong>Bug Fix</strong>: fixed <a href="/Runtime/SaveObjects/SaveObjectMap.cs"><code>SaveObjectMap.cs</code></a> not deserializing correctly on the inspector and Project Settings window, thus losing all data.  The fix requires future code to call the new method <code>Setup()</code>.</li>

@@ -6714,19 +6714,6 @@ references:
   commentId: F:OmiyaGames.Saves.SavesManager.ADDRESSABLE_NAME
   fullName: OmiyaGames.Saves.SavesManager.ADDRESSABLE_NAME
   nameWithType: SavesManager.ADDRESSABLE_NAME
-- uid: OmiyaGames.Saves.SavesManager.AddressableName
-  name: AddressableName
-  href: api/OmiyaGames.Saves.SavesManager.html#OmiyaGames_Saves_SavesManager_AddressableName
-  commentId: P:OmiyaGames.Saves.SavesManager.AddressableName
-  fullName: OmiyaGames.Saves.SavesManager.AddressableName
-  nameWithType: SavesManager.AddressableName
-- uid: OmiyaGames.Saves.SavesManager.AddressableName*
-  name: AddressableName
-  href: api/OmiyaGames.Saves.SavesManager.html#OmiyaGames_Saves_SavesManager_AddressableName_
-  commentId: Overload:OmiyaGames.Saves.SavesManager.AddressableName
-  isSpec: "True"
-  fullName: OmiyaGames.Saves.SavesManager.AddressableName
-  nameWithType: SavesManager.AddressableName
 - uid: OmiyaGames.Saves.SavesManager.CONFIG_NAME
   name: CONFIG_NAME
   href: api/OmiyaGames.Saves.SavesManager.html#OmiyaGames_Saves_SavesManager_CONFIG_NAME
@@ -6778,19 +6765,19 @@ references:
   isSpec: "True"
   fullName: OmiyaGames.Saves.SavesManager.DeleteKey
   nameWithType: SavesManager.DeleteKey
-- uid: OmiyaGames.Saves.SavesManager.Dispose
-  name: Dispose()
-  href: api/OmiyaGames.Saves.SavesManager.html#OmiyaGames_Saves_SavesManager_Dispose
-  commentId: M:OmiyaGames.Saves.SavesManager.Dispose
-  fullName: OmiyaGames.Saves.SavesManager.Dispose()
-  nameWithType: SavesManager.Dispose()
-- uid: OmiyaGames.Saves.SavesManager.Dispose*
-  name: Dispose
-  href: api/OmiyaGames.Saves.SavesManager.html#OmiyaGames_Saves_SavesManager_Dispose_
-  commentId: Overload:OmiyaGames.Saves.SavesManager.Dispose
+- uid: OmiyaGames.Saves.SavesManager.Get(System.String)
+  name: Get(String)
+  href: api/OmiyaGames.Saves.SavesManager.html#OmiyaGames_Saves_SavesManager_Get_System_String_
+  commentId: M:OmiyaGames.Saves.SavesManager.Get(System.String)
+  fullName: OmiyaGames.Saves.SavesManager.Get(System.String)
+  nameWithType: SavesManager.Get(String)
+- uid: OmiyaGames.Saves.SavesManager.Get*
+  name: Get
+  href: api/OmiyaGames.Saves.SavesManager.html#OmiyaGames_Saves_SavesManager_Get_
+  commentId: Overload:OmiyaGames.Saves.SavesManager.Get
   isSpec: "True"
-  fullName: OmiyaGames.Saves.SavesManager.Dispose
-  nameWithType: SavesManager.Dispose
+  fullName: OmiyaGames.Saves.SavesManager.Get
+  nameWithType: SavesManager.Get
 - uid: OmiyaGames.Saves.SavesManager.HasKey(System.String)
   name: HasKey(String)
   href: api/OmiyaGames.Saves.SavesManager.html#OmiyaGames_Saves_SavesManager_HasKey_System_String_
@@ -6804,19 +6791,6 @@ references:
   isSpec: "True"
   fullName: OmiyaGames.Saves.SavesManager.HasKey
   nameWithType: SavesManager.HasKey
-- uid: OmiyaGames.Saves.SavesManager.OnDestroy
-  name: OnDestroy()
-  href: api/OmiyaGames.Saves.SavesManager.html#OmiyaGames_Saves_SavesManager_OnDestroy
-  commentId: M:OmiyaGames.Saves.SavesManager.OnDestroy
-  fullName: OmiyaGames.Saves.SavesManager.OnDestroy()
-  nameWithType: SavesManager.OnDestroy()
-- uid: OmiyaGames.Saves.SavesManager.OnDestroy*
-  name: OnDestroy
-  href: api/OmiyaGames.Saves.SavesManager.html#OmiyaGames_Saves_SavesManager_OnDestroy_
-  commentId: Overload:OmiyaGames.Saves.SavesManager.OnDestroy
-  isSpec: "True"
-  fullName: OmiyaGames.Saves.SavesManager.OnDestroy
-  nameWithType: SavesManager.OnDestroy
 - uid: OmiyaGames.Saves.SavesManager.Save
   name: Save()
   href: api/OmiyaGames.Saves.SavesManager.html#OmiyaGames_Saves_SavesManager_Save
@@ -6830,12 +6804,12 @@ references:
   isSpec: "True"
   fullName: OmiyaGames.Saves.SavesManager.Save
   nameWithType: SavesManager.Save
-- uid: OmiyaGames.Saves.SavesManager.Setup
-  name: Setup()
-  href: api/OmiyaGames.Saves.SavesManager.html#OmiyaGames_Saves_SavesManager_Setup
-  commentId: M:OmiyaGames.Saves.SavesManager.Setup
-  fullName: OmiyaGames.Saves.SavesManager.Setup()
-  nameWithType: SavesManager.Setup()
+- uid: OmiyaGames.Saves.SavesManager.Setup(System.Boolean)
+  name: Setup(Boolean)
+  href: api/OmiyaGames.Saves.SavesManager.html#OmiyaGames_Saves_SavesManager_Setup_System_Boolean_
+  commentId: M:OmiyaGames.Saves.SavesManager.Setup(System.Boolean)
+  fullName: OmiyaGames.Saves.SavesManager.Setup(System.Boolean)
+  nameWithType: SavesManager.Setup(Boolean)
 - uid: OmiyaGames.Saves.SavesManager.Setup*
   name: Setup
   href: api/OmiyaGames.Saves.SavesManager.html#OmiyaGames_Saves_SavesManager_Setup_
@@ -8605,19 +8579,19 @@ references:
   isSpec: "True"
   fullName: OmiyaGames.Saves.WaitLoadBool.WaitLoadBool
   nameWithType: WaitLoadBool.WaitLoadBool
-- uid: OmiyaGames.Saves.WaitLoadBool.Result
-  name: Result
-  href: api/OmiyaGames.Saves.WaitLoadBool.html#OmiyaGames_Saves_WaitLoadBool_Result
-  commentId: P:OmiyaGames.Saves.WaitLoadBool.Result
-  fullName: OmiyaGames.Saves.WaitLoadBool.Result
-  nameWithType: WaitLoadBool.Result
-- uid: OmiyaGames.Saves.WaitLoadBool.Result*
-  name: Result
-  href: api/OmiyaGames.Saves.WaitLoadBool.html#OmiyaGames_Saves_WaitLoadBool_Result_
-  commentId: Overload:OmiyaGames.Saves.WaitLoadBool.Result
+- uid: OmiyaGames.Saves.WaitLoadBool.Convert(System.Int32)
+  name: Convert(Int32)
+  href: api/OmiyaGames.Saves.WaitLoadBool.html#OmiyaGames_Saves_WaitLoadBool_Convert_System_Int32_
+  commentId: M:OmiyaGames.Saves.WaitLoadBool.Convert(System.Int32)
+  fullName: OmiyaGames.Saves.WaitLoadBool.Convert(System.Int32)
+  nameWithType: WaitLoadBool.Convert(Int32)
+- uid: OmiyaGames.Saves.WaitLoadBool.Convert*
+  name: Convert
+  href: api/OmiyaGames.Saves.WaitLoadBool.html#OmiyaGames_Saves_WaitLoadBool_Convert_
+  commentId: Overload:OmiyaGames.Saves.WaitLoadBool.Convert
   isSpec: "True"
-  fullName: OmiyaGames.Saves.WaitLoadBool.Result
-  nameWithType: WaitLoadBool.Result
+  fullName: OmiyaGames.Saves.WaitLoadBool.Convert
+  nameWithType: WaitLoadBool.Convert
 - uid: OmiyaGames.Saves.WaitLoadBool.ToBool(System.Int32)
   name: ToBool(Int32)
   href: api/OmiyaGames.Saves.WaitLoadBool.html#OmiyaGames_Saves_WaitLoadBool_ToBool_System_Int32_
@@ -8914,6 +8888,57 @@ references:
   fullName.vb: OmiyaGames.Saves.WaitLoadConvertValue(Of TNew, TOld).WaitLoadConvertValue
   nameWithType: WaitLoadConvertValue<TNew, TOld>.WaitLoadConvertValue
   nameWithType.vb: WaitLoadConvertValue(Of TNew, TOld).WaitLoadConvertValue
+- uid: OmiyaGames.Saves.WaitLoadConvertValue`2.Convert(`1)
+  name: Convert(TOld)
+  href: api/OmiyaGames.Saves.WaitLoadConvertValue-2.html#OmiyaGames_Saves_WaitLoadConvertValue_2_Convert__1_
+  commentId: M:OmiyaGames.Saves.WaitLoadConvertValue`2.Convert(`1)
+  fullName: OmiyaGames.Saves.WaitLoadConvertValue<TNew, TOld>.Convert(TOld)
+  fullName.vb: OmiyaGames.Saves.WaitLoadConvertValue(Of TNew, TOld).Convert(TOld)
+  nameWithType: WaitLoadConvertValue<TNew, TOld>.Convert(TOld)
+  nameWithType.vb: WaitLoadConvertValue(Of TNew, TOld).Convert(TOld)
+- uid: OmiyaGames.Saves.WaitLoadConvertValue`2.Convert*
+  name: Convert
+  href: api/OmiyaGames.Saves.WaitLoadConvertValue-2.html#OmiyaGames_Saves_WaitLoadConvertValue_2_Convert_
+  commentId: Overload:OmiyaGames.Saves.WaitLoadConvertValue`2.Convert
+  isSpec: "True"
+  fullName: OmiyaGames.Saves.WaitLoadConvertValue<TNew, TOld>.Convert
+  fullName.vb: OmiyaGames.Saves.WaitLoadConvertValue(Of TNew, TOld).Convert
+  nameWithType: WaitLoadConvertValue<TNew, TOld>.Convert
+  nameWithType.vb: WaitLoadConvertValue(Of TNew, TOld).Convert
+- uid: OmiyaGames.Saves.WaitLoadConvertValue`2.Dispose
+  name: Dispose()
+  href: api/OmiyaGames.Saves.WaitLoadConvertValue-2.html#OmiyaGames_Saves_WaitLoadConvertValue_2_Dispose
+  commentId: M:OmiyaGames.Saves.WaitLoadConvertValue`2.Dispose
+  fullName: OmiyaGames.Saves.WaitLoadConvertValue<TNew, TOld>.Dispose()
+  fullName.vb: OmiyaGames.Saves.WaitLoadConvertValue(Of TNew, TOld).Dispose()
+  nameWithType: WaitLoadConvertValue<TNew, TOld>.Dispose()
+  nameWithType.vb: WaitLoadConvertValue(Of TNew, TOld).Dispose()
+- uid: OmiyaGames.Saves.WaitLoadConvertValue`2.Dispose*
+  name: Dispose
+  href: api/OmiyaGames.Saves.WaitLoadConvertValue-2.html#OmiyaGames_Saves_WaitLoadConvertValue_2_Dispose_
+  commentId: Overload:OmiyaGames.Saves.WaitLoadConvertValue`2.Dispose
+  isSpec: "True"
+  fullName: OmiyaGames.Saves.WaitLoadConvertValue<TNew, TOld>.Dispose
+  fullName.vb: OmiyaGames.Saves.WaitLoadConvertValue(Of TNew, TOld).Dispose
+  nameWithType: WaitLoadConvertValue<TNew, TOld>.Dispose
+  nameWithType.vb: WaitLoadConvertValue(Of TNew, TOld).Dispose
+- uid: OmiyaGames.Saves.WaitLoadConvertValue`2.Finalize
+  name: Finalize()
+  href: api/OmiyaGames.Saves.WaitLoadConvertValue-2.html#OmiyaGames_Saves_WaitLoadConvertValue_2_Finalize
+  commentId: M:OmiyaGames.Saves.WaitLoadConvertValue`2.Finalize
+  fullName: OmiyaGames.Saves.WaitLoadConvertValue<TNew, TOld>.Finalize()
+  fullName.vb: OmiyaGames.Saves.WaitLoadConvertValue(Of TNew, TOld).Finalize()
+  nameWithType: WaitLoadConvertValue<TNew, TOld>.Finalize()
+  nameWithType.vb: WaitLoadConvertValue(Of TNew, TOld).Finalize()
+- uid: OmiyaGames.Saves.WaitLoadConvertValue`2.Finalize*
+  name: Finalize
+  href: api/OmiyaGames.Saves.WaitLoadConvertValue-2.html#OmiyaGames_Saves_WaitLoadConvertValue_2_Finalize_
+  commentId: Overload:OmiyaGames.Saves.WaitLoadConvertValue`2.Finalize
+  isSpec: "True"
+  fullName: OmiyaGames.Saves.WaitLoadConvertValue<TNew, TOld>.Finalize
+  fullName.vb: OmiyaGames.Saves.WaitLoadConvertValue(Of TNew, TOld).Finalize
+  nameWithType: WaitLoadConvertValue<TNew, TOld>.Finalize
+  nameWithType.vb: WaitLoadConvertValue(Of TNew, TOld).Finalize
 - uid: OmiyaGames.Saves.WaitLoadConvertValue`2.keepWaiting
   name: keepWaiting
   href: api/OmiyaGames.Saves.WaitLoadConvertValue-2.html#OmiyaGames_Saves_WaitLoadConvertValue_2_keepWaiting
@@ -8956,6 +8981,23 @@ references:
   fullName.vb: OmiyaGames.Saves.WaitLoadConvertValue(Of TNew, TOld).Parent
   nameWithType: WaitLoadConvertValue<TNew, TOld>.Parent
   nameWithType.vb: WaitLoadConvertValue(Of TNew, TOld).Parent
+- uid: OmiyaGames.Saves.WaitLoadConvertValue`2.Result
+  name: Result
+  href: api/OmiyaGames.Saves.WaitLoadConvertValue-2.html#OmiyaGames_Saves_WaitLoadConvertValue_2_Result
+  commentId: P:OmiyaGames.Saves.WaitLoadConvertValue`2.Result
+  fullName: OmiyaGames.Saves.WaitLoadConvertValue<TNew, TOld>.Result
+  fullName.vb: OmiyaGames.Saves.WaitLoadConvertValue(Of TNew, TOld).Result
+  nameWithType: WaitLoadConvertValue<TNew, TOld>.Result
+  nameWithType.vb: WaitLoadConvertValue(Of TNew, TOld).Result
+- uid: OmiyaGames.Saves.WaitLoadConvertValue`2.Result*
+  name: Result
+  href: api/OmiyaGames.Saves.WaitLoadConvertValue-2.html#OmiyaGames_Saves_WaitLoadConvertValue_2_Result_
+  commentId: Overload:OmiyaGames.Saves.WaitLoadConvertValue`2.Result
+  isSpec: "True"
+  fullName: OmiyaGames.Saves.WaitLoadConvertValue<TNew, TOld>.Result
+  fullName.vb: OmiyaGames.Saves.WaitLoadConvertValue(Of TNew, TOld).Result
+  nameWithType: WaitLoadConvertValue<TNew, TOld>.Result
+  nameWithType.vb: WaitLoadConvertValue(Of TNew, TOld).Result
 - uid: OmiyaGames.Saves.WaitLoadDateTime
   name: WaitLoadDateTime
   href: api/OmiyaGames.Saves.WaitLoadDateTime.html
@@ -8978,19 +9020,19 @@ references:
   isSpec: "True"
   fullName: OmiyaGames.Saves.WaitLoadDateTime.WaitLoadDateTime
   nameWithType: WaitLoadDateTime.WaitLoadDateTime
-- uid: OmiyaGames.Saves.WaitLoadDateTime.Result
-  name: Result
-  href: api/OmiyaGames.Saves.WaitLoadDateTime.html#OmiyaGames_Saves_WaitLoadDateTime_Result
-  commentId: P:OmiyaGames.Saves.WaitLoadDateTime.Result
-  fullName: OmiyaGames.Saves.WaitLoadDateTime.Result
-  nameWithType: WaitLoadDateTime.Result
-- uid: OmiyaGames.Saves.WaitLoadDateTime.Result*
-  name: Result
-  href: api/OmiyaGames.Saves.WaitLoadDateTime.html#OmiyaGames_Saves_WaitLoadDateTime_Result_
-  commentId: Overload:OmiyaGames.Saves.WaitLoadDateTime.Result
+- uid: OmiyaGames.Saves.WaitLoadDateTime.Convert(System.String)
+  name: Convert(String)
+  href: api/OmiyaGames.Saves.WaitLoadDateTime.html#OmiyaGames_Saves_WaitLoadDateTime_Convert_System_String_
+  commentId: M:OmiyaGames.Saves.WaitLoadDateTime.Convert(System.String)
+  fullName: OmiyaGames.Saves.WaitLoadDateTime.Convert(System.String)
+  nameWithType: WaitLoadDateTime.Convert(String)
+- uid: OmiyaGames.Saves.WaitLoadDateTime.Convert*
+  name: Convert
+  href: api/OmiyaGames.Saves.WaitLoadDateTime.html#OmiyaGames_Saves_WaitLoadDateTime_Convert_
+  commentId: Overload:OmiyaGames.Saves.WaitLoadDateTime.Convert
   isSpec: "True"
-  fullName: OmiyaGames.Saves.WaitLoadDateTime.Result
-  nameWithType: WaitLoadDateTime.Result
+  fullName: OmiyaGames.Saves.WaitLoadDateTime.Convert
+  nameWithType: WaitLoadDateTime.Convert
 - uid: OmiyaGames.Saves.WaitLoadDateTime.ToDateTimeUtc(System.String)
   name: ToDateTimeUtc(String)
   href: api/OmiyaGames.Saves.WaitLoadDateTime.html#OmiyaGames_Saves_WaitLoadDateTime_ToDateTimeUtc_System_String_
@@ -9044,23 +9086,23 @@ references:
   fullName.vb: OmiyaGames.Saves.WaitLoadEnum(Of T).WaitLoadEnum
   nameWithType: WaitLoadEnum<T>.WaitLoadEnum
   nameWithType.vb: WaitLoadEnum(Of T).WaitLoadEnum
-- uid: OmiyaGames.Saves.WaitLoadEnum`1.Result
-  name: Result
-  href: api/OmiyaGames.Saves.WaitLoadEnum-1.html#OmiyaGames_Saves_WaitLoadEnum_1_Result
-  commentId: P:OmiyaGames.Saves.WaitLoadEnum`1.Result
-  fullName: OmiyaGames.Saves.WaitLoadEnum<T>.Result
-  fullName.vb: OmiyaGames.Saves.WaitLoadEnum(Of T).Result
-  nameWithType: WaitLoadEnum<T>.Result
-  nameWithType.vb: WaitLoadEnum(Of T).Result
-- uid: OmiyaGames.Saves.WaitLoadEnum`1.Result*
-  name: Result
-  href: api/OmiyaGames.Saves.WaitLoadEnum-1.html#OmiyaGames_Saves_WaitLoadEnum_1_Result_
-  commentId: Overload:OmiyaGames.Saves.WaitLoadEnum`1.Result
+- uid: OmiyaGames.Saves.WaitLoadEnum`1.Convert(System.Int32)
+  name: Convert(Int32)
+  href: api/OmiyaGames.Saves.WaitLoadEnum-1.html#OmiyaGames_Saves_WaitLoadEnum_1_Convert_System_Int32_
+  commentId: M:OmiyaGames.Saves.WaitLoadEnum`1.Convert(System.Int32)
+  fullName: OmiyaGames.Saves.WaitLoadEnum<T>.Convert(System.Int32)
+  fullName.vb: OmiyaGames.Saves.WaitLoadEnum(Of T).Convert(System.Int32)
+  nameWithType: WaitLoadEnum<T>.Convert(Int32)
+  nameWithType.vb: WaitLoadEnum(Of T).Convert(Int32)
+- uid: OmiyaGames.Saves.WaitLoadEnum`1.Convert*
+  name: Convert
+  href: api/OmiyaGames.Saves.WaitLoadEnum-1.html#OmiyaGames_Saves_WaitLoadEnum_1_Convert_
+  commentId: Overload:OmiyaGames.Saves.WaitLoadEnum`1.Convert
   isSpec: "True"
-  fullName: OmiyaGames.Saves.WaitLoadEnum<T>.Result
-  fullName.vb: OmiyaGames.Saves.WaitLoadEnum(Of T).Result
-  nameWithType: WaitLoadEnum<T>.Result
-  nameWithType.vb: WaitLoadEnum(Of T).Result
+  fullName: OmiyaGames.Saves.WaitLoadEnum<T>.Convert
+  fullName.vb: OmiyaGames.Saves.WaitLoadEnum(Of T).Convert
+  nameWithType: WaitLoadEnum<T>.Convert
+  nameWithType.vb: WaitLoadEnum(Of T).Convert
 - uid: OmiyaGames.Saves.WaitLoadEnum`1.ToInt(IConvertible)
   name: ToInt(IConvertible)
   href: api/OmiyaGames.Saves.WaitLoadEnum-1.html#OmiyaGames_Saves_WaitLoadEnum_1_ToInt_IConvertible_
@@ -9384,19 +9426,19 @@ references:
   isSpec: "True"
   fullName: OmiyaGames.Saves.WaitLoadTimeSpan.WaitLoadTimeSpan
   nameWithType: WaitLoadTimeSpan.WaitLoadTimeSpan
-- uid: OmiyaGames.Saves.WaitLoadTimeSpan.Result
-  name: Result
-  href: api/OmiyaGames.Saves.WaitLoadTimeSpan.html#OmiyaGames_Saves_WaitLoadTimeSpan_Result
-  commentId: P:OmiyaGames.Saves.WaitLoadTimeSpan.Result
-  fullName: OmiyaGames.Saves.WaitLoadTimeSpan.Result
-  nameWithType: WaitLoadTimeSpan.Result
-- uid: OmiyaGames.Saves.WaitLoadTimeSpan.Result*
-  name: Result
-  href: api/OmiyaGames.Saves.WaitLoadTimeSpan.html#OmiyaGames_Saves_WaitLoadTimeSpan_Result_
-  commentId: Overload:OmiyaGames.Saves.WaitLoadTimeSpan.Result
+- uid: OmiyaGames.Saves.WaitLoadTimeSpan.Convert(System.String)
+  name: Convert(String)
+  href: api/OmiyaGames.Saves.WaitLoadTimeSpan.html#OmiyaGames_Saves_WaitLoadTimeSpan_Convert_System_String_
+  commentId: M:OmiyaGames.Saves.WaitLoadTimeSpan.Convert(System.String)
+  fullName: OmiyaGames.Saves.WaitLoadTimeSpan.Convert(System.String)
+  nameWithType: WaitLoadTimeSpan.Convert(String)
+- uid: OmiyaGames.Saves.WaitLoadTimeSpan.Convert*
+  name: Convert
+  href: api/OmiyaGames.Saves.WaitLoadTimeSpan.html#OmiyaGames_Saves_WaitLoadTimeSpan_Convert_
+  commentId: Overload:OmiyaGames.Saves.WaitLoadTimeSpan.Convert
   isSpec: "True"
-  fullName: OmiyaGames.Saves.WaitLoadTimeSpan.Result
-  nameWithType: WaitLoadTimeSpan.Result
+  fullName: OmiyaGames.Saves.WaitLoadTimeSpan.Convert
+  nameWithType: WaitLoadTimeSpan.Convert
 - uid: OmiyaGames.Saves.WaitLoadTimeSpan.ToString(TimeSpan)
   name: ToString(TimeSpan)
   href: api/OmiyaGames.Saves.WaitLoadTimeSpan.html#OmiyaGames_Saves_WaitLoadTimeSpan_ToString_TimeSpan_

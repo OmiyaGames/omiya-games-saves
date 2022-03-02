@@ -2,733 +2,733 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.AccessModifier.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.AddAudioSettings.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.AddHighScores.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.AddLanguageSettings.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.AddLocalAnalytics.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.AddOptions.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.AsyncCompositeSettingsRecorder.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.AsyncPlayerPrefsSettingsRecorder.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.AsyncSettingsRecorder.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.AsyncSettingsRecorderDecorator.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.Clamp-1.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.Editor.BaseSaveObjectEditor.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.Editor.SaveBoolEditor.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.Editor.SaveComparableEditor-4.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.Editor.SaveDateTimeEditor.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.Editor.SaveEnumEditor-1.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.Editor.SaveEnumFlagsEditor-1.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.Editor.SaveFloatEditor.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.Editor.SaveIntEditor.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.Editor.SaveObjectInfoDrawer.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.Editor.SaveObjectMapDrawer.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.Editor.SavesSettingsBuilder.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.Editor.SavesSettingsEditor.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.Editor.SavesSettingsProvider.ContainsData.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.Editor.SavesSettingsProvider.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.Editor.SaveStringEditor.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.Editor.SaveTimeSpanEditor.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.Editor.SingleLineObjectFieldDrawer.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.Editor.SupportedRecordersDrawer.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.Editor.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.ErrorHandling.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.FloatRecord.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.GameSettings.AppStatus.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.GameSettings.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.GameSettingsGenerator.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.GeneratePropertyEventArgs.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.GeneratorDecorator.PropertyWriter.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.GeneratorDecorator.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.GeneratorHelper.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.IAsyncSettingsRecorder.OnKeyDeleted.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.IAsyncSettingsRecorder.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.IGenerator.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.IntRecord.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.IRecord-1.TryConvertOldRecord.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.IRecord-1.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.ISavesUpgrader.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.ISettingsRecorder.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.ISettingsVersion.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.ISettingsVersionGenerator.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.ISortedRecords-1.AsecendingOrder.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.ISortedRecords-1.DescendingOrder.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.ISortedRecords-1.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.IStoredSetting.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.IStoredSettingGenerator.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.IUniqueSetting.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.KeyDeletedEventArgs.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.LoadFinishedCompositeEventArgs-1.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.LoadFinishedEventArgs.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.LoadState.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.LoadValueFinishedEventArgs-1.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.MaxCap-1.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.MinCap-1.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.NamespaceGeneratorArgs.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.PlayerPrefsSettingsRecorder.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.PropertyGenerator.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.PropertyStoredSettingsGenerator-1.ConvertOldSettings.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.PropertyStoredSettingsGenerator-1.ValueChange.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.PropertyStoredSettingsGenerator-1.ValueProcessor.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.PropertyStoredSettingsGenerator-1.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.SaveBool.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.SaveComparableValue-2.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.SaveDateTime.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.SaveEnum-1.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.SaveEnumFlags-1.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.SaveFloat.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.SaveInt.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.SaveObject.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.SaveObjectComparer.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.SaveObjectInfoAttribute.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.SaveObjectMap-1.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.SaveSingleValue-2.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.SaveSlot.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.SavesManager.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.SavesSettings.SupportedRecorder.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.SavesSettings.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.SaveState.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.SaveString.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.SavesUpgrader.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.SaveTimeSpan.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.SettingsGeneratorArgs.SingleSettingsInfo.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.SettingsGeneratorArgs.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.SettingsRecorderDecorator.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.SettingsVersionGeneratorDecorator.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.SingleLineObjectFieldAttribute.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.SortedFloatRecords.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.SortedIntRecords.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.SortedRecordSettingGenerator-1.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.StoredBoolGenerator.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.StoredDateTimeUtcGenerator.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.StoredEnumGenerator-1.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.StoredFloatGenerator.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.StoredIntGenerator.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.StoredPlayTimeGenerator.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.StoredStringGenerator.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.StoredTimeSpanGenerator.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.VersionGeneratorArgs.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.WaitLoad.LoadingFinished.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.WaitLoad.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.WaitLoadBool.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.WaitLoadComposite.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.WaitLoadConvertValue-2.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.WaitLoadDateTime.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.WaitLoadEnum-1.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.WaitLoadFlags.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.WaitLoadImmediate.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.WaitLoadTimeSpan.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.WaitLoadValue-1.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.WaitLoadValueImmediate-1.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/api/OmiyaGames.Saves.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/index.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/manual/changelog.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://omiyagames.github.io/omiya-games-saves/manual/README.html</loc>
-    <lastmod>2022-02-26T10:34:28+00:00</lastmod>
+    <lastmod>2022-03-02T06:37:15+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
