@@ -131,13 +131,20 @@ namespace OmiyaGames.Saves.Editor
 			{
 				return ContainsData.IsVersion;
 			}
-			else if (settings.SaveData.ContainsKey(checkData.Key))
-			{
-				return ContainsData.Yes;
-			}
 			else
 			{
-				return ContainsData.No;
+				// Bug fix: make sure the object map is setup correctly
+				settings.SaveData.Setup();
+
+				// Check if contains key
+				if (settings.SaveData.ContainsKey(checkData.Key))
+				{
+					return ContainsData.Yes;
+				}
+				else
+				{
+					return ContainsData.No;
+				}
 			}
 		}
 
