@@ -141,6 +141,13 @@ Added <a class="xref" href="OmiyaGames.Saves.SavesManager.html#OmiyaGames_Saves_
 </td><td>
 Updated class to be <code>static</code>, preventing it from being attached
 to any <see cref="!:GameObject"></see>.
+</td></tr><tr><td>
+<strong>Version:</strong> 0.2.3-exp.1<br>
+<strong>Date:</strong> 3/3/2022<br>
+<strong>Author:</strong> Taro Omiya
+</td><td>
+Updated class to latest
+<see cref="!:BaseSettingsManager&lt;TManager, TData>"></see> standards.
 </td></tr></tbody></table></p>
 </div>
   <h3 id="fields">Fields
@@ -250,15 +257,15 @@ Project Setting&apos;s left-sidebar.</p>
   </h3>
   
   
-  <a id="OmiyaGames_Saves_SavesManager_SetupState_" data-uid="OmiyaGames.Saves.SavesManager.SetupState*"></a>
-  <h4 id="OmiyaGames_Saves_SavesManager_SetupState" data-uid="OmiyaGames.Saves.SavesManager.SetupState">SetupState</h4>
+  <a id="OmiyaGames_Saves_SavesManager_Status_" data-uid="OmiyaGames.Saves.SavesManager.Status*"></a>
+  <h4 id="OmiyaGames_Saves_SavesManager_Status" data-uid="OmiyaGames.Saves.SavesManager.Status">Status</h4>
   <div class="markdown level1 summary"><p>Indicates whether the manager is either still
 in the middle of setting up, or is already setup.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static LoadState SetupState { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public static Data.Status Status { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -270,7 +277,7 @@ in the middle of setting up, or is already setup.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="OmiyaGames.Saves.LoadState.html">LoadState</a></td>
+        <td><span class="xref">Data.Status</span></td>
         <td></td>
       </tr>
     </tbody>

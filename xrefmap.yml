@@ -6817,25 +6817,25 @@ references:
   isSpec: "True"
   fullName: OmiyaGames.Saves.SavesManager.Setup
   nameWithType: SavesManager.Setup
-- uid: OmiyaGames.Saves.SavesManager.SetupState
-  name: SetupState
-  href: api/OmiyaGames.Saves.SavesManager.html#OmiyaGames_Saves_SavesManager_SetupState
-  commentId: P:OmiyaGames.Saves.SavesManager.SetupState
-  fullName: OmiyaGames.Saves.SavesManager.SetupState
-  nameWithType: SavesManager.SetupState
-- uid: OmiyaGames.Saves.SavesManager.SetupState*
-  name: SetupState
-  href: api/OmiyaGames.Saves.SavesManager.html#OmiyaGames_Saves_SavesManager_SetupState_
-  commentId: Overload:OmiyaGames.Saves.SavesManager.SetupState
-  isSpec: "True"
-  fullName: OmiyaGames.Saves.SavesManager.SetupState
-  nameWithType: SavesManager.SetupState
 - uid: OmiyaGames.Saves.SavesManager.SIDEBAR_PATH
   name: SIDEBAR_PATH
   href: api/OmiyaGames.Saves.SavesManager.html#OmiyaGames_Saves_SavesManager_SIDEBAR_PATH
   commentId: F:OmiyaGames.Saves.SavesManager.SIDEBAR_PATH
   fullName: OmiyaGames.Saves.SavesManager.SIDEBAR_PATH
   nameWithType: SavesManager.SIDEBAR_PATH
+- uid: OmiyaGames.Saves.SavesManager.Status
+  name: Status
+  href: api/OmiyaGames.Saves.SavesManager.html#OmiyaGames_Saves_SavesManager_Status
+  commentId: P:OmiyaGames.Saves.SavesManager.Status
+  fullName: OmiyaGames.Saves.SavesManager.Status
+  nameWithType: SavesManager.Status
+- uid: OmiyaGames.Saves.SavesManager.Status*
+  name: Status
+  href: api/OmiyaGames.Saves.SavesManager.html#OmiyaGames_Saves_SavesManager_Status_
+  commentId: Overload:OmiyaGames.Saves.SavesManager.Status
+  isSpec: "True"
+  fullName: OmiyaGames.Saves.SavesManager.Status
+  nameWithType: SavesManager.Status
 - uid: OmiyaGames.Saves.SavesManager.SubscribeToDeleteKey(System.String,OmiyaGames.Saves.IAsyncSettingsRecorder.OnKeyDeleted)
   name: SubscribeToDeleteKey(String, IAsyncSettingsRecorder.OnKeyDeleted)
   href: api/OmiyaGames.Saves.SavesManager.html#OmiyaGames_Saves_SavesManager_SubscribeToDeleteKey_System_String_OmiyaGames_Saves_IAsyncSettingsRecorder_OnKeyDeleted_
