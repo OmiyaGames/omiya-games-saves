@@ -66,6 +66,16 @@ namespace OmiyaGames.Saves
 	/// Updated class to be <c>static</c>, preventing it from being attached
 	/// to any <see cref="GameObject"/>.
 	/// </description>
+	/// </item><item>
+	/// <term>
+	/// <strong>Version:</strong> 0.2.3-exp.1<br/>
+	/// <strong>Date:</strong> 3/3/2022<br/>
+	/// <strong>Author:</strong> Taro Omiya
+	/// </term>
+	/// <description>
+	/// Updated class to latest
+	/// <see cref="BaseSettingsManager{TManager, TData}"/> standards.
+	/// </description>
 	/// </item>
 	/// </list>
 	/// </remarks>
@@ -99,30 +109,16 @@ namespace OmiyaGames.Saves
 		/// Indicates whether the manager is either still
 		/// in the middle of setting up, or is already setup.
 		/// </summary>
-		public static LoadState SetupState => SavesSettingsManager.GetInstance().SetupState;
+		public static Data.Status Status => SavesSettingsManager.GetDataStatus();
 
 		/// <summary>
 		/// A coroutine to setup this manager.
 		/// </summary>
+		/// <param name="forceSetup"></param>
 		/// <returns></returns>
 		public static IEnumerator Setup(bool forceSetup = false)
 		{
-			// Check if setup yet
-			SavesSettingsManager manager = SavesSettingsManager.GetInstance();
-			forceSetup |= (manager.SetupState == LoadState.Loading);
-			if (forceSetup)
-			{
-				// Check if manager previously was setup before
-				if (manager.SetupState != LoadState.Loading)
-				{
-					// Force setup
-					manager.ForceSetup();
-				}
-
-				// Wait until the manager is ready
-				yield return new WaitUntil(IsReady);
-				bool IsReady() => manager.SetupState != LoadState.Loading;
-			}
+			yield return Manager.StartCoroutine(SavesSettingsManager.Setup(forceSetup));
 		}
 
 		/// <summary>
@@ -131,7 +127,7 @@ namespace OmiyaGames.Saves
 		/// <param name="key"></param>
 		/// <returns></returns>
 		public static SaveObject Get(string key) =>
-			CheckInstance().Settings.SaveData[key];
+			SavesSettingsManager.GetInstanceOrThrow().Settings.SaveData[key];
 
 		/// <summary>
 		/// TODO
@@ -140,7 +136,7 @@ namespace OmiyaGames.Saves
 		/// <param name="saveObject"></param>
 		/// <returns></returns>
 		public static bool TryGet(string key, out SaveObject saveObject) =>
-			CheckInstance().Settings.SaveData.TryGetValue(key, out saveObject);
+			SavesSettingsManager.GetInstanceOrThrow().Settings.SaveData.TryGetValue(key, out saveObject);
 
 		/// <summary>
 		/// TODO
@@ -149,7 +145,7 @@ namespace OmiyaGames.Saves
 		/// <returns></returns>
 		/// <exception cref="System.ArgumentNullException"></exception>
 		public static bool Contains(SaveObject saveObject) =>
-			CheckInstance().Settings.SaveData.Contains(saveObject);
+			SavesSettingsManager.GetInstanceOrThrow().Settings.SaveData.Contains(saveObject);
 
 		/// <summary>
 		/// TODO
@@ -157,33 +153,38 @@ namespace OmiyaGames.Saves
 		/// <param name="key"></param>
 		/// <returns></returns>
 		/// <exception cref="System.ArgumentException"></exception>
-		public static bool Contains(string key) => CheckInstance().Settings.SaveData.ContainsKey(key);
+		public static bool Contains(string key) =>
+			SavesSettingsManager.GetInstanceOrThrow().Settings.SaveData.ContainsKey(key);
 
 		/// <summary>
 		/// TODO
 		/// </summary>
 		/// <returns></returns>
-		public static WaitLoad Save() => CheckInstance().CurrentRecorder.Save();
+		public static WaitLoad Save() =>
+			SavesSettingsManager.GetInstanceOrThrow().CurrentRecorder.Save();
 
 		/// <summary>
 		/// TODO
 		/// </summary>
 		/// <returns></returns>
-		public static WaitLoad DeleteAllKeys() => CheckInstance().CurrentRecorder.DeleteAll();
+		public static WaitLoad DeleteAllKeys() =>
+			SavesSettingsManager.GetInstanceOrThrow().CurrentRecorder.DeleteAll();
 
 		/// <summary>
 		/// TODO
 		/// </summary>
 		/// <param name="key"></param>
 		/// <returns></returns>
-		public static WaitLoad DeleteKey(string key) => CheckInstance().CurrentRecorder.DeleteKey(key);
+		public static WaitLoad DeleteKey(string key) =>
+			SavesSettingsManager.GetInstanceOrThrow().CurrentRecorder.DeleteKey(key);
 
 		/// <summary>
 		/// TODO
 		/// </summary>
 		/// <param name="key"></param>
 		/// <returns></returns>
-		public static WaitLoadValue<bool> HasKey(string key) => CheckInstance().CurrentRecorder.HasKey(key);
+		public static WaitLoadValue<bool> HasKey(string key) =>
+			SavesSettingsManager.GetInstanceOrThrow().CurrentRecorder.HasKey(key);
 
 		/// <summary>
 		/// TODO
@@ -191,7 +192,7 @@ namespace OmiyaGames.Saves
 		/// <param name="key"></param>
 		/// <param name="action"></param>
 		public static void SubscribeToDeleteKey(string key, IAsyncSettingsRecorder.OnKeyDeleted action) =>
-			CheckInstance().CurrentRecorder.SubscribeToDeleteKey(key, action);
+			SavesSettingsManager.GetInstanceOrThrow().CurrentRecorder.SubscribeToDeleteKey(key, action);
 
 		/// <summary>
 		/// TODO
@@ -199,17 +200,7 @@ namespace OmiyaGames.Saves
 		/// <param name="key"></param>
 		/// <param name="action"></param>
 		public static void UnsubscribeToDeleteKey(string key, IAsyncSettingsRecorder.OnKeyDeleted action) =>
-			CheckInstance().CurrentRecorder.UnsubscribeToDeleteKey(key, action);
-
-		static SavesSettingsManager CheckInstance()
-		{
-			SavesSettingsManager manager = SavesSettingsManager.GetInstance();
-			if (manager.SetupState != LoadState.Success)
-			{
-				throw new System.Exception("SavesManager is not setup yet.");
-			}
-			return manager;
-		}
+			SavesSettingsManager.GetInstanceOrThrow().CurrentRecorder.UnsubscribeToDeleteKey(key, action);
 
 		/// <summary>
 		/// Retrieves the recorder that is supported for this build.
@@ -252,16 +243,12 @@ namespace OmiyaGames.Saves
 
 		class SavesSettingsManager : BaseSettingsManager<SavesSettingsManager, SavesSettings>, System.IDisposable
 		{
+			LoadState setupState = LoadState.Fail;
 			bool cleanUpRecorder = false;
 
 			/// <inheritdoc/>
 			protected override string AddressableName => ADDRESSABLE_NAME;
 
-			internal LoadState SetupState
-			{
-				get;
-				private set;
-			} = LoadState.Fail;
 			internal IAsyncSettingsRecorder CurrentRecorder
 			{
 				get;
@@ -269,12 +256,17 @@ namespace OmiyaGames.Saves
 			} = null;
 			internal SavesSettings Settings => Data;
 
-			internal IEnumerator ForceSetup()
+			/// <inheritdoc/>
+			public override Data.Status GetStatus()
 			{
-				if (SetupState != LoadState.Loading)
+				switch (setupState)
 				{
-					// Load the data
-					yield return Manager.StartCoroutine(OnSetup());
+					case LoadState.Success:
+						return base.GetStatus();
+					case LoadState.Fail:
+						return Global.Settings.Data.Status.Fail;
+					default:
+						return Global.Settings.Data.Status.Loading;
 				}
 			}
 
@@ -283,23 +275,22 @@ namespace OmiyaGames.Saves
 			{
 				// Reset flags
 				cleanUpRecorder = false;
-				SetupState = LoadState.Loading;
+				setupState = LoadState.Loading;
 				WaitLoad loadStatus;
 
 				// Load the data
 				yield return Manager.StartCoroutine(base.OnSetup());
 
 				// Setup data
-				SavesSettings data = GetData();
-				data.SaveData.Setup();
+				Data.SaveData.Setup();
 
 				// Setup recorders
-				CurrentRecorder = GetSupportedRecorder(data.Recorders, out cleanUpRecorder);
+				CurrentRecorder = GetSupportedRecorder(Data.Recorders, out cleanUpRecorder);
 
 				#region Load the version number
 				// Setup and load version saver
-				data.Version.Setup(CurrentRecorder);
-				loadStatus = data.Version.Load();
+				Data.Version.Setup(CurrentRecorder);
+				loadStatus = Data.Version.Load();
 				yield return loadStatus;
 
 				// Confirm load succeeded
@@ -307,7 +298,7 @@ namespace OmiyaGames.Saves
 				{
 					// Indicate failure
 					Debug.LogErrorFormat(this, "Unable to retrieve the stored version number from Recorder \"{0}\"", CurrentRecorder);
-					SetupState = LoadState.Fail;
+					setupState = LoadState.Fail;
 
 					// Clean-up, and don't proceed any further
 					Dispose();
@@ -317,22 +308,22 @@ namespace OmiyaGames.Saves
 
 				#region Upgrade Data
 				// Check if this version number is smaller than expected
-				int lastVersion = data.Version.Value,
-					currentVersion = data.Upgraders.Length;
+				int lastVersion = Data.Version.Value,
+					currentVersion = Data.Upgraders.Length;
 				if (lastVersion < currentVersion)
 				{
 					// Go through all the upgraders
 					for (int i = lastVersion; i < currentVersion; ++i)
 					{
 						// Run the upgrade
-						yield return StartCoroutine(data.Upgraders[i].Upgrade(data, CurrentRecorder));
+						yield return StartCoroutine(Data.Upgraders[i].Upgrade(Data, CurrentRecorder));
 
 						// Check if upgrade failed
-						if (data.Upgraders[i].CurrentState != LoadState.Success)
+						if (Data.Upgraders[i].CurrentState != LoadState.Success)
 						{
 							// Print an error, and flag that this coroutine failed
-							Debug.LogErrorFormat(this, "Unable to run upgrader \"{0}\", to version {1}", data.Upgraders[i], i);
-							SetupState = LoadState.Fail;
+							Debug.LogErrorFormat(this, "Unable to run upgrader \"{0}\", to version {1}", Data.Upgraders[i], i);
+							setupState = LoadState.Fail;
 
 							// Clean-up, and don't proceed any further
 							Dispose();
@@ -341,7 +332,7 @@ namespace OmiyaGames.Saves
 					}
 
 					// Set the version
-					data.Version.Value = currentVersion;
+					Data.Version.Value = currentVersion;
 					loadStatus = CurrentRecorder.Save();
 					yield return loadStatus;
 
@@ -349,8 +340,8 @@ namespace OmiyaGames.Saves
 					if (loadStatus.CurrentState == LoadState.Fail)
 					{
 						// Print an error, and flag that this coroutine failed
-						Debug.LogErrorFormat(this, "Unable to save the version number, \"{0}\".  Proceeding, anyway.", data.Version.Value);
-						SetupState = LoadState.Fail;
+						Debug.LogErrorFormat(this, "Unable to save the version number, \"{0}\".  Proceeding, anyway.", Data.Version.Value);
+						setupState = LoadState.Fail;
 
 						// Clean-up, and don't proceed any further
 						Dispose();
@@ -361,7 +352,7 @@ namespace OmiyaGames.Saves
 
 				#region Load All Data
 				// Go through all data
-				foreach (SaveObject save in data.SaveData.Values)
+				foreach (SaveObject save in Data.SaveData.Values)
 				{
 					// Of course, disregard nulls
 					if (save == null)
@@ -383,7 +374,7 @@ namespace OmiyaGames.Saves
 							case ErrorHandling.HaltLogError:
 								// Indicate failure
 								Debug.LogErrorFormat(this, "Unable to load \"{0}\"", save);
-								SetupState = LoadState.Fail;
+								setupState = LoadState.Fail;
 
 								// Clean-up, and don't proceed any further
 								Dispose();
@@ -403,7 +394,7 @@ namespace OmiyaGames.Saves
 				#endregion
 
 				// Made it to the end, everything passed!
-				SetupState = LoadState.Success;
+				setupState = LoadState.Success;
 			}
 
 			/// <inheritdoc/>

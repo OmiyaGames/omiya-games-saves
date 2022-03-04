@@ -1,5 +1,9 @@
 # Change Log:
 
+## 0.2.3-exp.1
+
+- **New Enhancement**: updating [`SavesManager.cs`](/Runtime/SavesManager.cs) to match latest `com.omiyagames.global.settings` standards.
+
 ## 0.2.2-exp
 
 - **Bug Fix**: fixed [`AsyncSettingsRecorderDecorator.cs`](/Runtime/AsyncSettingsRecorder/AsyncSettingsRecorderDecorator.cs) so returns of `SetBool(string, bool)`, `SetEnum<TEnum>(string, TEnum)`, `GetDateTimeUtc(string, DateTime)`, `GetTimeSpan(string, TimeSpan)` has the event format expected by [`SaveBool.cs`](/Runtime/SaveObjects/SaveBool.cs), [`SaveEnum.cs`](/Runtime/SaveObjects/SaveEnum.cs), [`SaveDateTime.cs`](/Runtime/SaveObjects/SaveDateTime.cs), and [`SaveTimeSpan.cs`](/Runtime/SaveObjects/SaveTimeSpan.cs).
