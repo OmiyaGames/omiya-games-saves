@@ -66,6 +66,16 @@ namespace OmiyaGames.Saves
 	/// Updated class to be <c>static</c>, preventing it from being attached
 	/// to any <see cref="GameObject"/>.
 	/// </description>
+	/// </item><item>
+	/// <term>
+	/// <strong>Version:</strong> 0.2.3-exp.1<br/>
+	/// <strong>Date:</strong> 3/3/2022<br/>
+	/// <strong>Author:</strong> Taro Omiya
+	/// </term>
+	/// <description>
+	/// Updated class to latest
+	/// <see cref="BaseSettingsManager{TManager, TData}"/> standards.
+	/// </description>
 	/// </item>
 	/// </list>
 	/// </remarks>
